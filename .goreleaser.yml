@@ -11,7 +11,7 @@ builds:
     flags:
       - -trimpath
     ldflags:
-      - '-s -w -X github.com/truckhang181001/terraform-provider-viettelidc/v3/viettelidc.BuildVersion={{.Env.BUILDVERSION}}'
+      - '-s -w -X github.com/terraform-viettelidc/terraform-provider-viettelidc/v3/viettelidc.BuildVersion={{.Env.BUILDVERSION}}'
     goos:
       - freebsd
       - windows

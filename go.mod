@@ -1,4 +1,4 @@
-module github.com/truckhang181001/terraform-provider-viettelidc/v3
+module github.com/terraform-viettelidc/terraform-provider-viettelidc/v3
 
 go 1.22.3
 
