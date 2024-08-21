@@ -1,23 +1,23 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_item"
+page_title: "Viettel IDC Cloud: vcloud_catalog_item"
 sidebar_current: "docs-vcd-resource-catalog-item"
 description: |-
-  Provides a VMware Cloud Director catalog item resource. This can be used to upload and delete OVA file inside a catalog.
+  Provides a Viettel IDC Cloud catalog item resource. This can be used to upload and delete OVA file inside a catalog.
 ---
 
 # vcd\_catalog\_item
 
--> If you only need vApp Template features, you may use [`vcd_catalog_vapp_template`](/providers/vmware/vcd/latest/docs/resources/catalog_vapp_template) instead.
+-> If you only need vApp Template features, you may use [`vcloud_catalog_vapp_template`](/providers/vmware/vcd/latest/docs/resources/catalog_vapp_template) instead.
 
-Provides a VMware Cloud Director catalog item resource. This can be used to upload OVA to catalog and delete it.
+Provides a Viettel IDC Cloud catalog item resource. This can be used to upload OVA to catalog and delete it.
 
 Supported in provider *v2.0+*
 
 ## Example Usage
 
 ```hcl
-resource "vcd_catalog_item" "myNewCatalogItem" {
+resource "vcloud_catalog_item" "myNewCatalogItem" {
   org     = "my-org"
   catalog = "my-catalog"
 
@@ -73,7 +73,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_catalog_item" "example" {
+resource "vcloud_catalog_item" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -125,7 +125,7 @@ An existing catalog item can be [imported][docs-import] into this resource via s
 catalog item. For example, using this structure, representing an existing catalog item that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_catalog_item" "my-item" {
+resource "vcloud_catalog_item" "my-item" {
   org      = "my-org"
   catalog  = "my-catalog"
   name     = "my-item"
@@ -136,10 +136,10 @@ resource "vcd_catalog_item" "my-item" {
 You can import such catalog item into terraform state using this command
 
 ```
-terraform import vcd_catalog_item.my-item my-org.my-catalog.my-item
+terraform import vcloud_catalog_item.my-item my-org.my-catalog.my-item
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

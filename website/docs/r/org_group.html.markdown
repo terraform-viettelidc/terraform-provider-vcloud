@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_group"
+page_title: "Viettel IDC Cloud: vcloud_org_group"
 sidebar_current: "docs-vcd-resource-org-group"
 description: |-
-  Provides a VMware Cloud Director Organization group. This can be used to create, update, and delete organization groups defined in SAML or LDAP.
+  Provides a Viettel IDC Cloud Organization group. This can be used to create, update, and delete organization groups defined in SAML or LDAP.
 ---
 
 # vcd\_org\_group
 
-Provides a VMware Cloud Director Organization group. This can be used to create, update, and delete
+Provides a Viettel IDC Cloud Organization group. This can be used to create, update, and delete
 organization groups defined in `SAML`, `OAUTH` or `LDAP`.
 
 Supported in provider *v2.9+*
@@ -21,7 +21,7 @@ does not support local groups and will return HTTP error 403 "This operation is 
 ## Example Usage to add SAML group
 
 ```hcl
-resource "vcd_org_group" "org1" {
+resource "vcloud_org_group" "org1" {
   org = "org1"
 
   provider_type = "SAML"
@@ -33,7 +33,7 @@ resource "vcd_org_group" "org1" {
 ## Example Usage to add OAUTH group
 
 ```hcl
-resource "vcd_org_group" "org1" {
+resource "vcloud_org_group" "org1" {
   org = "org1"
 
   provider_type = "OAUTH"
@@ -45,7 +45,7 @@ resource "vcd_org_group" "org1" {
 ## Example Usage to add LDAP group
 
 ```hcl
-resource "vcd_org_group" "org1" {
+resource "vcloud_org_group" "org1" {
   org = "org1"
 
   provider_type = "INTEGRATED"
@@ -91,7 +91,7 @@ An existing group can be [imported][docs-import] into this resource via supplyin
 org group. For example, using this structure, representing an existing group that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_org_group" "my-admin-group" {
+resource "vcloud_org_group" "my-admin-group" {
   org           = "my-org"
   provider_type = "SAML"
   name          = "my-admin-group"
@@ -102,9 +102,9 @@ resource "vcd_org_group" "my-admin-group" {
 You can import such group into terraform state using this command
 
 ```
-terraform import vcd_org_group.my-admin-group my-org.my-admin-group
+terraform import vcloud_org_group.my-admin-group my-org.my-admin-group
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/

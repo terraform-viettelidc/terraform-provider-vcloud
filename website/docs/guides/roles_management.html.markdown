@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Roles Management"
+page_title: "Viettel IDC Cloud: Roles Management"
 sidebar_current: "docs-vcd-guides-roles"
 description: |-
  Provides guidance to VMware Cloud roles management
@@ -31,7 +31,7 @@ to all tenants without providing a list. In this later case, the resource will b
 
 ## Rights
 
-**Rights** ([`vcd_right`](/providers/vmware/vcd/latest/docs/data-sources/right)) are available as data sources. They can't be created by either provider or tenants.
+**Rights** ([`vcloud_right`](/providers/vmware/vcd/latest/docs/data-sources/right)) are available as data sources. They can't be created by either provider or tenants.
 They are building blocks for the other three entities (Roles, Global Roles, Rights Bundles), and can be used by simply
 stating their name within the containing entity. You can also use data sources, but it would make for a crowded HCL
 script, and would also increase the amount of computing needed to run a script. 
@@ -39,26 +39,26 @@ script, and would also increase the amount of computing needed to run a script.
 To see the list of available rights, you can do one of the following:
 
 * make a data source of several existing Roles, Global Roles, or Rights Bundles, and use an `output` structure to show the contents;
-* use a data source of [`vcd_resource_list`](/providers/vmware/vcd/latest/docs/data-sources/resource_list) to show the rights available to a given organization.
+* use a data source of [`vcloud_resource_list`](/providers/vmware/vcd/latest/docs/data-sources/resource_list) to show the rights available to a given organization.
 
 Examples:
 
 ```hcl
-data "vcd_role" "vapp-author" {
+data "vcloud_role" "vapp-author" {
   name = "vApp Author"
 }
 
 output "vapp-author" {
-  value = data.vcd_role.vapp-author
+  value = data.vcloud_role.vapp-author
 }
 
-data "vcd_resource_list" "rights-list" {
+data "vcloud_resource_list" "rights-list" {
   name          = "rights-list"
   resource_type = "rights"
 }
 
 output "rights-list" {
-  value = data.vcd_resource_list.rights-list
+  value = data.vcloud_resource_list.rights-list
 }
 ```
 
@@ -69,21 +69,21 @@ implied rights, you will get an error, listing all the rights that are missing f
 
 ## Roles
 
-A **Role** ([`vcd_role`](/providers/vmware/vcd/latest/docs/resources/role)) is a set of rights that can be assigned to a user. When choosing a role for a user, we see a list of predefined
+A **Role** ([`vcloud_role`](/providers/vmware/vcd/latest/docs/resources/role)) is a set of rights that can be assigned to a user. When choosing a role for a user, we see a list of predefined
 roles that are available to the organization. That list is the result of the **Global Roles** defined by the provider
 and published to the tenant we are using, in addition to the roles that were created by the organization administrator.
 As such, roles always belong to an organization. To define or use a role at provider level, we use the "System" organization.
 
 ## Global Roles
 
-A **Global Role** ([`vcd_global_role`](/providers/vmware/vcd/latest/docs/resources/global_role)) is a definition of a role that is _published_ to one or more tenants, which in turn will see such global
+A **Global Role** ([`vcloud_global_role`](/providers/vmware/vcd/latest/docs/resources/global_role)) is a definition of a role that is _published_ to one or more tenants, which in turn will see such global
 roles converted into the roles they can use.
 Provider can add, modify, and delete global roles. They can also alter the list of publication for each global role, to
 make them available to a selected set of tenants.
 
 ## Rights Bundles
 
-A **Rights Bundle** ([`vcd_rights_bundle`](/providers/vmware/vcd/latest/docs/resources/rights_bundle)) is a set of rights that can be made available to tenants. While global roles define tenant roles, a
+A **Rights Bundle** ([`vcloud_rights_bundle`](/providers/vmware/vcd/latest/docs/resources/rights_bundle)) is a set of rights that can be made available to tenants. While global roles define tenant roles, a
 rights bundle define which rights, independently of a global role listing, can be given to one or more tenants.
 
 An example is necessary to understand the concept.
@@ -115,7 +115,7 @@ first need to see it, you add both rights, and don't consider either of them to 
 For example, lets say, for the sake of simplicity, that you want to create a role with just two rights, as listed below:
 
 ```hcl
-resource "vcd_role" "new-role" {
+resource "vcloud_role" "new-role" {
   org         = "datacloud"
   name        = "new-role"
   description = "new role"
@@ -129,7 +129,7 @@ resource "vcd_role" "new-role" {
 When you run `terraform apply`, you get this error:
 
 ```
-vcd_role.new-role: Creating...
+vcloud_role.new-role: Creating...
 ╷
 │ Error: The rights set for this role require the following implied rights to be added:
 │ "vApp Template / Media: Edit",
@@ -137,15 +137,15 @@ vcd_role.new-role: Creating...
 │ "Catalog: View Private and Shared Catalogs",
 │
 │
-│   with vcd_role.new-role,
-│   on config.tf line 91, in resource "vcd_role" "new-role":
-│   91: resource "vcd_role" "new-role" {
+│   with vcloud_role.new-role,
+│   on config.tf line 91, in resource "vcloud_role" "new-role":
+│   91: resource "vcloud_role" "new-role" {
 │
 ```
 Thus, you update the script to include the rights mentioned in the error message
 
 ```hcl
-resource "vcd_role" "new-role" {
+resource "vcloud_role" "new-role" {
   org         = "datacloud"
   name        = "new-role"
   description = "new role"
@@ -165,7 +165,7 @@ The corresponding structure for global role and rights bundle are almost the sam
 management fields.
 
 ```hcl
-resource "vcd_global_role" "new-global-role" {
+resource "vcloud_global_role" "new-global-role" {
   name        = "new-global-role"
   description = "new global role"
   rights = [
@@ -178,7 +178,7 @@ resource "vcd_global_role" "new-global-role" {
   publish_to_all_tenants = true
 }
 
-resource "vcd_rights_bundle" "new-rights-bundle" {
+resource "vcloud_rights_bundle" "new-rights-bundle" {
   name        = "new-rights-bundle"
   description = "new rights bundle"
   rights = [
@@ -207,7 +207,7 @@ There are two fields related to managing tenants:
 Examples:
 
 ```hcl
-resource "vcd_global_role" "new-global-role" {
+resource "vcloud_global_role" "new-global-role" {
   name                   = "new-global-role"
   description            = "new global role"
   rights                 = [/* rights list goes here */]
@@ -219,7 +219,7 @@ This global role will be published to all tenants, including the ones that will 
 Now we modify it:
 
 ```hcl
-resource "vcd_global_role" "new-global-role" {
+resource "vcloud_global_role" "new-global-role" {
   name                   = "new-global-role"
   description            = "new global role"
   rights                 = [/* rights list goes here */]
@@ -234,7 +234,7 @@ was instantiated by thsi global role.
 Let's do another change:
 
 ```hcl
-resource "vcd_global_role" "new-global-role" {
+resource "vcloud_global_role" "new-global-role" {
   name                   = "new-global-role"
   description            = "new global role"
   rights                 = [/* rights list goes here */]
@@ -261,13 +261,13 @@ Create a data source for the rights bundle, and a resource that takes all its at
 
 ```hcl
 
-data "vcd_rights_bundle" "old-rb" {
+data "vcloud_rights_bundle" "old-rb" {
   name = "Default Rights Bundle"
 }
 
-resource "vcd_rights_bundle" "new-rb" {
+resource "vcloud_rights_bundle" "new-rb" {
   name                   = "Default Rights Bundle"
-  rights                 = data.vcd_rights_bundle.old-rb.rights
+  rights                 = data.vcloud_rights_bundle.old-rb.rights
   tenants                = ["first-org"]
   publish_to_all_tenants = false
 }
@@ -282,7 +282,7 @@ definition, and then remove or add what you need.
 Import the rights bundle into terraform:
 
 ```
-$ terraform import vcd_rights_bundle.new-rb "Default Rights Bundle"
+$ terraform import vcloud_rights_bundle.new-rb "Default Rights Bundle"
 ```
 
 (3)<br>
@@ -300,12 +300,12 @@ Create a data source for the rights container, with an `output` structure that s
 to clone a global role:
 
 ```hcl
-data "vcd_global_role" "vapp-user" {
+data "vcloud_global_role" "vapp-user" {
   name = "vApp User"
 }
 
 output "vapp-user" {
-  value = data.vcd_global_role.vapp-user
+  value = data.vcloud_global_role.vapp-user
 }
 ```
 
@@ -351,7 +351,7 @@ vapp-user = {
 to this:
 
 ```hcl
-resource "vcd_global_role" "new-vapp-user" {
+resource "vcloud_global_role" "new-vapp-user" {
   name                   = "new vApp User"
   description            = "New rights given to a user who uses vApps created by others"
   publish_to_all_tenants = false
@@ -394,16 +394,16 @@ Using [setsubtract](https://www.terraform.io/docs/language/functions/setsubtract
 from a given set.
 
 ```hcl
-data "vcd_global_role" "vapp-user" {
+data "vcloud_global_role" "vapp-user" {
   name = "vApp User"
 }
 
-resource "vcd_global_role" "new-vapp-user" {
+resource "vcloud_global_role" "new-vapp-user" {
   name                   = "new-vapp-user"
   description            = "new global role from CLI"
   publish_to_all_tenants = true
   rights = setsubtract(
-    data.vcd_global_role.vapp-user.rights,                  # rights from existing global role
+    data.vcloud_global_role.vapp-user.rights,                  # rights from existing global role
     ["vApp: Edit VM Network", "vApp: Edit VM Properties", ] # rights to be removed
   )
 }
@@ -416,21 +416,21 @@ sets into one. For example, we can take the rights from both "vApp User" and "Ca
 and if we want we can even add extra rights that we specify manually.
 
 ```hcl
-data "vcd_global_role" "vapp-user" {
+data "vcloud_global_role" "vapp-user" {
   name = "vApp User"
 }
 
-data "vcd_global_role" "catalog-author" {
+data "vcloud_global_role" "catalog-author" {
   name = "Catalog Author"
 }
 
-resource "vcd_global_role" "super-vapp-user" {
+resource "vcloud_global_role" "super-vapp-user" {
   name                   = "super-vapp-user"
   description            = "Another global role from CLI"
   publish_to_all_tenants = true
   rights = setunion(
-    data.vcd_global_role.vapp-user.rights,      # rights from existing global role
-    data.vcd_global_role.catalog-author.rights, # rights from existing global role
+    data.vcloud_global_role.vapp-user.rights,      # rights from existing global role
+    data.vcloud_global_role.catalog-author.rights, # rights from existing global role
     ["API Explorer: View"],                     # more rights to be added
   )
 }
@@ -440,4 +440,4 @@ resource "vcd_global_role" "super-vapp-user" {
 ## References
 
 * [Managing Rights and Roles](https://docs.vmware.com/en/VMware-Cloud-Director/10.2/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-816FBBBC-2CDA-4B1D-9B1A-C22BC31B46F2.html)
-* [VMware Cloud Director – Simple Rights Management with Bundles](https://blogs.vmware.com/cloudprovider/2019/12/effective-rights-bundles.html)
+* [Viettel IDC Cloud – Simple Rights Management with Bundles](https://blogs.vmware.com/cloudprovider/2019/12/effective-rights-bundles.html)

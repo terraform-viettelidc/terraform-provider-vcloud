@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog"
+page_title: "Viettel IDC Cloud: vcloud_catalog"
 sidebar_current: "docs-vcd-datasource-subscribed-catalog"
 description: |-
-  Provides a VMware Cloud Director subscribed catalog data source. This can be used to read a subscribed catalog.
+  Provides a Viettel IDC Cloud subscribed catalog data source. This can be used to read a subscribed catalog.
 ---
 
 # vcd\_subscribed\_catalog
 
-Provides a VMware Cloud Director subscribed catalog resource. This can be used to read a subscribed catalog.
+Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to read a subscribed catalog.
 
-A `vcd_subscribed_catalog` is a catalog that was created by subscribing to another catalog. It can be used, to some extent,
+A `vcloud_subscribed_catalog` is a catalog that was created by subscribing to another catalog. It can be used, to some extent,
 like any other catalog, but users must keep in mind that this resource depends on the connection to another catalog, which
 may not even be in the same VCD. For more information, see the full [Catalog subscription and sharing](/providers/vmware/vcd/latest/docs/guides/catalog_subscription_and_sharing) guide.
 
@@ -19,7 +19,7 @@ Supported in provider *v3.8+*
 ## Example
 
 ```hcl
-data "vcd_subscribed_catalog" "subscriber" {
+data "vcloud_subscribed_catalog" "subscriber" {
   org  = "my-org"
   name = "subscriber"
 }

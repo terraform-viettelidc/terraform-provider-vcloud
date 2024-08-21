@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_saml"
+page_title: "Viettel IDC Cloud: vcloud_org_saml"
 sidebar_current: "docs-vcd-resource-org-saml"
 description: |-
-  Provides a VMware Cloud Director Organization SAML resource. This can be used to create, delete, and update SAML configuration for an organization.
+  Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, delete, and update SAML configuration for an organization.
 ---
 
 # vcd\_org\_saml
 
-Provides a VMware Cloud Director Organization SAML resource. This can be used to create, update, and delete SAML configuration for an organization.
+Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, update, and delete SAML configuration for an organization.
 
 Supported in provider *v3.10+*
 
@@ -17,12 +17,12 @@ Supported in provider *v3.10+*
 ## Example Usage with metadata file
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-resource "vcd_org_saml" "my-org-saml" {
-  org_id                          = data.vcd_org.my-org.id
+resource "vcloud_org_saml" "my-org-saml" {
+  org_id                          = data.vcloud_org.my-org.id
   enabled                         = true
   entity_id                       = "my-entity"
   identity_provider_metadata_file = "idp-metadata.xml"
@@ -39,7 +39,7 @@ resource "vcd_org_saml" "my-org-saml" {
 ## Example Usage with metadata text
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
@@ -47,8 +47,8 @@ data "http" "example" {
   url = "https://samltest.id/saml/idp"
 }
 
-resource "vcd_org_saml" "my-org-saml" {
-  org_id                          = data.vcd_org.my-org.id
+resource "vcloud_org_saml" "my-org-saml" {
+  org_id                          = data.vcloud_org.my-org.id
   enabled                         = true
   entity_id                       = "my-entity"
   identity_provider_metadata_text = data.http.example.response_body
@@ -89,12 +89,12 @@ at the top of the VCD hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing SAML configuration that was **not** created using Terraform:
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-resource "vcd_org_saml" "my-org-saml" {
-  org_id                          = data.vcd_org.my-org.id
+resource "vcloud_org_saml" "my-org-saml" {
+  org_id                          = data.vcloud_org.my-org.id
   enabled                         = true
   identity_provider_metadata_file = "somefile.xml"
 }
@@ -103,9 +103,9 @@ resource "vcd_org_saml" "my-org-saml" {
 You can import such SAML configuration into terraform state using one of the following commands
 
 ```
-terraform import vcd_org_saml.my-org-saml organization_name
+terraform import vcloud_org_saml.my-org-saml organization_name
 # OR
-terraform import vcd_org_saml.my-org-saml organization_id
+terraform import vcloud_org_saml.my-org-saml organization_id
 ```
 
 After that, you must expand the configuration file before you can either update or delete the SAML configuration. Running `terraform plan`

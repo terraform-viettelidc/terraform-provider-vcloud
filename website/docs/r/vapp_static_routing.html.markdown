@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp_static_routing"
+page_title: "Viettel IDC Cloud: vcloud_vapp_static_routing"
 sidebar_current: "docs-vcd-resource-vapp-static-routing"
 description: |-
-  Provides a VMware Cloud Director vApp static routing resource. This can be used to create, modify, and delete static routing rules.
+  Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create, modify, and delete static routing rules.
 ---
 
 # vcd\_vapp\_static\_routing
 
-Provides a VMware Cloud Director vApp static routing resource. This can be used to create,
+Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create,
 modify, and delete static routing rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
 
 ~> **Note:** Resource used for vApp network, not vApp Org network.
@@ -18,13 +18,13 @@ modify, and delete static routing rules in a [vApp network](/providers/vmware/vc
 ## Example Usage
 
 ```hcl
-resource "vcd_vapp" "web" {
+resource "vcloud_vapp" "web" {
   name = "web"
 }
 
-resource "vcd_vapp_network" "vapp-net" {
+resource "vcloud_vapp_network" "vapp-net" {
   name             = "my-vapp-net"
-  vapp_name        = vcd_vapp.web.name
+  vapp_name        = vcloud_vapp.web.name
   org_network_name = "my-vdc-int-net"
   gateway          = "192.168.2.1"
   netmask          = "255.255.255.0"
@@ -36,9 +36,9 @@ resource "vcd_vapp_network" "vapp-net" {
   }
 }
 
-resource "vcd_vapp_static_routing" "vapp1-static-routing" {
-  vapp_id    = vcd_vapp.web.id
-  network_id = vcd_vapp_network.vapp-net.id
+resource "vcloud_vapp_static_routing" "vapp1-static-routing" {
+  vapp_id    = vcloud_vapp.web.id
+  network_id = vcloud_vapp_network.vapp-net.id
   enabled    = true
 
   rule {
@@ -85,14 +85,14 @@ via supplying the full dot separated path to vApp network. An example is
 below:
 
 ```
-terraform import vcd_vapp_static_routing.my-rules my-org.my-vdc.vapp_name.network_name
+terraform import vcloud_vapp_static_routing.my-rules my-org.my-vdc.vapp_name.network_name
 ```
 or using IDs:
 ```
-terraform import vcd_vapp_static_routing.my-rules my-org.my-vdc.vapp_id.network_id
+terraform import vcloud_vapp_static_routing.my-rules my-org.my-vdc.vapp_id.network_id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 
@@ -101,13 +101,13 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing vApp Network IDs
 
-If you want to list IDs there is a special command **`terraform import vcd_vapp_static_routing.imported list@org-name.vcd-name.vapp-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vapp_static_routing.imported list@org-name.vcd-name.vapp-name`**
 where `org-name` is the organization used, `vdc-name` is VDC name and `vapp-name` is vApp name. 
 The output for this command should look similar to the one below:
 
 ```shell
-$ terraform import vcd_vapp_static_routing.imported list@org-name.vdc-name.vapp-name
-vcd_vapp_static_routing.imported: Importing from ID "list@org-name.vdc-name.vapp-name"...
+$ terraform import vcloud_vapp_static_routing.imported list@org-name.vdc-name.vapp-name
+vcloud_vapp_static_routing.imported: Importing from ID "list@org-name.vdc-name.vapp-name"...
 Retrieving all vApp networks by name
 No	vApp ID                                                 ID                                      Name	
 --	-------                                                 --                                      ----	
@@ -123,5 +123,5 @@ Error: resource id must be specified in one of these formats:
 Now to import vApp network static routing rules with ID 0027c6ae-7d59-457e-b33e-a89e97f0bdc1 one could supply this command:
 
 ```shell
-$ terraform import vcd_vapp_static_routing.imported org-name.vdc-name.urn:vcloud:vapp:77755b9c-5ec9-41f7-aceb-4cf158786482.0027c6ae-7d59-457e-b33e-a89e97f0bdc1
+$ terraform import vcloud_vapp_static_routing.imported org-name.vdc-name.urn:vcloud:vapp:77755b9c-5ec9-41f7-aceb-4cf158786482.0027c6ae-7d59-457e-b33e-a89e97f0bdc1
 ```

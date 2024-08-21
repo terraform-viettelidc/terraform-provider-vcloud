@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ip_space"
+page_title: "Viettel IDC Cloud: vcloud_ip_space"
 sidebar_current: "docs-vcd-resource-ip-space"
 description: |-
   Provides a resource to manage IP Spaces for IP address management needs. IP Spaces provide 
@@ -19,11 +19,11 @@ IP Spaces require VCD 10.4.1+ with NSX-T.
 ## Example Usage (Private IP Space)
 
 ```hcl
-resource "vcd_ip_space" "space1" {
+resource "vcloud_ip_space" "space1" {
   name        = "org-owned-ip-space"
   description = "description of IP Space"
   type        = "PRIVATE"
-  org_id      = data.vcd_org.org1.id
+  org_id      = data.vcloud_org.org1.id
 
   internal_scope = ["192.168.1.0/24", "10.10.10.0/24", "11.11.11.0/24"]
 
@@ -70,7 +70,7 @@ resource "vcd_ip_space" "space1" {
 ## Example Usage (Public IP Space)
 
 ```hcl
-resource "vcd_ip_space" "space1" {
+resource "vcloud_ip_space" "space1" {
   name = "Public-Tokyo"
   type = "PUBLIC"
 
@@ -108,7 +108,7 @@ resource "vcd_ip_space" "space1" {
 ## Example Usage (Shared IP Space)
 
 ```hcl
-resource "vcd_ip_space" "space1" {
+resource "vcloud_ip_space" "space1" {
   name        = "Backup-network"
   description = "Network used for backups"
   type        = "SHARED_SERVICES"
@@ -142,7 +142,7 @@ resource "vcd_ip_space" "space1" {
 ## Example Usage (VCD 10.5.0+ - Public IP Space with Firewall and NAT rule autocreation)
 
 ```hcl
-resource "vcd_ip_space" "space1" {
+resource "vcloud_ip_space" "space1" {
   name = "Public-Tokyo"
   type = "PUBLIC"
 
@@ -245,7 +245,7 @@ is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_ip_space.imported ip-space-name
+terraform import vcloud_ip_space.imported ip-space-name
 ```
 
 The above would import the `ip-space-name` IP Space defined at provider
@@ -255,7 +255,7 @@ level.
 or 
 
 ```
-terraform import vcd_ip_space.imported org-name.ip-space-name
+terraform import vcloud_ip_space.imported org-name.ip-space-name
 ```
 
 The above would import the `ip-space-name` IP Space defined for Org `org-name`.

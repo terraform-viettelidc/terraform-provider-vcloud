@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_cloud"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_cloud"
 sidebar_current: "docs-vcd-resource-nsxt-alb-cloud"
 description: |-
   Provides a resource to manage ALB Clouds for Providers. An NSX-T Cloud is a service provider-level construct that
@@ -17,29 +17,29 @@ consists of an NSX-T Manager and an NSX-T Data Center transport zone.
 ~> Only `System Administrator` can create this resource.
 
 ~> VCD 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
-[`vcd_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
+[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
 Controller is created. This data should be available 15 minutes after the Controller is created.
 
 
 ## Example Usage (Adding ALB Cloud)
 
 ```hcl
-data "vcd_nsxt_alb_controller" "main" {
+data "vcloud_nsxt_alb_controller" "main" {
   name = "aviController1"
 }
 
-data "vcd_nsxt_alb_importable_cloud" "cld" {
+data "vcloud_nsxt_alb_importable_cloud" "cld" {
   name          = "NSXT Importable Cloud"
-  controller_id = vcd_nsxt_alb_controller.first.id
+  controller_id = vcloud_nsxt_alb_controller.first.id
 }
 
-resource "vcd_nsxt_alb_cloud" "first" {
+resource "vcloud_nsxt_alb_cloud" "first" {
   name        = "nsxt-cloud"
   description = "ALB Cloud"
 
-  controller_id       = data.vcd_nsxt_alb_controller.main.id
-  importable_cloud_id = data.vcd_nsxt_alb_importable_cloud.cld.id
-  network_pool_id     = data.vcd_nsxt_alb_importable_cloud.cld.network_pool_id
+  controller_id       = data.vcloud_nsxt_alb_controller.main.id
+  importable_cloud_id = data.vcloud_nsxt_alb_importable_cloud.cld.id
+  network_pool_id     = data.vcloud_nsxt_alb_importable_cloud.cld.network_pool_id
 }
 ```
 
@@ -50,9 +50,9 @@ The following arguments are supported:
 * `name` - (Required) A name for ALB Cloud
 * `description` - (Optional) An optional description ALB Cloud
 * `controller_id` - (Required) ALB Controller ID
-* `importable_cloud_id` - (Required) Importable Cloud ID. Can be looked up using `vcd_nsxt_alb_importable_cloud` data
+* `importable_cloud_id` - (Required) Importable Cloud ID. Can be looked up using `vcloud_nsxt_alb_importable_cloud` data
   source
-* `network_pool_id` - (Required) Network pool ID for ALB Cloud. Can be looked up using `vcd_nsxt_alb_importable_cloud` data
+* `network_pool_id` - (Required) Network pool ID for ALB Cloud. Can be looked up using `vcloud_nsxt_alb_importable_cloud` data
   source
 
 
@@ -81,7 +81,7 @@ via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_cloud.imported my-alb-cloud-name
+terraform import vcloud_nsxt_alb_cloud.imported my-alb-cloud-name
 ```
 
 The above would import the `my-alb-cloud-name` ALB cloud settings that are defined at provider level.

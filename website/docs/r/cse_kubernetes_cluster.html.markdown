@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_cse_kubernetes_cluster"
+page_title: "Viettel IDC Cloud: vcloud_cse_kubernetes_cluster"
 sidebar_current: "docs-vcd-resource-cse-kubernetes-cluster"
 description: |-
-  Provides a resource to manage Kubernetes clusters in VMware Cloud Director with Container Service Extension installed and running.
+  Provides a resource to manage Kubernetes clusters in Viettel IDC Cloud with Container Service Extension installed and running.
 ---
 
 # vcd\_cse\_kubernetes\_cluster
 
-Provides a resource to manage Kubernetes clusters in VMware Cloud Director with Container Service Extension (CSE) installed and running.
+Provides a resource to manage Kubernetes clusters in Viettel IDC Cloud with Container Service Extension (CSE) installed and running.
 
 Supported in provider *v3.12+*
 
@@ -19,87 +19,87 @@ Supports the following **Container Service Extension** versions:
 * [4.2.0](https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/4.2/rn/vmware-cloud-director-container-service-extension-42-release-notes/index.html)
 * [4.2.1](https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/4.2.1/rn/vmware-cloud-director-container-service-extension-421-release-notes/index.html)
 
--> To install CSE in VMware Cloud Director, please follow [this guide](/providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install)
+-> To install CSE in Viettel IDC Cloud, please follow [this guide](/providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install)
 
 ## Example Usage
 
 ```hcl
-data "vcd_catalog" "tkg_catalog" {
+data "vcloud_catalog" "tkg_catalog" {
   org  = "solutions_org" # The catalog is shared with 'tenant_org', so it is visible for tenants
   name = "tkgm_catalog"
 }
 
 # Fetch a valid Kubernetes template OVA. If it's not valid, cluster creation will fail.
-data "vcd_catalog_vapp_template" "tkg_ova" {
-  org        = data.vcd_catalog.tkg_catalog.org
-  catalog_id = data.vcd_catalog.tkg_catalog.id
+data "vcloud_catalog_vapp_template" "tkg_ova" {
+  org        = data.vcloud_catalog.tkg_catalog.org
+  catalog_id = data.vcloud_catalog.tkg_catalog.id
   name       = "ubuntu-2004-kube-v1.25.7+vmware.2-tkg.1-8a74b9f12e488c54605b3537acb683bc"
 }
 
-data "vcd_org_vdc" "vdc" {
+data "vcloud_org_vdc" "vdc" {
   org  = "tenant_org"
   name = "tenant_vdc"
 }
 
-data "vcd_nsxt_edgegateway" "egw" {
-  org      = data.vcd_org_vdc.vdc.org
-  owner_id = data.vcd_org_vdc.vdc.id
+data "vcloud_nsxt_edgegateway" "egw" {
+  org      = data.vcloud_org_vdc.vdc.org
+  owner_id = data.vcloud_org_vdc.vdc.id
   name     = "tenant_edgegateway"
 }
 
-data "vcd_network_routed_v2" "routed" {
-  org             = data.vcd_nsxt_edgegateway.egw.org
-  edge_gateway_id = data.vcd_nsxt_edgegateway.egw.id
+data "vcloud_network_routed_v2" "routed" {
+  org             = data.vcloud_nsxt_edgegateway.egw.org
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.egw.id
   name            = "tenant_net_routed"
 }
 
 # Fetch a valid Sizing policy created during CSE installation.
 # Refer to the CSE installation guide for more information.
-data "vcd_vm_sizing_policy" "tkg_small" {
+data "vcloud_vm_sizing_policy" "tkg_small" {
   name = "TKG small"
 }
 
-data "vcd_storage_profile" "sp" {
-  org  = data.vcd_org_vdc.vdc.org
-  vdc  = data.vcd_org_vdc.vdc.name
+data "vcloud_storage_profile" "sp" {
+  org  = data.vcloud_org_vdc.vdc.org
+  vdc  = data.vcloud_org_vdc.vdc.name
   name = "*"
 }
 
 # The token file is required, and it should be safely stored
-resource "vcd_api_token" "token" {
+resource "vcloud_api_token" "token" {
   name             = "myClusterToken"
   file_name        = "/home/Bob/safely_stored_token.json"
   allow_token_file = true
 }
 
-resource "vcd_cse_kubernetes_cluster" "my_cluster" {
+resource "vcloud_cse_kubernetes_cluster" "my_cluster" {
   cse_version            = "4.2.1"
   runtime                = "tkg"
   name                   = "test2"
-  kubernetes_template_id = data.vcd_catalog_vapp_template.tkg_ova.id
-  org                    = data.vcd_org_vdc.vdc.org
-  vdc_id                 = data.vcd_org_vdc.vdc.id
-  network_id             = data.vcd_network_routed_v2.routed.id
-  api_token_file         = vcd_api_token.token.file_name
+  kubernetes_template_id = data.vcloud_catalog_vapp_template.tkg_ova.id
+  org                    = data.vcloud_org_vdc.vdc.org
+  vdc_id                 = data.vcloud_org_vdc.vdc.id
+  network_id             = data.vcloud_network_routed_v2.routed.id
+  api_token_file         = vcloud_api_token.token.file_name
 
   control_plane {
     machine_count      = 1
     disk_size_gi       = 20
-    sizing_policy_id   = data.vcd_vm_sizing_policy.tkg_small.id
-    storage_profile_id = data.vcd_storage_profile.sp.id
+    sizing_policy_id   = data.vcloud_vm_sizing_policy.tkg_small.id
+    storage_profile_id = data.vcloud_storage_profile.sp.id
   }
 
   worker_pool {
     name               = "node-pool-1"
     machine_count      = 1
     disk_size_gi       = 20
-    sizing_policy_id   = data.vcd_vm_sizing_policy.tkg_small.id
-    storage_profile_id = data.vcd_storage_profile.sp.id
+    sizing_policy_id   = data.vcloud_vm_sizing_policy.tkg_small.id
+    storage_profile_id = data.vcloud_storage_profile.sp.id
   }
 
   default_storage_class {
     name               = "sc-1"
-    storage_profile_id = data.vcd_storage_profile.sp.id
+    storage_profile_id = data.vcloud_storage_profile.sp.id
     reclaim_policy     = "delete"
     filesystem         = "ext4"
   }
@@ -111,7 +111,7 @@ resource "vcd_cse_kubernetes_cluster" "my_cluster" {
 }
 
 output "kubeconfig" {
-  value     = vcd_cse_kubernetes_cluster.my_cluster.kubeconfig
+  value     = vcloud_cse_kubernetes_cluster.my_cluster.kubeconfig
   sensitive = true
 }
 ```
@@ -131,7 +131,7 @@ The following arguments are supported:
 * `owner` - (Optional) The user that creates the cluster and owns the API token specified in `api_token`.
   It must have the `Kubernetes Cluster Author` role that was created during CSE installation.
   If not specified, it assumes it's the user from the provider configuration
-* `api_token_file` - (Required) Must be a file generated by [`vcd_api_token` resource](/providers/vmware/vcd/latest/docs/resources/api_token),
+* `api_token_file` - (Required) Must be a file generated by [`vcloud_api_token` resource](/providers/vmware/vcd/latest/docs/resources/api_token),
   or a file that follows the same formatting, that stores the API token used to create and manage the cluster,
   owned by the user specified in `owner`. Be careful about this file, as it contains sensitive information
 * `ssh_public_key` - (Optional) The SSH public key used to log in into the cluster nodes
@@ -200,7 +200,7 @@ The following attributes are available for consumption as read-only attributes a
 
 * `kubernetes_version` - The version of Kubernetes installed in this cluster
 * `tkg_product_version` - The version of TKG installed in this cluster
-* `capvcd_version` - The version of CAPVCD used by this cluster
+* `capvcloud_version` - The version of CAPVCD used by this cluster
 * `cluster_resource_set_bindings` - The cluster resource set bindings of this cluster
 * `cpi_version` - The version of the Cloud Provider Interface used by this cluster
 * `csi_version` - The version of the Container Storage Interface used by this cluster
@@ -209,7 +209,7 @@ The following attributes are available for consumption as read-only attributes a
   cluster creation. `error` can only be obtained either with a timeout or when `auto_repair_on_errors=false`.
 * `kubeconfig` - The ready-to-use Kubeconfig file **contents** as a raw string. Only available when `state=provisioned`
 * `supported_upgrades` - A set of vApp Template names that can be fetched with a
-  [`vcd_catalog_vapp_template` data source](/providers/vmware/vcd/latest/docs/data-sources/catalog_vapp_template) to upgrade the cluster.
+  [`vcloud_catalog_vapp_template` data source](/providers/vmware/vcd/latest/docs/data-sources/catalog_vapp_template) to upgrade the cluster.
 * `events` - A set of events that happened during the Kubernetes cluster lifecycle. They're ordered from most recent to least. Each event has:
   * `name` - Name of the event
   * `resource_id` - ID of the resource that caused the event
@@ -245,7 +245,7 @@ To retrieve the Kubeconfig of a created cluster, you may set it as an output:
 
 ```hcl
 output "kubeconfig" {
-  value     = vcd_cse_kubernetes_cluster.my_cluster.kubeconfig
+  value     = vcloud_cse_kubernetes_cluster.my_cluster.kubeconfig
   sensitive = true
 }
 ```
@@ -270,25 +270,25 @@ such as `terraform plan`. Each comment in the code gives some context about how 
 # This is just a snippet of code that will host the imported cluster that already exists in VCD.
 # This must NOT be created with Terraform beforehand, it is just a shell that will receive the information
 # None of the arguments are required during the Import phase, but they will be asked when operating it afterwards
-resource "vcd_cse_kubernetes_cluster" "imported_cluster" {
+resource "vcloud_cse_kubernetes_cluster" "imported_cluster" {
   name                   = "test2"                                   # The name of the existing cluster
   cse_version            = "4.2.1"                                   # The CSE version installed in your VCD
-  kubernetes_template_id = data.vcd_catalog_vapp_template.tkg_ova.id # See below data sources
-  vdc_id                 = data.vcd_org_vdc.vdc.id                   # See below data sources
-  network_id             = data.vcd_network_routed_v2.routed.id      # See below data sources
+  kubernetes_template_id = data.vcloud_catalog_vapp_template.tkg_ova.id # See below data sources
+  vdc_id                 = data.vcloud_org_vdc.vdc.id                   # See below data sources
+  network_id             = data.vcloud_network_routed_v2.routed.id      # See below data sources
   node_health_check      = true                                      # Whether the existing cluster has Machine Health Check enabled or not, this can be checked in UI
 
   control_plane {
     machine_count      = 5                                      # This is optional, but not setting it to the current value will make subsequent plans to try to scale our existing cluster to the default one
-    sizing_policy_id   = data.vcd_vm_sizing_policy.tkg_small.id # See below data sources
-    storage_profile_id = data.vcd_storage_profile.sp.id         # See below data sources
+    sizing_policy_id   = data.vcloud_vm_sizing_policy.tkg_small.id # See below data sources
+    storage_profile_id = data.vcloud_storage_profile.sp.id         # See below data sources
   }
 
   worker_pool {
     name               = "node-pool-1"                          # The name of the existing worker pool of the existing cluster. Retrievable from UI
     machine_count      = 40                                     # This is optional, but not setting it to the current value will make subsequent plans to try to scale our existing cluster to the default one
-    sizing_policy_id   = data.vcd_vm_sizing_policy.tkg_small.id # See below data sources
-    storage_profile_id = data.vcd_storage_profile.sp.id         # See below data sources
+    sizing_policy_id   = data.vcloud_vm_sizing_policy.tkg_small.id # See below data sources
+    storage_profile_id = data.vcloud_storage_profile.sp.id         # See below data sources
   }
 
   # While optional, we cannot change the Default Storage Class after an import, so we need
@@ -298,7 +298,7 @@ resource "vcd_cse_kubernetes_cluster" "imported_cluster" {
     filesystem         = "ext4"
     name               = "sc-1"
     reclaim_policy     = "delete"
-    storage_profile_id = data.vcd_storage_profile.sp.id # See below data sources
+    storage_profile_id = data.vcloud_storage_profile.sp.id # See below data sources
   }
 }
 
@@ -306,52 +306,52 @@ resource "vcd_cse_kubernetes_cluster" "imported_cluster" {
 # during the Import phase, but they will be asked when operating it afterwards
 
 # The VDC and Organization where the existing cluster is located
-data "vcd_org_vdc" "vdc" {
+data "vcloud_org_vdc" "vdc" {
   org  = "tenant_org"
   name = "tenant_vdc"
 }
 
 # The OVA that the existing cluster is using. You can obtain the OVA by inspecting
 # the existing cluster TKG/Kubernetes version.
-data "vcd_catalog_vapp_template" "tkg_ova" {
-  org        = data.vcd_catalog.tkg_catalog.org
-  catalog_id = data.vcd_catalog.tkg_catalog.id
+data "vcloud_catalog_vapp_template" "tkg_ova" {
+  org        = data.vcloud_catalog.tkg_catalog.org
+  catalog_id = data.vcloud_catalog.tkg_catalog.id
   name       = "ubuntu-2004-kube-v1.25.7+vmware.2-tkg.1-8a74b9f12e488c54605b3537acb683bc"
 }
 
 # The network that the existing cluster is using
-data "vcd_network_routed_v2" "routed" {
-  org             = data.vcd_nsxt_edgegateway.egw.org
-  edge_gateway_id = data.vcd_nsxt_edgegateway.egw.id
+data "vcloud_network_routed_v2" "routed" {
+  org             = data.vcloud_nsxt_edgegateway.egw.org
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.egw.id
   name            = "tenant_net_routed"
 }
 
 # The VM Sizing Policy of the existing cluster nodes
-data "vcd_vm_sizing_policy" "tkg_small" {
+data "vcloud_vm_sizing_policy" "tkg_small" {
   name = "TKG small"
 }
 
 # The Storage Profile that the existing cluster uses
-data "vcd_storage_profile" "sp" {
-  org  = data.vcd_org_vdc.vdc.org
-  vdc  = data.vcd_org_vdc.vdc.name
+data "vcloud_storage_profile" "sp" {
+  org  = data.vcloud_org_vdc.vdc.org
+  vdc  = data.vcloud_org_vdc.vdc.name
   name = "*"
 }
 
-data "vcd_catalog" "tkg_catalog" {
+data "vcloud_catalog" "tkg_catalog" {
   org  = "solutions_org" # The Organization that shares the TKGm OVAs with the tenants
   name = "tkgm_catalog"  # The Catalog name
 }
 
-data "vcd_nsxt_edgegateway" "egw" {
-  org      = data.vcd_org_vdc.vdc.org
-  owner_id = data.vcd_org_vdc.vdc.id
+data "vcloud_nsxt_edgegateway" "egw" {
+  org      = data.vcloud_org_vdc.vdc.org
+  owner_id = data.vcloud_org_vdc.vdc.id
   name     = "tenant_edgegateway"
 }
 ```
 
 ```sh
-terraform import vcd_cse_kubernetes_cluster.imported_cluster urn:vcloud:entity:vmware:capvcdCluster:1d24af33-6e5a-4d47-a6ea-06d76f3ee5c9
+terraform import vcloud_cse_kubernetes_cluster.imported_cluster urn:vcloud:entity:vmware:capvcdCluster:1d24af33-6e5a-4d47-a6ea-06d76f3ee5c9
 ```
 
 -> The ID is required as it is the only way to unequivocally identify a Kubernetes cluster inside VCD. To obtain the ID
@@ -369,7 +369,7 @@ the following HCL block in your Terraform configuration:
 
 ```hcl
 import {
-  to = vcd_cse_kubernetes_cluster.imported_cluster
+  to = vcloud_cse_kubernetes_cluster.imported_cluster
   id = "urn:vcloud:entity:vmware:capvcdCluster:f2d88194-3745-47ef-a6e1-5ee0bbce38f6"
 }
 ```

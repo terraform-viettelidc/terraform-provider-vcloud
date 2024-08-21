@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp_org_network"
+page_title: "Viettel IDC Cloud: vcloud_vapp_org_network"
 sidebar_current: "docs-vcd-resource-vapp-org-network"
 description: |-
   Provides capability to attach an existing Org VDC Network to a vApp and toggle network features.
@@ -15,7 +15,7 @@ Supported in provider *v2.7+*
 ## Example Usage
 
 ```hcl
-resource "vcd_vapp_org_network" "vappOrgNet" {
+resource "vcloud_vapp_org_network" "vappOrgNet" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -62,10 +62,10 @@ via supplying the full dot separated path for vApp Org Network. An example is be
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_vapp_org_network.imported org-name.vdc-name.vapp-name.org-network-name
+terraform import vcloud_vapp_org_network.imported org-name.vdc-name.vapp-name.org-network-name
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 The above command would import the vApp Org Network named `org-network-name` that is defined on vApp 
 `vapp-name` which is configured in organization named `my-org` and VDC named `my-org-vdc`.

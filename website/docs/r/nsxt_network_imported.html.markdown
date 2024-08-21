@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_network_imported"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_imported"
 sidebar_current: "docs-vcd-resource-nsxt-network-imported"
 description: |-
-  Provides a VMware Cloud Director Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
+  Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 ---
 
 # vcd\_nsxt\_network\_imported
 
-Provides a VMware Cloud Director Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
+Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 
@@ -23,14 +23,14 @@ documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Clou
 
 ## Example Usage (NSX-T backed imported Org VDC network backed by NSX-T logical switch)
 ```hcl
-data "vcd_org_vdc" "main" {
+data "vcloud_org_vdc" "main" {
   org  = "my-org"
   name = "my-nsxt-org-vdc"
 }
 
-resource "vcd_nsxt_network_imported" "nsxt-backed" {
+resource "vcloud_nsxt_network_imported" "nsxt-backed" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.main.id
+  owner_id = data.vcloud_org_vdc.main.id
 
   name        = "nsxt-imported"
   description = "My NSX-T VDC Imported network type"
@@ -54,8 +54,8 @@ resource "vcd_nsxt_network_imported" "nsxt-backed" {
 
 ## Example Usage (NSX-T backed imported Org VDC network in Dual-Stack mode)
 ```hcl
-resource "vcd_nsxt_network_imported" "ipv6-dualstack" {
-  vdc  = vcd_org_vdc.with-edge-cluster.name
+resource "vcloud_nsxt_network_imported" "ipv6-dualstack" {
+  vdc  = vcloud_org_vdc.with-edge-cluster.name
   name = "dual-stack-imported"
 
   nsxt_logical_switch_name = "segment-cloud"
@@ -81,14 +81,14 @@ resource "vcd_nsxt_network_imported" "ipv6-dualstack" {
 ## Example Usage (NSX-T backed imported Org VDC network backed by Distributed Virtual Port Group - DVPG)
 
 ```hcl
-data "vcd_org_vdc" "main" {
+data "vcloud_org_vdc" "main" {
   org  = "my-org"
   name = "my-nsxt-org-vdc"
 }
 
-resource "vcd_nsxt_network_imported" "nsxt-backed" {
+resource "vcloud_nsxt_network_imported" "nsxt-backed" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.main.id
+  owner_id = data.vcloud_org_vdc.main.id
 
   name      = "nsxt-imported"
   dvpg_name = "vc-dvpg"
@@ -189,7 +189,7 @@ The path for this resource is made of `org-name.vdc-or-vdc-group-name.network-na
 For example, using this structure, representing an NSX-T Imported Network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_nsxt_network_imported" "tf-mynet" {
+resource "vcloud_nsxt_network_imported" "tf-mynet" {
   name = "my-net"
   org  = "my-org"
   vdc  = "my-vdc"
@@ -200,10 +200,10 @@ resource "vcd_nsxt_network_imported" "tf-mynet" {
 You can import such NSX-T VDC Imported network type into terraform state using this command
 
 ```
-terraform import vcd_nsxt_network_imported.tf-mynet my-org.my-vdc.my-net
+terraform import vcloud_nsxt_network_imported.tf-mynet my-org.my-vdc.my-net
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

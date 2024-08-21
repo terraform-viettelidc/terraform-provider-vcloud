@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_interface_behavior"
+page_title: "Viettel IDC Cloud: vcloud_rde_interface_behavior"
 sidebar_current: "docs-vcd-resource-rde-interface-behavior"
 description: |-
-   Provides the capability of managing RDE Interface Behaviors in VMware Cloud Director.
+   Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_interface\_behavior
 
-Provides the capability of managing RDE Interface Behaviors in VMware Cloud Director.
+Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
 
@@ -18,15 +18,15 @@ If you want to use RDE Types with Behaviors, you should use `depends_on` as seen
 ## Example Usage
 
 ```hcl
-resource "vcd_rde_interface" "my_interface" {
+resource "vcloud_rde_interface" "my_interface" {
   vendor  = "bigcorp"
   nss     = "tech"
   version = "1.2.3"
   name    = "BigCorp Interface"
 }
 
-resource "vcd_rde_interface_behavior" "my_behavior" {
-  rde_interface_id = vcd_rde_interface.my_interface.id
+resource "vcloud_rde_interface_behavior" "my_behavior" {
+  rde_interface_id = vcloud_rde_interface.my_interface.id
   name             = "MyBehavior"
   description      = "Adds a node to the cluster.\nParameters:\n  clusterId: the ID of the cluster\n  node: The node address\n"
   execution = {
@@ -35,8 +35,8 @@ resource "vcd_rde_interface_behavior" "my_behavior" {
   }
 }
 
-resource "vcd_rde_interface_behavior" "my_behavior2" {
-  rde_interface_id = vcd_rde_interface.my_interface.id
+resource "vcloud_rde_interface_behavior" "my_behavior2" {
+  rde_interface_id = vcloud_rde_interface.my_interface.id
   name             = "MyBehavior2"
   execution = {
     "id" : "MyExecution2"
@@ -44,8 +44,8 @@ resource "vcd_rde_interface_behavior" "my_behavior2" {
   }
 }
 
-resource "vcd_rde_interface_behavior" "my_behavior3" {
-  rde_interface_id = vcd_rde_interface.my_interface.id
+resource "vcloud_rde_interface_behavior" "my_behavior3" {
+  rde_interface_id = vcloud_rde_interface.my_interface.id
   name             = "MyBehavior3"
   execution = {
     "type" : "WebHook",
@@ -81,7 +81,7 @@ the Behavior `name`.
 For example, using this structure, representing an existing RDE Interface Behavior that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_rde_interface_behavior" "outer_interface" {
+resource "vcloud_rde_interface_behavior" "outer_interface" {
   interface_id = "urn:vcloud:interface:vmware:k8s:1.0.0"
   name         = "createKubeConfig"
 }
@@ -90,10 +90,10 @@ resource "vcd_rde_interface_behavior" "outer_interface" {
 You can import such RDE Interface into Terraform state using this command
 
 ```
-terraform import vcd_rde_interface.outer_interface vmware.k8s.1.0.0.createKubeConfig
+terraform import vcloud_rde_interface.outer_interface vmware.k8s.1.0.0.createKubeConfig
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

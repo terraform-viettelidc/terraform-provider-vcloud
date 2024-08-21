@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ui_plugin"
+page_title: "Viettel IDC Cloud: vcloud_ui_plugin"
 sidebar_current: "docs-vcd-resource-ui-plugin"
 description: |-
-  Provides a VMware Cloud Director UI Plugin resource. This can be used to manage UI Plugins.
+  Provides a Viettel IDC Cloud UI Plugin resource. This can be used to manage UI Plugins.
 ---
 
 # vcd\_ui\_plugin
 
-Provides a VMware Cloud Director UI Plugin resource. This can be used to manage UI Plugins in VCD, for example to add a new
+Provides a Viettel IDC Cloud UI Plugin resource. This can be used to manage UI Plugins in VCD, for example to add a new
 plugin from a local ZIP file, to publish/unpublish a UI Plugin to different Organizations, etc.
 
 -> Managing UI Plugins requires System Administrator privileges.
@@ -25,31 +25,31 @@ locals {
   ]
 }
 
-data "vcd_org" "my_plugin_orgs" {
+data "vcloud_org" "my_plugin_orgs" {
   count = length(local.my_plugin_orgs)
   name  = local.my_plugin_orgs[count.index]
 }
 
-resource "vcd_ui_plugin" "my_plugin" {
+resource "vcloud_ui_plugin" "my_plugin" {
   plugin_path = "./container-ui-plugin-4.0.zip"
   enabled     = true
-  tenant_ids  = data.vcd_org.my_plugin_orgs[*].id
+  tenant_ids  = data.vcloud_org.my_plugin_orgs[*].id
 }
 ```
 
 ## Example Usage publishing to all Organizations available
 
 ```hcl
-data "vcd_resource_list" "all_orgs" {
+data "vcloud_resource_list" "all_orgs" {
   name          = "all_orgs"
-  resource_type = "vcd_org"
+  resource_type = "vcloud_org"
   list_mode     = "id"
 }
 
-resource "vcd_ui_plugin" "my_plugin" {
+resource "vcloud_ui_plugin" "my_plugin" {
   plugin_path = "./container-ui-plugin-4.0.zip"
   enabled     = true
-  tenant_ids  = data.vcd_resource_list.all_orgs.list
+  tenant_ids  = data.vcloud_resource_list.all_orgs.list
 }
 ```
 
@@ -88,7 +88,7 @@ unequivocally identifies it.
 For example, using this structure, representing an existing UI Plugin that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_ui_plugin" "my_existing_plugin" {
+resource "vcloud_ui_plugin" "my_existing_plugin" {
   # `plugin_path` is not needed as it was already created
   enabled = true
 }
@@ -97,10 +97,10 @@ resource "vcd_ui_plugin" "my_existing_plugin" {
 For example, you can import the "Customize Portal" UI Plugin into Terraform state using this command
 
 ```
-terraform import vcd_ui_plugin.my_plugin VMware."Customize Portal".3.1.4
+terraform import vcloud_ui_plugin.my_plugin VMware."Customize Portal".3.1.4
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

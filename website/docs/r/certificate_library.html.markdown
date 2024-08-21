@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_library_certificate"
+page_title: "Viettel IDC Cloud: vcloud_library_certificate"
 sidebar_current: "docs-vcd-resource-certificate-library"
 description: |-
   Provides a certificate in System or Org library resource.
@@ -16,7 +16,7 @@ Provides a resource to manage certificate in System or Org library.
 ## Example Usage
 
 ```hcl
-resource "vcd_library_certificate" "new-certificate" {
+resource "vcloud_library_certificate" "new-certificate" {
   org                    = "myOrg"
   alias                  = "SAML certificate"
   description            = "my description"
@@ -29,7 +29,7 @@ resource "vcd_library_certificate" "new-certificate" {
 Creating certificate in System (Provider) context:
 
 ```hcl
-resource "vcd_library_certificate" "new-certificate-for-system" {
+resource "vcloud_library_certificate" "new-certificate-for-system" {
   org                    = "System"
   alias                  = "provider certificate"
   description            = "my description"
@@ -69,7 +69,7 @@ certificates. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_library_certificate.imported my-org.my-certificate-alias
+terraform import vcloud_library_certificate.imported my-org.my-certificate-alias
 ```
 
 The above would import the certificate named `my-certificate-alias` which is configured in organization named `my-org`.

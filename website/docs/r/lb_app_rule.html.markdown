@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_app_rule"
+page_title: "Viettel IDC Cloud: vcloud_lb_app_rule"
 sidebar_current: "docs-vcd-resource-lb-app-rule"
 description: |-
   Provides an NSX edge gateway load balancer application rule resource.
@@ -8,16 +8,16 @@ description: |-
 
 # vcd\_lb\_app\_rule
 
-Provides a VMware Cloud Director Edge Gateway Load Balancer Application Rule resource. An application rule
+Provides a Viettel IDC Cloud Edge Gateway Load Balancer Application Rule resource. An application rule
 allows to directly manipulate and manage IP application traffic with load balancer.
 
 ~> **Note:** To make load balancing work one must ensure that load balancing is enabled on edge
 gateway (edge gateway must be advanced).
 This depends on NSX version to work properly. Please refer to [VMware Product Interoperability
 Matrices](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&29=&93=) 
-to check supported VMware Cloud Director and NSX for vSphere configurations.
+to check supported Viettel IDC Cloud and NSX for vSphere configurations.
 
-~> **Note:** The VMware Cloud Director API for NSX supports a subset of the operations and objects defined
+~> **Note:** The Viettel IDC Cloud API for NSX supports a subset of the operations and objects defined
 in the NSX vSphere API Guide. The API supports NSX 6.2, 6.3, and 6.4.
 
 Supported in provider *v2.4+*
@@ -25,7 +25,7 @@ Supported in provider *v2.4+*
 ## Example Usage 1 (Application rule with single line script)
 
 ```hcl
-resource "vcd_lb_app_rule" "example-one" {
+resource "vcloud_lb_app_rule" "example-one" {
   edge_gateway = "my-edge-gw"
   org          = "my-org"
   vdc          = "my-org-vdc"
@@ -38,7 +38,7 @@ resource "vcd_lb_app_rule" "example-one" {
 ## Example Usage 2 (Application rule with multi line script)
 
 ```hcl
-resource "vcd_lb_app_rule" "example-two" {
+resource "vcloud_lb_app_rule" "example-two" {
   edge_gateway = "my-edge-gw"
   org          = "my-org"
   vdc          = "my-org-vdc"
@@ -63,7 +63,7 @@ The following arguments are supported:
 * `script` - (Required) A multiline application rule script.
 Terraform's [HEREDOC syntax](https://www.terraform.io/docs/configuration/expressions.html#string-literals)
 may be useful for multiline scripts. **Note:** For information on
-the application rule syntax, see more in [VMware Cloud Director documentation]
+the application rule syntax, see more in [Viettel IDC Cloud documentation]
 (https://docs.vmware.com/en/vCloud-Director/9.7/com.vmware.vcloud.tenantportal.doc/GUID-AFF9F70F-85C9-4053-BA69-F2B062F34C7F.html)
 
 ## Attribute Reference
@@ -84,7 +84,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_app_rule.imported my-org.my-org-vdc.my-edge-gw.my-lb-app-rule
+terraform import vcloud_lb_app_rule.imported my-org.my-org-vdc.my-edge-gw.my-lb-app-rule
 ```
 
 The above would import the application rule named `my-lb-app-rule` that is defined on edge

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_access_control"
+page_title: "Viettel IDC Cloud: vcloud_catalog_access_control"
 sidebar_current: "docs-vcd-resource-catalog-access-control"
 description: |-
-  Provides a VMware Cloud Director Access Control structure for a Catalog.
+  Provides a Viettel IDC Cloud Access Control structure for a Catalog.
 ---
 
 # vcd\_catalog\_access\_control
 
-Provides a VMware Cloud Director Access Control structure for a Catalog. This can be used to create, update, and delete access control structures for a Catalog.
+Provides a Viettel IDC Cloud Access Control structure for a Catalog. This can be used to create, update, and delete access control structures for a Catalog.
 
 ~> **Warning:** The access control info is tied to a Catalog. Thus, there could be only one instance per catalog. Using a different
 definition for the same Catalog ID will result in a previous instance to be overwritten.
@@ -21,60 +21,60 @@ Supported in provider *v3.8+*
 ## Example Usage 1
 
 ```hcl
-data "vcd_org" "another-org" {
+data "vcloud_org" "another-org" {
   name = "another-org"
 }
 
-data "vcd_org_user" "ac-admin1" {
+data "vcloud_org_user" "ac-admin1" {
   org  = "this-org"
   name = "ac-admin1"
 }
 
-data "vcd_org_user" "ac-vapp-creator2" {
+data "vcloud_org_user" "ac-vapp-creator2" {
   org  = "this-org"
   name = "ac-vapp-creator2"
 }
 
-data "vcd_catalog" "Catalog-AC-0" {
+data "vcloud_catalog" "Catalog-AC-0" {
   name = "Catalog-AC-0"
 }
 
-data "vcd_catalog" "Catalog-AC-1" {
+data "vcloud_catalog" "Catalog-AC-1" {
   name = "Catalog-AC-1"
 }
 
-data "vcd_catalog" "Catalog-AC-2" {
+data "vcloud_catalog" "Catalog-AC-2" {
   name = "Catalog-AC-2"
 }
 
-resource "vcd_catalog_access_control" "AC-not-shared" {
-  catalog_id = data.vcd_catalog.Catalog-AC-0.id
+resource "vcloud_catalog_access_control" "AC-not-shared" {
+  catalog_id = data.vcloud_catalog.Catalog-AC-0.id
 
   shared_with_everyone = false
 }
 
-resource "vcd_catalog_access_control" "AC-global" {
-  catalog_id = data.vcd_catalog.Catalog-AC-1.id
+resource "vcloud_catalog_access_control" "AC-global" {
+  catalog_id = data.vcloud_catalog.Catalog-AC-1.id
 
   shared_with_everyone  = true
   everyone_access_level = "ReadOnly"
 }
 
-resource "vcd_catalog_access_control" "AC-users-and-orgs" {
-  catalog_id = data.vcd_catalog.Catalog-AC-2.id
+resource "vcloud_catalog_access_control" "AC-users-and-orgs" {
+  catalog_id = data.vcloud_catalog.Catalog-AC-2.id
 
   shared_with_everyone = false
 
   shared_with {
-    user_id      = data.vcd_org_user.ac-admin1.id
+    user_id      = data.vcloud_org_user.ac-admin1.id
     access_level = "FullControl"
   }
   shared_with {
-    user_id      = data.vcd_org_user.ac-vapp-creator2.id
+    user_id      = data.vcloud_org_user.ac-vapp-creator2.id
     access_level = "Change"
   }
   shared_with {
-    org_id       = data.vcd_org.another-org.id
+    org_id       = data.vcloud_org.another-org.id
     access_level = "ReadOnly"
   }
 }
@@ -83,9 +83,9 @@ resource "vcd_catalog_access_control" "AC-users-and-orgs" {
 ## Example Usage 2
 
 ```hcl
-resource "vcd_catalog_access_control" "ac-other-orgs" {
+resource "vcloud_catalog_access_control" "ac-other-orgs" {
   org        = "datacloud"
-  catalog_id = vcd_catalog.Test-Catalog-AC-5.id
+  catalog_id = vcloud_catalog.Test-Catalog-AC-5.id
 
   shared_with_everyone           = false
   read_only_shared_with_all_orgs = true
@@ -122,32 +122,32 @@ The following arguments are supported:
 ~> **Note:** The current implementation of Terraform import can only import resources into the state. It does not generate
 configuration. [More information.][docs-import]
 
-An existing `vcd_catalog_access_control` can be [imported][docs-import] into this resource via supplying its full dot separated path.
+An existing `vcloud_catalog_access_control` can be [imported][docs-import] into this resource via supplying its full dot separated path.
 For example, using this structure, representing an existing access control structure that was **not** created using Terraform:
 
 ```hcl
-data "vcd_catalog" "my-cat" {
+data "vcloud_catalog" "my-cat" {
   org  = "my-org"
   name = "my-catalog"
 }
 
-resource "vcd_catalog_access_control" "my-ac" {
+resource "vcloud_catalog_access_control" "my-ac" {
   org        = "my-org"
-  catalog_id = data.vcd_catalog.my-cat.id
+  catalog_id = data.vcloud_catalog.my-cat.id
 }
 ```
 
 You can import such structure into terraform state using one of these commands
 
 ```
-terraform import vcd_catalog_access_control.my-ac my-org.catalog-id
-terraform import vcd_catalog_access_control.my-ac my-org.catalog-name
+terraform import vcloud_catalog_access_control.my-ac my-org.catalog-id
+terraform import vcloud_catalog_access_control.my-ac my-org.catalog-name
 ```
 
 terraform will import the structure using either the catalog name or its ID.
 
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

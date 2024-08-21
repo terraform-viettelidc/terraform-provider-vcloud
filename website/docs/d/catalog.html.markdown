@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog"
+page_title: "Viettel IDC Cloud: vcloud_catalog"
 sidebar_current: "docs-vcd-data-source-catalog"
 description: |-
   Provides a catalog data source.
@@ -8,24 +8,24 @@ description: |-
 
 # vcd\_catalog
 
-Provides a VMware Cloud Director Catalog data source. A Catalog can be used to manage catalog items and media items.
+Provides a Viettel IDC Cloud Catalog data source. A Catalog can be used to manage catalog items and media items.
 
 Supported in provider *v2.5+*
 
 ## Example Usage
 
 ```hcl
-data "vcd_catalog" "my-cat" {
+data "vcloud_catalog" "my-cat" {
   org  = "my-org"
   name = "my-cat"
 }
 
-resource "vcd_catalog_item" "myItem" {
-  org     = data.vcd_catalog.my-cat.org
-  catalog = data.vcd_catalog.my-cat.name
+resource "vcloud_catalog_item" "myItem" {
+  org     = data.vcloud_catalog.my-cat.org
+  catalog = data.vcloud_catalog.my-cat.name
 
   name              = "myItem"
-  description       = "Belongs to ${data.vcd_catalog.my-cat.id}"
+  description       = "Belongs to ${data.vcloud_catalog.my-cat.id}"
   ova_path          = "/path/to/test_vapp_template.ova"
   upload_piece_size = 5
 }

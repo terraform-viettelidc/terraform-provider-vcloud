@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_dhcp_relay"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_dhcp_relay"
 sidebar_current: "docs-vcd-resource-nsxv-dhcp-relay"
 description: |-
   Provides an NSX edge gateway DHCP relay configuration resource.
@@ -8,9 +8,9 @@ description: |-
 
 # vcd\_nsxv\_dhcp\_relay
 
-Provides a VMware Cloud Director Edge Gateway DHCP relay configuration resource. The DHCP relay capability
-provided by NSX in VMware Cloud Director environment allows to leverage existing DHCP infrastructure from
-within VMware Cloud Director environment without any interruption to the IP address management in existing
+Provides a Viettel IDC Cloud Edge Gateway DHCP relay configuration resource. The DHCP relay capability
+provided by NSX in Viettel IDC Cloud environment allows to leverage existing DHCP infrastructure from
+within Viettel IDC Cloud environment without any interruption to the IP address management in existing
 DHCP infrastructure. DHCP messages are relayed from virtual machines to the designated DHCP servers
 in your physical DHCP infrastructure, which allows IP addresses controlled by the NSX software to
 continue to be in sync with IP addresses in the rest of your DHCP-controlled environments. 
@@ -23,7 +23,7 @@ Supported in provider *v2.6+*
 ## Example Usage 1 (Minimal configuration)
 
 ```hcl
-resource "vcd_nsxv_dhcp_relay" "relay_config" {
+resource "vcloud_nsxv_dhcp_relay" "relay_config" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -31,7 +31,7 @@ resource "vcd_nsxv_dhcp_relay" "relay_config" {
   ip_addresses = ["1.1.1.1"]
 
   relay_agent {
-    network_name = vcd_network_routed.test-routed[0].name
+    network_name = vcloud_network_routed.test-routed[0].name
   }
 }
 ```
@@ -39,26 +39,26 @@ resource "vcd_nsxv_dhcp_relay" "relay_config" {
 ## Example Usage 2 (Example of configuration with multiple relay agents)
 
 ```hcl
-resource "vcd_nsxv_dhcp_relay" "relay_config" {
+resource "vcloud_nsxv_dhcp_relay" "relay_config" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
 
   ip_addresses = ["1.1.1.1", "2.2.2.2"]
   domain_names = ["servergroups.domainname.com", "other.domain.com"]
-  ip_sets      = [vcd_nsxv_ip_set.myset1.name, vcd_nsxv_ip_set.myset2.name]
+  ip_sets      = [vcloud_nsxv_ip_set.myset1.name, vcloud_nsxv_ip_set.myset2.name]
 
   relay_agent {
     network_name = "my-routed-network-1"
   }
 
   relay_agent {
-    network_name       = vcd_network_routed.db-network.name
+    network_name       = vcloud_network_routed.db-network.name
     gateway_ip_address = "10.201.1.1"
   }
 }
 
-resource "vcd_nsxv_ip_set" "myset1" {
+resource "vcloud_nsxv_ip_set" "myset1" {
   org = "my-org"
   vdc = "my-org-vdc"
 
@@ -66,7 +66,7 @@ resource "vcd_nsxv_ip_set" "myset1" {
   ip_addresses = ["10.10.10.1/24"]
 }
 
-resource "vcd_nsxv_ip_set" "myset2" {
+resource "vcloud_nsxv_ip_set" "myset2" {
   org = "my-org"
   vdc = "my-org-vdc"
 
@@ -109,7 +109,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxv_dhcp_relay.imported my-org.my-org-vdc.my-edge-gw
+terraform import vcloud_nsxv_dhcp_relay.imported my-org.my-org-vdc.my-edge-gw
 ```
 
 The above would import the DHCP relay settings that are defined on edge

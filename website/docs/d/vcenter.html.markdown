@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vcenter"
+page_title: "Viettel IDC Cloud: vcloud_vcenter"
 sidebar_current: "docs-vcd-data-source-vcenter"
 description: |-
   Provides a data source for vCenter server attached to VCD.
@@ -16,7 +16,7 @@ Supported in provider *v3.0+*
 ## Example Usage
 
 ```hcl
-data "vcd_vcenter" "vc" {
+data "vcloud_vcenter" "vc" {
   name = "vcenter-one"
 }
 ```

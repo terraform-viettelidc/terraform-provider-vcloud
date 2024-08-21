@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: VM Guest Customization"
+page_title: "Viettel IDC Cloud: VM Guest Customization"
 sidebar_current: "docs-vcd-guides-vm-guest-customization"
 description: |-
   Provides guidance on VM Guest Customization.
@@ -25,8 +25,8 @@ would happily accept a Pull Request with documentation how to use it.
 
 The main point is that **Ignition** configuration can be supplied using
 [`guest_properties`](/providers/vmware/vcd/latest/docs/resources/vapp_vm#guest_properties) key value
-map in [`vcd_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm) or
-[`vcd_vm`](/providers/vmware/vcd/latest/docs/resources/vm) resources.
+map in [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm) or
+[`vcloud_vm`](/providers/vmware/vcd/latest/docs/resources/vm) resources.
 
 [Ignition documentation](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-vmware/)
 mentions two required fields for guest properties to enable customization:
@@ -78,7 +78,7 @@ hash generator) and set hostname to `core1` in guest. Store these contents in `i
 To supply it to Guest VM using Terraform provider VCD one must read contents and encode it.
 
 ```hcl
-resource "vcd_vm" "customized" {
+resource "vcloud_vm" "customized" {
   name = "fedora-coreos-customized"
 
   catalog_name  = "my-catalog-name"
@@ -110,8 +110,8 @@ configuration options.
 
 Configuration can be passed to CloudInit using
 [`guest_properties`](/providers/vmware/vcd/latest/docs/resources/vapp_vm#guest_properties) key value
-map in [`vcd_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm) or
-[`vcd_vm`](/providers/vmware/vcd/latest/docs/resources/vm) resources.
+map in [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm) or
+[`vcloud_vm`](/providers/vmware/vcd/latest/docs/resources/vm) resources.
 
 More about [CloudInit](https://cloudinit.readthedocs.io/en/latest/) and
 [OVF](https://cloudinit.readthedocs.io/en/latest/topics/datasources/ovf.html)
@@ -141,9 +141,9 @@ VM definition might be different, but key here is `guest_properties`. It will su
 CloudInit (including the base64 encoded shell script in file `script.sh` as required by CloudInit)
 
 ```hcl
-resource "vcd_vapp_vm" "guest-vm" {
+resource "vcloud_vapp_vm" "guest-vm" {
   name      = var.guest_hostname
-  vapp_name = vcd_vapp.terminal.name
+  vapp_name = vcloud_vapp.terminal.name
 
   catalog_name  = var.catalog_name
   template_name = var.template_name
@@ -152,7 +152,7 @@ resource "vcd_vapp_vm" "guest-vm" {
   memory = 1024
 
   network {
-    name               = vcd_vapp_org_network.direct.org_network_name
+    name               = vcloud_vapp_org_network.direct.org_network_name
     type               = "org"
     ip_allocation_mode = "POOL"
   }

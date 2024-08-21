@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_ipsec_vpn_tunnel"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_ipsec_vpn_tunnel"
 sidebar_current: "docs-vcd-resource-nsxt-ipsec-vpn-tunnel"
 description: |-
   Provides a resource to manage NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data
@@ -17,17 +17,17 @@ or VPN gateways that support IPSec.
 ## Example Usage (IPsec VPN Tunnel with default Security Profile)
 
 ```hcl
-resource "vcd_nsxt_ipsec_vpn_tunnel" "tunnel1" {
+resource "vcloud_nsxt_ipsec_vpn_tunnel" "tunnel1" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name        = "First"
   description = "testing tunnel"
 
   pre_shared_key = "my-presharaed-key"
   # Primary IP address of Edge Gateway pulled from data source
-  local_ip_address = tolist(data.vcd_nsxt_edgegateway.existing_gw.subnet)[0].primary_ip
+  local_ip_address = tolist(data.vcloud_nsxt_edgegateway.existing_gw.subnet)[0].primary_ip
   local_networks   = ["10.10.10.0/24", "30.30.30.0/28", "40.40.40.1/32"]
   # That is a fake remote IP address
   remote_ip_address = "1.2.3.4"
@@ -38,17 +38,17 @@ resource "vcd_nsxt_ipsec_vpn_tunnel" "tunnel1" {
 ## Example Usage (IPsec VPN Tunnel with customized Security Profile)
 
 ```hcl
-resource "vcd_nsxt_ipsec_vpn_tunnel" "tunnel1" {
+resource "vcloud_nsxt_ipsec_vpn_tunnel" "tunnel1" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name        = "customized-sec-profile"
   description = "IPsec VPN Tunnel with customized security profile"
 
   pre_shared_key = "test-psk"
   # Primary IP address of Edge Gateway
-  local_ip_address = tolist(data.vcd_nsxt_edgegateway.existing_gw.subnet)[0].primary_ip
+  local_ip_address = tolist(data.vcloud_nsxt_edgegateway.existing_gw.subnet)[0].primary_ip
   local_networks   = ["10.10.10.0/24", "30.30.30.0/28", "40.40.40.1/32"]
   # That is a fake remote IP address as there is nothing else to peer to
   remote_ip_address = "1.2.3.4"
@@ -76,29 +76,29 @@ resource "vcd_nsxt_ipsec_vpn_tunnel" "tunnel1" {
 ## Example Usage (IPsec VPN Tunnel with Certificate auth and custom remote ID)
 
 ```hcl
-data "vcd_library_certificate" "cert" {
+data "vcloud_library_certificate" "cert" {
   org   = "myOrg"
   alias = "certificate"
 }
 
-data "vcd_library_certificate" "ca-cert" {
+data "vcloud_library_certificate" "ca-cert" {
   org   = "myOrg"
   alias = "ca-certificate"
 }
 
-resource "vcd_nsxt_ipsec_vpn_tunnel" "tunnel1" {
+resource "vcloud_nsxt_ipsec_vpn_tunnel" "tunnel1" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name = "cert-tunnel"
 
   authentication_mode = "CERTIFICATE"
-  certificate_id      = data.vcd_library_certificate.cert.id
-  ca_certificate_id   = data.vcd_library_certificate.ca-cert.id
+  certificate_id      = data.vcloud_library_certificate.cert.id
+  ca_certificate_id   = data.vcloud_library_certificate.ca-cert.id
 
   # Primary IP address of Edge Gateway pulled from data source
-  local_ip_address = tolist(data.vcd_nsxt_edgegateway.existing_gw.subnet)[0].primary_ip
+  local_ip_address = tolist(data.vcloud_nsxt_edgegateway.existing_gw.subnet)[0].primary_ip
   local_networks   = ["10.10.10.0/24", "30.30.30.0/28", "40.40.40.1/32"]
   # That is a fake remote IP address
   remote_ip_address = "1.2.3.4"
@@ -118,7 +118,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations.
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). Can be looked up using
-  `vcd_nsxt_edgegateway` data source
+  `vcloud_nsxt_edgegateway` data source
 * `name` - (Required) A name for NSX-T IPsec VPN Tunnel
 * `description` - (Optional) An optional description of the NSX-T IPsec VPN Tunnel
 * `enabled` - (Optional) Enables or disables IPsec VPN Tunnel (default `true`)
@@ -133,10 +133,10 @@ the same on the other end of the IPSec VPN tunnel and `authentication_mode` must
 * `logging` - (Optional) Sets whether logging for the tunnel is enabled or not. (default - `false`)
 * `authentication_mode` - (Optional, *v3.9+*) `PSK` (pre-shared key) or `CERTIFICATE` (default -
   `PSK`)
-* `certificate_id` - (Optional, *v3.9+*) Certificate ID (can be handled by `vcd_library_certificate`
+* `certificate_id` - (Optional, *v3.9+*) Certificate ID (can be handled by `vcloud_library_certificate`
   resource or datasource). *Note* `authentication_mode` must be set to `CERTIFICATE`
 * `ca_certificate_id` - (Optional, *v3.9+*) CA Certificate ID (can be handled by
-  `vcd_library_certificate` resource or datasource) *Note* `authentication_mode` must be set to
+  `vcloud_library_certificate` resource or datasource) *Note* `authentication_mode` must be set to
   `CERTIFICATE`
 * `security_profile_customization` - (Optional) a block allowing to
 [customize default security profile](#security-profile) parameters
@@ -188,7 +188,7 @@ below:
 
 Supplying Name
 ```
-terraform import vcd_nsxt_ipsec_vpn_tunnel.imported my-org..my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway.my-ipsec-vpn-tunnel-name
+terraform import vcloud_nsxt_ipsec_vpn_tunnel.imported my-org..my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway.my-ipsec-vpn-tunnel-name
 ```
 
 
@@ -197,14 +197,14 @@ terraform import vcd_nsxt_ipsec_vpn_tunnel.imported my-org..my-org-vdc-org-vdc-g
 it by ID
 
 ```
-$ terraform import vcd_nsxt_ipsec_vpn_tunnel.first my-org.nsxt-vdc.nsxt-gw.tunnel1
-vcd_nsxt_nat_rule.dnat: Importing from ID "my-org.nsxt-vdc.nsxt-gw.dnat1"...
+$ terraform import vcloud_nsxt_ipsec_vpn_tunnel.first my-org.nsxt-vdc.nsxt-gw.tunnel1
+vcloud_nsxt_nat_rule.dnat: Importing from ID "my-org.nsxt-vdc.nsxt-gw.dnat1"...
 # The following IPsec VPN Tunnels with Name 'tunnel1' are available
 # Please use ID instead of Name in import path to pick exact rule
 ID                                   Name    Local IP     Remote IP
 04fde766-2cbd-4986-93bb-7f57e59c6b19 tunnel1 1.1.1.1      2.2.2.2
 f40e3d68-cfa6-42ea-83ed-5571659b3e7b tunnel1 4.4.4.4      8.8.8.8
-$ terraform import vcd_nsxt_ipsec_vpn_tunnel.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway.04fde766-2cbd-4986-93bb-7f57e59c6b19
+$ terraform import vcloud_nsxt_ipsec_vpn_tunnel.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway.04fde766-2cbd-4986-93bb-7f57e59c6b19
 ```
 
 The above would import the `my-ipsec-vpn-tunnel-name` IPsec VPN Tunne config settings that are defined

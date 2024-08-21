@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_virtual_service"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_virtual_service"
 sidebar_current: "docs-vcd-resource-nsxt-alb-virtual-service"
 description: |-
   Provides a resource to manage ALB Virtual services for particular NSX-T Edge Gateway. A virtual service advertises
@@ -18,42 +18,42 @@ it directs it to members in ALB Pool.
 
 ## Example Usage (Adding HTTP ALB Virtual Service)
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-test-vdc"
 
   name = "nsxt-edge-gateway"
 }
 
-data "vcd_nsxt_alb_edgegateway_service_engine_group" "assignment" {
+data "vcloud_nsxt_alb_edgegateway_service_engine_group" "assignment" {
   org = "my-org"
   vdc = "nsxt-test-vdc"
 
-  edge_gateway_id           = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id           = data.vcloud_nsxt_edgegateway.existing.id
   service_engine_group_name = "known_service_engine_group"
 
   # ID reference to service_engine_group_id can also be supplied by 
-  # using `vcd_nsxt_alb_service_engine_group` data source
+  # using `vcloud_nsxt_alb_service_engine_group` data source
   # but it requires provider level access therefore tenant can use `service_engine_group_name` field.
-  # service_engine_group_id = data.vcd_nsxt_alb_service_engine_group.existing.id
+  # service_engine_group_id = data.vcloud_nsxt_alb_service_engine_group.existing.id
 }
 
-resource "vcd_nsxt_alb_pool" "test" {
+resource "vcloud_nsxt_alb_pool" "test" {
   org = "my-org"
 
   name            = "test-pool"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 }
 
-resource "vcd_nsxt_alb_virtual_service" "test" {
+resource "vcloud_nsxt_alb_virtual_service" "test" {
   org = "my-org"
 
   name            = "new-virtual-service"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
-  pool_id                  = vcd_nsxt_alb_pool.test.id
-  service_engine_group_id  = vcd_nsxt_alb_edgegateway_service_engine_group.assignment.service_engine_group_id
-  virtual_ip_address       = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  pool_id                  = vcloud_nsxt_alb_pool.test.id
+  service_engine_group_id  = vcloud_nsxt_alb_edgegateway_service_engine_group.assignment.service_engine_group_id
+  virtual_ip_address       = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   application_profile_type = "HTTP"
   service_port {
     start_port = 80
@@ -64,49 +64,49 @@ resource "vcd_nsxt_alb_virtual_service" "test" {
 
 ## Example Usage (Adding L4 TLS ALB Virtual Service with certificate and multiple ports)
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-test-vdc"
 
   name = "nsxt-edge-gateway"
 }
 
-data "vcd_nsxt_alb_edgegateway_service_engine_group" "assignment" {
+data "vcloud_nsxt_alb_edgegateway_service_engine_group" "assignment" {
   org = "my-org"
   vdc = "nsxt-test-vdc"
 
-  edge_gateway_id           = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id           = data.vcloud_nsxt_edgegateway.existing.id
   service_engine_group_name = "known_service_engine_group"
 
   # ID reference to service_engine_group_id can also be supplied by 
-  # using `vcd_nsxt_alb_service_engine_group` data source
+  # using `vcloud_nsxt_alb_service_engine_group` data source
   # but it requires provider level access therefore tenant can use `service_engine_group_name` field.
-  # service_engine_group_id = data.vcd_nsxt_alb_service_engine_group.existing.id
+  # service_engine_group_id = data.vcloud_nsxt_alb_service_engine_group.existing.id
 }
 
-data "vcd_library_certificate" "org-cert-1" {
+data "vcloud_library_certificate" "org-cert-1" {
   org   = "my-org"
   alias = "My-cert"
 
 }
 
-resource "vcd_nsxt_alb_pool" "test" {
+resource "vcloud_nsxt_alb_pool" "test" {
   org = "my-org"
 
   name            = "test-pool"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 }
 
-resource "vcd_nsxt_alb_virtual_service" "test" {
+resource "vcloud_nsxt_alb_virtual_service" "test" {
   org = "my-org"
 
   name            = "new-virtual-service"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
-  pool_id                  = vcd_nsxt_alb_pool.test.id
-  service_engine_group_id  = vcd_nsxt_alb_edgegateway_service_engine_group.assignment.service_engine_group_id
-  virtual_ip_address       = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
-  ca_certificate_id        = data.vcd_library_certificate.org-cert-1.id
+  pool_id                  = vcloud_nsxt_alb_pool.test.id
+  service_engine_group_id  = vcloud_nsxt_alb_edgegateway_service_engine_group.assignment.service_engine_group_id
+  virtual_ip_address       = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  ca_certificate_id        = data.vcloud_library_certificate.org-cert-1.id
   application_profile_type = "L4_TLS"
 
   service_port {
@@ -131,31 +131,31 @@ resource "vcd_nsxt_alb_virtual_service" "test" {
 
 ## Example Usage (VCD 10.4.1+ - Virtual Service Transparent mode and Pool Group Membership)
 ```hcl
-data "vcd_nsxt_ip_set" "frontend" {
+data "vcloud_nsxt_ip_set" "frontend" {
   org             = "my-org" # Optional
-  edge_gateway_id = data.vcd_nsxt_edgegateway.main.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.main.id
   name            = "frontend-servers"
 }
 
-resource "vcd_nsxt_alb_pool" "test" {
+resource "vcloud_nsxt_alb_pool" "test" {
   org             = "my-org"
   name            = "test-pool"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
-  member_group_id = data.vcd_nsxt_ip_set.frontend.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
+  member_group_id = data.vcloud_nsxt_ip_set.frontend.id
 }
 
-resource "vcd_nsxt_alb_virtual_service" "test" {
+resource "vcloud_nsxt_alb_virtual_service" "test" {
   org = "my-org"
 
   name            = "new-virtual-service"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
-  # Preserve Client IP - can only be enabled in VCD 10.4.1+ (must also be enabled in `vcd_nsxt_alb_settings`)
+  # Preserve Client IP - can only be enabled in VCD 10.4.1+ (must also be enabled in `vcloud_nsxt_alb_settings`)
   is_transparent_mode_enabled = true
 
-  pool_id                  = vcd_nsxt_alb_pool.test.id
-  service_engine_group_id  = vcd_nsxt_alb_edgegateway_service_engine_group.assignment.service_engine_group_id
-  virtual_ip_address       = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  pool_id                  = vcloud_nsxt_alb_pool.test.id
+  service_engine_group_id  = vcloud_nsxt_alb_edgegateway_service_engine_group.assignment.service_engine_group_id
+  virtual_ip_address       = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   application_profile_type = "HTTP"
   service_port {
     start_port = 80
@@ -172,12 +172,12 @@ The following arguments are supported:
   when connected as sysadmin working across different organisations.
 * `name` - (Required) A name for ALB Virtual Service
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
 * `description` - (Optional) An optional description ALB Virtual Service
-* `pool_id` - (Required) A reference to ALB Pool. Can be looked up using `vcd_nsxt_alb_pool` resource or data
+* `pool_id` - (Required) A reference to ALB Pool. Can be looked up using `vcloud_nsxt_alb_pool` resource or data
   source
 * `service_engine_group_id` - (Required) A reference to ALB Service Engine Group. Can be looked up using
-  `vcd_nsxt_alb_edgegateway_service_engine_group` resource or data source
+  `vcloud_nsxt_alb_edgegateway_service_engine_group` resource or data source
 * `application_profile_type` - (Required) One of `HTTP`, `HTTPS`, `L4`, `L4_TLS`. 
 * `virtual_ip_address` - (Required) IP Address for the service to listen on.
 * `ipv6_virtual_ip_address` - (Optional; *v3.10+*, *VCD 10.4.0+*) IPv6 Address for the service to listen on. 
@@ -209,7 +209,7 @@ via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_virtual_service.imported my-org.my-org-vdc-org-vdc-group-name.my-edge-gateway.my-virtual-service-name
+terraform import vcloud_nsxt_alb_virtual_service.imported my-org.my-org-vdc-org-vdc-group-name.my-edge-gateway.my-virtual-service-name
 ```
 
 The above would import the `my-virtual-service-name` ALB Virtual Service that is defined in

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ip_space_ip_allocation"
+page_title: "Viettel IDC Cloud: vcloud_ip_space_ip_allocation"
 sidebar_current: "docs-vcd-data-source-ip-space-ip-allocation"
 description: |-
   Provides a data source to read IP IP Allocations within IP Spaces. It supports both - Floating IPs 
@@ -17,9 +17,9 @@ IP Spaces require VCD 10.4.1+ with NSX-T.
 ## Example Usage (IP Space IP Prefix Allocation)
 
 ```hcl
-data "vcd_ip_space_ip_allocation" "ip-prefix" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+data "vcloud_ip_space_ip_allocation" "ip-prefix" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
   type        = "IP_PREFIX"
   ip_address  = "192.168.1.1/24"
 }
@@ -27,9 +27,9 @@ data "vcd_ip_space_ip_allocation" "ip-prefix" {
 
 ## Example Usage (IP Space Floating IP Allocation)
 ```hcl
-data "vcd_ip_space_ip_allocation" "floating-ip" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+data "vcloud_ip_space_ip_allocation" "floating-ip" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
   type        = "FLOATING_IP"
   ip_address  = "192.168.1.1"
 }
@@ -47,5 +47,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+[`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
 resource are available.

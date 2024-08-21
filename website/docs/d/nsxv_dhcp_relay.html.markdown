@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_dhcp_relay"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_dhcp_relay"
 sidebar_current: "docs-vcd-datasource-nsxv-dhcp-relay"
 description: |-
   Provides an NSX edge gateway DHCP relay configuration data source.
@@ -8,9 +8,9 @@ description: |-
 
 # vcd\_nsxv\_dhcp\_relay
 
-Provides a VMware Cloud Director Edge Gateway DHCP relay configuration data source. The DHCP relay
-capability provided by NSX in VMware Cloud Director environment allows to leverage existing DHCP
-infrastructure from within VMware Cloud Director environment without any interruption to the IP address
+Provides a Viettel IDC Cloud Edge Gateway DHCP relay configuration data source. The DHCP relay
+capability provided by NSX in Viettel IDC Cloud environment allows to leverage existing DHCP
+infrastructure from within Viettel IDC Cloud environment without any interruption to the IP address
 management in existing DHCP infrastructure. DHCP messages are relayed from virtual machines to the
 designated DHCP servers in your physical DHCP infrastructure, which allows IP addresses controlled
 by the NSX software to continue to be in sync with IP addresses in the rest of your DHCP-controlled
@@ -21,7 +21,7 @@ Supported in provider *v2.6+*
 ## Example Usage 1
 
 ```hcl
-data "vcd_nsxv_dhcp_relay" "relay_config" {
+data "vcloud_nsxv_dhcp_relay" "relay_config" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -40,5 +40,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcd_nsxv_dhcp_relay`](/providers/vmware/vcd/latest/docs/resources/nsxv_dhcp_relay)
+All the attributes defined in [`vcloud_nsxv_dhcp_relay`](/providers/vmware/vcd/latest/docs/resources/nsxv_dhcp_relay)
 resource are available.

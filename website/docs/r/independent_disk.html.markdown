@@ -1,20 +1,20 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_independent_disk"
+page_title: "Viettel IDC Cloud: vcloud_independent_disk"
 sidebar_current: "docs-vcd-independent-disk"
 description: |-
-  Provides a VMware Cloud Director independent disk resource. This can be used to create and delete independent disks.
+  Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 ---
 
 # vcd\_independent\_disk
 
-Provides a VMware Cloud Director independent disk resource. This can be used to create and delete independent disks.
+Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 The resource is capable of updating independent disks attached to a VM. Update detaches the disks temporarily and attaches back after changes are done.
 
 ## Example Usage
 
 ```hcl
-resource "vcd_independent_disk" "myNewIndependentDisk" {
+resource "vcloud_independent_disk" "myNewIndependentDisk" {
   vdc             = "my-vcd"
   name            = "logDisk"
   size_in_mb      = "1024"
@@ -23,13 +23,13 @@ resource "vcd_independent_disk" "myNewIndependentDisk" {
   storage_profile = "external"
 }
 
-resource "vcd_vapp_vm" "web2" {
-  vapp_name = vcd_vapp.web.name
+resource "vcloud_vapp_vm" "web2" {
+  vapp_name = vcloud_vapp.web.name
 
   # ...
 
   disk {
-    name        = vcd_independent_disk.myNewIndependentDisk.name
+    name        = vcloud_independent_disk.myNewIndependentDisk.name
     bus_number  = 1
     unit_number = 0
   }
@@ -81,7 +81,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_independent_disk" "example" {
+resource "vcloud_independent_disk" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -125,7 +125,7 @@ The path for this resource is made of org-name.vdc-name.disk-id
 For example, using this structure, representing a independent disk that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_independent_disk" "tf-myDisk" {
+resource "vcloud_independent_disk" "tf-myDisk" {
   vdc  = "my-vdc"
   name = "my-disk"
 }
@@ -134,7 +134,7 @@ resource "vcd_independent_disk" "tf-myDisk" {
 You can import such independent disk into terraform state using this command
 
 ```
-terraform import vcd_independent_disk.tf-myDisk org-name.vdc-name.my-disk-id
+terraform import vcloud_independent_disk.tf-myDisk org-name.vdc-name.my-disk-id
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
@@ -144,14 +144,14 @@ further operations.
 
 ### Listing independent disk IDs
 
-If you want to list IDs there is a special command **`terraform import vcd_independent_disk.imported list@org-name.vdc-name.my-independent-disk-name`**
-or **`terraform import vcd_independent_disk.imported list@org-name.vdc-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_independent_disk.imported list@org-name.vdc-name.my-independent-disk-name`**
+or **`terraform import vcloud_independent_disk.imported list@org-name.vdc-name`**
 where `org-name` is the organization used, `vdc-name` is vDC name and `my-independent-disk-name`
 is independent disk name. The output for this command should look similar to the one below:
 
 ```shell
-$ terraform import vcd_independent_disk.imported list@org-name.vdc-name.my-independent-disk-name
-vcd_independent_disk.Disk_import: Importing from ID "list@org-name.vdc-name.my-independent-disk-name"...
+$ terraform import vcloud_independent_disk.imported list@org-name.vdc-name.my-independent-disk-name
+vcloud_independent_disk.Disk_import: Importing from ID "list@org-name.vdc-name.my-independent-disk-name"...
 Retrieving all disks by name
 No  ID                                                      Name    Description Size
 --  --                                                      ----    ------      ----
@@ -166,5 +166,5 @@ Error: resource was not imported! resource id must be specified in one of these 
 Now to import disk with ID urn:vcloud:disk:1bbc273d-7701-4f06-97be-428b46b0805e one could supply this command:
 
 ```shell
-$ terraform import vcd_independent_disk.imported list@org-name.vdc-name.urn:vcloud:disk:1bbc273d-7701-4f06-97be-428b46b0805e
+$ terraform import vcloud_independent_disk.imported list@org-name.vdc-name.urn:vcloud:disk:1bbc273d-7701-4f06-97be-428b46b0805e
 ```

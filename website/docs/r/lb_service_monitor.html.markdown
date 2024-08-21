@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_service_monitor"
+page_title: "Viettel IDC Cloud: vcloud_lb_service_monitor"
 sidebar_current: "docs-vcd-resource-lb-service-monitor"
 description: |-
   Provides an NSX edge gateway load balancer service monitor resource.
@@ -8,15 +8,15 @@ description: |-
 
 # vcd\_lb\_service\_monitor
 
-Provides a VMware Cloud Director Edge Gateway Load Balancer Service Monitor resource. A service monitor 
+Provides a Viettel IDC Cloud Edge Gateway Load Balancer Service Monitor resource. A service monitor 
 defines health check parameters for a particular type of network traffic. It can be associated with
 a pool. Pool members are monitored according to the service monitor parameters. 
 
 ~> **Note:** To make load balancing work one must ensure that load balancing is enabled on edge gateway (edge gateway must be advanced).
 This depends on NSX version to work properly. Please refer to [VMware Product Interoperability Matrices](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&29=&93=) 
-to check supported VMware Cloud Director and NSX for vSphere configurations.
+to check supported Viettel IDC Cloud and NSX for vSphere configurations.
 
-~> **Note:** The VMware Cloud Director API for NSX supports a subset of the operations and objects defined in the NSX vSphere 
+~> **Note:** The Viettel IDC Cloud API for NSX supports a subset of the operations and objects defined in the NSX vSphere 
 API Guide. The API supports NSX 6.2, 6.3, and 6.4.
 
 Supported in provider *v2.4+*
@@ -24,7 +24,7 @@ Supported in provider *v2.4+*
 ## Example Usage
 
 ```hcl
-resource "vcd_lb_service_monitor" "monitor" {
+resource "vcloud_lb_service_monitor" "monitor" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -87,7 +87,7 @@ via supplying the full dot separated path for load balancer service monitor. An 
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_service_monitor.imported my-org.my-org-vdc.my-edge-gw.my-lb-service-monitor
+terraform import vcloud_lb_service_monitor.imported my-org.my-org-vdc.my-edge-gw.my-lb-service-monitor
 ```
 
 The above would import the service monitor named `my-lb-service-monitor` that is defined on edge gateway

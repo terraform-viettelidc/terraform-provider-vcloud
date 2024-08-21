@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_app_port_profile"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_app_port_profile"
 sidebar_current: "docs-vcd-data-source-nsxt-app-port-profile"
 description: |-
   Provides a data source to read NSX-T Application Port Profiles. Application Port Profiles include 
@@ -19,9 +19,9 @@ services on the Edge Gateway.
 ## Example Usage 1 (Find an Application Port Profile defined by Provider)
 
 ```hcl
-data "vcd_nsxt_app_port_profile" "custom" {
+data "vcloud_nsxt_app_port_profile" "custom" {
   org        = "System"
-  context_id = data.vcd_nsxt_manager.first.id
+  context_id = data.vcloud_nsxt_manager.first.id
   name       = "WINS"
   scope      = "PROVIDER"
 }
@@ -30,14 +30,14 @@ data "vcd_nsxt_app_port_profile" "custom" {
 ## Example Usage 2 (Find an Application Port Profile defined by Tenant in a VDC Group)
 
 ```hcl
-data "vcd_vdc_group" "g1" {
+data "vcloud_vdc_group" "g1" {
   org  = "myOrg"
   name = "myVDC"
 }
 
-data "vcd_nsxt_app_port_profile" "custom" {
+data "vcloud_nsxt_app_port_profile" "custom" {
   org        = "my-org"
-  context_id = data.vcd_vdc_group.g1.id
+  context_id = data.vcloud_vdc_group.g1.id
   name       = "SSH-custom"
   scope      = "TENANT"
 }
@@ -46,13 +46,13 @@ data "vcd_nsxt_app_port_profile" "custom" {
 ## Example Usage 3 (Find a System defined Application Port Profile)
 
 ```hcl
-data "vcd_org_vdc" "vdc1" {
+data "vcloud_org_vdc" "vdc1" {
   org  = "myOrg"
   name = "myVDC"
 }
 
-data "vcd_nsxt_app_port_profile" "custom" {
-  context_id = data.vcd_org_vdc.vdc1.id
+data "vcloud_nsxt_app_port_profile" "custom" {
+  context_id = data.vcloud_org_vdc.vdc1.id
 
   scope = "SYSTEM"
   name  = "SSH"
@@ -74,5 +74,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_app_port_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_app_port_profile) resource
+[`vcloud_nsxt_app_port_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_app_port_profile) resource
 are available.

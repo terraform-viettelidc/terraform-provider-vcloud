@@ -1,28 +1,28 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_media"
+page_title: "Viettel IDC Cloud: vcloud_catalog_media"
 sidebar_current: "docs-vcd-resource-catalog-media"
 description: |-
-  Provides a VMware Cloud Director media resource. This can be used to upload and delete media (ISO) file inside a catalog.
+  Provides a Viettel IDC Cloud media resource. This can be used to upload and delete media (ISO) file inside a catalog.
 ---
 
 # vcd\_catalog\_media
 
-Provides a VMware Cloud Director media resource. This can be used to upload media to catalog and delete it.
+Provides a Viettel IDC Cloud media resource. This can be used to upload media to catalog and delete it.
 
 Supported in provider *v2.0+*
 
 ## Example Usage
 
 ```hcl
-data "vcd_catalog" "my-catalog" {
+data "vcloud_catalog" "my-catalog" {
   org  = "my-org"
   name = "my-catalog"
 }
 
-resource "vcd_catalog_media" "myNewMedia" {
+resource "vcloud_catalog_media" "myNewMedia" {
   org        = "my-org"
-  catalog_id = data.vcd_catalog.my-catalog.id
+  catalog_id = data.vcloud_catalog.my-catalog.id
 
   name              = "my iso"
   description       = "new os versions"
@@ -86,7 +86,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_catalog_media" "example" {
+resource "vcloud_catalog_media" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -141,7 +141,7 @@ The path for this resource is made of org-name.catalog-name.media-name
 For example, using this structure, representing a media item that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_catalog_media" "tf-mymedia" {
+resource "vcloud_catalog_media" "tf-mymedia" {
   org     = "my-org"
   catalog = "my-catalog"
   name    = "my-media"
@@ -151,7 +151,7 @@ resource "vcd_catalog_media" "tf-mymedia" {
 You can import such catalog media into terraform state using this command
 
 ```
-terraform import vcd_catalog_media.tf-mymedia my-org.my-catalog.my-media
+terraform import vcloud_catalog_media.tf-mymedia my-org.my-catalog.my-media
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/

@@ -1,20 +1,20 @@
 ---
 layout: "vcd"
-page_title: "Provider: VMware Cloud Director"
+page_title: "Provider: Viettel IDC Cloud"
 sidebar_current: "docs-vcd-index"
 description: |-
-  The VMware Cloud Director provider is used to interact with the resources supported by VMware Cloud Director. The provider needs to be configured with the proper credentials before it can be used.
+  The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 ---
 
-# VMware Cloud Director Provider 3.13
+# Viettel IDC Cloud Provider 3.13
 
-The VMware Cloud Director provider is used to interact with the resources supported by VMware Cloud Director. The provider needs to be configured with the proper credentials before it can be used.
+The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 
 Use the navigation to the left to read about the available resources. Please refer to
 [CHANGELOG.md](https://github.com/vmware/terraform-provider-vcd/blob/main/CHANGELOG.md)
 to track feature additions.
 
-~> **NOTE:** The VMware Cloud Director Provider documentation pages include *v2.x+* or *v3.x+* labels in resource and/or field
+~> **NOTE:** The Viettel IDC Cloud Provider documentation pages include *v2.x+* or *v3.x+* labels in resource and/or field
 descriptions. These labels are designed to show at which provider version a certain feature was introduced.
 When upgrading the provider please check for such labels for the resources you are using.
 
@@ -32,20 +32,20 @@ Also Cloud Director Service (CDS) is supported.
 The most common - tenant - use case when you set user to organization administrator and when all resources are in a single organization. 
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
-  user                 = var.vcd_user
-  password             = var.vcd_pass
+  user                 = var.vcloud_user
+  password             = var.vcloud_pass
   auth_type            = "integrated"
-  org                  = var.vcd_org
-  vdc                  = var.vcd_vdc
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org
+  vdc                  = var.vcloud_vdc
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in organization and VDC defined above
-resource "vcd_network_routed" "net" {
+resource "vcloud_network_routed" "net" {
   # ...
 }
 ```
@@ -55,19 +55,19 @@ resource "vcd_network_routed" "net" {
 When you want to manage resources across different organizations from a single configuration.
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user                 = "administrator"
-  password             = var.vcd_pass
+  password             = var.vcloud_pass
   auth_type            = "integrated"
   org                  = "System"
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in some organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   org = "Org1"
   vdc = "Org1VDC"
 
@@ -75,7 +75,7 @@ resource "vcd_network_routed" "net1" {
 }
 
 # Create a new network in a different organization and VDC
-resource "vcd_network_routed" "net2" {
+resource "vcloud_network_routed" "net2" {
   org = "Org2"
   vdc = "Org2VDC"
 
@@ -88,26 +88,26 @@ resource "vcd_network_routed" "net2" {
 When you want to manage resources across different organizations but set a default one. 
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user                 = "administrator"
-  password             = var.vcd_pass
+  password             = var.vcloud_pass
   auth_type            = "integrated"
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 
 # Create a new network in a specific organization and VDC
-resource "vcd_network_routed" "net2" {
+resource "vcloud_network_routed" "net2" {
   org = "OrgZ"
   vdc = "OrgZVDC"
 
@@ -126,15 +126,15 @@ provider "vcd" {
   auth_type            = "token"
   token                = var.token
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 ```
@@ -144,7 +144,7 @@ When using a token, the fields `user` and `password` will be ignored, but they n
 
 With VCD 10.3.1+, you can connect using an API token, as defined in the [documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html).
 The API token is not a bearer token, but one will be created and automatically used by the Terraform provider when an API
-token is supplied. You can create an API token file by utilizing the [`vcd_api_token`][api-token] resource.
+token is supplied. You can create an API token file by utilizing the [`vcloud_api_token`][api-token] resource.
 
 #### Example usage (API token)
 
@@ -155,15 +155,15 @@ provider "vcd" {
   auth_type            = "api_token"
   api_token            = var.api_token
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 ```
@@ -177,15 +177,15 @@ provider "vcd" {
   auth_type            = "api_token_file"
   api_token            = "token.json"
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 ```
@@ -233,11 +233,11 @@ provider "vcd" {
   auth_type                  = "service_account_token_file"
   service_account_token_file = "token.json"
   sysorg                     = "System"
-  org                        = var.vcd_org # Default for resources
-  vdc                        = var.vcd_vdc # Default for resources
-  url                        = var.vcd_url
-  max_retry_timeout          = var.vcd_max_retry_timeout
-  allow_unverified_ssl       = var.vcd_allow_unverified_ssl
+  org                        = var.vcloud_org # Default for resources
+  vdc                        = var.vcloud_vdc # Default for resources
+  url                        = var.vcloud_url
+  max_retry_timeout          = var.vcloud_max_retry_timeout
+  allow_unverified_ssl       = var.vcloud_allow_unverified_ssl
 }
 ```
 
@@ -292,37 +292,37 @@ Using a token produced by an org admin to run a task that requires a system admi
 Take special attention to `user`, `use_saml_adfs` and `saml_rpt_id` fields.
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user      = "test@contoso.com"
-  password  = var.vcd_pass
+  password  = var.vcloud_pass
   sysorg    = "my-org"
   auth_type = "saml_adfs"
   # If `saml_adfs_rpt_id` is not specified - VCD SAML Entity ID will be used automatically
   saml_adfs_rpt_id     = "my-custom-rpt-id"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 ```
 
 ## Argument Reference
 
-The following arguments are used to configure the VMware Cloud Director Provider:
+The following arguments are used to configure the Viettel IDC Cloud Provider:
 
 * `user` - (Required) This is the username for Cloud Director API operations. Can also be specified
-  with the `VCD_USER` environment variable. *v2.0+* `user` may be "administrator" (set `org` or
+  with the `vcloud_USER` environment variable. *v2.0+* `user` may be "administrator" (set `org` or
   `sysorg` to "System" in this case). 
   *v2.9+* When using with SAML and ADFS - username format must be in Active Directory format -
   `user@contoso.com` or `contoso.com\user` in combination with `use_saml_adfs` option.
   
 * `password` - (Required) This is the password for Cloud Director API operations. Can
-  also be specified with the `VCD_PASSWORD` environment variable.
+  also be specified with the `vcloud_PASSWORD` environment variable.
 
 * `auth_type` - (Optional) `integrated`, `token`, `api_token`, `service_account_token_file` or `saml_adfs`. 
-  Default is `integrated`. Can also be set with `VCD_AUTH_TYPE` environment variable. 
+  Default is `integrated`. Can also be set with `vcloud_AUTH_TYPE` environment variable. 
   * `integrated` - VCD local users and LDAP users (provided LDAP is configured for Organization).
   * `saml_adfs` allows to use SAML login flow with Active Directory Federation
   Services (ADFS) using "/adfs/services/trust/13/usernamemixed" endpoint. Please note that
@@ -336,50 +336,50 @@ The following arguments are used to configure the VMware Cloud Director Provider
 * `token` - (Optional; *v2.6+*) This is the bearer token that can be used instead of username
    and password (in combination with field `auth_type=token`). When this is set, username and
    password will be ignored, but should be left in configuration either empty or with any custom
-   values. A token can be specified with the `VCD_TOKEN` environment variable.
+   values. A token can be specified with the `vcloud_TOKEN` environment variable.
    Both a (deprecated) authorization token or a bearer token (*v3.1+*) can be used in this field.
 
 * `api_token` - (Optional; *v3.5+*) This is the API token that a System or organization administrator can create and 
    distribute to users. It is used instead of username and password (in combination with `auth_type=api_token`). When
-   this field is filled, username and password are ignored. An API token can also be specified with the `VCD_API_TOKEN`
+   this field is filled, username and password are ignored. An API token can also be specified with the `vcloud_API_TOKEN`
    environment variable. This token requires at least VCD 10.3.1. There are restrictions to its use, as defined in
    [the documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html)
 
 * `api_token_file` - (Optional; *v3.10+*)) Same as `api_token`, only provided 
-   as a JSON file. Can also be specified with the `VCD_API_TOKEN_FILE` environment variable.
+   as a JSON file. Can also be specified with the `vcloud_API_TOKEN_FILE` environment variable.
  
 * `service_account_token_file` - (Optional; *v3.9+, VCD 10.4+*) This is the file that contains a Service Account API token. The
    path to the file could be provided as absolute or relative to the working directory. It is used instead of username
    and password (in combination with `auth_type=service_account_token_file`. The file can also be specified with the 
-   `VCD_SA_TOKEN_FILE` environment variable. There are restrictions to its use, as defined in 
+   `vcloud_SA_TOKEN_FILE` environment variable. There are restrictions to its use, as defined in 
    [the documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-8CD3C8BE-3187-4769-B960-3E3315492C16.html)
 
 * `allow_service_account_token_file` - (Optional; *v3.9+, VCD 10.4+*) When using `auth_type=service_account_token_file`,
   if set to `true`, will suppress a warning to the user about the service account token file containing *sensitive information*.
-  Can also be set with `VCD_ALLOW_SA_TOKEN_FILE`.
+  Can also be set with `vcloud_ALLOW_SA_TOKEN_FILE`.
 
 * `saml_adfs_rpt_id` - (Optional) When using `auth_type=saml_adfs` VCD SAML entity ID will be used
   as Relaying Party Trust Identifier (RPT ID) by default. If a different RPT ID is needed - one can
-  set it using this field. It can also be set with `VCD_SAML_ADFS_RPT_ID` environment variable.
+  set it using this field. It can also be set with `vcloud_SAML_ADFS_RPT_ID` environment variable.
 
 * `org` - (Required) This is the Cloud Director Org on which to run API
-  operations. Can also be specified with the `VCD_ORG` environment
+  operations. Can also be specified with the `vcloud_ORG` environment
   variable.  
   *v2.0+* `org` may be set to "System" when connection as Sys Admin is desired
   (set `user` to "administrator" in this case).  
   Note: `org` value is case sensitive.
   
 * `sysorg` - (Optional; *v2.0+*) - Organization for user authentication. Can also be
-   specified with the `VCD_SYS_ORG` environment variable. Set `sysorg` to "System" and
+   specified with the `vcloud_SYS_ORG` environment variable. Set `sysorg` to "System" and
    `user` to "administrator" to free up `org` argument for setting a default organization
    for resources to use.
    
 * `url` - (Required) This is the URL for the Cloud Director API endpoint. e.g.
-  https://server.domain.com/api. Can also be specified with the `VCD_URL` environment variable.
+  https://server.domain.com/api. Can also be specified with the `vcloud_URL` environment variable.
   
 * `vdc` - (Optional) This is the virtual datacenter within Cloud Director to run
   API operations against. If not set the plugin will select the first virtual
-  datacenter available to your Org. Can also be specified with the `VCD_VDC` environment
+  datacenter available to your Org. Can also be specified with the `vcloud_VDC` environment
   variable.
   
 * `max_retry_timeout` - (Optional) This provides you with the ability to specify the maximum
@@ -387,7 +387,7 @@ The following arguments are used to configure the VMware Cloud Director Provider
   by Cloud Director to be successful. If a resource action fails, the action will be retried
   (as long as it is still within the `max_retry_timeout` value) to try and ensure success.
   Defaults to 60 seconds if not set.
-  Can also be specified with the `VCD_MAX_RETRY_TIMEOUT` environment variable.
+  Can also be specified with the `vcloud_MAX_RETRY_TIMEOUT` environment variable.
   
 * `maxRetryTimeout` - (Deprecated) Use `max_retry_timeout` instead.
 
@@ -395,14 +395,14 @@ The following arguments are used to configure the VMware Cloud Director Provider
   disable SSL certificate verification. This should be used with care as it
   could allow an attacker to intercept your auth token. If omitted, default
   value is false. Can also be specified with the
-  `VCD_ALLOW_UNVERIFIED_SSL` environment variable.
+  `vcloud_ALLOW_UNVERIFIED_SSL` environment variable.
 
 * `logging` - (Optional; *v2.0+*) Boolean that enables API calls logging from upstream library `go-vcloud-director`. 
    The logging file will record all API requests and responses, plus some debug information that is part of this 
-   provider. Logging can also be activated using the `VCD_API_LOGGING` environment variable.
+   provider. Logging can also be activated using the `vcloud_API_LOGGING` environment variable.
 
 * `logging_file` - (Optional; *v2.0+*) The name of the log file (when `logging` is enabled). By default is 
-  `go-vcloud-director` and it can also be changed using the `VCD_API_LOGGING_FILE` environment variable.
+  `go-vcloud-director` and it can also be changed using the `vcloud_API_LOGGING_FILE` environment variable.
   
 * `import_separator` - (Optional; *v2.5+*) The string to be used as separator with `terraform import`. By default
   it is a dot (`.`).
@@ -430,11 +430,11 @@ in the code is NOT recommended. In the event that it contains such conflict, tho
 The available sub-attributes for `ignore_metadata_changes` are:
 
 * `resource_type` - (Optional) Specifies the resource type which metadata needs to be ignored. If set, the resource type must be one of:
-  *"vcd_catalog"*, *"vcd_catalog_item"*, *"vcd_catalog_media"*, *"vcd_catalog_vapp_template"*, *"vcd_independent_disk"*, *"vcd_network_direct"*,
-  *"vcd_network_isolated"*, *"vcd_network_isolated_v2"*, *"vcd_network_routed"*, *"vcd_network_routed_v2"*, *"vcd_org"*, *"vcd_org_vdc"*, *"vcd_provider_vdc"*,
-  *"vcd_rde" (v3.11+)*, *"vcd_storage_profile"*, *"vcd_vapp"*, *"vcd_vapp_vm"* or *"vcd_vm"*, which are the resources compatible with `metadata_entry`.
+  *"vcloud_catalog"*, *"vcloud_catalog_item"*, *"vcloud_catalog_media"*, *"vcloud_catalog_vapp_template"*, *"vcloud_independent_disk"*, *"vcloud_network_direct"*,
+  *"vcloud_network_isolated"*, *"vcloud_network_isolated_v2"*, *"vcloud_network_routed"*, *"vcloud_network_routed_v2"*, *"vcloud_org"*, *"vcloud_org_vdc"*, *"vcloud_provider_vdc"*,
+  *"vcloud_rde" (v3.11+)*, *"vcloud_storage_profile"*, *"vcloud_vapp"*, *"vcloud_vapp_vm"* or *"vcloud_vm"*, which are the resources compatible with `metadata_entry`.
 * `resource_name`- (Optional) Specifies the name of the entity in VCD which metadata needs to be ignored. This attribute can be used with
-   any kind of `resource_type`, except for *vcd_storage_profile* which **cannot be filtered by name**.
+   any kind of `resource_type`, except for *vcloud_storage_profile* which **cannot be filtered by name**.
 * `key_regex`- (Optional) A regular expression that can filter out metadata keys that match. Either `key_regex` or `value_regex` are required on each block. 
 * `value_regex`- (Optional) A regular expression that can filter out metadata values that match. Either `key_regex` or `value_regex` are required on each block.
 * `conflict_action` - (Optional) Defines what to do if a conflict exists between a `metadata_entry` that is managed
@@ -452,7 +452,7 @@ that belong to the specific Organization named "client1" **and** which keys matc
 provider "vcd" {
   # ...
   ignore_metadata_changes {
-    resource_type = "vcd_org"
+    resource_type = "vcloud_org"
     resource_name = "client1"
     key_regex     = "[Ee]nvironment"
     # Setting this value to 'warn' will make all 'metadata_entry' entries that
@@ -481,13 +481,13 @@ provider "vcd" {
 
   # Filters all metadata with values "Yes" in the Organization named "Tatooine".
   ignore_metadata_changes {
-    resource_type = "vcd_org"
+    resource_type = "vcloud_org"
     resource_name = "Tatooine"
     value_regex   = "^Yes$"
   }
 }
 
-resource "vcd_org" "my_org" {
+resource "vcloud_org" "my_org" {
   name = "MyOrg"
   # ...
 
@@ -509,7 +509,7 @@ Note that this argument **does not affect metadata of the [data source filters](
 ## Connection Cache (*2.0+*)
 
 Cloud Director connection calls can be expensive, and if a definition file contains several resources, it may trigger 
-multiple connections. There is a cache engine, disabled by default, which can be activated by the `VCD_CACHE` 
+multiple connections. There is a cache engine, disabled by default, which can be activated by the `vcloud_CACHE` 
 environment variable. When enabled, the provider will not reconnect, but reuse an active connection for up to 20 
 minutes, and then connect again.
 

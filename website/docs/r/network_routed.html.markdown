@@ -1,26 +1,26 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_routed"
+page_title: "Viettel IDC Cloud: vcloud_network_routed"
 sidebar_current: "docs-vcd-resource-network-routed"
 description: |-
-  Provides a VMware Cloud Director Org VDC routed Network. This can be used to create, modify, and delete internal networks for vApps to connect.
+  Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
 # vcd\_network\_routed
 
-Provides a VMware Cloud Director Org VDC routed Network. This can be used to create,
+Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create,
 modify, and delete internal networks for vApps to connect.
 
 Supported in provider *v2.0+*
 
 ~> **Note:** This resource supports only NSX-V backed Org VDC networks.
-Please use newer [`vcd_network_routed_v2`](/providers/vmware/vcd/latest/docs/resources/network_routed_v2) resource
+Please use newer [`vcloud_network_routed_v2`](/providers/vmware/vcd/latest/docs/resources/network_routed_v2) resource
 which is compatible with NSX-T.
 
 ## Example Usage
 
 ```hcl
-resource "vcd_network_routed" "net" {
+resource "vcloud_network_routed" "net" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -95,7 +95,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_network_routed" "example" {
+resource "vcloud_network_routed" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -139,7 +139,7 @@ The path for this resource is made of orgName.vdcName.networkName.
 For example, using this structure, representing a routed network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_network_routed" "tf-mynet" {
+resource "vcloud_network_routed" "tf-mynet" {
   name         = "my-net"
   org          = "my-org"
   vdc          = "my-vdc"
@@ -151,10 +151,10 @@ resource "vcd_network_routed" "tf-mynet" {
 You can import such routed network into terraform state using this command
 
 ```
-terraform import vcd_network_routed.tf-mynet my-org.my-vdc.my-net
+terraform import vcloud_network_routed.tf-mynet my-org.my-vdc.my-net
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm_internal_disk"
+page_title: "Viettel IDC Cloud: vcloud_vm_internal_disk"
 sidebar_current: "docs-vcd-vm-internal-disk"
 description: |-
-  Provides a VMware Cloud Director VM internal disk resource. This can be used to create and delete VM internal disks.
+  Provides a Viettel IDC Cloud VM internal disk resource. This can be used to create and delete VM internal disks.
 ---
 
 # vcd\_vm\_internal\_disk
@@ -21,7 +21,7 @@ Supported in provider *v2.7+*
 ## Example Usage
 
 ```hcl
-resource "vcd_vm_internal_disk" "disk1" {
+resource "vcloud_vm_internal_disk" "disk1" {
   vapp_name       = "my-vapp"
   vm_name         = "my-vm1"
   bus_type        = "sata"
@@ -30,7 +30,7 @@ resource "vcd_vm_internal_disk" "disk1" {
   unit_number     = 1
   storage_profile = "Development"
   allow_vm_reboot = true
-  depends_on      = ["vcd_vapp_vm.web1"]
+  depends_on      = ["vcloud_vapp_vm.web1"]
 }
 ```
 
@@ -66,7 +66,7 @@ The path for this resource is made of org-name.vdc-name.vapp-name.vm-name.disk-i
 For example, using this structure, representing a VM internal disk that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_vm_internal_disk" "tf-myInternalDisk" {
+resource "vcloud_vm_internal_disk" "tf-myInternalDisk" {
   org       = "my-org"
   vdc       = "my-vdc"
   vapp_name = "my-vapp"
@@ -77,7 +77,7 @@ resource "vcd_vm_internal_disk" "tf-myInternalDisk" {
 You can import such VM internal disk into terraform state using this command
 
 ```
-terraform import vcd_vm_internal_disk.tf-myInternalDisk my-org.my-vdc.my-vapp.my-vm.my-disk-id
+terraform import vcloud_vm_internal_disk.tf-myInternalDisk my-org.my-vdc.my-vapp.my-vm.my-disk-id
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
@@ -87,13 +87,13 @@ further operations.
 
 ### Listing VM internal disk IDs
 
-If you want to list IDs there is a special command **`terraform import vcd_vm_internal_disk.imported list@org-name.vcd-name.vapp-name.vm-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vm_internal_disk.imported list@org-name.vcd-name.vapp-name.vm-name`**
 where `org-name` is the organization used, `vdc-name` is vDC name, `vapp-name` is vAPP name and `vm_name` is VM name in that vAPP.
 The output for this command should look similar to the one below:
 
 ```shell
-$ terraform import vcd_vm_internal_disk.imported list@org-name.vdc-name.vapp-name.vm-name
-vcd_vm_internal_disk.imported: Importing from ID "list@org-name.vdc-name.vapp-name.vm-name"...
+$ terraform import vcloud_vm_internal_disk.imported list@org-name.vdc-name.vapp-name.vm-name
+vcloud_vm_internal_disk.imported: Importing from ID "list@org-name.vdc-name.vapp-name.vm-name"...
 Retrieving all disks
 No	ID	    BusType		BusNumber	UnitNumber	Size	StoragePofile	Iops	ThinProvisioned
 --	--	    -------		---------	----------	----	-------------	----	---------------
@@ -111,5 +111,5 @@ Error: resource was not imported! resource id must be specified in one of these 
 Now to import disk with ID 3001 one could supply this command:
 
 ```shell
-$ terraform import vcd_vm_internal_disk.imported org-name.vdc-name.vapp-name.vm-name.3001
+$ terraform import vcloud_vm_internal_disk.imported org-name.vdc-name.vapp-name.vm-name.3001
 ```

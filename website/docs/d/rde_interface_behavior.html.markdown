@@ -1,37 +1,37 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_interface_behavior"
+page_title: "Viettel IDC Cloud: vcloud_rde_interface_behavior"
 sidebar_current: "docs-vcd-data-source-rde-interface-behavior"
 description: |-
-   Provides the capability of fetching an existing RDE Interface Behavior from VMware Cloud Director.
+   Provides the capability of fetching an existing RDE Interface Behavior from Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_interface\_behavior
 
-Provides the capability of fetching an existing RDE Interface Behavior from VMware Cloud Director.
+Provides the capability of fetching an existing RDE Interface Behavior from Viettel IDC Cloud.
 
 Supported in provider *v3.10+*. Requires System Administrator privileges.
 
 ## Example Usage
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "vmware"
   nss     = "k8s"
   version = "1.0.0"
 }
 
-data "vcd_rde_interface_behavior" "my_behavior" {
-  rde_interface_id = data.vcd_rde_interface.my_interface.id
+data "vcloud_rde_interface_behavior" "my_behavior" {
+  rde_interface_id = data.vcloud_rde_interface.my_interface.id
   name             = "createKubeConfig"
 }
 
 output "execution_id" {
-  value = data.vcd_rde_interface_behavior.my_behavior.execution.id
+  value = data.vcloud_rde_interface_behavior.my_behavior.execution.id
 }
 
 output "execution_type" {
-  value = data.vcd_rde_interface_behavior.my_behavior.execution.type
+  value = data.vcloud_rde_interface_behavior.my_behavior.execution.type
 }
 ```
 

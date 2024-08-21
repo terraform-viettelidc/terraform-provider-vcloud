@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: VDC Groups"
+page_title: "Viettel IDC Cloud: VDC Groups"
 sidebar_current: "docs-vcd-guides-vdc-groups"
 description: |-
   Provides guidance to VDC Group support
 ---
 
-# VDC Groups in VMware Cloud Director 10.2+
+# VDC Groups in Viettel IDC Cloud 10.2+
 
 ## About 
 
-Starting with version 10.2, VMware Cloud Director supports data center group networking backed by
+Starting with version 10.2, Viettel IDC Cloud supports data center group networking backed by
 NSX-T Data Center.
 
 To create a network across multiple organization VDCs, you first group the VDCs and then create a
@@ -41,7 +41,7 @@ external network.
 VDC Group support requires:
 
 * Terraform Provider VCD 3.6+
-* VMware Cloud Director 10.2+
+* Viettel IDC Cloud 10.2+
 
 -> For changed fields (these are usually `vdc` and `owner_id`) the previous behavior is deprecated,
 but still supported. To use VDC Groups though, one needs to migrate to new configuration, which
@@ -62,28 +62,28 @@ section.
 The following list of resources (and their corresponding data sources) support NSX-T VDC Groups (no
 NSX-V VDC Group support is provided):
 
-* [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway)
-* [vcd_network_routed_v2](/providers/vmware/vcd/latest/docs/resources/network_routed_v2)
-* [vcd_network_isolated_v2](/providers/vmware/vcd/latest/docs/resources/network_isolated_v2)
-* [vcd_nsxt_network_imported](/providers/vmware/vcd/latest/docs/resources/nsxt_network_imported)
-* [vcd_nsxt_ip_set](/providers/vmware/vcd/latest/docs/resources/nsxt_ip_set)
-* [vcd_nsxt_app_port_profile](/providers/vmware/vcd/latest/docs/resources/nsxt_app_port_profile)
-* [vcd_nsxt_security_group](/providers/vmware/vcd/latest/docs/resources/nsxt_security_group)
-* [vcd_nsxt_network_dhcp](/providers/vmware/vcd/latest/docs/resources/nsxt_network_dhcp)
-* [vcd_nsxt_distributed_firewall](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
-* [vcd_nsxt_network_context_profile](/providers/vmware/vcd/latest/docs/data-sources/nsxt_network_context_profile)
-* [vcd_nsxt_firewall](/providers/vmware/vcd/latest/docs/resources/nsxt_firewall)
-* [vcd_nsxt_nat_rule](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule)
-* [vcd_nsxt_ipsec_vpn_tunnel](/providers/vmware/vcd/latest/docs/resources/nsxt_ipsec_vpn_tunnel)
-* [vcd_nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
-* [vcd_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
-* [vcd_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
-* [vcd_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
+* [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway)
+* [vcloud_network_routed_v2](/providers/vmware/vcd/latest/docs/resources/network_routed_v2)
+* [vcloud_network_isolated_v2](/providers/vmware/vcd/latest/docs/resources/network_isolated_v2)
+* [vcloud_nsxt_network_imported](/providers/vmware/vcd/latest/docs/resources/nsxt_network_imported)
+* [vcloud_nsxt_ip_set](/providers/vmware/vcd/latest/docs/resources/nsxt_ip_set)
+* [vcloud_nsxt_app_port_profile](/providers/vmware/vcd/latest/docs/resources/nsxt_app_port_profile)
+* [vcloud_nsxt_security_group](/providers/vmware/vcd/latest/docs/resources/nsxt_security_group)
+* [vcloud_nsxt_network_dhcp](/providers/vmware/vcd/latest/docs/resources/nsxt_network_dhcp)
+* [vcloud_nsxt_distributed_firewall](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
+* [vcloud_nsxt_network_context_profile](/providers/vmware/vcd/latest/docs/data-sources/nsxt_network_context_profile)
+* [vcloud_nsxt_firewall](/providers/vmware/vcd/latest/docs/resources/nsxt_firewall)
+* [vcloud_nsxt_nat_rule](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule)
+* [vcloud_nsxt_ipsec_vpn_tunnel](/providers/vmware/vcd/latest/docs/resources/nsxt_ipsec_vpn_tunnel)
+* [vcloud_nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
+* [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
+* [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
+* [vcloud_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
 
 The next sub-sections will cover some specifics for resources that have it. Resources that are not
 explicitly mentioned here simply introduce `owner_id` field over deprecated `vdc` field.
 
-#### Resource vcd_nsxt_edgegateway
+#### Resource vcloud_nsxt_edgegateway
 
 New fields for handling both VDCs and VDC Groups:
 
@@ -97,15 +97,15 @@ New fields for handling both VDCs and VDC Groups:
   picked for Edge Gateway creation and then immediately moved to VDC Group as specified in
   `owner_id`.
 
-#### Resource vcd_network_routed_v2
+#### Resource vcloud_network_routed_v2
 
-Terraform Provider VCD 3.6.0 changes behavior of `vcd_network_routed_v2` resource. It __does not
+Terraform Provider VCD 3.6.0 changes behavior of `vcloud_network_routed_v2` resource. It __does not
 require__ to specify `vdc` or `owner_id` fields. Instead, it inherits VDC or VDC Group membership
 directly from parent Edge Gateway (specified in `edge_gateway_id`). The reason for this is that
 routed Org VDC networks travel to and from VDC Groups with parent Edge Gateway and this does not
 work well with Terraform concept.
 
-#### Resource vcd_nsxt_app_port_profile
+#### Resource vcloud_nsxt_app_port_profile
 
 NSX-T Application Port Profiles that can be used in regular and Distributed Firewalls can be defined
 in multiple contexts - VDC, VDC Group and NSX-T Manager (network provider). This resource introduced
@@ -119,9 +119,9 @@ scoped applications.
 In UI it also does not matter if the Application Port Profile is created in NSX-T Edge Gateway or
 VDC Group - they are still shown in both views. 
 
-#### Resource vcd_nsxt_network_dhcp
+#### Resource vcloud_nsxt_network_dhcp
 
-`vcd_nsxt_network_dhcp` continues to work how it worked before VDC Group rollout. It still requires
+`vcloud_nsxt_network_dhcp` continues to work how it worked before VDC Group rollout. It still requires
 correct `org` and `vdc` fields. The `vdc` field must have a name of any `vdc` in the VDC Group.
 
 ## Complete example for configuration with VDC Groups
@@ -147,21 +147,21 @@ variable "vdc_group_name" {
   type = string
 }
 
-data "vcd_vdc_group" "main" {
+data "vcloud_vdc_group" "main" {
   org  = var.org_name
   name = var.vdc_group_name
 }
 
-data "vcd_external_network_v2" "nsxt-ext-net" {
+data "vcloud_external_network_v2" "nsxt-ext-net" {
   name = var.external_network_name
 }
 
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org      = var.org_name
-  owner_id = data.vcd_vdc_group.main.id
+  owner_id = data.vcloud_vdc_group.main.id
   name     = "nsxt-edge-gateway"
 
-  external_network_id = data.vcd_external_network_v2.nsxt-ext-net.id
+  external_network_id = data.vcloud_external_network_v2.nsxt-ext-net.id
 
   subnet {
     gateway       = "10.10.10.253"
@@ -174,11 +174,11 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
   }
 }
 
-resource "vcd_network_routed_v2" "nsxt-backed" {
+resource "vcloud_network_routed_v2" "nsxt-backed" {
   org  = var.org_name
   name = "nsxt-routed-net-1"
 
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   gateway       = "1.1.1.1"
   prefix_length = 24
@@ -189,9 +189,9 @@ resource "vcd_network_routed_v2" "nsxt-backed" {
   }
 }
 
-resource "vcd_nsxt_network_dhcp" "pools" {
+resource "vcloud_nsxt_network_dhcp" "pools" {
   vdc            = var.vdc_name
-  org_network_id = vcd_network_routed_v2.nsxt-backed.id
+  org_network_id = vcloud_network_routed_v2.nsxt-backed.id
 
   pool {
     start_address = "1.1.1.111"
@@ -204,9 +204,9 @@ resource "vcd_nsxt_network_dhcp" "pools" {
   }
 }
 
-resource "vcd_network_isolated_v2" "nsxt-backed" {
+resource "vcloud_network_isolated_v2" "nsxt-backed" {
   org      = var.org_name
-  owner_id = data.vcd_vdc_group.main.id
+  owner_id = data.vcloud_vdc_group.main.id
 
   name = "nsxt-isolated-1"
 
@@ -219,9 +219,9 @@ resource "vcd_network_isolated_v2" "nsxt-backed" {
   }
 }
 
-resource "vcd_nsxt_network_imported" "nsxt-backed" {
+resource "vcloud_nsxt_network_imported" "nsxt-backed" {
   org      = var.org_name
-  owner_id = data.vcd_vdc_group.main.id
+  owner_id = data.vcloud_vdc_group.main.id
 
   name = "nsxt-imported-network"
 
@@ -236,11 +236,11 @@ resource "vcd_nsxt_network_imported" "nsxt-backed" {
   }
 }
 
-resource "vcd_nsxt_app_port_profile" "custom" {
+resource "vcloud_nsxt_app_port_profile" "custom" {
   org  = var.org_name
   name = "custom_app_prof"
 
-  context_id = data.vcd_vdc_group.main.id
+  context_id = data.vcloud_vdc_group.main.id
 
   description = "Application port profile for custom"
   scope       = "TENANT"
@@ -250,41 +250,41 @@ resource "vcd_nsxt_app_port_profile" "custom" {
   }
 }
 
-resource "vcd_nsxt_ip_set" "ipset1" {
+resource "vcloud_nsxt_ip_set" "ipset1" {
   org             = var.org_name
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   name         = "local-gateway"
   ip_addresses = ["10.1.1.1"]
 }
 
-resource "vcd_nsxt_security_group" "net" {
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+resource "vcloud_nsxt_security_group" "net" {
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   name        = "routed-network"
   description = "Security Group containing routed network members"
 
-  member_org_network_ids = [vcd_network_routed_v2.nsxt-backed.id]
+  member_org_network_ids = [vcloud_network_routed_v2.nsxt-backed.id]
 }
 
-data "vcd_nsxt_network_context_profile" "av" {
-  context_id = data.vcd_vdc_group.main.id
+data "vcloud_nsxt_network_context_profile" "av" {
+  context_id = data.vcloud_vdc_group.main.id
   name       = "360ANTIV"
 }
 
-resource "vcd_nsxt_distributed_firewall" "t1" {
+resource "vcloud_nsxt_distributed_firewall" "t1" {
   org          = var.org_name
-  vdc_group_id = data.vcd_vdc_group.main.id
+  vdc_group_id = data.vcloud_vdc_group.main.id
 
   rule {
     name    = "rule1"
     action  = "ALLOW"
     comment = "Accept "
 
-    source_ids      = [vcd_nsxt_security_group.net.id]
-    destination_ids = [vcd_nsxt_ip_set.ipset1.id]
+    source_ids      = [vcloud_nsxt_security_group.net.id]
+    destination_ids = [vcloud_nsxt_ip_set.ipset1.id]
 
-    network_context_profile_ids = [data.vcd_nsxt_network_context_profile.av.id]
+    network_context_profile_ids = [data.vcloud_nsxt_network_context_profile.av.id]
   }
 
   rule {
@@ -293,7 +293,7 @@ resource "vcd_nsxt_distributed_firewall" "t1" {
     ip_protocol = "IPV6"
     direction   = "IN"
 
-    app_port_profile_ids = [vcd_nsxt_app_port_profile.custom.id]
+    app_port_profile_ids = [vcloud_nsxt_app_port_profile.custom.id]
   }
 
   rule {
@@ -305,5 +305,5 @@ resource "vcd_nsxt_distributed_firewall" "t1" {
 ```
 ## References
 
-* [VMware Cloud Director Documentation about VDC
+* [Viettel IDC Cloud Documentation about VDC
   Groups](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-E8A8CD70-31AD-4592-B520-34E3B7DC4E6E.html)

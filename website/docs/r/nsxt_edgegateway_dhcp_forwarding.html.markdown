@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_dhcp_forwarding"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcp_forwarding"
 sidebar_current: "docs-vcd-resource-nsxt-edge-dhcp-forwarding"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway DHCP forwarding configuration.
@@ -15,21 +15,21 @@ Provides a resource to manage NSX-T Edge Gateway DHCP forwarding configuration.
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "v1" {
+data "vcloud_org_vdc" "v1" {
   org  = "datacloud"
   name = "nsxt-vdc-datacloud"
 }
 
-data "vcd_nsxt_edgegateway" "testing-in-vdc" {
+data "vcloud_nsxt_edgegateway" "testing-in-vdc" {
   org      = "datacloud"
-  owner_id = data.vcd_org_vdc.v1.id
+  owner_id = data.vcloud_org_vdc.v1.id
 
   name = "nsxt-gw-datacloud"
 }
 
-resource "vcd_nsxt_edgegateway_dhcp_forwarding" "testing-in-vdc" {
+resource "vcloud_nsxt_edgegateway_dhcp_forwarding" "testing-in-vdc" {
   org             = "datacloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
 
   enabled = true
 
@@ -63,9 +63,9 @@ An existing Edge Gateway DHCP forwarding configuration can be
 full dot separated path. For example: 
 
 ```hcl
-resource "vcd_nsxt_edgegateway_dhcp_forwarding" "imported" {
+resource "vcloud_nsxt_edgegateway_dhcp_forwarding" "imported" {
   org             = "my-org"
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   enabled = true
   dhcp_servers = [
@@ -76,10 +76,10 @@ resource "vcd_nsxt_edgegateway_dhcp_forwarding" "imported" {
 
 You can import such configuration into terraform state using this command
 ```
-terraform import vcd_nsxt_edgegateway_dhcp_forwarding.imported my-org.nsxt-vdc.nsxt-edge
+terraform import vcloud_nsxt_edgegateway_dhcp_forwarding.imported my-org.nsxt-vdc.nsxt-edge
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 The above would import the `nsxt-edge` Edge Gateway DHCP forwarding configuration for this particular
 Edge Gateway.

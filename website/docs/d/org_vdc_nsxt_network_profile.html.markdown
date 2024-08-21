@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_vdc_nsxt_network_profile"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc_nsxt_network_profile"
 sidebar_current: "docs-vcd-data-source-nsxt-segment-profile-template"
 description: |-
   Provides a data source to read Network Profile for NSX-T VDCs.
@@ -15,7 +15,7 @@ Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc_nsxt_network_profile" "nsxt" {
+data "vcloud_org_vdc_nsxt_network_profile" "nsxt" {
   org = "my-org"
   vdc = "my-vdc"
 }

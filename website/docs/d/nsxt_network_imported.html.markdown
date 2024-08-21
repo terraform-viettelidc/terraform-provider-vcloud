@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_network_imported"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_imported"
 sidebar_current: "docs-vcd-data-source-nsxt-network-imported"
 description: |-
-  Provides a VMware Cloud Director Org VDC NSX-T Imported Network data source to read data or reference existing network.
+  Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 ---
 
 # vcd\_nsxt\_network\_imported
 
-Provides a VMware Cloud Director Org VDC NSX-T Imported Network data source to read data or reference existing network.
+Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 
@@ -19,14 +19,14 @@ documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Clou
 ## Example Usage (Looking up Imported Network in VDC)
 
 ```hcl
-data "vcd_org_vdc" "main" {
+data "vcloud_org_vdc" "main" {
   org  = "my-org"
   name = "main-edge"
 }
 
-data "vcd_nsxt_network_imported" "net" {
+data "vcloud_nsxt_network_imported" "net" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.main.id
+  owner_id = data.vcloud_org_vdc.main.id
   name     = "my-net"
 }
 ```
@@ -34,14 +34,14 @@ data "vcd_nsxt_network_imported" "net" {
 ## Example Usage (Looking up Imported Network in VDC Group)
 
 ```hcl
-data "vcd_vdc_group" "main" {
+data "vcloud_vdc_group" "main" {
   org  = "my-org"
   name = "main-group"
 }
 
-data "vcd_nsxt_network_imported" "net" {
+data "vcloud_nsxt_network_imported" "net" {
   org      = "my-org"
-  owner_id = data.vcd_vdc_group.main.id
+  owner_id = data.vcloud_vdc_group.main.id
   name     = "my-net"
 }
 ```

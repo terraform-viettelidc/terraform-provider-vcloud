@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_static_route"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_static_route"
 sidebar_current: "docs-vcd-data-source-nsxt-edgegateway-static-route"
 description: |-
   Provides a data source to read NSX-T Edge Gateway Static Routes.
@@ -15,8 +15,8 @@ Provides a data source to read NSX-T Edge Gateway Static Routes.
 ## Example Usage (by name only)
 
 ```hcl
-data "vcd_nsxt_edgegateway_static_route" "by-name" {
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+data "vcloud_nsxt_edgegateway_static_route" "by-name" {
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
   name            = "existing-static-route"
 }
 ```
@@ -24,8 +24,8 @@ data "vcd_nsxt_edgegateway_static_route" "by-name" {
 ## Example Usage (by name and network CIDR )
 
 ```hcl
-data "vcd_nsxt_edgegateway_static_route" "by-name-and-cidr" {
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+data "vcloud_nsxt_edgegateway_static_route" "by-name-and-cidr" {
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
   name            = "duplicate-name-sr"
   network_cidr    = "10.10.11.0/24"
 }
@@ -47,5 +47,5 @@ make the filtering more precise by supplying `network_cidr` in addition to `name
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_edgegateway_static_route`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_static_route)
+[`vcloud_nsxt_edgegateway_static_route`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_static_route)
 resource are available.

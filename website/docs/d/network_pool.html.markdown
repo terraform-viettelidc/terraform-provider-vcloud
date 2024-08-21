@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_pool"
+page_title: "Viettel IDC Cloud: vcloud_network_pool"
 sidebar_current: "docs-vcd-data-source-network-pool"
 description: |-
   Provides a data source for a network pool attached to a VCD.
@@ -15,7 +15,7 @@ Supported in provider *v3.10+*
 ## Example Usage
 
 ```hcl
-data "vcd_network_pool" "np1" {
+data "vcloud_network_pool" "np1" {
   name = "NSX-T Overlay 1"
 }
 ```
@@ -28,4 +28,4 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All the attributes and arguments of the corresponding resource [vcd_network_pool](/providers/vmware/vcd/latest/docs/resources/network_pool) are supported
+All the attributes and arguments of the corresponding resource [vcloud_network_pool](/providers/vmware/vcd/latest/docs/resources/network_pool) are supported

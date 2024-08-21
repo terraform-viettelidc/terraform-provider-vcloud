@@ -1,27 +1,27 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_segment_spoof_guard_profile"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_spoof_guard_profile"
 sidebar_current: "docs-vcd-data-source-nsxt-segment-spoof-guard-profile"
 description: |-
-  Provides a VMware Cloud Director NSX-T Spoof Guard Profile data source. This can be used to read NSX-T Segment Profile definitions.
+  Provides a Viettel IDC Cloud NSX-T Spoof Guard Profile data source. This can be used to read NSX-T Segment Profile definitions.
 ---
 
 # vcd\_nsxt\_segment\_spoof\_guard\_profile
 
-Provides a VMware Cloud Director Spoof Guard Profile data source. This can be used to read NSX-T Segment Profile definitions.
+Provides a Viettel IDC Cloud Spoof Guard Profile data source. This can be used to read NSX-T Segment Profile definitions.
 
 Supported in provider *v3.11+*.
 
 ## Example Usage (IP Discovery Profile)
 
 ```hcl
-data "vcd_nsxt_manager" "nsxt" {
+data "vcloud_nsxt_manager" "nsxt" {
   name = "nsxManager1"
 }
 
-data "vcd_nsxt_segment_spoof_guard_profile" "first" {
+data "vcloud_nsxt_segment_spoof_guard_profile" "first" {
   name            = "spoof-guard-profile-0"
-  nsxt_manager_id = data.vcd_nsxt_manager.nsxt.id
+  nsxt_manager_id = data.vcloud_nsxt_manager.nsxt.id
 }
 ```
 

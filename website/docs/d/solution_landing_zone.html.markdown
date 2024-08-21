@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_landing_zone"
+page_title: "Viettel IDC Cloud: vcloud_solution_landing_zone"
 sidebar_current: "docs-vcd-data-source-solution-landing-zone"
 description: |-
   Provides a data source to read VCD Solution Add-on Landing Zone.
@@ -17,7 +17,7 @@ Provides a data source to read VCD Solution Add-on Landing Zone.
 ## Example Usage
 
 ```hcl
-data "vcd_solution_landing_zone" "slz" {}
+data "vcloud_solution_landing_zone" "slz" {}
 ```
 
 ## Argument Reference
@@ -27,5 +27,5 @@ No arguments are required because this is a global configuration for VCD
 ## Attribute Reference
 
 All the attributes defined in
-[`vcd_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
+[`vcloud_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
 resource are available.

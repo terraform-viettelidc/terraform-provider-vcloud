@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_item"
+page_title: "Viettel IDC Cloud: vcloud_catalog_item"
 sidebar_current: "docs-vcd-data-source-catalog-item"
 description: |-
   Provides a catalog item data source.
@@ -8,9 +8,9 @@ description: |-
 
 # vcd\_catalog\_item
 
--> If you only need vApp Template features, you may use [`vcd_catalog_vapp_template`](/providers/vmware/vcd/latest/docs/data-sources/catalog_vapp_template) instead.
+-> If you only need vApp Template features, you may use [`vcloud_catalog_vapp_template`](/providers/vmware/vcd/latest/docs/data-sources/catalog_vapp_template) instead.
 
-Provides a VMware Cloud Director Catalog item data source. A Catalog item can be used to reference a catalog item and use its 
+Provides a Viettel IDC Cloud Catalog item data source. A Catalog item can be used to reference a catalog item and use its 
 data within other resources or data sources.
 
 Supported in provider *v2.5+*
@@ -18,28 +18,28 @@ Supported in provider *v2.5+*
 ## Example Usage
 
 ```hcl
-data "vcd_catalog_item" "my-first-item" {
+data "vcloud_catalog_item" "my-first-item" {
   org     = "my-org"
   catalog = "my-cat"
   name    = "my-first-item"
 }
 
-resource "vcd_catalog_item" "my-second-item" {
+resource "vcloud_catalog_item" "my-second-item" {
   # Using the data source, two properties from another catalog items are
   # used in this resource.
   # You can read it as "use the org from catalog item `my-first-item`"
   # and "use the catalog from catalog item `my-first-item`"
-  org     = data.vcd_catalog_item.my-first-item.org
-  catalog = data.vcd_catalog_item.my-first-item.catalog
+  org     = data.vcloud_catalog_item.my-first-item.org
+  catalog = data.vcloud_catalog_item.my-first-item.catalog
 
   name = "my-second-item"
 
   # The description uses the data source to create a dynamic text
   # The description will become "Belongs to my-cat"
-  description       = "Belongs to ${data.vcd_catalog_item.my-first-item.catalog}"
+  description       = "Belongs to ${data.vcloud_catalog_item.my-first-item.catalog}"
   ova_path          = "/path/to/test_vapp_template.ova"
   upload_piece_size = 5
-  metadata          = data.vcd_catalog_item.my-first-item.metadata
+  metadata          = data.vcloud_catalog_item.my-first-item.metadata
 }
 ```
 

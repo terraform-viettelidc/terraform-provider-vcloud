@@ -1,27 +1,27 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_group"
+page_title: "Viettel IDC Cloud: vcloud_org_group"
 sidebar_current: "docs-vcd-datasource-org-group"
 description: |-
-  Provides a data source for VMware Cloud Director Organization Groups.
+  Provides a data source for Viettel IDC Cloud Organization Groups.
 ---
 
 # vcd\_org\_group
 
-Provides a data source for VMware Cloud Director Organization Groups. This can be used to fetch organization groups already defined in `SAML`, `OAUTH` or `LDAP`.
+Provides a data source for Viettel IDC Cloud Organization Groups. This can be used to fetch organization groups already defined in `SAML`, `OAUTH` or `LDAP`.
 
 Supported in provider *v3.6+*
 
 ## Example Usage to fetch an Organization Group
 
 ```hcl
-data "vcd_org_group" "org1" {
+data "vcloud_org_group" "org1" {
   org  = "org1"
   name = "Org1-AdminGroup"
 }
 
 output "group_role" {
-  value = data.vcd_org_group.org1.role
+  value = data.vcloud_org_group.org1.role
 }
 ```
 

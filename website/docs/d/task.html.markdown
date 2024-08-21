@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_task"
+page_title: "Viettel IDC Cloud: vcloud_task"
 sidebar_current: "docs-vcd-data-source-task"
 description: |-
- Provides a VMware Cloud Director Organization Task data source. This can be used to read existing tasks.
+ Provides a Viettel IDC Cloud Organization Task data source. This can be used to read existing tasks.
 ---
 
 # vcd\_task
@@ -15,12 +15,12 @@ Supported in provider *v3.8+*
 ## Example usage
 
 ```hcl
-data "vcd_task" "some-task" {
+data "vcloud_task" "some-task" {
   id = "d4fdcaa9-8db4-45a9-80b8-69de49901bc7"
 }
 
 output "some-task" {
-  value = data.vcd_task.some-task
+  value = data.vcloud_task.some-task
 }
 ```
 

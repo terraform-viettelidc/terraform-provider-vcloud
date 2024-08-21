@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_dnat"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_dnat"
 sidebar_current: "docs-vcd-resource-nsxv-dnat"
 description: |-
-  Provides a VMware Cloud Director DNAT resource for advanced edge gateways (NSX-V). This can be used to create,
+  Provides a Viettel IDC Cloud DNAT resource for advanced edge gateways (NSX-V). This can be used to create,
   modify, and delete destination NATs to map an external IP/port to an internal IP/port.
 ---
 
 # vcd\_nsxv\_dnat
 
-Provides a VMware Cloud Director DNAT resource for advanced edge gateways (NSX-V). This can be used to create,
+Provides a Viettel IDC Cloud DNAT resource for advanced edge gateways (NSX-V). This can be used to create,
 modify, and delete destination NATs to map an external IP/port to an internal IP/port.
 
 ~> **Note:** This resource requires advanced edge gateway.
@@ -17,7 +17,7 @@ modify, and delete destination NATs to map an external IP/port to an internal IP
 ## Example Usage 1 (Minimal input)
 
 ```hcl
-resource "vcd_nsxv_dnat" "web" {
+resource "vcloud_nsxv_dnat" "web" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -33,7 +33,7 @@ resource "vcd_nsxv_dnat" "web" {
 ## Example Usage 2 (ICMP)
 
 ```hcl
-resource "vcd_nsxv_dnat" "forIcmp" {
+resource "vcloud_nsxv_dnat" "forIcmp" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -51,7 +51,7 @@ resource "vcd_nsxv_dnat" "forIcmp" {
 ## Example Usage 3 (More settings)
 
 ```hcl
-resource "vcd_nsxv_dnat" "dnat-tcp" {
+resource "vcloud_nsxv_dnat" "dnat-tcp" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -128,10 +128,10 @@ via supplying the full dot separated path for DNAT rule. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxv_dnat.imported my-org.my-org-vdc.my-edge-gw.my-dnat-rule-id
+terraform import vcloud_nsxv_dnat.imported my-org.my-org-vdc.my-edge-gw.my-dnat-rule-id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 The above would import the application rule named `my-dnat-rule-id` that is defined on edge
 gateway `my-edge-gw` which is configured in organization named `my-org` and vDC named `my-org-vdc`.

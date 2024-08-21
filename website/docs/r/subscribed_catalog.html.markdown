@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog"
+page_title: "Viettel IDC Cloud: vcloud_catalog"
 sidebar_current: "docs-vcd-resource-subscribed-catalog"
 description: |-
-  Provides a VMware Cloud Director subscribed catalog resource. This can be used to create, update, and delete a subscribed catalog.
+  Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to create, update, and delete a subscribed catalog.
 ---
 
 # vcd\_subscribed\_catalog
 
-Provides a VMware Cloud Director subscribed catalog resource. This can be used to create, update, and delete a subscribed catalog.
+Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to create, update, and delete a subscribed catalog.
 
-A `vcd_subscribed_catalog` is a catalog that was created by subscribing to another catalog. It can be used, to some extent,
+A `vcloud_subscribed_catalog` is a catalog that was created by subscribing to another catalog. It can be used, to some extent,
 like any other catalog, but users must keep in mind that this resource depends on the connection to another catalog, which
 may not even be in the same VCD. For more information, see the full [Catalog subscription and sharing](/providers/vmware/vcd/latest/docs/guides/catalog_subscription_and_sharing) guide.
 
@@ -19,7 +19,7 @@ Supported in provider *v3.8+*
 ## Example creation usage
 
 ```hcl
-resource "vcd_subscribed_catalog" "subscriber" {
+resource "vcloud_subscribed_catalog" "subscriber" {
   org  = "my-org"
   name = "subscriber"
 
@@ -39,7 +39,7 @@ When a subscribed catalog needs to be updated (i.e. getting new items that were 
 refresh the resource:
 
 ```hcl
-resource "vcd_subscribed_catalog" "subscriber" {
+resource "vcloud_subscribed_catalog" "subscriber" {
   org  = "my-org"
   name = "subscriber"
 
@@ -109,7 +109,7 @@ An existing subscribed catalog can be [imported][docs-import] into this resource
 catalog. For example, using this structure, representing an existing subscribed catalog that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_subscribed_catalog" "my-catalog" {
+resource "vcloud_subscribed_catalog" "my-catalog" {
   org              = "my-org"
   name             = "my-catalog"
   delete_recursive = true
@@ -121,12 +121,12 @@ resource "vcd_subscribed_catalog" "my-catalog" {
 You can import such catalog into terraform state using this command
 
 ```bash
-terraform import vcd_subscribed_catalog.my-catalog my-org.my-catalog-name
+terraform import vcloud_subscribed_catalog.my-catalog my-org.my-catalog-name
 # or
-terraform import vcd_subscribed_catalog.my-catalog my-org.my-catalog-id
+terraform import vcloud_subscribed_catalog.my-catalog my-org.my-catalog-id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

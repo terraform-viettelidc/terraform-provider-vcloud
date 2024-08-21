@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_controller"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_controller"
 sidebar_current: "docs-vcd-resource-nsxt-alb-controller"
 description: |-
-  Provides a resource to manage ALB Controller for Providers. It helps to integrate VMware Cloud Director with Avi Load Balancer deployment. Controller instances are registered with VMware Cloud Director instance. Controller
+  Provides a resource to manage ALB Controller for Providers. It helps to integrate Viettel IDC Cloud with Avi Load Balancer deployment. Controller instances are registered with Viettel IDC Cloud instance. Controller
   instances serve as a central control plane for the load-balancing services provided by Avi Load Balancer.
 ---
 
@@ -11,20 +11,20 @@ description: |-
 
 Supported in provider *v3.4+* and VCD 10.2+ with NSX-T and ALB.
 
-Provides a resource to manage ALB Controller for Providers. It helps to integrate VMware Cloud Director with Avi 
-Load Balancer deployment. Controller instances are registered with VMware Cloud Director instance. Controller
+Provides a resource to manage ALB Controller for Providers. It helps to integrate Viettel IDC Cloud with Avi 
+Load Balancer deployment. Controller instances are registered with Viettel IDC Cloud instance. Controller
 instances serve as a central control plane for the load-balancing services provided by Avi Load Balancer.
 
 ~> Only `System Administrator` can create this resource.
 
 ~> VCD 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
-[`vcd_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
+[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
 Controller is created. This data should be available 15 minutes after the Controller is created.
 
 ## Example Usage (Adding ALB Controller to provider)
 
 ```hcl
-resource "vcd_nsxt_alb_controller" "first" {
+resource "vcloud_nsxt_alb_controller" "first" {
   name         = "aviController1"
   description  = "first alb controller"
   url          = "https://my.controller"
@@ -65,7 +65,7 @@ via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_controller.imported my-controller-name
+terraform import vcloud_nsxt_alb_controller.imported my-controller-name
 ```
 
 The above would import the `my-controller-name` ALB controller settings that are defined at provider level.

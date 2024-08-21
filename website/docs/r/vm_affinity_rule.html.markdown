@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm_affinity_rule"
+page_title: "Viettel IDC Cloud: vcloud_vm_affinity_rule"
 sidebar_current: "docs-vcd-resource-vm-affinity-rule"
 description: |-
-  Provides a VMware Cloud Director VM affinity rule resource. This can be
+  Provides a Viettel IDC Cloud VM affinity rule resource. This can be
   used to create, modify, and delete VM affinity and anti-affinity rules.
 ---
 
 # vcd\_vm\_affinity\_rule
 
-Provides a VMware Cloud Director VM affinity rule resource. This can be
+Provides a Viettel IDC Cloud VM affinity rule resource. This can be
 used to create, modify, and delete VM affinity and anti-affinity rules.
 
 Supported in provider *v2.9+*
@@ -20,35 +20,35 @@ entities: they are differentiated by the `polarity` property (see below).
 ## Example Usage
 
 ```hcl
-data "vcd_vapp" "Test_EmptyVmVapp1" {
+data "vcloud_vapp" "Test_EmptyVmVapp1" {
   name = "Test_EmptyVmVapp1"
 }
 
-data "vcd_vapp_vm" "Test_EmptyVm1a" {
-  vapp_name = data.vcd_vapp.Test_EmptyVmVapp1.name
+data "vcloud_vapp_vm" "Test_EmptyVm1a" {
+  vapp_name = data.vcloud_vapp.Test_EmptyVmVapp1.name
   name      = "Test_EmptyVm1a"
 }
 
-data "vcd_vapp_vm" "Test_EmptyVm1b" {
-  vapp_name = data.vcd_vapp.Test_EmptyVmVapp1.name
+data "vcloud_vapp_vm" "Test_EmptyVm1b" {
+  vapp_name = data.vcloud_vapp.Test_EmptyVmVapp1.name
   name      = "Test_EmptyVm1b"
 }
 
-data "vcd_vapp_vm" "Test_EmptyVm1c" {
-  vapp_name = data.vcd_vapp.Test_EmptyVmVapp1.name
+data "vcloud_vapp_vm" "Test_EmptyVm1c" {
+  vapp_name = data.vcloud_vapp.Test_EmptyVmVapp1.name
   name      = "Test_EmptyVm1c"
 }
 
-resource "vcd_vm_affinity_rule" "Test_VmAffinityRule1" {
+resource "vcloud_vm_affinity_rule" "Test_VmAffinityRule1" {
   name     = "Test_VmAffinityRule1"
   required = true
   enabled  = true
   polarity = "Affinity"
 
   vm_ids = [
-    data.vcd_vapp_vm.Test_EmptyVm1a.id,
-    data.vcd_vapp_vm.Test_EmptyVm1b.id,
-    data.vcd_vapp_vm.Test_EmptyVm1c.id
+    data.vcloud_vapp_vm.Test_EmptyVm1a.id,
+    data.vcloud_vapp_vm.Test_EmptyVm1b.id,
+    data.vcloud_vapp_vm.Test_EmptyVm1c.id
   ]
 }
 ```
@@ -80,14 +80,14 @@ The `affinityRuleIdentifier` can be either a name or an ID. If it is a name, it 
 For example, using this structure, representing a VM affinity rule that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_vm_affinity_rule" "tf-myar" {
+resource "vcloud_vm_affinity_rule" "tf-myar" {
 }
 ```
 
 You can import such VM affinity rule into terraform state using this command
 
 ```
-terraform import vcd_vm_affinity_rule.tf-myar my-org.my-vdc.my-ar
+terraform import vcloud_vm_affinity_rule.tf-myar my-org.my-vdc.my-ar
 ```
 
 ### Dealing with duplicate or unknown names
@@ -96,8 +96,8 @@ If the name of the affinity rule you want to import is duplicated, when running 
 containing the IDs of the rules, from which you can choose the one you need.
 
 ```
-terraform  import vcd_vm_affinity_rule.unknown my-org.my-vdc.my-ar
-vcd_vm_affinity_rule.unknown: Importing from ID "my-org.my-vdc.my-ar"...
+terraform  import vcloud_vm_affinity_rule.unknown my-org.my-vdc.my-ar
+vcloud_vm_affinity_rule.unknown: Importing from ID "my-org.my-vdc.my-ar"...
 
 Error: [VM affinity rule import] more than one VM affinity rule matches the name my-ar
   0 my-ar               Affinity      eda9011c-6841-4060-9336-d2f609c110c3
@@ -108,8 +108,8 @@ If you want to use an ID, but don't know any names, you can use the `list@` pref
 rules.
 
 ```
-terraform  import vcd_vm_affinity_rule.unknown list@my-org.my-vdc.my-ar
-vcd_vm_affinity_rule.unknown: Importing from ID "my-org.my-vdc.my-ar"...
+terraform  import vcloud_vm_affinity_rule.unknown list@my-org.my-vdc.my-ar
+vcloud_vm_affinity_rule.unknown: Importing from ID "my-org.my-vdc.my-ar"...
 
 Error: [VM affinity rule import] list of all VM affinity rules:
   0 some-rule                      Affinity      a36855cc-5290-4d7f-a4a4-1d8d37b4d887
@@ -117,7 +117,7 @@ Error: [VM affinity rule import] list of all VM affinity rules:
   2 my-ar                          Anti-Affinity 390d737e-45ed-4fa0-86c5-2100efee7808
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

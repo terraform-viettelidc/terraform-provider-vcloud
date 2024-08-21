@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_api_token"
+page_title: "Viettel IDC Cloud: vcloud_api_token"
 sidebar_current: "docs-vcd-resource-api-token"
 description: |-
   Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCD. 
@@ -17,7 +17,7 @@ Supported in provider *v3.10+* and VCD 10.3.1+.
 ## Example usage
 
 ```hcl
-resource "vcd_api_token" "example_token" {
+resource "vcloud_api_token" "example_token" {
   name             = "example_token"
   file_name        = "example_token.json"
   allow_token_file = true
@@ -44,7 +44,7 @@ An existing API token can be [imported][docs-import] into this resource via supp
 the full dot separated path. An example is below:
 
 ```
-terraform import vcd_api_token.example_token example_token
+terraform import vcloud_api_token.example_token example_token
 ```
 
 [api-tokens]: https://blogs.vmware.com/cloudprovider/2022/03/cloud-director-api-token.html

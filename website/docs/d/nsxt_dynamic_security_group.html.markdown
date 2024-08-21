@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_dynamic_security_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_dynamic_security_group"
 sidebar_current: "docs-vcd-data-source-nsxt-dynamic-security-group"
 description: |-
   Provides a data source to read NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
@@ -19,14 +19,14 @@ apply.
 ## Example Usage 1 (Existing Dynamic Security Group lookup)
 
 ```hcl
-data "vcd_vdc_group" "group1" {
+data "vcloud_vdc_group" "group1" {
   org  = "cloud"
   name = "vdc-group-cloud"
 }
 
-data "vcd_nsxt_dynamic_security_group" "group1" {
+data "vcloud_nsxt_dynamic_security_group" "group1" {
   org          = "cloud"
-  vdc_group_id = data.vcd_vdc_group.group1.id
+  vdc_group_id = data.vcloud_vdc_group.group1.id
 
   name = "cloud-dynamic-security-group"
 }
@@ -42,4 +42,4 @@ The following arguments are supported:
 * `name` - (Required) A unique name for existing Dynamic Security Group
 
 All the arguments and attributes defined in
-[`vcd_nsxt_dynamic_security_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_dynamic_security_group) resource are available.
+[`vcloud_nsxt_dynamic_security_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_dynamic_security_group) resource are available.

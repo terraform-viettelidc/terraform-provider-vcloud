@@ -1,21 +1,21 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm"
+page_title: "Viettel IDC Cloud: vcloud_vm"
 sidebar_current: "docs-vcd-datasource-vm"
 description: |-
-  Provides a VMware Cloud Director VM data source. This can be used to access standalone VMs.
+  Provides a Viettel IDC Cloud VM data source. This can be used to access standalone VMs.
 ---
 
 # vcd\_vm
 
-Provides a VMware Cloud Director standalone VM data source. This can be used to access standalone VMs.
+Provides a Viettel IDC Cloud standalone VM data source. This can be used to access standalone VMs.
 
 Supported in provider *v3.2+*
 
 ## Example Usage
 
 ```hcl
-data "vcd_vm" "web1" {
+data "vcloud_vm" "web1" {
   name = "web1"
 }
 ```
@@ -33,7 +33,7 @@ This fact has consequences when defining a data source, where we identify the VM
   
 For example, given this input
 ```hcl
-data "vcd_vm" "test_vm" {
+data "vcloud_vm" "test_vm" {
   name = "TestVm"
 }
 ```
@@ -42,7 +42,7 @@ If multiple VMs have the same name, we get an error like:
 
 ```
 $ terraform apply -auto-approve
-data.vcd_vm.test_vm: Refreshing state...
+data.vcloud_vm.test_vm: Refreshing state...
 
 Error: [VM read] error retrieving VM TestVm by name: more than one VM found with name TestVm
 ID                                                 Guest OS                       Network
@@ -56,14 +56,14 @@ urn:vcloud:vm:41d5d5a7-040e-49cb-a516-5a604211a395 Debian GNU/Linux 10 (32-bit) 
 We can achieve the goal by providing the ID instead of the name
 
 ```hcl
-data "vcd_vm" "test_vm" {
+data "vcloud_vm" "test_vm" {
   name = "urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003"
 }
 ```
 
 ```
  terraform apply -auto-approve
-data.vcd_vm.test_vm: Refreshing state...
+data.vcloud_vm.test_vm: Refreshing state...
 
 Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 ```
@@ -78,5 +78,5 @@ The following arguments are supported:
 
 ## Attributes reference
 
-This data source provides all attributes available for [`vcd_vapp_vm`](/providers/vmware/vcd/latest/docs/data-sources/vapp_vm).
+This data source provides all attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/data-sources/vapp_vm).
 

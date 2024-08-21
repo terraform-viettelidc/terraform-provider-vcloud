@@ -1,19 +1,19 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_external_network"
+page_title: "Viettel IDC Cloud: vcloud_external_network"
 sidebar_current: "docs-vcd-resource-external-network"
 description: |-
-  Provides a VMware Cloud Director external network resource.  This can be used to create and delete external networks.
+  Provides a Viettel IDC Cloud external network resource.  This can be used to create and delete external networks.
 ---
 
 # vcd\_external\_network
 
-Provides a VMware Cloud Director external network resource.  This can be used to create and delete external networks.
+Provides a Viettel IDC Cloud external network resource.  This can be used to create and delete external networks.
 Requires system administrator privileges.
 
 Supported in provider *v2.2+*
 
-~> This resource is deprecated in favor of [`vcd_external_network_v2`](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
+~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
 
 ## Example Usage
 
@@ -25,7 +25,7 @@ provider "vcd" {
   url      = "https://Vcd/api"
 }
 
-resource "vcd_external_network" "net" {
+resource "vcloud_external_network" "net" {
   name        = "my-ext-net"
   description = "Reference for vCD external network"
 
@@ -77,11 +77,11 @@ resource "vcd_external_network" "net" {
   retain_net_info_across_deployments = false
 }
 
-resource "vcd_network_direct" "net" {
+resource "vcloud_network_direct" "net" {
   org              = "my-org"
   vdc              = "my-vdc"
   name             = "my-net"
-  external_network = vcd_external_network.net.name
+  external_network = vcloud_external_network.net.name
 }
 ```
 
@@ -130,7 +130,7 @@ at the top of the vCD hierarchy, the path corresponds to the external network na
 For example, using this structure, representing an existing external network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_external_network" "tf-external-network" {
+resource "vcloud_external_network" "tf-external-network" {
   name = "my-ext-net"
 }
 ```
@@ -138,12 +138,12 @@ resource "vcd_external_network" "tf-external-network" {
 You can import such external network into terraform state using this command
 
 ```
-terraform import vcd_external_network.tf-external-network my-ext-net
+terraform import vcloud_external_network.tf-external-network my-ext-net
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 While the above structure is the minimum needed to get an import, it is not sufficient to run `terraform plan`,
 as it lacks several mandatory fields. To use the imported resource, you will need to add the missing properties

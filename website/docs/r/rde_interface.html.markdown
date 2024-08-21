@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_interface"
+page_title: "Viettel IDC Cloud: vcloud_rde_interface"
 sidebar_current: "docs-vcd-resource-rde-interface"
 description: |-
-   Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in VMware Cloud Director.
+   Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_interface
 
-Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in VMware Cloud Director.
+Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 
 A Runtime Defined Entity Interface is specified unequivocally by 3 elements: `vendor`, `nss` and `version`. This
 3-tuple must be unique. See the examples section for more details.
@@ -20,14 +20,14 @@ Supported in provider *v3.9+*
 ## Example Usage
 
 ```hcl
-resource "vcd_rde_interface" "my_interface1" {
+resource "vcloud_rde_interface" "my_interface1" {
   vendor  = "bigcorp"
   nss     = "tech"
   version = "1.2.3"
   name    = "BigCorp Interface"
 }
 
-resource "vcd_rde_interface" "my_interface2" {
+resource "vcloud_rde_interface" "my_interface2" {
   vendor  = "bigcorp"
   nss     = "tech"
   version = "1.2.4"
@@ -63,7 +63,7 @@ unequivocally identifies it.
 For example, using this structure, representing an existing RDE Interface that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_rde_interface" "outer_interface" {
+resource "vcloud_rde_interface" "outer_interface" {
   vendor  = "bigcorp"
   nss     = "tech"
   version = "4.5.6"
@@ -73,10 +73,10 @@ resource "vcd_rde_interface" "outer_interface" {
 You can import such RDE Interface into Terraform state using this command
 
 ```
-terraform import vcd_rde_interface.outer_interface bigcorp.tech.4.5.6
+terraform import vcloud_rde_interface.outer_interface bigcorp.tech.4.5.6
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

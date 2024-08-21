@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_network_dhcp_binding"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp_binding"
 sidebar_current: "docs-vcd-resource-nsxt-network-dhcp-binding"
 description: |-
   Provides a resource to manage NSX-T Org VDC network DHCP bindings.
@@ -15,10 +15,10 @@ Provides a resource to manage NSX-T Org VDC network DHCP bindings.
 ## Example Usage (IPv4 binding)
 
 ```hcl
-resource "vcd_nsxt_network_dhcp" "pools" {
+resource "vcloud_nsxt_network_dhcp" "pools" {
   org = "cloud"
 
-  org_network_id      = vcd_network_isolated_v2.net1.id
+  org_network_id      = vcloud_network_isolated_v2.net1.id
   mode                = "NETWORK"
   listener_ip_address = "7.1.1.254"
 
@@ -28,14 +28,14 @@ resource "vcd_nsxt_network_dhcp" "pools" {
   }
 }
 
-resource "vcd_nsxt_network_dhcp_binding" "binding2" {
+resource "vcloud_nsxt_network_dhcp_binding" "binding2" {
   org = "cloud"
 
-  # Referencing vcd_nsxt_network_dhcp.pools.id instead of vcd_network_isolated_v2.net1.id because
+  # Referencing vcloud_nsxt_network_dhcp.pools.id instead of vcloud_network_isolated_v2.net1.id because
   # DHCP service must be enabled on the network before DHCP bindings can be created and it makes
-  # implicit dependencies work. One can reference `vcd_network_isolated_v2.net1.id` here and use
-  # depends_on = [vcd_nsxt_network_dhcp.pools]
-  org_network_id = vcd_nsxt_network_dhcp.pools.id
+  # implicit dependencies work. One can reference `vcloud_network_isolated_v2.net1.id` here and use
+  # depends_on = [vcloud_nsxt_network_dhcp.pools]
+  org_network_id = vcloud_nsxt_network_dhcp.pools.id
 
   name         = "DHCP Binding"
   description  = "DHCP binding description"
@@ -55,11 +55,11 @@ resource "vcd_nsxt_network_dhcp_binding" "binding2" {
 ## Example Usage (IPv6 binding)
 
 ```hcl
-resource "vcd_network_routed_v2" "ipv6-dualstack" {
+resource "vcloud_network_routed_v2" "ipv6-dualstack" {
   org  = "cloud"
   name = "Dual stack routed network"
 
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   gateway       = "192.168.1.1"
   prefix_length = 24
@@ -78,19 +78,19 @@ resource "vcd_network_routed_v2" "ipv6-dualstack" {
   }
 }
 
-resource "vcd_nsxt_edgegateway_dhcpv6" "test" {
+resource "vcloud_nsxt_edgegateway_dhcpv6" "test" {
   org             = "cloud"
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   enabled = true
   # Bindings can be configured only in `DHCPv6` mode
   mode = "DHCPv6"
 }
 
-resource "vcd_nsxt_network_dhcp" "routed-ipv6-dual-stack" {
+resource "vcloud_nsxt_network_dhcp" "routed-ipv6-dual-stack" {
   org = "cloud"
 
-  org_network_id      = vcd_network_routed_v2.ipv6-dualstack.id
+  org_network_id      = vcloud_network_routed_v2.ipv6-dualstack.id
   mode                = "NETWORK"
   listener_ip_address = "2002:0:0:1234:abcd:ffff:c0a6:129"
 
@@ -99,13 +99,13 @@ resource "vcd_nsxt_network_dhcp" "routed-ipv6-dual-stack" {
     end_address   = "2002:0:0:1234:abcd:ffff:c0a6:126"
   }
 
-  depends_on = [vcd_nsxt_edgegateway_dhcpv6.test]
+  depends_on = [vcloud_nsxt_edgegateway_dhcpv6.test]
 }
 
-resource "vcd_nsxt_network_dhcp_binding" "ipv6-binding1" {
+resource "vcloud_nsxt_network_dhcp_binding" "ipv6-binding1" {
   org = "cloud"
 
-  org_network_id = vcd_nsxt_network_dhcp.routed-ipv6-dual-stack.id
+  org_network_id = vcloud_nsxt_network_dhcp.routed-ipv6-dual-stack.id
 
   name         = "IPv6 DHCP Binding-1"
   binding_type = "IPV6"
@@ -126,8 +126,8 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization. Optional if defined at provider level
 * `org_network_id` - (Required) The ID of an Org VDC network. **Note**  (`.id` field) of
-  `vcd_network_isolated_v2`, `vcd_network_routed_v2` or `vcd_nsxt_network_dhcp` can be referenced
-  here. It is more convenient to use reference to `vcd_nsxt_network_dhcp` ID because it makes sure
+  `vcloud_network_isolated_v2`, `vcloud_network_routed_v2` or `vcloud_nsxt_network_dhcp` can be referenced
+  here. It is more convenient to use reference to `vcloud_nsxt_network_dhcp` ID because it makes sure
   that DHCP is enabled before configuring pools
 * `binding_type` - (Required) One of `IPV4` or `IPV6`
 * `ip_address` - (Required) IP address used for binding
@@ -162,7 +162,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_network_dhcp_binding.imported my-org.my-org-vdc-or-vdc-group.my-nsxt-vdc-network-name.my-binding-name
+terraform import vcloud_nsxt_network_dhcp_binding.imported my-org.my-org-vdc-or-vdc-group.my-nsxt-vdc-network-name.my-binding-name
 ```
 
 The above would import the `my-binding-name` NSX-T DHCP Binding configuration

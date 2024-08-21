@@ -1,21 +1,21 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_role"
+page_title: "Viettel IDC Cloud: vcloud_role"
 sidebar_current: "docs-vcd-resource-role"
 description: |-
- Provides a VMware Cloud Director role. This can be used to create, modify, and delete roles.
+ Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 ---
 
 # vcd\_role
 
-Provides a VMware Cloud Director role. This can be used to create, modify, and delete roles.
+Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 
 Supported in provider *v3.3+*
 
 ## Example Usage
 
 ```hcl
-resource "vcd_role" "new-role" {
+resource "vcloud_role" "new-role" {
   org         = "my-org"
   name        = "new-role"
   description = "new role from CLI"
@@ -54,7 +54,7 @@ For example, using this structure, representing an existing role that was **not*
 
 ```hcl
 
-resource "vcd_role" "catalog-author" {
+resource "vcloud_role" "catalog-author" {
   org  = "my-org"
   name = "Catalog Author"
 }
@@ -63,10 +63,10 @@ resource "vcd_role" "catalog-author" {
 You can import such role into terraform state using this command
 
 ```
-terraform import vcd_role.catalog-author "my-org.Catalog Author"
+terraform import vcloud_role.catalog-author "my-org.Catalog Author"
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

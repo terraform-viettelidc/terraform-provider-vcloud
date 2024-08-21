@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_dhcpv6"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcpv6"
 sidebar_current: "docs-vcd-resource-nsxt-edge-dhcpv6"
 description: |-
   Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.
@@ -13,9 +13,9 @@ Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.
 ## Example Usage (DHCPv6 mode)
 
 ```hcl
-resource "vcd_nsxt_edgegateway_dhcpv6" "dhcpv6-mode" {
+resource "vcloud_nsxt_edgegateway_dhcpv6" "dhcpv6-mode" {
   org             = "cloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
 
   mode = "DHCPv6"
 }
@@ -24,9 +24,9 @@ resource "vcd_nsxt_edgegateway_dhcpv6" "dhcpv6-mode" {
 ## Example Usage (SLAAC mode)
 
 ```hcl
-resource "vcd_nsxt_edgegateway_dhcpv6" "slaac-mode" {
+resource "vcloud_nsxt_edgegateway_dhcpv6" "slaac-mode" {
   org             = "datacloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
 
   mode         = "SLAAC"
   domain_names = ["non-existing.org.tld", "fake.org.tld"]
@@ -37,9 +37,9 @@ resource "vcd_nsxt_edgegateway_dhcpv6" "slaac-mode" {
 ## Example Usage (Service Disabled)
 
 ```hcl
-resource "vcd_nsxt_edgegateway_dhcpv6" "slaac-mode" {
+resource "vcloud_nsxt_edgegateway_dhcpv6" "slaac-mode" {
   org             = "datacloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
 
   mode = "DISABLED"
 }
@@ -68,7 +68,7 @@ resource via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_edgegateway_dhcpv6.imported my-org.nsxt-vdc.nsxt-edge
+terraform import vcloud_nsxt_edgegateway_dhcpv6.imported my-org.nsxt-vdc.nsxt-edge
 ```
 
 The above would import the `nsxt-edge` Edge Gateway DHCPv6 configuration for this particular

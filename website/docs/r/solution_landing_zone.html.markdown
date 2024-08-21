@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_landing_zone"
+page_title: "Viettel IDC Cloud: vcloud_solution_landing_zone"
 sidebar_current: "docs-vcd-resource-solution-landing-zone"
 description: |-
   Provides a resource to configure VCD Solution Add-on Landing Zone
@@ -17,51 +17,51 @@ Provides a resource to configure VCD Solution Add-on Landing Zone.
 ## Example Solution Landing Zone configuration
 
 ```hcl
-data "vcd_catalog" "nsxt" {
+data "vcloud_catalog" "nsxt" {
   org  = "datacloud"
   name = "cat-datacloud-nsxt-backed"
 }
 
-data "vcd_org_vdc" "vdc1" {
+data "vcloud_org_vdc" "vdc1" {
   org  = "datacloud"
   name = "nsxt-vdc-datacloud"
 }
 
-data "vcd_network_routed_v2" "r1" {
+data "vcloud_network_routed_v2" "r1" {
   org  = "datacloud"
   vdc  = "nsxt-vdc-datacloud"
   name = "nsxt-net-datacloud-r"
 }
 
-data "vcd_storage_profile" "sp" {
+data "vcloud_storage_profile" "sp" {
   org  = "datacloud"
   vdc  = "nsxt-vdc-datacloud"
   name = "*"
 }
 
-resource "vcd_solution_landing_zone" "slz" {
+resource "vcloud_solution_landing_zone" "slz" {
   org = "datacloud"
 
   catalog {
-    id = data.vcd_catalog.nsxt.id
+    id = data.vcloud_catalog.nsxt.id
   }
 
   vdc {
-    id         = data.vcd_org_vdc.vdc1.id
+    id         = data.vcloud_org_vdc.vdc1.id
     is_default = true
 
     org_vdc_network {
-      id         = data.vcd_network_routed_v2.r1.id
+      id         = data.vcloud_network_routed_v2.r1.id
       is_default = true
     }
 
     compute_policy {
-      id         = data.vcd_org_vdc.vdc1.default_compute_policy_id
+      id         = data.vcloud_org_vdc.vdc1.default_compute_policy_id
       is_default = true
     }
 
     storage_policy {
-      id         = data.vcd_storage_profile.sp.id
+      id         = data.vcloud_storage_profile.sp.id
       is_default = true
     }
   }
@@ -112,7 +112,7 @@ A single configuration for Solution Landing Zone is present therefore it is impo
 the example below:
 
 ```
-terraform import vcd_solution_landing_zone.imported
+terraform import vcloud_solution_landing_zone.imported
 ```
 
 [docs-import]: https://www.terraform.io/docs/import/

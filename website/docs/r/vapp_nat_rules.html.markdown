@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp_nat_rules"
+page_title: "Viettel IDC Cloud: vcloud_vapp_nat_rules"
 sidebar_current: "docs-vcd-resource-vapp-nat-rules"
 description: |-
-  Provides a VMware Cloud Director vApp NAT resource. This can be used to create, modify, and delete NAT rules.
+  Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create, modify, and delete NAT rules.
 ---
 
 # vcd\_vapp\_nat\_rules
 
-Provides a VMware Cloud Director vApp NAT resource. This can be used to create,
+Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create,
 modify, and delete NAT rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
 NAT rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcd/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcd/r/vapp_org_network) which are fenced.
 
@@ -17,13 +17,13 @@ NAT rules can be applied to [vApp networks connected to Org network](/providers/
 ## Example Usage
 
 ```hcl
-resource "vcd_vapp" "web" {
+resource "vcloud_vapp" "web" {
   name = "web"
 }
 
-resource "vcd_vapp_network" "vapp-net" {
+resource "vcloud_vapp_network" "vapp-net" {
   name             = "my-vapp-net"
-  vapp_name        = vcd_vapp.web.name
+  vapp_name        = vcloud_vapp.web.name
   org_network_name = "my-vdc-int-net"
   gateway          = "192.168.2.1"
   netmask          = "255.255.255.0"
@@ -35,23 +35,23 @@ resource "vcd_vapp_network" "vapp-net" {
   }
 }
 
-resource "vcd_vapp_org_network" "vapp-org-net" {
-  vapp_name        = vcd_vapp.web.name
-  org_network_name = vcd_network_routed.network-routed.name
+resource "vcloud_vapp_org_network" "vapp-org-net" {
+  vapp_name        = vcloud_vapp.web.name
+  org_network_name = vcloud_network_routed.network-routed.name
   is_fenced        = true
 }
 
 # In order to enable NAT service, firewall needs to be enabled as well
-resource "vcd_vapp_firewall_rules" "vapp_fw1" {
-  vapp_id        = vcd_vapp.web.id
-  network_id     = vcd_vapp_network.vapp-net.id
+resource "vcloud_vapp_firewall_rules" "vapp_fw1" {
+  vapp_id        = vcloud_vapp.web.id
+  network_id     = vcloud_vapp_network.vapp-net.id
   default_action = "drop"
   enabled        = true
 }
 
-resource "vcd_vapp_nat_rules" "vapp-nat" {
-  vapp_id              = vcd_vapp.web.id
-  network_id           = vcd_vapp_network.vapp-net.id
+resource "vcloud_vapp_nat_rules" "vapp-nat" {
+  vapp_id              = vcloud_vapp.web.id
+  network_id           = vcloud_vapp_network.vapp-net.id
   nat_type             = "portForwarding"
   enable_ip_masquerade = false
 
@@ -60,7 +60,7 @@ resource "vcd_vapp_nat_rules" "vapp-nat" {
     forward_to_port = "-1"
     protocol        = "TCP_UDP"
     vm_nic_id       = "0"
-    vm_id           = vcd_vapp_vm.vm1.id
+    vm_id           = vcloud_vapp_vm.vm1.id
   }
 
   rule {
@@ -68,34 +68,34 @@ resource "vcd_vapp_nat_rules" "vapp-nat" {
     forward_to_port = "80"
     protocol        = "TCP"
     vm_nic_id       = "0"
-    vm_id           = vcd_vapp_vm.vm2.id
+    vm_id           = vcloud_vapp_vm.vm2.id
   }
 }
 
 # In order to enable NAT service, firewall needs to be enabled as well
-resource "vcd_vapp_firewall_rules" "vapp_fw2" {
-  vapp_id        = vcd_vapp.web.id
-  network_id     = vcd_vapp_network.vapp-org-net.id
+resource "vcloud_vapp_firewall_rules" "vapp_fw2" {
+  vapp_id        = vcloud_vapp.web.id
+  network_id     = vcloud_vapp_network.vapp-org-net.id
   default_action = "drop"
   enabled        = true
 }
 
-resource "vcd_vapp_nat_rules" "vapp-nat2" {
-  vapp_id    = vcd_vapp.web.id
-  network_id = vcd_vapp_network.vapp-org-net.id
+resource "vcloud_vapp_nat_rules" "vapp-nat2" {
+  vapp_id    = vcloud_vapp.web.id
+  network_id = vcloud_vapp_network.vapp-org-net.id
   nat_type   = "ipTranslation"
 
   rule {
     mapping_mode = "manual"
     external_ip  = "10.10.103.13"
     vm_nic_id    = 0
-    vm_id        = vcd_vapp_vm.vm1.id
+    vm_id        = vcloud_vapp_vm.vm1.id
   }
 
   rule {
     mapping_mode = "automatic"
     vm_nic_id    = 0
-    vm_id        = vcd_vapp_vm.vm2.id
+    vm_id        = vcloud_vapp_vm.vm2.id
   }
 }
 
@@ -109,7 +109,7 @@ The following arguments are supported:
 * `vdc` - (Optional) The name of VDC to use, optional if defined at provider level.
 * `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcd/latest/docs/resources/vapp).
 * `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
-* `enabled` - (Optional) Enable or disable NAT. Default is `true`. To enable the NAT service, [vcd_vapp_firewall_rules](/providers/vmware/vcd/latest/docs/resources/vapp_firewall_rules) needs to be enabled as well.
+* `enabled` - (Optional) Enable or disable NAT. Default is `true`. To enable the NAT service, [vcloud_vapp_firewall_rules](/providers/vmware/vcd/latest/docs/resources/vapp_firewall_rules) needs to be enabled as well.
 * `nat_type` - (Required) "One of: `ipTranslation` (use IP translation), `portForwarding` (use port forwarding). For `ipTranslation` fields `vm_id`, `vm_nic_id`, `mapping_mode` are required and `external_ip` is optional. For `portForwarding` fields `vm_id`, `vm_nic_id`, `protocol`, `external_port` and `forward_to_port` are required.
 * `enable_ip_masquerade` - (Optional) When enabled translates a virtual machine's private, internal IP address to a public IP address for outbound traffic. Default value is `false`.
 * `rule` - (Optional) Configures a NAT rule; see [Rules](#rules) below for details.
@@ -137,14 +137,14 @@ via supplying the full dot separated path to vapp network. An example is
 below:
 
 ```
-terraform import vcd_vapp_nat_rules.my-rules my-org.my-vdc.vapp_name.network_name
+terraform import vcloud_vapp_nat_rules.my-rules my-org.my-vdc.vapp_name.network_name
 ```
 or using IDs:
 ```
-terraform import vcd_vapp_nat_rules.my-rules my-org.my-vdc.vapp_id.network_id
+terraform import vcloud_vapp_nat_rules.my-rules my-org.my-vdc.vapp_id.network_id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 
@@ -153,13 +153,13 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing vApp Network IDs
 
-If you want to list IDs there is a special command **`terraform import vcd_vapp_nat_rules.imported list@org-name.vcd-name.vapp-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vapp_nat_rules.imported list@org-name.vcd-name.vapp-name`**
 where `org-name` is the organization used, `vdc-name` is VDC name and `vapp-name` is vApp name. 
 The output for this command should look similar to the one below:
 
 ```shell
-$ terraform import vcd_vapp_nat_rules.imported list@org-name.vdc-name.vapp-name
-vcd_vapp_nat_rules.imported: Importing from ID "list@org-name.vdc-name.vapp-name"...
+$ terraform import vcloud_vapp_nat_rules.imported list@org-name.vdc-name.vapp-name
+vcloud_vapp_nat_rules.imported: Importing from ID "list@org-name.vdc-name.vapp-name"...
 Retrieving all vApp networks by name
 No	vApp ID                                                 ID                                      Name	
 --	-------                                                 --                                      ----	
@@ -175,5 +175,5 @@ Error: resource id must be specified in one of these formats:
 Now to import vApp network NAT rules with ID 0027c6ae-7d59-457e-b33e-a89e97f0bdc1 one could supply this command:
 
 ```shell
-$ terraform import vcd_vapp_nat_rules.imported org-name.vdc-name.urn:vcloud:vapp:77755b9c-5ec9-41f7-aceb-4cf158786482.0027c6ae-7d59-457e-b33e-a89e97f0bdc1
+$ terraform import vcloud_vapp_nat_rules.imported org-name.vdc-name.urn:vcloud:vapp:77755b9c-5ec9-41f7-aceb-4cf158786482.0027c6ae-7d59-457e-b33e-a89e97f0bdc1
 ```

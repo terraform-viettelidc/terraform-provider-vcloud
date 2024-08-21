@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_service_account"
+page_title: "Viettel IDC Cloud: vcloud_service_account"
 sidebar_current: "docs-vcd-datasource-service-account"
 description: |-
   Provides a data source to read VCD Service Accounts.
@@ -15,7 +15,7 @@ Supported in provider *v3.10+* and VCD 10.4+.
 ## Example Usage
 
 ```hcl
-data "vcd_service_account" "example" {
+data "vcloud_service_account" "example" {
   org  = "my-org"
   name = "my-parent-network"
 }
@@ -31,5 +31,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcd_service_account`](/providers/vmware/vcd/latest/docs/resources/service_account)
+All the attributes defined in [`vcloud_service_account`](/providers/vmware/vcd/latest/docs/resources/service_account)
 resource except `file_name` and `allow_token_file` are available.

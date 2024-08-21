@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_saml"
+page_title: "Viettel IDC Cloud: vcloud_org_saml"
 sidebar_current: "docs-vcd-data-source-org-saml"
 description: |-
   Provides a data source to read SAML configuration for an organization.
@@ -17,12 +17,12 @@ Provides a data source to read SAML configuration for an organization.
 ## Example Usage
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-data "vcd_org_saml" "first" {
-  org_id = data.vcd_org.my-org.id
+data "vcloud_org_saml" "first" {
+  org_id = data.vcloud_org.my-org.id
 }
 ```
 

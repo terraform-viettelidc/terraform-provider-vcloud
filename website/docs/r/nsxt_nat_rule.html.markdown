@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_nat_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_nat_rule"
 sidebar_current: "docs-vcd-resource-nsxt-nat-rule"
 description: |-
   Provides a resource to manage NSX-T NAT rules. To change the source IP address from a private to a
@@ -16,23 +16,23 @@ Provides a resource to manage NSX-T NAT rules. To change the source IP address f
 public IP address, you create a source NAT (SNAT) rule. To change the destination IP address from 
 a public to a private IP address, you create a destination NAT (DNAT) rule.
 
--> When you configure a SNAT or a DNAT rule on an Edge Gateway in the VMware Cloud Director
+-> When you configure a SNAT or a DNAT rule on an Edge Gateway in the Viettel IDC Cloud
 environment, you always configure the rule from the perspective of your organization VDC.
 
 ## Example Usage 1 (SNAT rule translates to primary Edge Gateway IP for traffic going from 11.11.11.0/24 to 8.8.8.8)
 
 ```hcl
-resource "vcd_nsxt_nat_rule" "snat" {
+resource "vcloud_nsxt_nat_rule" "snat" {
   org = "dainius"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name        = "SNAT rule"
   rule_type   = "SNAT"
   description = "description"
 
   # Using primary_ip from edge gateway
-  external_address         = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  external_address         = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   internal_address         = "11.11.11.0/24"
   snat_destination_address = "8.8.8.8"
   logging                  = true
@@ -41,10 +41,10 @@ resource "vcd_nsxt_nat_rule" "snat" {
 
 ## Example Usage 2 (Prevent SNAT for internal addresses in subnet 11.11.11.0/24)
 ```hcl
-resource "vcd_nsxt_nat_rule" "no-snat" {
+resource "vcloud_nsxt_nat_rule" "no-snat" {
   org = "dainius"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name        = "test-no-snat-rule"
   rule_type   = "NO_SNAT"
@@ -56,17 +56,17 @@ resource "vcd_nsxt_nat_rule" "no-snat" {
 
 ## Example Usage 3 (DNAT rule translates Edge Gateway primary IP to internal IP 11.11.11.2)
 ```hcl
-resource "vcd_nsxt_nat_rule" "dnat" {
+resource "vcloud_nsxt_nat_rule" "dnat" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name        = "test-dnat-rule"
   rule_type   = "DNAT"
   description = "description"
 
   # Using primary_ip from edge gateway
-  external_address = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  external_address = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   internal_address = "11.11.11.2"
   logging          = true
 }
@@ -74,33 +74,33 @@ resource "vcd_nsxt_nat_rule" "dnat" {
 
 ## Example Usage 4 (No DNAT rule)
 ```hcl
-resource "vcd_nsxt_nat_rule" "no-dnat" {
+resource "vcloud_nsxt_nat_rule" "no-dnat" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name      = "test-no-dnat-rule"
   rule_type = "NO_DNAT"
 
   # Using primary_ip from edge gateway
-  external_address   = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  external_address   = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   dnat_external_port = 7777
 }
 ```
 
 ## Example Usage 5 (Reflexive NAT rule also known as Stateless NAT)
 ```hcl
-resource "vcd_nsxt_nat_rule" "reflexive" {
+resource "vcloud_nsxt_nat_rule" "reflexive" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name      = "test-reflexive"
   rule_type = "REFLEXIVE"
 
   # Using primary_ip from edge gateway
-  external_address = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  external_address = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   internal_address = "11.11.11.2"
 }
 ```
@@ -112,7 +112,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations.
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). Can be looked up using
-  `vcd_nsxt_edgegateway` data source
+  `vcloud_nsxt_edgegateway` data source
 * `name` - (Required) A name for NAT rule
 * `description` - (Optional) An optional description of the NAT rule
 * `enabled` (Optional) - Enables or disables NAT rule (default `true`)
@@ -133,8 +133,8 @@ The following arguments are supported:
   These IPs are typically the Private IPs that are allocated to workloads.
 * `app_port_profile_id` (Optional) - Application Port Profile to which to apply the rule. The
   Application Port Profile includes a port, and a protocol that the incoming traffic uses on the edge
-  gateway to connect to the internal network.  Can be looked up using `vcd_nsxt_app_port_profile`
-  data source or created using `vcd_nsxt_app_port_profile` resource
+  gateway to connect to the internal network.  Can be looked up using `vcloud_nsxt_app_port_profile`
+  data source or created using `vcloud_nsxt_app_port_profile` resource
 * `dnat_external_port` (Optional) - For `DNAT` only. This represents the external port number or port range when doing 
   `DNAT` port forwarding from external to internal. The default dnatExternalPort is “ANY” meaning traffic on any port
   for the given IPs selected will be translated.
@@ -169,7 +169,7 @@ below:
 
 Supplying Name
 ```
-terraform import vcd_nsxt_nat_rule.imported my-org.my-org-vdc.my-nsxt-edge-gateway.my-nat-rule-name
+terraform import vcloud_nsxt_nat_rule.imported my-org.my-org-vdc.my-nsxt-edge-gateway.my-nat-rule-name
 ```
 
 
@@ -178,16 +178,16 @@ terraform import vcd_nsxt_nat_rule.imported my-org.my-org-vdc.my-nsxt-edge-gatew
 it by ID
 
 ```
-$ terraform import vcd_nsxt_nat_rule.dnat my-org.nsxt-vdc.nsxt-gw.dnat1
+$ terraform import vcloud_nsxt_nat_rule.dnat my-org.nsxt-vdc.nsxt-gw.dnat1
 
-vcd_nsxt_nat_rule.dnat: Importing from ID "my-org.nsxt-vdc.nsxt-gw.dnat1"...
+vcloud_nsxt_nat_rule.dnat: Importing from ID "my-org.nsxt-vdc.nsxt-gw.dnat1"...
 # The following NAT rules with Name 'dnat1' are available
 # Please use ID instead of Name in import path to pick exact rule
 ID                                   Name  Rule Type Internal Address   External Address
 04fde766-2cbd-4986-93bb-7f57e59c6b19 dnat1 DNAT      1.1.1.1            10.1.2.139
 f40e3d68-cfa6-42ea-83ed-5571659b3e7b dnat1 DNAT      2.2.2.2            10.1.2.139
 
-$ terraform import vcd_nsxt_nat_rule.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway.0214a26b-fc30-4202-88e5-7ed551aa6c19
+$ terraform import vcloud_nsxt_nat_rule.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway.0214a26b-fc30-4202-88e5-7ed551aa6c19
 ```
 
 The above would import the `my-nat-rule-name` NAT Rule config settings that are defined

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_ldap"
+page_title: "Viettel IDC Cloud: vcloud_org_ldap"
 sidebar_current: "docs-vcd-resource-org-ldap"
 description: |-
-  Provides a VMware Cloud Director Organization LDAP resource. This can be used to create, delete, and update LDAP configuration for an organization .
+  Provides a Viettel IDC Cloud Organization LDAP resource. This can be used to create, delete, and update LDAP configuration for an organization .
 ---
 
 # vcd\_org\_ldap
 
-Provides a VMware Cloud Director Org LDAP resource. This can be used to create, update, and delete LDAP configuration for an organization.
+Provides a Viettel IDC Cloud Org LDAP resource. This can be used to create, update, and delete LDAP configuration for an organization.
 
 Supported in provider *v3.8+*
 
@@ -24,14 +24,14 @@ provider "vcd" {
   url      = "https://AcmeVcd/api"
 }
 
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
 # The settings below (except the server IP) are taken from the LDAP docker testing image
 # https://github.com/rroemhild/docker-test-openldap
-resource "vcd_org_ldap" "my-org-ldap" {
-  org_id    = data.vcd_org.my-org.id
+resource "vcloud_org_ldap" "my-org-ldap" {
+  org_id    = data.vcloud_org.my-org.id
   ldap_mode = "CUSTOM"
   custom_settings {
     server                  = "192.168.1.172"
@@ -70,7 +70,7 @@ to add a `lifecycle` block at the end of the resource definition, after creating
 And we need to remove the `lifecycle` block _if we want to change the password_.
 
 ```hcl
-resource "vcd_org_ldap" "my-org-ldap" {
+resource "vcloud_org_ldap" "my-org-ldap" {
   # all other fields
   # ...
   lifecycle {
@@ -83,12 +83,12 @@ resource "vcd_org_ldap" "my-org-ldap" {
 ## Example Usage 2 - Using system configuration
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-resource "vcd_org_ldap" "my-org-ldap" {
-  org_id         = data.vcd_org.my-org.id
+resource "vcloud_org_ldap" "my-org-ldap" {
+  org_id         = data.vcloud_org.my-org.id
   ldap_mode      = "SYSTEM"
   custom_user_ou = "ou=Foo,dc=domain,dc=local base DN"
 }
@@ -156,12 +156,12 @@ at the top of the vCD hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing LDAP configuration that was **not** created using Terraform:
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-resource "vcd_org_ldap" "my-org-ldap" {
-  org_id = data.vcd_org.my-org.id
+resource "vcloud_org_ldap" "my-org-ldap" {
+  org_id = data.vcloud_org.my-org.id
 }
 ```
 
@@ -169,9 +169,9 @@ You can import such LDAP configuration into terraform state using one of the fol
 
 ```
 # EITHER
-terraform import vcd_org_ldap.my-org-ldap organization_name
+terraform import vcloud_org_ldap.my-org-ldap organization_name
 # OR
-terraform import vcd_org_ldap.my-org-ldap organization_id
+terraform import vcloud_org_ldap.my-org-ldap organization_id
 ```
 
 After that, you must expand the configuration file before you can either update or delete the LDAP configuration. Running `terraform plan`

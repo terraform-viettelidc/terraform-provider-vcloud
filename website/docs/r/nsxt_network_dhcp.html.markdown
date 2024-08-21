@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_network_dhcp"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp"
 sidebar_current: "docs-vcd-resource-nsxt-network-dhcp"
 description: |-
   Provides a resource to manage DHCP pools for NSX-T Org VDC networks.
@@ -13,10 +13,10 @@ Provides a resource to manage DHCP pools for NSX-T Org VDC networks.
 ## Example Usage 1 (Routed Org VDC Network with EDGE mode)
 
 ```hcl
-resource "vcd_network_routed_v2" "parent-network" {
+resource "vcloud_network_routed_v2" "parent-network" {
   name = "nsxt-routed-dhcp"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   gateway       = "7.1.1.1"
   prefix_length = 24
@@ -27,8 +27,8 @@ resource "vcd_network_routed_v2" "parent-network" {
   }
 }
 
-resource "vcd_nsxt_network_dhcp" "pools" {
-  org_network_id = vcd_network_routed_v2.parent-network.id
+resource "vcloud_nsxt_network_dhcp" "pools" {
+  org_network_id = vcloud_network_routed_v2.parent-network.id
 
   pool {
     start_address = "7.1.1.100"
@@ -44,9 +44,9 @@ resource "vcd_nsxt_network_dhcp" "pools" {
 
 ## Example Usage 2 (Isolated Org VDC Network with NETWORK mode)
 ```hcl
-resource "vcd_network_isolated_v2" "net1" {
+resource "vcloud_network_isolated_v2" "net1" {
   org      = "cloud"
-  owner_id = vcd_org_vdc.with-edge-cluster.id # VDC ID with Edge Cluster configured
+  owner_id = vcloud_org_vdc.with-edge-cluster.id # VDC ID with Edge Cluster configured
   name     = "private-network"
 
   gateway       = "7.1.1.1"
@@ -58,11 +58,11 @@ resource "vcd_network_isolated_v2" "net1" {
   }
 }
 
-resource "vcd_nsxt_network_dhcp" "pools" {
+resource "vcloud_nsxt_network_dhcp" "pools" {
   org = "cloud"
-  vdc = vcd_org_vdc.with-edge-cluster.name
+  vdc = vcloud_org_vdc.with-edge-cluster.name
 
-  org_network_id      = vcd_network_isolated_v2.net1.id
+  org_network_id      = vcloud_network_isolated_v2.net1.id
   mode                = "NETWORK"
   listener_ip_address = "7.1.1.254"
 
@@ -75,8 +75,8 @@ resource "vcd_nsxt_network_dhcp" "pools" {
 
 ## Example Usage 3 (Routed Org VDC Network with RELAY mode)
 ```hcl
-resource "vcd_nsxt_edgegateway_dhcp_forwarding" "dhcp-forwarding" {
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+resource "vcloud_nsxt_edgegateway_dhcp_forwarding" "dhcp-forwarding" {
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   enabled = true
 
@@ -86,12 +86,12 @@ resource "vcd_nsxt_edgegateway_dhcp_forwarding" "dhcp-forwarding" {
   ]
 }
 
-resource "vcd_network_routed_v2" "net1" {
+resource "vcloud_network_routed_v2" "net1" {
   org  = "cloud"
   vdc  = "nsxt-vdc-cloud"
   name = "nsxt-routed-dhcp"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   gateway       = "7.1.1.1"
   prefix_length = 24
@@ -102,11 +102,11 @@ resource "vcd_network_routed_v2" "net1" {
   }
 }
 
-resource "vcd_nsxt_network_dhcp" "pools" {
+resource "vcloud_nsxt_network_dhcp" "pools" {
   org = "cloud"
   vdc = "nsxt-vdc-cloud"
 
-  org_network_id = vcd_network_routed_v2.net1.id
+  org_network_id = vcloud_network_routed_v2.net1.id
 
   # DHCP forwarding must be configured on NSX-T Edge Gateway
   # for RELAY mode
@@ -153,7 +153,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_network_dhcp.imported my-org.my-org-vdc-or-vdc-group.my-nsxt-vdc-network-name
+terraform import vcloud_nsxt_network_dhcp.imported my-org.my-org-vdc-or-vdc-group.my-nsxt-vdc-network-name
 ```
 
 The above would import the DHCP config settings that are defined on VDC network

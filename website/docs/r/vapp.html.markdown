@@ -1,26 +1,26 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp"
+page_title: "Viettel IDC Cloud: vcloud_vapp"
 sidebar_current: "docs-vcd-resource-vapp"
 description: |-
-  Provides a VMware Cloud Director vApp resource. This can be used to create, modify, and delete vApps.
+  Provides a Viettel IDC Cloud vApp resource. This can be used to create, modify, and delete vApps.
 ---
 
 # vcd\_vapp
 
-Provides a VMware Cloud Director vApp resource. This can be used to create, modify, and delete vApps.
+Provides a Viettel IDC Cloud vApp resource. This can be used to create, modify, and delete vApps.
 
 ## Example of vApp with 2 VMs
 
 Example with more than one VM under a vApp.
 
 ```hcl
-resource "vcd_network_direct" "direct-network" {
+resource "vcloud_network_direct" "direct-network" {
   name             = "net"
   external_network = "my-ext-net"
 }
 
-resource "vcd_vapp" "web" {
+resource "vcloud_vapp" "web" {
   name = "web"
 
   metadata_entry {
@@ -29,34 +29,34 @@ resource "vcd_vapp" "web" {
   }
 }
 
-resource "vcd_vapp_org_network" "direct-network" {
-  vapp_name        = vcd_vapp.web.name
-  org_network_name = vcd_network_direct.direct-network.name
+resource "vcloud_vapp_org_network" "direct-network" {
+  vapp_name        = vcloud_vapp.web.name
+  org_network_name = vcloud_network_direct.direct-network.name
 }
 
-data "vcd_catalog" "my-catalog" {
+data "vcloud_catalog" "my-catalog" {
   org  = "test"
   name = "my-catalog"
 }
 
-data "vcd_catalog_vapp_template" "photon-os" {
+data "vcloud_catalog_vapp_template" "photon-os" {
   org        = "test"
-  catalog_id = data.vcd_catalog.my-catalog.id
+  catalog_id = data.vcloud_catalog.my-catalog.id
   name       = "photon-os"
 }
 
-resource "vcd_vapp_vm" "web1" {
-  vapp_name = vcd_vapp.web.name
+resource "vcloud_vapp_vm" "web1" {
+  vapp_name = vcloud_vapp.web.name
   name      = "web1"
 
-  vapp_template_id = data.vcd_catalog_vapp_template.photon-os.id
+  vapp_template_id = data.vcloud_catalog_vapp_template.photon-os.id
 
   memory = 2048
   cpus   = 1
 
   network {
     type               = "org"
-    name               = vcd_vapp_org_network.direct-network.org_network_name
+    name               = vcloud_vapp_org_network.direct-network.org_network_name
     ip_allocation_mode = "POOL"
   }
 
@@ -71,18 +71,18 @@ resource "vcd_vapp_vm" "web1" {
   }
 }
 
-resource "vcd_vapp_vm" "web2" {
-  vapp_name = vcd_vapp.web.name
+resource "vcloud_vapp_vm" "web2" {
+  vapp_name = vcloud_vapp.web.name
   name      = "web2"
 
-  vapp_template_id = data.vcd_catalog_vapp_template.photon-os.id
+  vapp_template_id = data.vcloud_catalog_vapp_template.photon-os.id
 
   memory = 2048
   cpus   = 1
 
   network {
     type               = "org"
-    name               = vcd_vapp_org_network.direct-network.org_network_name
+    name               = vcloud_vapp_org_network.direct-network.org_network_name
     ip_allocation_mode = "POOL"
   }
 }
@@ -91,7 +91,7 @@ resource "vcd_vapp_vm" "web2" {
 ## Example of Empty vApp with no VMs
 
 ```hcl
-resource "vcd_vapp" "web" {
+resource "vcloud_vapp" "web" {
   name = "web"
 
   metadata_entry {
@@ -149,7 +149,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_vapp" "example" {
+resource "vcloud_vapp" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -193,7 +193,7 @@ The path for this resource is made of org-name.vdc-name.vapp-name
 For example, using this structure, representing a vApp that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_vapp" "tf-vapp" {
+resource "vcloud_vapp" "tf-vapp" {
   name = "my-vapp"
   org  = "my-org"
   vdc  = "my-vdc"
@@ -203,10 +203,10 @@ resource "vcd_vapp" "tf-vapp" {
 You can import such vapp into terraform state using this command
 
 ```
-terraform import vcd_vapp.tf-vapp my-org.my-vdc.my-vapp
+terraform import vcloud_vapp.tf-vapp my-org.my-vdc.my-vapp
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

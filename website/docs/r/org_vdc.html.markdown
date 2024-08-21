@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_vdc"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc"
 sidebar_current: "docs-vcd-resource-org-vdc"
 description: |-
-  Provides a VMware Cloud Director Organization VDC resource. This can be used to create and delete an Organization VDC.
+  Provides a Viettel IDC Cloud Organization VDC resource. This can be used to create and delete an Organization VDC.
 ---
 
 # vcd\_org\_vdc
 
-Provides a VMware Cloud Director Organization VDC resource. This can be used to create and delete an Organization VDC.
+Provides a Viettel IDC Cloud Organization VDC resource. This can be used to create and delete an Organization VDC.
 Requires system administrator privileges.
 
 -> **Note:** This resource supports NSX-T and NSX-V based Org VDCs by providing relevant
@@ -26,7 +26,7 @@ provider "vcd" {
   url      = "https://AcmeVcd/api"
 }
 
-resource "vcd_org_vdc" "my-vdc" {
+resource "vcloud_org_vdc" "my-vdc" {
   name        = "my-vdc"
   description = "The pride of my work"
   org         = "my-org"
@@ -76,23 +76,23 @@ resource "vcd_org_vdc" "my-vdc" {
 
 ## Example Usage (NSX-T VDC with specified Edge Cluster)
 ```hcl
-data "vcd_provider_vdc" "nsxt-pvdc" {
+data "vcloud_provider_vdc" "nsxt-pvdc" {
   name = "my-nsxt-pvdc"
 }
 
-data "vcd_nsxt_edge_cluster" "ec" {
-  provider_vdc_id = data.vcd_provider_vdc.nsxt-pvdc.id
+data "vcloud_nsxt_edge_cluster" "ec" {
+  provider_vdc_id = data.vcloud_provider_vdc.nsxt-pvdc.id
   name            = "edge-cluster-1"
 }
 
-resource "vcd_org_vdc" "nsxt-vdc" {
+resource "vcloud_org_vdc" "nsxt-vdc" {
   name = "NSXT-VDC"
   org  = "main-org"
 
   allocation_model  = "ReservationPool"
   network_pool_name = "NSX-T Overlay 1"
   provider_vdc_name = "nsxTPvdc1"
-  edge_cluster_id   = data.vcd_nsxt_edge_cluster.ec.id
+  edge_cluster_id   = data.vcloud_nsxt_edge_cluster.ec.id
 
   compute_capacity {
     cpu {
@@ -124,7 +124,7 @@ resource "vcd_org_vdc" "nsxt-vdc" {
 ## Example Usage (With VM Sizing Policies)
 
 ```hcl
-resource "vcd_vm_sizing_policy" "size_1" {
+resource "vcloud_vm_sizing_policy" "size_1" {
   name = "size-one"
 
   cpu {
@@ -138,7 +138,7 @@ resource "vcd_vm_sizing_policy" "size_1" {
 
 }
 
-resource "vcd_vm_sizing_policy" "size_2" {
+resource "vcloud_vm_sizing_policy" "size_2" {
   name = "size-two"
 
   cpu {
@@ -158,47 +158,47 @@ resource "vcd_vm_sizing_policy" "size_2" {
   }
 }
 
-resource "vcd_org_vdc" "my-vdc" {
+resource "vcloud_org_vdc" "my-vdc" {
   name        = "my-vdc"
   description = "The pride of my work"
   org         = "my-org"
   # ...  
-  default_compute_policy_id = vcd_vm_sizing_policy.size_1.id
-  vm_sizing_policy_ids      = [vcd_vm_sizing_policy.size_1.id, vcd_vm_sizing_policy.size_2.id]
+  default_compute_policy_id = vcloud_vm_sizing_policy.size_1.id
+  vm_sizing_policy_ids      = [vcloud_vm_sizing_policy.size_1.id, vcloud_vm_sizing_policy.size_2.id]
 }
 ```
 
 ## Example Usage (With VM Placement Policies)
 
 ```hcl
-data "vcd_provider_vdc" "pvdc" {
+data "vcloud_provider_vdc" "pvdc" {
   name = "my-pvdc"
 }
 
 # This VM group needs to exist in the backing vSphere
-data "vcd_vm_group" "vmgroup" {
+data "vcloud_vm_group" "vmgroup" {
   name            = "vmware-licensed-vms"
-  provider_vdc_id = data.vcd_provider_vdc.pvdc.id
+  provider_vdc_id = data.vcloud_provider_vdc.pvdc.id
 }
 
-resource "vcd_vm_placement_policy" "new-placement-policy" {
+resource "vcloud_vm_placement_policy" "new-placement-policy" {
   name            = "place-in-vmware-licensed"
-  provider_vdc_id = data.vcd_provider_vdc.pvdc.id
-  vm_group_ids    = [data.vcd_vm_group.vmgroup.id]
+  provider_vdc_id = data.vcloud_provider_vdc.pvdc.id
+  vm_group_ids    = [data.vcloud_vm_group.vmgroup.id]
 }
 
-data "vcd_vm_placement_policy" "existing-policy" {
+data "vcloud_vm_placement_policy" "existing-policy" {
   name            = "place-in-company-licensed"
-  provider_vdc_id = data.vcd_provider_vdc.pvdc.id
+  provider_vdc_id = data.vcloud_provider_vdc.pvdc.id
 }
 
-resource "vcd_org_vdc" "my-vdc" {
+resource "vcloud_org_vdc" "my-vdc" {
   name        = "my-vdc"
   description = "The pride of my work"
   org         = "my-org"
   # ...  
-  default_compute_policy_id = data.vcd_vm_placement_policy.existing-policy.id
-  vm_placement_policy_ids   = [data.vcd_vm_placement_policy.existing-policy.id, vcd_vm_placement_policy.new-placement-policy.id]
+  default_compute_policy_id = data.vcloud_vm_placement_policy.existing-policy.id
+  vm_placement_policy_ids   = [data.vcloud_vm_placement_policy.existing-policy.id, vcloud_vm_placement_policy.new-placement-policy.id]
 }
 ```
 
@@ -244,8 +244,8 @@ The following arguments are supported:
 * `vm_vgpu_policy_ids` - (Optional, *v3.11+*, *VCD 10.4+*) Set of IDs of VM vGPU policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
 * `edge_cluster_id` - (Deprecated; Optional, *v3.8+*, *VCD 10.3+*) An ID of NSX-T Edge Cluster which
   should provide vApp Networking Services or DHCP for isolated networks. Can be looked up using
-  `vcd_nsxt_edge_cluster` data source. This field is **deprecated** in favor of
-  [`vcd_org_vdc_nsxt_network_profile`](/providers/vmware/vcd/latest/docs/resources/org_vdc_nsxt_network_profile).
+  `vcloud_nsxt_edge_cluster` data source. This field is **deprecated** in favor of
+  [`vcloud_org_vdc_nsxt_network_profile`](/providers/vmware/vcd/latest/docs/resources/org_vdc_nsxt_network_profile).
 * `enable_nsxv_distributed_firewall` - (Optional, *v3.9+*, *VCD 10.3+*) Enables or disables the NSX-V distributed firewall.
 
 <a id="storageprofile"></a>
@@ -282,7 +282,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_org_vdc" "example" {
+resource "vcloud_org_vdc" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -326,10 +326,10 @@ via supplying the full dot separated path to VDC. An example is
 below:
 
 ```
-terraform import vcd_org_vdc.my-vdc my-org.my-vdc
+terraform import vcloud_org_vdc.my-vdc my-org.my-vdc
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -1,21 +1,21 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog"
+page_title: "Viettel IDC Cloud: vcloud_catalog"
 sidebar_current: "docs-vcd-resource-catalog"
 description: |-
-  Provides a VMware Cloud Director catalog resource. This can be used to create and delete a catalog.
+  Provides a Viettel IDC Cloud catalog resource. This can be used to create and delete a catalog.
 ---
 
 # vcd\_catalog
 
-Provides a VMware Cloud Director catalog resource. This can be used to create and delete a catalog.
+Provides a Viettel IDC Cloud catalog resource. This can be used to create and delete a catalog.
 
 Supported in provider *v2.0+*
 
 ## Example Usage
 
 ```hcl
-resource "vcd_catalog" "myNewCatalog" {
+resource "vcloud_catalog" "myNewCatalog" {
   org = "my-org"
 
   name             = "my-catalog"
@@ -29,18 +29,18 @@ resource "vcd_catalog" "myNewCatalog" {
 
 ```hcl
 
-data "vcd_storage_profile" "sp1" {
+data "vcloud_storage_profile" "sp1" {
   org  = "my-org"
   vdc  = "my-vdc"
   name = "ssd-storage-profile"
 }
 
-resource "vcd_catalog" "myNewCatalog" {
+resource "vcloud_catalog" "myNewCatalog" {
   org = "my-org"
 
   name               = "my-catalog"
   description        = "catalog for files"
-  storage_profile_id = data.vcd_storage_profile.sp1.id
+  storage_profile_id = data.vcloud_storage_profile.sp1.id
 
   delete_recursive = true
   delete_force     = true
@@ -57,7 +57,7 @@ The following arguments are supported:
 * `name` - (Required) Catalog name
 * `description` - (Optional) Description of catalog
 * `storage_profile_id` - (Optional, *v3.1+*) Allows to set specific storage profile to be used for catalog. **Note.** Data
-source [vcd_storage_profile](/providers/vmware/vcd/latest/docs/data-sources/storage_profile) can help to lookup storage profile ID.
+source [vcloud_storage_profile](/providers/vmware/vcd/latest/docs/data-sources/storage_profile) can help to lookup storage profile ID.
 * `delete_recursive` - (Optional, but recommended) When destroying use `delete_recursive=true` to remove the catalog and any objects it contains that are in a state that normally allows removal. Default is `false`
 * `delete_force` - (Optional, but recommended) When destroying use `delete_force=true` with `delete_recursive=true` to remove a catalog and any objects it contains, regardless of their state. Default is `false`
 * `publish_enabled` - (Optional, *v3.6+*) Enable allows to publish a catalog externally to make its vApp templates and media files available for subscription by organizations outside the Cloud Director installation. Default is `false`. 
@@ -99,7 +99,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_catalog" "example" {
+resource "vcloud_catalog" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -140,7 +140,7 @@ An existing catalog can be [imported][docs-import] into this resource via supply
 catalog. For example, using this structure, representing an existing catalog that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_catalog" "my-catalog" {
+resource "vcloud_catalog" "my-catalog" {
   org              = "my-org"
   name             = "my-catalog"
   delete_recursive = true
@@ -151,10 +151,10 @@ resource "vcd_catalog" "my-catalog" {
 You can import such catalog into terraform state using this command
 
 ```bash
-terraform import vcd_catalog.my-catalog my-org.my-catalog
+terraform import vcloud_catalog.my-catalog my-org.my-catalog
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_nat_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_nat_rule"
 sidebar_current: "docs-vcd-data-source-nsxt-nat-rule"
 description: |-
   Provides a data source to read NSX-T NAT rules. Source NAT (SNAT) rules change the source IP 
@@ -19,10 +19,10 @@ IP address from a public to a private IP address.
 ## Example Usage
 
 ```hcl
-data "vcd_nsxt_nat_rule" "dnat-ssh" {
+data "vcloud_nsxt_nat_rule" "dnat-ssh" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name = "dnat-ssh"
 }
@@ -43,4 +43,4 @@ names should be unique so that they can be distinguished.
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_nat_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule) resource are available.
+[`vcloud_nsxt_nat_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule) resource are available.

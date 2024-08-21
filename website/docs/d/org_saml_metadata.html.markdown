@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_saml_metadata"
+page_title: "Viettel IDC Cloud: vcloud_org_saml_metadata"
 sidebar_current: "docs-vcd-data-source-org-saml_metadata"
 description: |-
   Provides a data source to read SAML metadata for an organization.
@@ -16,12 +16,12 @@ This service provider metadata is used to configure the identity provider.
 ## Example Usage
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-data "vcd_org_saml_metadata" "first" {
-  org_id    = data.vcd_org.my-org.id
+data "vcloud_org_saml_metadata" "first" {
+  org_id    = data.vcloud_org.my-org.id
   file_name = "vcd-metadata.txt"
 }
 

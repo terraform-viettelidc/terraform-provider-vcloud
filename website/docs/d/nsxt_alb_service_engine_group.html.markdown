@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_service_engine_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_service_engine_group"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-service-engine-group"
 description: |-
   Provides a data source to read ALB Service Engine Groups. A Service Engine Group is an isolation domain that also
@@ -23,7 +23,7 @@ between different service engine groups.
 ## Example Usage
 
 ```hcl
-data "vcd_nsxt_alb_service_engine_group" "demo" {
+data "vcloud_nsxt_alb_service_engine_group" "demo" {
   name            = "configured-service-engine-group"
   sync_on_refresh = false
 }
@@ -41,5 +41,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_alb_service_engine_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
+[`vcloud_nsxt_alb_service_engine_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
 resource are available.

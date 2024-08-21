@@ -1,28 +1,28 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_vapp_template"
+page_title: "Viettel IDC Cloud: vcloud_catalog_vapp_template"
 sidebar_current: "docs-vcd-resource-catalog-vapp_template"
 description: |-
-  Provides a VMware Cloud Director vApp Template resource. This can be used to upload and delete OVA files inside a catalog.
+  Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload and delete OVA files inside a catalog.
 ---
 
 # vcd\_catalog\_vapp\_template
 
-Provides a VMware Cloud Director vApp Template resource. This can be used to upload OVA to catalog and delete it.
+Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload OVA to catalog and delete it.
 
 Supported in provider *v3.8+*
 
 ## Example Usage (OVA upload)
 
 ```hcl
-data "vcd_catalog" "my-catalog" {
+data "vcloud_catalog" "my-catalog" {
   org  = "my-org"
   name = "my-catalog"
 }
 
-resource "vcd_catalog_vapp_template" "myNewVappTemplate" {
+resource "vcloud_catalog_vapp_template" "myNewVappTemplate" {
   org        = "my-org"
-  catalog_id = data.vcd_catalog.my-catalog.id
+  catalog_id = data.vcloud_catalog.my-catalog.id
 
   name              = "my ova"
   description       = "new vapp template"
@@ -51,24 +51,24 @@ resource "vcd_catalog_vapp_template" "myNewVappTemplate" {
 }
 ```
 
--> If vApp Template upload fails, or you need to re-upload it, you can do a `terraform apply -replace=vcd_catalog_vapp_template.myNewVappTemplate`.
+-> If vApp Template upload fails, or you need to re-upload it, you can do a `terraform apply -replace=vcloud_catalog_vapp_template.myNewVappTemplate`.
 
 ## Example Usage (Capturing from existing vApp)
 
 ```hcl
-data "vcd_catalog" "cat" {
+data "vcloud_catalog" "cat" {
   org  = "v51"
   name = "cat-v51-nsxt-backed"
 }
 
-resource "vcd_catalog_vapp_template" "from-vapp" {
+resource "vcloud_catalog_vapp_template" "from-vapp" {
   org        = "v51"
-  catalog_id = data.vcd_catalog.cat.id
+  catalog_id = data.vcloud_catalog.cat.id
 
   name = "from-vapp"
 
   capture_vapp {
-    source_id                = vcd_vapp.web.id
+    source_id                = vcloud_vapp.web.id
     customize_on_instantiate = false
   }
 
@@ -80,26 +80,26 @@ resource "vcd_catalog_vapp_template" "from-vapp" {
     vapp_template_metadata = "vApp Template Metadata"
   }
 
-  depends_on = [vcd_vapp_vm.emptyVM] # Ensuring all VMs are present in vApp
+  depends_on = [vcloud_vapp_vm.emptyVM] # Ensuring all VMs are present in vApp
 }
 ```
 
 ## Example Usage (Capturing from existing Standalone VM)
 
 ```hcl
-data "vcd_catalog" "cat" {
+data "vcloud_catalog" "cat" {
   org  = "v51"
   name = "cat-v51-nsxt-backed"
 }
 
-resource "vcd_catalog_vapp_template" "from-standalone-vm" {
+resource "vcloud_catalog_vapp_template" "from-standalone-vm" {
   org        = "v51"
-  catalog_id = data.vcd_catalog.cat.id
+  catalog_id = data.vcloud_catalog.cat.id
 
   name = "captured-vApp"
 
   capture_vapp {
-    source_id                = vcd_vm.standalone.vapp_id # Parent hidden vApp must be referenced
+    source_id                = vcloud_vm.standalone.vapp_id # Parent hidden vApp must be referenced
     customize_on_instantiate = true                      # Can only be `true` if source vApp is powered off
   }
 }
@@ -134,11 +134,11 @@ The following arguments are supported:
 <a id="capture-vapp"></a>
 ## Capture vApp template from existing vApp or Standalone VM
 
-* `source_id` - (Required) Source vApp ID (can be referenced by `vcd_vapp.id` or
-  `vcd_vm.vapp_id`/`vcd_vapp_vm.vapp_id`)
+* `source_id` - (Required) Source vApp ID (can be referenced by `vcloud_vapp.id` or
+  `vcloud_vm.vapp_id`/`vcloud_vapp_vm.vapp_id`)
 * `overwrite_catalog_item_id` - (Optional) Optionally newly created template can overwrite. It can
-  either be `id` of `vcd_catalog_item` resource or `catalog_item_id` of
-  `vcd_catalog_vapp_template` resource
+  either be `id` of `vcloud_catalog_item` resource or `catalog_item_id` of
+  `vcloud_catalog_vapp_template` resource
 * `customize_on_instantiate` - (Optional) Default `false` - means "Make identical copy". `true`
   means "Customize VM settings". *Note* `true` can only be set when source vApp is powered off
 
@@ -159,7 +159,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_catalog_vapp_template" "example" {
+resource "vcloud_catalog_vapp_template" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -200,14 +200,14 @@ An existing vApp Template can be [imported][docs-import] into this resource via 
 vApp Template. For example, using this structure, representing an existing vAppTemplate that was **not** created using Terraform:
 
 ```hcl
-data "vcd_catalog" "my-catalog" {
+data "vcloud_catalog" "my-catalog" {
   org  = "my-org"
   name = "my-catalog"
 }
 
-resource "vcd_catalog_vapp_template" "my-vapp-template" {
+resource "vcloud_catalog_vapp_template" "my-vapp-template" {
   org        = "my-org"
-  catalog_id = data.vcd_catalog.my-catalog.id
+  catalog_id = data.vcloud_catalog.my-catalog.id
   name       = "my-vapp-template"
   ova_path   = "guess"
 }
@@ -216,17 +216,17 @@ resource "vcd_catalog_vapp_template" "my-vapp-template" {
 You can import such vApp Template into terraform state using this command
 
 ```
-terraform import vcd_catalog_vapp_template.my-vapp-template my-org.my-catalog.my-vapp-template
+terraform import vcloud_catalog_vapp_template.my-vapp-template my-org.my-catalog.my-vapp-template
 ```
 
 You can also import a vApp Template using a VDC name instead of a Catalog name:
 
 ```
-terraform import vcd_catalog_vapp_template.my-vapp-template my-org.my-vdc.my-vapp-template
+terraform import vcloud_catalog_vapp_template.my-vapp-template my-org.my-vdc.my-vapp-template
 ```
 
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_isolated_v2"
+page_title: "Viettel IDC Cloud: vcloud_network_isolated_v2"
 sidebar_current: "docs-vcd-resource-network-isolated-v2"
 description: |-
-  Provides a VMware Cloud Director Org VDC isolated Network. This can be used to create, modify, and
+  Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
   delete isolated VDC networks (backed by NSX-T or NSX-V).
 ---
 
 # vcd\_network\_isolated\_v2
 
-Provides a VMware Cloud Director Org VDC isolated Network. This can be used to create, modify, and
+Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
 delete isolated VDC networks (backed by NSX-T or NSX-V).
 
 Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.
@@ -22,14 +22,14 @@ guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
 ## Example Usage (NSX-T backed isolated Org VDC network)
 
 ```hcl
-data "vcd_org_vdc" "main" {
+data "vcloud_org_vdc" "main" {
   org  = "my-org"
   name = "my-nsxt-org-vdc"
 }
 
-resource "vcd_network_isolated_v2" "nsxt-backed" {
+resource "vcloud_network_isolated_v2" "nsxt-backed" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.main.id
+  owner_id = data.vcloud_org_vdc.main.id
 
   name        = "nsxt-isolated 1"
   description = "My isolated Org VDC network backed by NSX-T"
@@ -54,8 +54,8 @@ resource "vcd_network_isolated_v2" "nsxt-backed" {
 ## Example Usage (NSX-T backed isolated IPv6 Org VDC network)
 
 ```hcl
-resource "vcd_network_isolated_v2" "ipv6" {
-  owner_id = vcd_org_vdc.with-edge-cluster.id
+resource "vcloud_network_isolated_v2" "ipv6" {
+  owner_id = vcloud_org_vdc.with-edge-cluster.id
 
   name = "isolated-ipv6"
 
@@ -72,8 +72,8 @@ resource "vcd_network_isolated_v2" "ipv6" {
 ## Example Usage (Dual-Stack mode with IPv4 and IPv6)
 
 ```hcl
-resource "vcd_network_isolated_v2" "ipv6-dualstack" {
-  owner_id = vcd_org_vdc.with-edge-cluster.id
+resource "vcloud_network_isolated_v2" "ipv6-dualstack" {
+  owner_id = vcloud_org_vdc.with-edge-cluster.id
 
   name = "Isolated Dual Stack"
 
@@ -98,14 +98,14 @@ resource "vcd_network_isolated_v2" "ipv6-dualstack" {
 ## Example Usage (NSX-V backed isolated Org VDC network shared with other VDCs)
 
 ```hcl
-data "vcd_org_vdc" "main" {
+data "vcloud_org_vdc" "main" {
   org  = "my-org"
   name = "my-nsxt-org-vdc"
 }
 
-resource "vcd_network_isolated_v2" "nsxv-backed" {
+resource "vcloud_network_isolated_v2" "nsxv-backed" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.main.id
+  owner_id = data.vcloud_org_vdc.main.id
 
   name        = "nsxv-isolated-network"
   description = "NSX-V isolated network"
@@ -198,7 +198,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_network_isolated_v2" "example" {
+resource "vcloud_network_isolated_v2" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -240,7 +240,7 @@ The path for this resource is made of `org-name.vdc-or-vdc-group-name.network-na
 For example, using this structure, representing a isolated network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_network_isolated_v2" "tf-mynet" {
+resource "vcloud_network_isolated_v2" "tf-mynet" {
   name = "my-net"
   org  = "my-org"
   vdc  = "my-vdc"
@@ -251,10 +251,10 @@ resource "vcd_network_isolated_v2" "tf-mynet" {
 You can import such isolated network into terraform state using this command
 
 ```
-terraform import vcd_network_isolated_v2.tf-mynet my-org.my-vdc.my-net
+terraform import vcloud_network_isolated_v2.tf-mynet my-org.my-vdc.my-net
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

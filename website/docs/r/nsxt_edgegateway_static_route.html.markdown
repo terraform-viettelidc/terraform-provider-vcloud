@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_static_route"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_static_route"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-static-route"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway Static Routes.
@@ -15,8 +15,8 @@ Provides a resource to manage NSX-T Edge Gateway Static Routes.
 ## Example Usage
 
 ```hcl
-resource "vcd_nsxt_edgegateway_static_route" "sr" {
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+resource "vcloud_nsxt_edgegateway_static_route" "sr" {
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   name         = "some-static-route"
   description  = "description for the route"
@@ -27,7 +27,7 @@ resource "vcd_nsxt_edgegateway_static_route" "sr" {
     admin_distance = 4
 
     scope {
-      id   = data.vcd_network_routed_v2.net.id
+      id   = data.vcloud_network_routed_v2.net.id
       type = "NETWORK"
     }
   }
@@ -37,7 +37,7 @@ resource "vcd_nsxt_edgegateway_static_route" "sr" {
     admin_distance = 3
 
     scope {
-      id   = data.vcd_network_routed_v2.net.id
+      id   = data.vcloud_network_routed_v2.net.id
       type = "NETWORK"
     }
   }
@@ -88,13 +88,13 @@ resource via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_edgegateway_static_route.imported my-org.nsxt-vdc.nsxt-edge.static-route-name
+terraform import vcloud_nsxt_edgegateway_static_route.imported my-org.nsxt-vdc.nsxt-edge.static-route-name
 ```
 
 or 
 
 ```
-terraform import vcd_nsxt_edgegateway_static_route.imported my-org.nsxt-vdc.nsxt-edge.static-route-cidr
+terraform import vcloud_nsxt_edgegateway_static_route.imported my-org.nsxt-vdc.nsxt-edge.static-route-cidr
 ```
 
 The above would import the `static-route-name` or `static-route-cidr` Edge Gateway Static Route

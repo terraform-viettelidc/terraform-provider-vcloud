@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp"
+page_title: "Viettel IDC Cloud: vcloud_vapp"
 sidebar_current: "docs-vcd-datasource-vapp"
 description: |-
-  Provides a VMware Cloud Director vApp data source. This can be used to reference vApps.
+  Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 ---
 
 # vcd\_vapp
 
-Provides a VMware Cloud Director vApp data source. This can be used to reference vApps.
+Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 
 Supported in provider *v2.5+*
 
@@ -16,30 +16,30 @@ Supported in provider *v2.5+*
 
 
 ```hcl
-data "vcd_vapp" "test-tf" {
+data "vcloud_vapp" "test-tf" {
   name = "test-tf"
   org  = "tf"
   vdc  = "vdc-tf"
 }
 
 output "id" {
-  value = data.vcd_vapp.test-tf.id
+  value = data.vcloud_vapp.test-tf.id
 }
 
 output "name" {
-  value = data.vcd_vapp.test-tf.name
+  value = data.vcloud_vapp.test-tf.name
 }
 
 output "description" {
-  value = data.vcd_vapp.test-tf.description
+  value = data.vcloud_vapp.test-tf.description
 }
 
 output "href" {
-  value = data.vcd_vapp.test-tf.href
+  value = data.vcloud_vapp.test-tf.href
 }
 
 output "status_text" {
-  value = data.vcd_vapp.test-tf.status_text
+  value = data.vcloud_vapp.test-tf.status_text
 }
 ```
 

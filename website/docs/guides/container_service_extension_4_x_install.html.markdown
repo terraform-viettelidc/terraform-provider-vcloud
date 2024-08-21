@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Container Service Extension 4.2 installation"
+page_title: "Viettel IDC Cloud: Container Service Extension 4.2 installation"
 sidebar_current: "docs-vcd-guides-cse-4-x-install"
 description: |-
   Provides guidance on configuring VCD to be able to install and use Container Service Extension 4.2
@@ -80,7 +80,7 @@ To customise it, the [step 1 configuration][step1] asks for the following variab
   [the RDE template file for CSE 4.2](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/entities/vcdkeconfig.json.template)
   used in the step 1 configuration, that can be rendered correctly with the Terraform built-in function `templatefile`.
   (Note: In `terraform.tfvars.example` the path for the CSE 4.2 RDE contents is already provided).
-* `capvcd_version`: The version for CAPVCD. Must be **"1.2.0"** for CSE 4.2.0, or **"1.3.0"** for CSE 4.2.1.
+* `capvcloud_version`: The version for CAPVCD. Must be **"1.2.0"** for CSE 4.2.0, or **"1.3.0"** for CSE 4.2.1.
   (Note: Do not confuse with the version of the `capvcdCluster` [RDE Type][rde_type], which **must be "1.3.0"** for CSE 4.2.X, and cannot be changed through a variable).
 * `cpi_version`: The version for CPI (Cloud Provider Interface). Must be **"1.5.0"** for CSE 4.2.0, or **"1.6.0"** for CSE 4.2.1.
 * `csi_version`: The version for CSI (Cloud Storage Interface). Must be **"1.5.0"** for CSE 4.2.0, or **"1.6.0"** for CSE 4.2.1.
@@ -187,12 +187,12 @@ You can also check the [Product Interoperability Matrix][product_matrix] to conf
 
 ~> Both CSE Server and TKGm OVAs are heavy. Please take into account that the upload process could take more than 30 minutes, depending
 on upload speed. You can tune the `upload_piece_size` to speed up the upload. Another option would be uploading them manually in the UI.
-In case you're using a pre-uploaded OVA, leverage the [vcd_catalog_vapp_template][catalog_vapp_template_ds] data source (instead of the resource).
+In case you're using a pre-uploaded OVA, leverage the [vcloud_catalog_vapp_template][catalog_vapp_template_ds] data source (instead of the resource).
 
 #### Networking
 
 The [step 2 configuration][step2] prepares a basic networking layout that will make CSE 4.2 work. However, it is
-recommended that you review the code and adapt the different parts to your needs, specially for the resources like `vcd_nsxt_firewall`.
+recommended that you review the code and adapt the different parts to your needs, specially for the resources like `vcloud_nsxt_firewall`.
 
 The configuration will create the following:
 
@@ -284,7 +284,7 @@ The generated VM makes use of the uploaded CSE OVA and some required guest prope
 
 -> If the old CSE 3.x UI plugin is installed, you will need to remove it before installing the new one.
 
-The final resource created by the [step 2 configuration][step2] is the [`vcd_ui_plugin`][ui_plugin] resource.
+The final resource created by the [step 2 configuration][step2] is the [`vcloud_ui_plugin`][ui_plugin] resource.
 
 This resource is **optional**, it will be only created if the variable `k8s_container_clusters_ui_plugin_path` is not empty,
 so you can leverage whether your tenant users or system administrators will need it or not. It can be useful for troubleshooting,
@@ -304,9 +304,9 @@ one available IP to the CSE Server, or using the UI:
 * With a [DNAT rule][nat_rule] you would be able to connect to the CSE Server VM through `ssh` and the credentials that are stored in the `terraform.tfstate` file,
   with a resource similar to this:
 ```
-resource "vcd_nsxt_nat_rule" "solutions_nat" {
-  org             = vcd_org.solutions_organization.name
-  edge_gateway_id = vcd_nsxt_edgegateway.solutions_edgegateway.id
+resource "vcloud_nsxt_nat_rule" "solutions_nat" {
+  org             = vcloud_org.solutions_organization.name
+  edge_gateway_id = vcloud_nsxt_edgegateway.solutions_edgegateway.id
 
   name        = "CSE Server DNAT rule"
   rule_type   = "DNAT"
@@ -340,7 +340,7 @@ The most common issues are:
 * OVA upload is taking too long:
   * Verify your Internet connectivity is not having any issues.
   * OVAs are quite big, you could tune `upload_piece_size` to speed up the upload process.
-  * If upload fails, or you need to re-upload it, you can do a `terraform apply -replace=vcd_catalog_vapp_template.cse_ova`.
+  * If upload fails, or you need to re-upload it, you can do a `terraform apply -replace=vcloud_catalog_vapp_template.cse_ova`.
   * Verify that there's not a huge latency between your VCD and the place where Terraform configuration is run.
 
 * Cluster creation is failing:
@@ -359,13 +359,13 @@ Create a new version of the [RDE Types][rde_type] that were used in 4.1. This wi
 so we can perform a smooth upgrade.
 
 ```hcl
-resource "vcd_rde_type" "capvcdcluster_type_v130" {
+resource "vcloud_rde_type" "capvcdcluster_type_v130" {
   # Same attributes as 4.1, except for:
   version = "1.3.0" # New version
   # New schema:
   schema_url = "https://raw.githubusercontent.com/vmware/terraform-provider-vcd/main/examples/container-service-extension/v4.2/schemas/capvcd-type-schema-v1.3.0.json"
   # Behaviors need to be created before any RDE Type
-  depends_on = [vcd_rde_interface_behavior.capvcd_behavior]
+  depends_on = [vcloud_rde_interface_behavior.capvcloud_behavior]
 }
 ```
 
@@ -376,11 +376,11 @@ stores the CSE Server configuration. By using the v3.12.0 of the VCD Terraform P
 a replacement:
 
 ```hcl
-resource "vcd_rde" "vcdkeconfig_instance" {
+resource "vcloud_rde" "vcdkeconfig_instance" {
   # Same values as before, except:
   input_entity = templatefile(var.vcdkeconfig_template_filepath, {
     # Same values as before, except:
-    capvcd_version        = "1.2.0"
+    capvcloud_version        = "1.2.0"
     cpi_version           = "1.5.0"
     csi_version           = "1.5.0"
     rde_projector_version = "0.7.0"
@@ -396,9 +396,9 @@ You need to upload the new CSE 4.2.0 OVA to the `cse_catalog` that already hosts
 To download the required OVAs, please refer to the [CSE documentation][cse_docs].
 
 ```hcl
-resource "vcd_catalog_vapp_template" "cse_ova_4_2_0" {
-  org        = vcd_org.solutions_organization.name # References the Solutions Organization that already exists from 4.1
-  catalog_id = vcd_catalog.cse_catalog.id          # References the CSE Catalog that already exists from 4.1
+resource "vcloud_catalog_vapp_template" "cse_ova_4_2_0" {
+  org        = vcloud_org.solutions_organization.name # References the Solutions Organization that already exists from 4.1
+  catalog_id = vcloud_catalog.cse_catalog.id          # References the CSE Catalog that already exists from 4.1
 
   name        = "VMware_Cloud_Director_Container_Service_Extension-4.2.0"
   description = "VMware_Cloud_Director_Container_Service_Extension-4.2.0"
@@ -411,9 +411,9 @@ resource "vcd_catalog_vapp_template" "cse_ova_4_2_0" {
 To update the CSE Server, just change the referenced OVA:
 
 ```hcl
-resource "vcd_vapp_vm" "cse_server_vm" {
+resource "vcloud_vapp_vm" "cse_server_vm" {
   # All values remain the same, except:
-  vapp_template_id = vcd_catalog_vapp_template.cse_ova_4_2_0.id # Reference the 4.2.0 OVA
+  vapp_template_id = vcloud_catalog_vapp_template.cse_ova_4_2_0.id # Reference the 4.2.0 OVA
 }
 ```
 
@@ -423,15 +423,15 @@ This will re-deploy the VM with the new CSE 4.2.0 Server.
 
 In this section you can find the required steps to update from CSE 4.2.0 to 4.2.1.
 
-Change the `VCDKEConfig` [RDE][rde] to update the `capvcd_version`, `cpi_version` and `csi_version` (follow [the instructions
+Change the `VCDKEConfig` [RDE][rde] to update the `capvcloud_version`, `cpi_version` and `csi_version` (follow [the instructions
 in the section below](#update-cse-server-configuration) to know how to upgrade this configuration):
 
 ```hcl
-resource "vcd_rde" "vcdkeconfig_instance" {
+resource "vcloud_rde" "vcdkeconfig_instance" {
   # ...omitted
   input_entity = templatefile(var.vcdkeconfig_template_filepath, {
     # ...omitted
-    capvcd_version = "1.3.0" # It was 1.2.0 in 4.2.0
+    capvcloud_version = "1.3.0" # It was 1.2.0 in 4.2.0
     cpi_version    = "1.6.0" # It was 1.5.0 in 4.2.0
     csi_version    = "1.6.0" # It was 1.5.0 in 4.2.0
   })
@@ -441,7 +441,7 @@ resource "vcd_rde" "vcdkeconfig_instance" {
 The **Kubernetes Clusters Rights Bundle** and **Kubernetes Cluster Author Role** need to have the Right to view and manage IP Spaces:
 
 ```hcl
-resource "vcd_role" "cse_admin_role" {
+resource "vcloud_role" "cse_admin_role" {
   name = "CSE Admin Role"
   # ...omitted
   rights = [
@@ -453,7 +453,7 @@ resource "vcd_role" "cse_admin_role" {
   ]
 }
 
-resource "vcd_rights_bundle" "k8s_clusters_rights_bundle" {
+resource "vcloud_rights_bundle" "k8s_clusters_rights_bundle" {
   name = "Kubernetes Clusters Rights Bundle"
   # ...omitted
   rights = [
@@ -465,7 +465,7 @@ resource "vcd_rights_bundle" "k8s_clusters_rights_bundle" {
   ]
 }
 
-resource "vcd_global_role" "k8s_cluster_author" {
+resource "vcloud_global_role" "k8s_cluster_author" {
   name = "Kubernetes Cluster Author"
   # ...omitted
   rights = [
@@ -483,7 +483,7 @@ like it was done [in the previous section](#update-cse-server).
 
 ## Update CSE Server Configuration
 
-To make changes to the existing server configuration, you should be able to locate the [`vcd_rde`][rde] resource named `vcdkeconfig_instance`
+To make changes to the existing server configuration, you should be able to locate the [`vcloud_rde`][rde] resource named `vcdkeconfig_instance`
 in the [step 2 configuration][step2] that was created during the installation process. To update its configuration, you can
 **change the variable values that are referenced**. For this, you can review the **"CSE Server"** section in the Installation process to
 see how this can be done.
@@ -492,7 +492,7 @@ After variables are changed, the CSE Server VM needs to be rebooted. You can tri
 as follows:
 
 ```hcl
-resource "vcd_vapp_vm" "cse_server_vm" {
+resource "vcloud_vapp_vm" "cse_server_vm" {
   # ...
   power_on = false # Trigger a power off
   # ...
@@ -502,7 +502,7 @@ resource "vcd_vapp_vm" "cse_server_vm" {
 Then change to power on again:
 
 ```hcl
-resource "vcd_vapp_vm" "cse_server_vm" {
+resource "vcloud_vapp_vm" "cse_server_vm" {
   # ...
   power_on = true # Trigger a power on
   # ...
@@ -518,13 +518,13 @@ the reference to the [vApp Template][catalog_vapp_template] in the CSE Server VM
 
 In the [step 2 configuration][step2], you can find the `cse_ova` [vApp Template][catalog_vapp_template] and the 
 `cse_server_vm` [VM][vm] that were applied during the installation process.
-Then you can create a new `vcd_catalog_vapp_template` and modify `cse_server_vm` to reference it:
+Then you can create a new `vcloud_catalog_vapp_template` and modify `cse_server_vm` to reference it:
 
 ```hcl
 # Uploads a new CSE Server OVA. In the example below, we upload version 4.2.1
-resource "vcd_catalog_vapp_template" "new_cse_ova" {
-  org        = vcd_org.solutions_organization.name # References the Solutions Organization
-  catalog_id = vcd_catalog.cse_catalog.id          # References the CSE Catalog
+resource "vcloud_catalog_vapp_template" "new_cse_ova" {
+  org        = vcloud_org.solutions_organization.name # References the Solutions Organization
+  catalog_id = vcloud_catalog.cse_catalog.id          # References the CSE Catalog
 
   name        = "VMware_Cloud_Director_Container_Service_Extension-4.2.1"
   description = "VMware_Cloud_Director_Container_Service_Extension-4.2.1"
@@ -534,9 +534,9 @@ resource "vcd_catalog_vapp_template" "new_cse_ova" {
 # ...
 
 # Update the vApp Template reference to update the CSE Server
-resource "vcd_vapp_vm" "cse_server_vm" {
+resource "vcloud_vapp_vm" "cse_server_vm" {
   # ...
-  vapp_template_id = vcd_catalog_vapp_template.new_cse_ova.id # Change to the new OVA version
+  vapp_template_id = vcloud_catalog_vapp_template.new_cse_ova.id # Change to the new OVA version
 }
 ```
 

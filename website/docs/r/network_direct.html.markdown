@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_direct"
+page_title: "Viettel IDC Cloud: vcloud_network_direct"
 sidebar_current: "docs-vcd-resource-network-direct"
 description: |-
-  Provides a VMware Cloud Director Org VDC Network attached to an external one. This can be used to create, modify, and delete internal networks for vApps to connect.
+  Provides a Viettel IDC Cloud Org VDC Network attached to an external one. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
 # vcd\_network\_direct
 
-Provides a VMware Cloud Director Org VDC Network directly connected to an external network. This can be used to create,
+Provides a Viettel IDC Cloud Org VDC Network directly connected to an external network. This can be used to create,
 modify, and delete internal networks for vApps to connect.
 
 Supported in provider *v2.0+*
@@ -20,7 +20,7 @@ and then provide `org` and `vdc` arguments for direct networks to work.
 ## Example Usage
 
 ```hcl
-resource "vcd_network_direct" "net" {
+resource "vcloud_network_direct" "net" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -71,7 +71,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_network_direct" "example" {
+resource "vcloud_network_direct" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -115,7 +115,7 @@ The path for this resource is made of orgName.vdcName.networkName.
 For example, using this structure, representing a direct network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_network_direct" "tf-mynet" {
+resource "vcloud_network_direct" "tf-mynet" {
   name             = "my-net"
   org              = "my-org"
   vdc              = "my-vdc"
@@ -126,10 +126,10 @@ resource "vcd_network_direct" "tf-mynet" {
 You can import such isolated network into terraform state using this command
 
 ```
-terraform import vcd_network_direct.tf-mynet my-org.my-vdc.my-net
+terraform import vcloud_network_direct.tf-mynet my-org.my-vdc.my-net
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

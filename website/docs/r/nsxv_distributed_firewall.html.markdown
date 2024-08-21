@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_distributed_firewall"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_distributed_firewall"
 sidebar_current: "docs-vcd-resource-nsxv-distributed-firewall"
 description: |-
   The NSX-V Distributed Firewall allows user to segment organization virtual data center entities, such as
@@ -17,45 +17,45 @@ Supported in provider *v3.9+*
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "my-vdc" {
+data "vcloud_org_vdc" "my-vdc" {
   org  = "my-org"
   name = "my-vdc"
 }
 
-data "vcd_nsxv_ip_set" "test-ipset" {
+data "vcloud_nsxv_ip_set" "test-ipset" {
   org  = "my-org"
   vdc  = "my-vdc"
   name = "TestIpSet"
 }
 
-data "vcd_vapp_vm" "vm1" {
-  vdc       = data.vcd_org_vdc.my-vdc.name
+data "vcloud_vapp_vm" "vm1" {
+  vdc       = data.vcloud_org_vdc.my-vdc.name
   vapp_name = "TestVapp"
   name      = "TestVm"
 }
 
-data "vcd_network_routed" "net-r" {
-  vdc  = data.vcd_org_vdc.my-vdc.name
+data "vcloud_network_routed" "net-r" {
+  vdc  = data.vcloud_org_vdc.my-vdc.name
   name = "net-routed"
 }
 
-data "vcd_edgegateway" "edge" {
-  vdc  = data.vcd_org_vdc.my-vdc.name
+data "vcloud_edgegateway" "edge" {
+  vdc  = data.vcloud_org_vdc.my-vdc.name
   name = "my-edge"
 }
 
-data "vcd_nsxv_application" "application1" {
-  vdc_id = data.vcd_org_vdc.my-vdc.id
+data "vcloud_nsxv_application" "application1" {
+  vdc_id = data.vcloud_org_vdc.my-vdc.id
   name   = "POP3"
 }
 
-data "vcd_nsxv_application_group" "application_group1" {
-  vdc_id = data.vcd_org_vdc.my-vdc.id
+data "vcloud_nsxv_application_group" "application_group1" {
+  vdc_id = data.vcloud_org_vdc.my-vdc.id
   name   = "MS Exchange 2010 Mailbox Servers"
 }
 
-resource "vcd_nsxv_distributed_firewall" "dfw1" {
-  vdc_id = data.vcd_org_vdc.my-vdc.id
+resource "vcloud_nsxv_distributed_firewall" "dfw1" {
+  vdc_id = data.vcloud_org_vdc.my-vdc.id
 
   rule {
     name      = "third"
@@ -64,8 +64,8 @@ resource "vcd_nsxv_distributed_firewall" "dfw1" {
 
     # Using an IP set as source
     source {
-      name  = data.vcd_nsxv_ip_set.test-ipset.name
-      value = data.vcd_nsxv_ip_set.test-ipset.id
+      name  = data.vcloud_nsxv_ip_set.test-ipset.name
+      value = data.vcloud_nsxv_ip_set.test-ipset.id
       type  = "IPSet"
     }
 
@@ -78,23 +78,23 @@ resource "vcd_nsxv_distributed_firewall" "dfw1" {
 
     # Using a named application
     application {
-      name  = data.vcd_nsxv_application.application1.name
-      value = data.vcd_nsxv_application.application1.id
+      name  = data.vcloud_nsxv_application.application1.name
+      value = data.vcloud_nsxv_application.application1.id
       type  = "Application"
     }
 
     # Using a named application group
     application {
-      name  = data.vcd_nsxv_application_group.application_group1.name
-      value = data.vcd_nsxv_application_group.application_group1.id
+      name  = data.vcloud_nsxv_application_group.application_group1.name
+      value = data.vcloud_nsxv_application_group.application_group1.id
       type  = "ApplicationGroup"
     }
 
     # Applied to an edge gateway
     applied_to {
-      name  = data.vcd_edgegateway.edge.name
+      name  = data.vcloud_edgegateway.edge.name
       type  = "Edge"
-      value = data.vcd_edgegateway.edge.id
+      value = data.vcloud_edgegateway.edge.id
     }
   }
 
@@ -112,30 +112,30 @@ resource "vcd_nsxv_distributed_firewall" "dfw1" {
 
     # Defining a VM as source
     source {
-      name  = data.vcd_vapp_vm.vm1.name
-      value = data.vcd_vapp_vm.vm1.id
+      name  = data.vcloud_vapp_vm.vm1.name
+      value = data.vcloud_vapp_vm.vm1.id
       type  = "VirtualMachine"
     }
 
     # Using a routed network as destination
     destination {
-      name  = data.vcd_network_routed.net-r.name
-      value = data.vcd_network_routed.net-r.id
+      name  = data.vcloud_network_routed.net-r.name
+      value = data.vcloud_network_routed.net-r.id
       type  = "Network"
     }
 
     # Using an isolated network as destination
     destination {
-      name  = data.vcd_network_isolated.net-i.name
-      value = data.vcd_network_isolated.net-i.id
+      name  = data.vcloud_network_isolated.net-i.name
+      value = data.vcloud_network_isolated.net-i.id
       type  = "Network"
     }
 
     # Applied to the current VDC
     applied_to {
-      name  = data.vcd_org_vdc.my-vdc.name
+      name  = data.vcloud_org_vdc.my-vdc.name
       type  = "VDC"
-      value = data.vcd_org_vdc.my-vdc.id
+      value = data.vcloud_org_vdc.my-vdc.id
     }
   }
 
@@ -149,21 +149,21 @@ resource "vcd_nsxv_distributed_firewall" "dfw1" {
 
     # Applied to the current VDC
     applied_to {
-      name  = data.vcd_org_vdc.my-vdc.name
+      name  = data.vcloud_org_vdc.my-vdc.name
       type  = "VDC"
-      value = data.vcd_org_vdc.my-vdc.id
+      value = data.vcloud_org_vdc.my-vdc.id
     }
   }
 }
 ```
 
-~> NOTE: when we remove a `vcd_nsxv_distributed_firewall`, the firewall gets disabled, and all rules (both layer 3 and layer 2) are removed.
+~> NOTE: when we remove a `vcloud_nsxv_distributed_firewall`, the firewall gets disabled, and all rules (both layer 3 and layer 2) are removed.
 
 ## Argument Reference
 
 The following arguments are supported:
 
-* `vdc_id` - (Required) The ID of VDC to manage the Distributed Firewall in. Can be looked up using a `vcd_org_vdc` data source
+* `vdc_id` - (Required) The ID of VDC to manage the Distributed Firewall in. Can be looked up using a `vcloud_org_vdc` data source
 * `rule` - (Optional) One or more blocks with [Firewall Rule](#firewall-rule) definitions. **Order
   defines firewall rule precedence**. If no rules are defined, all will be removed from the firewall
 
@@ -242,14 +242,14 @@ For example, using the structure in [Example Usage](#example-usage), representin
 You can import such firewall into terraform state using one of the commands below:
 
 ```
-terraform import vcd_nsxv_distributed_firewall.dfw1 urn:vcloud:vdc:e5680ceb-1c15-48a8-9a54-e0bbc6fe909f
+terraform import vcloud_nsxv_distributed_firewall.dfw1 urn:vcloud:vdc:e5680ceb-1c15-48a8-9a54-e0bbc6fe909f
 # or
-terraform import vcd_nsxv_distributed_firewall.dfw1 my-org.my-vdc
+terraform import vcloud_nsxv_distributed_firewall.dfw1 my-org.my-vdc
 ```
 
-NOTE 1: To get the VDC ID, you can use a `vcd_org_vdc` data source, and check its ID from the Terraform state file (`terraform.tfstate`).
+NOTE 1: To get the VDC ID, you can use a `vcloud_org_vdc` data source, and check its ID from the Terraform state file (`terraform.tfstate`).
 
-NOTE 2: The default separator (.) can be changed using `Provider.import_separator` or the environmant variable `VCD_IMPORT_SEPARATOR`
+NOTE 2: The default separator (.) can be changed using `Provider.import_separator` or the environmant variable `vcloud_IMPORT_SEPARATOR`
 
 [docs-import]:https://www.terraform.io/docs/import/
 

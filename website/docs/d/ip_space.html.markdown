@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ip_space"
+page_title: "Viettel IDC Cloud: vcloud_ip_space"
 sidebar_current: "docs-vcd-data-source-ip-space"
 description: |-
   Provides a data source to read IP Spaces. IP Spaces provide 
@@ -19,15 +19,15 @@ IP Spaces require VCD 10.4.1+ with NSX-T.
 ## Example Usage (Private IP Space within an Org)
 
 ```hcl
-data "vcd_ip_space" "space1" {
-  org_id = data.vcd_org.org1.id
+data "vcloud_ip_space" "space1" {
+  org_id = data.vcloud_org.org1.id
   name   = "private-ip-space"
 }
 ```
 
 ## Example Usage (Public or Shared IP Space)
 ```hcl
-data "vcd_ip_space" "space1" {
+data "vcloud_ip_space" "space1" {
   name = "public-or-shared-ip-space"
 }
 ```
@@ -42,4 +42,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_ip_space`](/providers/vmware/vcd/latest/docs/resources/ip_space) resource are available.
+[`vcloud_ip_space`](/providers/vmware/vcd/latest/docs/resources/ip_space) resource are available.

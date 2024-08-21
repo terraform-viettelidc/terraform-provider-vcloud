@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_service_engine_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_service_engine_group"
 sidebar_current: "docs-vcd-resource-nsxt-alb-service-engine-group"
 description: |-
   Provides a resource to manage ALB Service Engine Groups. A Service Engine Group is an isolation domain that also
@@ -25,12 +25,12 @@ between different service engine groups.
 ```hcl
 # Local variable is used to avoid direct reference and cover Terraform core bug https://github.com/hashicorp/terraform/issues/29484
 # Even changing ALB Controller name in UI, plan will cause to recreate all resources depending 
-# on `vcd_nsxt_alb_importable_cloud` data source if this indirect reference (via local) variable is not used.
+# on `vcloud_nsxt_alb_importable_cloud` data source if this indirect reference (via local) variable is not used.
 locals {
-  controller_id = vcd_nsxt_alb_controller.first.id
+  controller_id = vcloud_nsxt_alb_controller.first.id
 }
 
-resource "vcd_nsxt_alb_controller" "first" {
+resource "vcloud_nsxt_alb_controller" "first" {
   name         = "aviController1"
   description  = "first alb controller"
   url          = "https://controller.myXZ"
@@ -39,24 +39,24 @@ resource "vcd_nsxt_alb_controller" "first" {
   license_type = "ENTERPRISE"
 }
 
-data "vcd_nsxt_alb_importable_cloud" "cld" {
+data "vcloud_nsxt_alb_importable_cloud" "cld" {
   name          = "importable-cloud-name"
   controller_id = local.controller_id
 }
 
-resource "vcd_nsxt_alb_cloud" "first" {
+resource "vcloud_nsxt_alb_cloud" "first" {
   name        = "nsxt-cloud"
   description = "first alb cloud"
 
-  controller_id       = vcd_nsxt_alb_controller.first.id
-  importable_cloud_id = data.vcd_nsxt_alb_importable_cloud.cld.id
-  network_pool_id     = data.vcd_nsxt_alb_importable_cloud.cld.network_pool_id
+  controller_id       = vcloud_nsxt_alb_controller.first.id
+  importable_cloud_id = data.vcloud_nsxt_alb_importable_cloud.cld.id
+  network_pool_id     = data.vcloud_nsxt_alb_importable_cloud.cld.network_pool_id
 }
 
-resource "vcd_nsxt_alb_service_engine_group" "first" {
+resource "vcloud_nsxt_alb_service_engine_group" "first" {
   name                                 = "demo-service-engine"
   description                          = "Service Engine for Terraform documentation"
-  alb_cloud_id                         = vcd_nsxt_alb_cloud.first.id
+  alb_cloud_id                         = vcloud_nsxt_alb_cloud.first.id
   importable_service_engine_group_name = "Default-Group"
   reservation_model                    = "SHARED"
   sync_on_refresh                      = false
@@ -69,7 +69,7 @@ The following arguments are supported:
 
 * `name` - (Required) A name for ALB Service Engine Group
 * `description` - (Optional) An optional description ALB Service Engine Group
-* `alb_cloud_id` - (Required) A reference ALB Cloud. Can be looked up using `vcd_nsxt_alb_cloud` resource or data
+* `alb_cloud_id` - (Required) A reference ALB Cloud. Can be looked up using `vcloud_nsxt_alb_cloud` resource or data
   source
 * `reservation_model` - (Required) Definition if the Service Engine Group is `DEDICATED` or `SHARED`
 * `importable_service_engine_group_name` - (Required) Name of available Service Engine Group in ALB
@@ -105,7 +105,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_service_engine_group.imported my-service-engine-group-name
+terraform import vcloud_nsxt_alb_service_engine_group.imported my-service-engine-group-name
 ```
 
 The above would import the `my-service-engine-group-name` ALB controller settings that are defined at provider

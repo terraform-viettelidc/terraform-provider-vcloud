@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Catalog Subscription and Sharing"
+page_title: "Viettel IDC Cloud: Catalog Subscription and Sharing"
 sidebar_current: "docs-vcd-guides-catalog-subscription-and-sharing"
 description: |-
  Provides guidance to VMware Cloud catalog publishing, subscribing, and sharing
@@ -14,7 +14,7 @@ Supported in provider *v3.8+*.
 
 ## Overview
 
-This document explains some common scenarios in VMware Cloud Director catalog usage, with special emphasis on catalog sharing and subscribing.
+This document explains some common scenarios in Viettel IDC Cloud catalog usage, with special emphasis on catalog sharing and subscribing.
 
 ## Glossary
 
@@ -31,14 +31,14 @@ This document explains some common scenarios in VMware Cloud Director catalog us
 As we can see from the glossary, we have 4 types of catalog usage:
 
 ### Regular catalog
-A regular [`vcd_catalog`][catalog], i.e. a catalog that is not being published, shared, or subscribed, belongs to its
+A regular [`vcloud_catalog`][catalog], i.e. a catalog that is not being published, shared, or subscribed, belongs to its
 owners, who can do with it as they please. The owners could be the creators of the catalog, but can also be tenants, to
 whom the catalog was assigned by a provider.
 
 Bottom line: _It's my catalog, and only I (or my organization) can use it_.
 
 ### Shared catalog
-A `vcd_catalog` can also be [shared][shared]. Here, the owners keep control on the catalog, but they can grant broad permissions
+A `vcloud_catalog` can also be [shared][shared]. Here, the owners keep control on the catalog, but they can grant broad permissions
 (including full control) to specific users, or read-only access to whole organizations.
 In this type of catalog, the data stays in the original catalog, but authorised users and organizations can read and write
 its contents, depending on the type of access they were granted.
@@ -47,7 +47,7 @@ A shared catalog is accessible by its authorised users until the access is revok
 Bottom line: _It's still my catalog, but I allow others to use it_.
 
 ### Published catalog
-A `vcd_catalog` is [published][catalog] when its owners open it for external access. Unlike a shared catalog, external users can't use
+A `vcloud_catalog` is [published][catalog] when its owners open it for external access. Unlike a shared catalog, external users can't use
 the catalog contents directly, but obtain a subscription to it. There are no degrees of publishing like in sharing: it's
 either published or not published. When it is published, anyone who knows the subscription URL and the optional password
 can access it. The publishing operation is blind, i.e. the owners may not know who will access the catalog, or from where.
@@ -57,7 +57,7 @@ must be done within the same VCD.
 Bottom line: _It's my catalog, and I'll let you copy it if you can see it_.
 
 ### Subscribed catalog
-A [`vcd_subscribed_catalog`][subscribed] is created with a subscription to a published catalog. It becomes a new catalog, with
+A [`vcloud_subscribed_catalog`][subscribed] is created with a subscription to a published catalog. It becomes a new catalog, with
 local contents that are copied over from the published catalog, and the owner can decide whether to copy either all-at-once 
 or one item at the time, when needed.
 Once the contents are copied (they are said to be _synchronised_) they stay available in the local storage even if the
@@ -69,27 +69,27 @@ Bottom line: _It's a borrowed catalog that I can use if I have copied all the co
 
 ## Sharing operations
 
-A [shared `vcd_catalog`][shared] is a regular catalog (it could also be published) whose access has been altered by its owners.
+A [shared `vcloud_catalog`][shared] is a regular catalog (it could also be published) whose access has been altered by its owners.
 The normal access of a catalog is by users of the same organization with enough privileges to see and modify its items.
 With access control, the owners can grant specific access (read-only, read/write, full access) to users, or read-only access
 to organizations.
 
 ```hcl
-resource "vcd_catalog_access_control" "AC-users-and-orgs" {
-  catalog_id = data.vcd_catalog.Catalog-AC-2.id
+resource "vcloud_catalog_access_control" "AC-users-and-orgs" {
+  catalog_id = data.vcloud_catalog.Catalog-AC-2.id
 
   shared_with_everyone = false
 
   shared_with {
-    user_id      = data.vcd_org_user.ac-admin1.id
+    user_id      = data.vcloud_org_user.ac-admin1.id
     access_level = "FullControl"
   }
   shared_with {
-    user_id      = data.vcd_org_user.ac-vapp-creator2.id
+    user_id      = data.vcloud_org_user.ac-vapp-creator2.id
     access_level = "Change"
   }
   shared_with {
-    org_id       = data.vcd_org.another-org.id
+    org_id       = data.vcloud_org.another-org.id
     access_level = "ReadOnly"
   }
 }
@@ -114,11 +114,11 @@ Publishing a catalog is an operation that only involves the owner of the catalog
 catalog creation or as an update.
 
 ```hcl
-resource "vcd_catalog" "publisher" {
+resource "vcloud_catalog" "publisher" {
   org                = "my-org"
   name               = "publisher"
   description        = "publisher catalog"
-  storage_profile_id = data.vcd_storage_profile.storage_profile.id
+  storage_profile_id = data.vcloud_storage_profile.storage_profile.id
   delete_force       = true
   delete_recursive   = true
 
@@ -154,7 +154,7 @@ can set the catalog name, and decide how they want to manage the flux of data.
 This is the simplest subscription operation:
 
 ```hcl
-resource "vcd_subscribed_catalog" "test-subscriber" {
+resource "vcloud_subscribed_catalog" "test-subscriber" {
   org  = "another-org"
   name = "subscriber"
 
@@ -201,7 +201,7 @@ the catalog resources. The catalog and its items will need to be synchronised ex
 When we are in this situation, adding `sync_catalog=true` to the creation script will only get general information about the
 catalog items, but not their data. It's like in the web interface: when we run "catalog sync", we see the list of vApp templates
 and media items, but the items are not available for usage.
-In the web interface, we would need to synchronise item by item. In `vcd_subscribed_catalog`, we can run several operations at once,
+In the web interface, we would need to synchronise item by item. In `vcloud_subscribed_catalog`, we can run several operations at once,
 i, e. we can choose among the following:
 
 1. `sync_catalog` will synchronise only the catalog, meaning that it will only download the **list of items**.
@@ -239,7 +239,7 @@ us to see which tasks are running, and even show the details of the tasks using 
 
 ### Subscribed resources monitoring
 
-Compared to other resources, `vcd_subscribed_catalog` is peculiar for several reasons:
+Compared to other resources, `vcloud_subscribed_catalog` is peculiar for several reasons:
 
 * While we subscribe to one resource (catalog), we are getting several more (vApp templates and media items) that arrive
   in background.
@@ -253,26 +253,26 @@ One way of achieving some monitoring of a synchronising catalog is by way of usi
 establishing data source for the subscribed items, like in the example below:
 
 ```hcl
-data "vcd_catalog_vapp_template" "subscribed_templates" {
-  count      = vcd_subscribed_catalog.subscriber.number_of_vapp_templates
+data "vcloud_catalog_vapp_template" "subscribed_templates" {
+  count      = vcloud_subscribed_catalog.subscriber.number_of_vapp_templates
   org        = "other-org"
-  catalog_id = vcd_subscribed_catalog.subscriber.id
-  name       = vcd_subscribed_catalog.subscriber.vapp_template_list[count.index]
+  catalog_id = vcloud_subscribed_catalog.subscriber.id
+  name       = vcloud_subscribed_catalog.subscriber.vapp_template_list[count.index]
 }
 
-data "vcd_catalog_media" "subscribed_media" {
-  count   = vcd_subscribed_catalog.subscriber.number_of_media
+data "vcloud_catalog_media" "subscribed_media" {
+  count   = vcloud_subscribed_catalog.subscriber.number_of_media
   org     = "other-org"
-  catalog = vcd_subscribed_catalog.subscriber.name
-  name    = vcd_subscribed_catalog.subscriber.media_item_list[count.index]
+  catalog = vcloud_subscribed_catalog.subscriber.name
+  name    = vcloud_subscribed_catalog.subscriber.media_item_list[count.index]
 }
 
 output "templates" {
-  value = data.vcd_catalog_vapp_template.subscribed_templates
+  value = data.vcloud_catalog_vapp_template.subscribed_templates
 }
 
 output "media" {
-  value = data.vcd_catalog_media.subscribed_media
+  value = data.vcloud_catalog_media.subscribed_media
 }
 ```
 
@@ -337,10 +337,10 @@ run a refresh (if `synch_on_refresh` was set) or an update.
 In case #2 –which may also occur for #1 after the remedy was applied– the only remedy is **waiting** until the synchronisation is done.
 
 
-[catalog]: </providers/vmware/vcd/latest/docs/resources/catalog> (vcd_catalog)
-[shared]: </providers/vmware/vcd/latest/docs/resources/catalog_access_control> (vcd_catalog)
-[subscribed]: </providers/vmware/vcd/latest/docs/resources/subscribed_catalog> (vcd_subscribed_catalog)
-[item]: </providers/vmware/vcd/latest/docs/resources/catalog_item> (vcd_catalog_item)
-[media]: </providers/vmware/vcd/latest/docs/resources/catalog_media> (vcd_catalog_media)
-[template]: </providers/vmware/vcd/latest/docs/resources/catalog_vapp_template> (vcd_catalog_vapp_template)
+[catalog]: </providers/vmware/vcd/latest/docs/resources/catalog> (vcloud_catalog)
+[shared]: </providers/vmware/vcd/latest/docs/resources/catalog_access_control> (vcloud_catalog)
+[subscribed]: </providers/vmware/vcd/latest/docs/resources/subscribed_catalog> (vcloud_subscribed_catalog)
+[item]: </providers/vmware/vcd/latest/docs/resources/catalog_item> (vcloud_catalog_item)
+[media]: </providers/vmware/vcd/latest/docs/resources/catalog_media> (vcloud_catalog_media)
+[template]: </providers/vmware/vcd/latest/docs/resources/catalog_vapp_template> (vcloud_catalog_vapp_template)
 

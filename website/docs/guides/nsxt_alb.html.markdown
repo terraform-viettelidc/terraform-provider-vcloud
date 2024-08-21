@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Avi Load Balancer"
+page_title: "Viettel IDC Cloud: Avi Load Balancer"
 sidebar_current: "docs-vcd-guides-nsxt-alb"
 description: |-
   Provides guidance to VMware Avi Load Balancer
@@ -10,7 +10,7 @@ description: |-
 
 ## About
 
-Starting with version 10.2, VMware Cloud Director provides load balancing services by leveraging the capabilities of
+Starting with version 10.2, Viettel IDC Cloud provides load balancing services by leveraging the capabilities of
 VMware Avi Load Balancer. _System administrators_ can enable and configure access to load balancing services
 for VDCs backed by NSX-T.
 
@@ -18,8 +18,8 @@ Load balancing services are associated with NSX-T Edge Gateways, which can be sc
 backed by NSX-T VDC or to a VDC Group with NSX-T Data Center network provider type.
 
 To use the virtual infrastructure provided by Avi Load Balancer, register your NSX-T Cloud instances with
-VMware Cloud Director. Controllers serve as a central control plane for load balancing services. After registering
-controllers, one can manage them directly from VMware Cloud Director.
+Viettel IDC Cloud. Controllers serve as a central control plane for load balancing services. After registering
+controllers, one can manage them directly from Viettel IDC Cloud.
 
 The load balancing compute infrastructure provided by Avi Load Balancer is organized into Service Engine
 Groups. Multiple Service Engine Groups can be assigned to a single NSX-T Edge Gateway.
@@ -40,26 +40,26 @@ A Service Engine Group has a unique set of compute characteristics that are defi
 The following list of resources and matching data sources exists to perform ALB infrastructure
 setup for providers:
 
-* [vcd_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller)
-* [vcd_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
-* [vcd_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
+* [vcloud_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller)
+* [vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
+* [vcloud_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
 
 Additionally, there is a data source only to help lookup ALB Importable Clouds helping to populate 
-[vcd_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud):
+[vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud):
 
-* [vcd_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)
+* [vcloud_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)
 
 Above resources and data sources cover infrastructure setup for providers. The next two resources 
 still *require provider rights*, but help to enable ALB for tenants on particular NSX-T Edge Gateway:
 
-* [vcd_nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
-* [vcd_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
+* [vcloud_nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
+* [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
 
 
 Finally, the remaining two resources help tenants to manage their ALB configurations:
 
-* [vcd_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
-* [vcd_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
+* [vcloud_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
+* [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
 
 -> Examples below demonstrate a working setup, but do not cover all capabilities. More information about capabilities of
 each resource are outlined in their own documentation pages.
@@ -71,13 +71,13 @@ each resource are outlined in their own documentation pages.
 The following snippet will do the following:
 
 * Register ALB Controller using
-  [vcd_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller) resource
+  [vcloud_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller) resource
 * Look up available Clouds to import using
-  [vcd_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud) data source
-* Define ALB Cloud in VCD using [vcd_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
+  [vcloud_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud) data source
+* Define ALB Cloud in VCD using [vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
   resource
 * Define a Service Engine Group
-  [vcd_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group) which
+  [vcloud_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group) which
   can later be assigned to tenant Edge Gateways
 
 
@@ -86,14 +86,14 @@ The following snippet will do the following:
 # cover Terraform core bug https://github.com/hashicorp/terraform/issues/29484
 # Even changing ALB Controller name in UI, plan will 
 # cause to recreate all resources depending on 
-# vcd_nsxt_alb_importable_cloud data source if
+# vcloud_nsxt_alb_importable_cloud data source if
 # this indirect reference (via local) variable is not used.
 locals {
-  controller_id = vcd_nsxt_alb_controller.main.id
+  controller_id = vcloud_nsxt_alb_controller.main.id
 }
 
 # Configuration of ALB Controller
-resource "vcd_nsxt_alb_controller" "main" {
+resource "vcloud_nsxt_alb_controller" "main" {
   name         = "alb-controller-1"
   description  = "my first alb controller configured via Terraform"
   url          = "https://alb-controller-url.example"
@@ -102,25 +102,25 @@ resource "vcd_nsxt_alb_controller" "main" {
   license_type = "ENTERPRISE"
 }
 
-# Lookup of ALB Importable Cloud (to be referenced in vcd_nsxt_alb_cloud resource)
-data "vcd_nsxt_alb_importable_cloud" "cld" {
+# Lookup of ALB Importable Cloud (to be referenced in vcloud_nsxt_alb_cloud resource)
+data "vcloud_nsxt_alb_importable_cloud" "cld" {
   name          = "my-importable-cloud-name"
   controller_id = local.controller_id
 }
 
-resource "vcd_nsxt_alb_cloud" "first" {
+resource "vcloud_nsxt_alb_cloud" "first" {
   name        = "nsxt-cloud"
   description = "first alb cloud"
 
-  controller_id       = vcd_nsxt_alb_controller.main.id
-  importable_cloud_id = data.vcd_nsxt_alb_importable_cloud.cld.id
-  network_pool_id     = data.vcd_nsxt_alb_importable_cloud.cld.network_pool_id
+  controller_id       = vcloud_nsxt_alb_controller.main.id
+  importable_cloud_id = data.vcloud_nsxt_alb_importable_cloud.cld.id
+  network_pool_id     = data.vcloud_nsxt_alb_importable_cloud.cld.network_pool_id
 }
 
-resource "vcd_nsxt_alb_service_engine_group" "first" {
+resource "vcloud_nsxt_alb_service_engine_group" "first" {
   name                                 = "first-se"
   description                          = "description"
-  alb_cloud_id                         = vcd_nsxt_alb_cloud.first.id
+  alb_cloud_id                         = vcloud_nsxt_alb_cloud.first.id
   importable_service_engine_group_name = "Default-Group"
   reservation_model                    = "SHARED"
 }
@@ -136,31 +136,31 @@ The following snippet will do two things on a specified NSX-T Edge Gateway:
 * Assign Service Engine Group to it 
 
 ````hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name = "nsxt-gw"
 }
 
-resource "vcd_nsxt_alb_settings" "main" {
+resource "vcloud_nsxt_alb_settings" "main" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   # Reference to Edge Gateway
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
   is_active       = true
 
   # This dependency is required to make sure that provider part of operations is done
-  depends_on = [vcd_nsxt_alb_service_engine_group.first]
+  depends_on = [vcloud_nsxt_alb_service_engine_group.first]
 }
 
-resource "vcd_nsxt_alb_edgegateway_service_engine_group" "assignment" {
+resource "vcloud_nsxt_alb_edgegateway_service_engine_group" "assignment" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
-  edge_gateway_id         = vcd_nsxt_alb_settings.main.edge_gateway_id
-  service_engine_group_id = vcd_nsxt_alb_service_engine_group.first.id
+  edge_gateway_id         = vcloud_nsxt_alb_settings.main.edge_gateway_id
+  service_engine_group_id = vcloud_nsxt_alb_service_engine_group.first.id
 
   max_virtual_services      = 50
   reserved_virtual_services = 1
@@ -175,39 +175,39 @@ This part demonstrates how Tenant can handle Pools and Virtual Services once pro
 their part to enable ALB on NSX-T Edge Gateways. It will:
 
 * Look up existing NSX-T Edge Gateway using
-  [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway) data source
 * Look up Service Engine Groups that are available for this NSX-T Edge Gateway using
-  [vcd_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
+  [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
   data source
-* Set up an ALB Pool with 3 members using [vcd_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
+* Set up an ALB Pool with 3 members using [vcloud_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
   resource
 * Expose a Virtual Service using
-  [vcd_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service) resource which
+  [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service) resource which
   combines all the data
 
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name = "nsxt-gw-dainius"
 }
 
-data "vcd_nsxt_alb_edgegateway_service_engine_group" "assigned" {
+data "vcloud_nsxt_alb_edgegateway_service_engine_group" "assigned" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
   # This name comes from prerequisite setup (can be looked up in the UI by tenants)
   service_engine_group_name = "assigned-service-engine-group-name"
 }
 
-resource "vcd_nsxt_alb_pool" "test" {
+resource "vcloud_nsxt_alb_pool" "test" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name            = "first-pool"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   algorithm               = "LEAST_LOAD"
   default_port            = "9000"
@@ -231,16 +231,16 @@ resource "vcd_nsxt_alb_pool" "test" {
   }
 }
 
-resource "vcd_nsxt_alb_virtual_service" "test" {
+resource "vcloud_nsxt_alb_virtual_service" "test" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name            = "first-virtual-service"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
-  pool_id                  = vcd_nsxt_alb_pool.test.id
-  service_engine_group_id  = data.vcd_nsxt_alb_edgegateway_service_engine_group.assigned.service_engine_group_id
-  virtual_ip_address       = tolist(data.vcd_nsxt_edgegateway.existing.subnet)[0].primary_ip
+  pool_id                  = vcloud_nsxt_alb_pool.test.id
+  service_engine_group_id  = data.vcloud_nsxt_alb_edgegateway_service_engine_group.assigned.service_engine_group_id
+  virtual_ip_address       = tolist(data.vcloud_nsxt_edgegateway.existing.subnet)[0].primary_ip
   application_profile_type = "HTTP"
   service_port {
     start_port = 80
@@ -251,8 +251,8 @@ resource "vcd_nsxt_alb_virtual_service" "test" {
 
 ## References
 
-* [VMware Cloud Director Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-1D3014BC-4792-40E8-99E1-A8F0FFC691FE.html)
-* [VMware Cloud Director Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-789FCC6A-EE14-4CAA-AB91-08841513B328.html)
+* [Viettel IDC Cloud Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-1D3014BC-4792-40E8-99E1-A8F0FFC691FE.html)
+* [Viettel IDC Cloud Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-789FCC6A-EE14-4CAA-AB91-08841513B328.html)
 * [VMware blog post introducing ALB](https://blogs.vmware.com/cloudprovider/2020/11/embrace-next-gen-networking-security-with-nsx-t-and-vmware-cloud-director-10-2.html)
 * [Feature Fridays video - Avi Load balancer](https://blogs.vmware.com/cloudprovider/2020/10/feature-fridays-episode-19-nsx-t-advanced-load-balancer.html)
 * [Avi Integration with NSX-T](https://avinetworks.com/docs/20.1/avi-nsx-t-integration/)

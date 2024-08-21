@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_external_network_v2"
+page_title: "Viettel IDC Cloud: vcloud_external_network_v2"
 sidebar_current: "docs-vcd-resource-external-network-v2"
 description: |-
-  Provides a VMware Cloud Director External Network resource (version 2). New version of this resource
+  Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource
   uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
   backed ones.
 ---
 
 # vcd\_external\_network\_v2
 
-Provides a VMware Cloud Director External Network resource (version 2). New version of this resource 
+Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource 
 uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
 backed ones.
 
@@ -24,40 +24,40 @@ information.
 ## Example Usage (NSX-T Tier 0 Router backed External Network backed by IP Spaces)
 
 ```hcl
-resource "vcd_external_network_v2" "ext-net-nsxt-t0" {
+resource "vcloud_external_network_v2" "ext-net-nsxt-t0" {
   name        = "nsxt-external-network"
   description = "IP Space backed"
 
   nsxt_network {
-    nsxt_manager_id      = data.vcd_nsxt_manager.main.id
-    nsxt_tier0_router_id = data.vcd_nsxt_tier0_router.router.id
+    nsxt_manager_id      = data.vcloud_nsxt_manager.main.id
+    nsxt_tier0_router_id = data.vcloud_nsxt_tier0_router.router.id
   }
 
   use_ip_spaces = true
   # optional argument to dedicate network to a particular Org
-  dedicated_org_id = data.vcd_org.org1.id
+  dedicated_org_id = data.vcloud_org.org1.id
 }
 ```
 
 ## Example Usage (NSX-T Tier 0 Router backed External Network)
 
 ```hcl
-data "vcd_nsxt_manager" "main" {
+data "vcloud_nsxt_manager" "main" {
   name = "nsxManager"
 }
 
-data "vcd_nsxt_tier0_router" "router" {
+data "vcloud_nsxt_tier0_router" "router" {
   name            = "first-router"
-  nsxt_manager_id = data.vcd_nsxt_manager.main.id
+  nsxt_manager_id = data.vcloud_nsxt_manager.main.id
 }
 
-resource "vcd_external_network_v2" "ext-net-nsxt-t0" {
+resource "vcloud_external_network_v2" "ext-net-nsxt-t0" {
   name        = "nsxt-external-network"
   description = "First NSX-T Tier 0 router backed network"
 
   nsxt_network {
-    nsxt_manager_id      = data.vcd_nsxt_manager.main.id
-    nsxt_tier0_router_id = data.vcd_nsxt_tier0_router.router.id
+    nsxt_manager_id      = data.vcloud_nsxt_manager.main.id
+    nsxt_tier0_router_id = data.vcloud_nsxt_tier0_router.router.id
   }
 
   ip_scope {
@@ -96,16 +96,16 @@ resource "vcd_external_network_v2" "ext-net-nsxt-t0" {
 while Org VDC Imported network directly requires one NSX-T Segment
 
 ```hcl
-data "vcd_nsxt_manager" "main" {
+data "vcloud_nsxt_manager" "main" {
   name = "nsxManager"
 }
 
-resource "vcd_external_network_v2" "ext-net-nsxt-segment" {
+resource "vcloud_external_network_v2" "ext-net-nsxt-segment" {
   name        = "nsxt-external-network"
   description = "First NSX-T segment backed network"
 
   nsxt_network {
-    nsxt_manager_id   = data.vcd_nsxt_manager.main.id
+    nsxt_manager_id   = data.vcloud_nsxt_manager.main.id
     nsxt_segment_name = "existing-nsxt-segment"
   }
 
@@ -137,34 +137,34 @@ resource "vcd_external_network_v2" "ext-net-nsxt-segment" {
   }
 }
 
-resource "vcd_network_direct" "net" {
+resource "vcloud_network_direct" "net" {
   vdc = "nsxt-vdc"
 
   name             = "direct-net"
-  external_network = vcd_external_network_v2.ext-net-nsxt-segment.name
+  external_network = vcloud_external_network_v2.ext-net-nsxt-segment.name
 
-  depends_on = [vcd_external_network_v2.ext-net-nsxt]
+  depends_on = [vcloud_external_network_v2.ext-net-nsxt]
 }
 ```
 
 ## Example Usage (NSX-V backed external network)
 ```hcl
-data "vcd_vcenter" "vc" {
+data "vcloud_vcenter" "vc" {
   name = "vc1"
 }
 
-data "vcd_portgroup" "sw" {
+data "vcloud_portgroup" "sw" {
   name = "TestbedPG"
   type = "DV_PORTGROUP"
 }
 
-resource "vcd_external_network_v2" "ext-net-nsxv" {
+resource "vcloud_external_network_v2" "ext-net-nsxv" {
   name        = "nsxv-external-network"
   description = "NSX-V based external network"
 
   vsphere_network {
-    vcenter_id   = data.vcd_vcenter.vc.id
-    portgroup_id = data.vcd_portgroup.sw.id
+    vcenter_id   = data.vcloud_vcenter.vc.id
+    portgroup_id = data.vcloud_portgroup.sw.id
   }
 
   ip_scope {
@@ -217,15 +217,15 @@ The following arguments are supported:
 <a id="vspherenetwork"></a>
 ## vSphere Network
 
-* `vcenter_id` - (Required) vCenter ID. Can be looked up using [`vcd_vcenter`](/providers/vmware/vcd/latest/docs/data-sources/vcenter) data source.
-* `portgroup_id` - (Required) vSphere portgroup ID. Can be looked up using  [`vcd_portgroup`](/providers/vmware/vcd/latest/docs/data-sources/portgroup) data source.
+* `vcenter_id` - (Required) vCenter ID. Can be looked up using [`vcloud_vcenter`](/providers/vmware/vcd/latest/docs/data-sources/vcenter) data source.
+* `portgroup_id` - (Required) vSphere portgroup ID. Can be looked up using  [`vcloud_portgroup`](/providers/vmware/vcd/latest/docs/data-sources/portgroup) data source.
 
 <a id="nsxtnetwork"></a>
 ## NSX-T Network
 
-* `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcd_nsxt_manager`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_manager) data source.
+* `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcloud_nsxt_manager`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_manager) data source.
 * `nsxt_tier0_router_id` - (Optional) NSX-T Tier-0 router ID. Can be looked up using
-  [`vcd_nsxt_tier0_router`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_tier0_router) data source.
+  [`vcloud_nsxt_tier0_router`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_tier0_router) data source.
 * `nsxt_segment_name` - (Optional; *v3.4+*; *VCD 10.3+*) Existing NSX-T segment name.
 
 ## Importing
@@ -238,7 +238,7 @@ at the top of the vCD hierarchy, the path corresponds to the external network na
 For example, using this structure, representing an existing external network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_external_network_v2" "tf-external-network" {
+resource "vcloud_external_network_v2" "tf-external-network" {
   name = "my-ext-net"
 }
 ```
@@ -246,12 +246,12 @@ resource "vcd_external_network_v2" "tf-external-network" {
 You can import such external network into terraform state using this command
 
 ```
-terraform import vcd_external_network_v2.tf-external-network my-ext-net
+terraform import vcloud_external_network_v2.tf-external-network my-ext-net
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
 
 While the above structure is the minimum needed to get an import, it is not sufficient to run `terraform plan`,
 as it lacks several mandatory fields. To use the imported resource, you will need to add the missing properties

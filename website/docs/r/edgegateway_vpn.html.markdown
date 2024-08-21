@@ -1,20 +1,20 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_edgegateway_vpn"
+page_title: "Viettel IDC Cloud: vcloud_edgegateway_vpn"
 sidebar_current: "docs-vcd-resource-edgegateway-vpn"
 description: |-
-  Provides a VMware Cloud Director IPsec VPN. This can be used to create, modify, and delete VPN settings and rules.
+  Provides a Viettel IDC Cloud IPsec VPN. This can be used to create, modify, and delete VPN settings and rules.
 ---
 
 # vcd\_edgegateway\_vpn
 
-Provides a VMware Cloud Director IPsec VPN. This can be used to create,
+Provides a Viettel IDC Cloud IPsec VPN. This can be used to create,
 modify, and delete VPN settings and rules.
 
 ## Example Usage
 
 ```hcl
-resource "vcd_edgegateway_vpn" "vpn" {
+resource "vcloud_edgegateway_vpn" "vpn" {
   edge_gateway        = "Internet_01(nti0000bi2_123-456-2)"
   name                = "west-to-east"
   description         = "Description"

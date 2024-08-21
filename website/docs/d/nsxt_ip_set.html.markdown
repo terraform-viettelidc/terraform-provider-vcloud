@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_ip_set"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_ip_set"
 sidebar_current: "docs-vcd-datasource-nsxt-ip-set"
 description: |-
   Provides a data source to read NSX-T IP Set. IP Sets are groups of objects to which the firewall rules apply. 
@@ -17,15 +17,15 @@ multiple objects into IP Sets helps reduce the total number of firewall rules to
 ## Example Usage
 
 ```hcl
-data "vcd_nsxt_edgegateway" "main" {
+data "vcloud_nsxt_edgegateway" "main" {
   org  = "my-org" # Optional
   name = "main-edge"
 }
 
-data "vcd_nsxt_ip_set" "my-set-1" {
+data "vcloud_nsxt_ip_set" "my-set-1" {
   org = "my-org" # Optional
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.main.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.main.id
 
   name = "frontend-servers"
 }
@@ -46,4 +46,4 @@ in favor of `edge_gateway_id` field.
 * `owner_id` - Parent VDC or VDC Group ID.
 
 All the arguments and attributes defined in
-[`vcd_nsxt_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxt_ip_set) resource are available.
+[`vcloud_nsxt_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxt_ip_set) resource are available.

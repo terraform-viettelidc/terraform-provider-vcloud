@@ -1,26 +1,26 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_oidc"
+page_title: "Viettel IDC Cloud: vcloud_org_oidc"
 sidebar_current: "docs-vcd-data-source-org-oidc"
 description: |-
-  Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in VMware Cloud Director.
+  Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 ---
 
 # vcd\_org\_oidc
 
-Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in VMware Cloud Director.
+Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 
 Supported in provider *v3.13+*.
 
 ## Example Usage
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-data "vcd_org_oidc" "oidc_settings" {
-  org_id = data.vcd_org.my_org.id
+data "vcloud_org_oidc" "oidc_settings" {
+  org_id = data.vcloud_org.my_org.id
 }
 ```
 
@@ -32,4 +32,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the arguments and attributes from [the `vcd_org_oidc` resource](/providers/vmware/vcd/latest/docs/resources/org_oidc) are available as read-only.
+All the arguments and attributes from [the `vcloud_org_oidc` resource](/providers/vmware/vcd/latest/docs/resources/org_oidc) are available as read-only.

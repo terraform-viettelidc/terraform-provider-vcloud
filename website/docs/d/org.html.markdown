@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org"
+page_title: "Viettel IDC Cloud: vcloud_org"
 sidebar_current: "docs-vcd-data-source-org"
 description: |-
   Provides an organization data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_org
 
-Provides a VMware Cloud Director Org data source. An organization can be used to manage catalogs, virtual
+Provides a Viettel IDC Cloud Org data source. An organization can be used to manage catalogs, virtual
 data centers, and users.
 
 Supported in provider *v2.5+*
@@ -16,28 +16,28 @@ Supported in provider *v2.5+*
 ## Example Usage
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-resource "vcd_org" "my-org-clone" {
+resource "vcloud_org" "my-org-clone" {
   name                 = "my-org-clone"
-  full_name            = data.vcd_org.my-org.full_name
-  can_publish_catalogs = data.vcd_org.my-org.can_publish_catalogs
-  deployed_vm_quota    = data.vcd_org.my-org.deployed_vm_quota
-  stored_vm_quota      = data.vcd_org.my-org.stored_vm_quota
-  is_enabled           = data.vcd_org.my-org.is_enabled
+  full_name            = data.vcloud_org.my-org.full_name
+  can_publish_catalogs = data.vcloud_org.my-org.can_publish_catalogs
+  deployed_vm_quota    = data.vcloud_org.my-org.deployed_vm_quota
+  stored_vm_quota      = data.vcloud_org.my-org.stored_vm_quota
+  is_enabled           = data.vcloud_org.my-org.is_enabled
   delete_force         = true
   delete_recursive     = true
   vapp_lease {
-    maximum_runtime_lease_in_sec          = data.vcd_org.my-org.vapp_lease.0.maximum_runtime_lease_in_sec
-    power_off_on_runtime_lease_expiration = data.vcd_org.my-org.vapp_lease.0.power_off_on_runtime_lease_expiration
-    maximum_storage_lease_in_sec          = data.vcd_org.my-org.vapp_lease.0.maximum_storage_lease_in_sec
-    delete_on_storage_lease_expiration    = data.vcd_org.my-org.vapp_lease.0.delete_on_storage_lease_expiration
+    maximum_runtime_lease_in_sec          = data.vcloud_org.my-org.vapp_lease.0.maximum_runtime_lease_in_sec
+    power_off_on_runtime_lease_expiration = data.vcloud_org.my-org.vapp_lease.0.power_off_on_runtime_lease_expiration
+    maximum_storage_lease_in_sec          = data.vcloud_org.my-org.vapp_lease.0.maximum_storage_lease_in_sec
+    delete_on_storage_lease_expiration    = data.vcloud_org.my-org.vapp_lease.0.delete_on_storage_lease_expiration
   }
   vapp_template_lease {
-    maximum_storage_lease_in_sec       = data.vcd_org.my-org.vapp_template_lease.0.maximum_storage_lease_in_sec
-    delete_on_storage_lease_expiration = data.vcd_org.my-org.vapp_template_lease.0.delete_on_storage_lease_expiration
+    maximum_storage_lease_in_sec       = data.vcloud_org.my-org.vapp_template_lease.0.maximum_storage_lease_in_sec
+    delete_on_storage_lease_expiration = data.vcloud_org.my-org.vapp_template_lease.0.delete_on_storage_lease_expiration
   }
 }
 

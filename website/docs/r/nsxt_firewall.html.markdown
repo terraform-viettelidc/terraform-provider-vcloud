@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_firewall"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_firewall"
 sidebar_current: "docs-vcd-data-source-nsxt-firewall"
 description: |-
   Provides a resource to manage NSX-T Firewall. Firewalls allow user to control the incoming and 
@@ -16,10 +16,10 @@ outgoing network traffic to and from an NSX-T Data Center Edge Gateway.
 
 ## Example Usage 1 (Single rule to allow all IPv4 traffic from anywhere to anywhere)
 ```hcl
-resource "vcd_nsxt_firewall" "testing" {
+resource "vcloud_nsxt_firewall" "testing" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing.id
 
   rule {
     action      = "ALLOW"
@@ -32,41 +32,41 @@ resource "vcd_nsxt_firewall" "testing" {
 
 ## Example Usage 2 (Multiple firewall rules - order matters)
 ```hcl
-resource "vcd_nsxt_firewall" "testing" {
+resource "vcloud_nsxt_firewall" "testing" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing.id
 
-  # Rule #1 - Allows in IPv4 traffic from security group `vcd_nsxt_security_group.group1.id`
+  # Rule #1 - Allows in IPv4 traffic from security group `vcloud_nsxt_security_group.group1.id`
   rule {
     action      = "ALLOW"
     name        = "first rule"
     direction   = "IN"
     ip_protocol = "IPV4"
-    source_ids  = [vcd_nsxt_security_group.frontend.id]
+    source_ids  = [vcloud_nsxt_security_group.frontend.id]
   }
 
-  # Rule #2 - Drops and logs all outgoing IPv6 traffic to `vcd_nsxt_security_group.group.2.id`
+  # Rule #2 - Drops and logs all outgoing IPv6 traffic to `vcloud_nsxt_security_group.group.2.id`
   rule {
     action          = "DROP"
     name            = "drop IPv6 with destination to security group 2"
     direction       = "OUT"
     ip_protocol     = "IPV6"
-    destination_ids = [vcd_nsxt_security_group.group2.id]
+    destination_ids = [vcloud_nsxt_security_group.group2.id]
     logging         = true
   }
 
   # Rule #3 - Allows IPv4 and IPv6 traffic of 2 Application Port Profiles in both directions:
-  # from vcd_nsxt_security_group.group.1.id to all list of security groups vcd_nsxt_security_group.group.*.id
-  # from list of security groups vcd_nsxt_security_group.group.*.id to vcd_nsxt_security_group.group.1.id
+  # from vcloud_nsxt_security_group.group.1.id to all list of security groups vcloud_nsxt_security_group.group.*.id
+  # from list of security groups vcloud_nsxt_security_group.group.*.id to vcloud_nsxt_security_group.group.1.id
   rule {
     action               = "ALLOW"
     name                 = "test_rule-3"
     direction            = "IN_OUT"
     ip_protocol          = "IPV4_IPV6"
-    source_ids           = [vcd_nsxt_security_group.group.1.id]
-    destination_ids      = vcd_nsxt_security_group.group.*.id
-    app_port_profile_ids = [data.vcd_nsxt_app_port_profile.ssh.id, vcd_nsxt_app_port_profile.custom-app.id]
+    source_ids           = [vcloud_nsxt_security_group.group.1.id]
+    destination_ids      = vcloud_nsxt_security_group.group.*.id
+    app_port_profile_ids = [data.vcloud_nsxt_app_port_profile.ssh.id, vcloud_nsxt_app_port_profile.custom-app.id]
   }
 }
 ```
@@ -78,7 +78,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations.
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). Can be looked up using
-  `vcd_nsxt_edgegateway` datasource
+  `vcloud_nsxt_edgegateway` datasource
 * `rule` - (Required) One or more blocks with [Firewall Rule](#firewall-rule) definitions
 
 <a id="firewall-rule"></a>
@@ -110,7 +110,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_firewall.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway
+terraform import vcloud_nsxt_firewall.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway
 ```
 
 The above would import all firewall rules defined on NSX-T Edge Gateway `my-nsxt-edge-gateway` which
