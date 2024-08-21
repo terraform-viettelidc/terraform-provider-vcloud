@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_role"
-sidebar_current: "docs-vcd-resource-role"
+sidebar_current: "docs-vcloud-resource-role"
 description: |-
  Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 ---
 
-# vcd\_role
+# vcloud\_role
 
 Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 
@@ -75,5 +75,5 @@ at this stage will show the difference between the minimal configuration file an
 
 ## More information
 
-See [Roles management](/providers/vmware/vcd/latest/docs/guides/roles_management) for a broader description of how roles and
+See [Roles management](/providers/vmware/vcloud/latest/docs/guides/roles_management) for a broader description of how roles and
 rights work together.

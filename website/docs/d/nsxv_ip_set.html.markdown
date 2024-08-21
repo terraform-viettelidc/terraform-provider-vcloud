@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_ip_set"
-sidebar_current: "docs-vcd-datasource-ipset"
+sidebar_current: "docs-vcloud-datasource-ipset"
 description: |-
   Provides an IP set data source.
 ---
 
-# vcd\_nsxv\_ip\_set
+# vcloud\_nsxv\_ip\_set
 
 Provides a Viettel IDC Cloud IP set data source. An IP set is a group of IP addresses that you can add
   as the source or destination in a firewall rule or in DHCP relay configuration.
@@ -34,4 +34,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_nsxv_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxv_ip_set) resource are available.
+All the attributes defined in [`vcloud_nsxv_ip_set`](/providers/vmware/vcloud/latest/docs/resources/nsxv_ip_set) resource are available.

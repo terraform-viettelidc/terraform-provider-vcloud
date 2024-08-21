@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_ip_discovery_profile"
-sidebar_current: "docs-vcd-data-source-nsxt-segment-ip-discovery-profile"
+sidebar_current: "docs-vcloud-data-source-nsxt-segment-ip-discovery-profile"
 description: |-
   Provides a Viettel IDC Cloud NSX-T IP Discovery Profile data source. This can be used to read NSX-T Segment Profile definitions.
 ---
 
-# vcd\_nsxt\_segment\_ip\_discovery\_profile
+# vcloud\_nsxt\_segment\_ip\_discovery\_profile
 
 Provides a Viettel IDC Cloud NSX-T IP Discovery Profile data source. This can be used to read NSX-T Segment Profile definitions.
 

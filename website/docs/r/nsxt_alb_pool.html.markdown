@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_pool"
-sidebar_current: "docs-vcd-resource-nsxt-alb-pool"
+sidebar_current: "docs-vcloud-resource-nsxt-alb-pool"
 description: |-
   Provides a resource to manage ALB Pools for particular NSX-T Edge Gateway. Pools maintain the list of servers
   assigned to them and perform health monitoring, load balancing, persistence. A pool may only be used or referenced by
   only one virtual service at a time.
 ---
 
-# vcd\_nsxt\_alb\_pool
+# vcloud\_nsxt\_alb\_pool
 
-Supported in provider *v3.5+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.5+* and Vcloud 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Pools for particular NSX-T Edge Gateway. Pools maintain the list of servers
 assigned to them and perform health monitoring, load balancing, persistence. A pool may only be used or referenced by
@@ -96,7 +96,7 @@ The following arguments are supported:
 * `description` - (Optional) An optional description ALB Pool
 * `enabled` - (Optional) Boolean value if ALB Pool should be enabled (default `true`)
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `algorithm` - (Optional) Optional algorithm for choosing pool members (default `LEAST_CONNECTIONS`). Other options
   contain `ROUND_ROBIN`, `CONSISTENT_HASH` (uses Source IP Address hash), `FASTEST_RESPONSE`, `LEAST_LOAD`,
   `FEWEST_SERVERS`, `RANDOM`, `FEWEST_TASKS`, `CORE_AFFINITY`
@@ -109,7 +109,7 @@ The following arguments are supported:
 * `ssl_enabled` (Optional; *v3.11+*) Enables SSL - Will be turned on automatically when CA certificates are used
 * `ca_certificate_ids` - (Optional) A set of CA Certificates to be used when validating certificates presented by the
   pool members. Can be looked up using
-  [vcloud_library_certificate](/providers/vmware/vcd/latest/docs/data-sources/library_certificate) data source
+  [vcloud_library_certificate](/providers/vmware/vcloud/latest/docs/data-sources/library_certificate) data source
 * `cn_check_enabled` - (Optional) Specifies whether to check the common name of the certificate presented by the pool
   member
 * `domain_names` - (Optional) A set of domain names which will be used to verify the common names or subject alternative
@@ -118,7 +118,7 @@ The following arguments are supported:
 * `member` - (Optional) A block to define pool members. Multiple can be used. See
   [Member](#member-block) and example for usage details. **Note** only one of `member`,
   `member_group_id` can be specified.
-* `member_group_id` - (Optional; *v3.9+*, *VCD 10.4.1+*) A reference to NSX-T IP Set (`vcloud_nsxt_ip_set`).
+* `member_group_id` - (Optional; *v3.9+*, *Vcloud 10.4.1+*) A reference to NSX-T IP Set (`vcloud_nsxt_ip_set`).
   **Note** only one of `member`, `member_group_id` can be specified.
 * `persistence_profile` - (Optional) Persistence profile will ensure that the same user sticks to the same server for a
   desired duration of time. If the persistence profile is unmanaged by Cloud Director, updates that leave the values

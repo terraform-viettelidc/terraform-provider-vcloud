@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_independent_disk"
-sidebar_current: "docs-vcd-independent-disk"
+sidebar_current: "docs-vcloud-independent-disk"
 description: |-
   Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 ---
 
-# vcd\_independent\_disk
+# vcloud\_independent\_disk
 
 Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 The resource is capable of updating independent disks attached to a VM. Update detaches the disks temporarily and attaches back after changes are done.
@@ -15,7 +15,7 @@ The resource is capable of updating independent disks attached to a VM. Update d
 
 ```hcl
 resource "vcloud_independent_disk" "myNewIndependentDisk" {
-  vdc             = "my-vcd"
+  vdc             = "my-vcloud"
   name            = "logDisk"
   size_in_mb      = "1024"
   bus_type        = "SCSI"
@@ -48,7 +48,7 @@ The following arguments are supported:
 * `bus_type` - (Optional) Disk bus type. Values can be: `IDE`, `SCSI`, `SATA`, (*v3.6+*) `NVME`. **Note** When the disk type is IDE then VM is required to be powered off
 * `bus_sub_type` - (Optional) Disk bus subtype. Values can be: `buslogic`, `lsilogic`, `lsilogicsas`, `VirtualSCSI` for `SCSI`, `ahci` for `SATA` and (*v3.6+*) `nvmecontroller` for `NVME`
 * `storage_profile` - (Optional) The name of storage profile where disk will be created
-* `sharing_type` - (Optional, *v3.6+* and VCD 10.2+) This is the sharing type. Values can be: `DiskSharing`,`ControllerSharing`, or `None`
+* `sharing_type` - (Optional, *v3.6+* and Vcloud 10.2+) This is the sharing type. Values can be: `DiskSharing`,`ControllerSharing`, or `None`
 * `metadata` - (Deprecated; *v3.6+*) Use `metadata_entry` instead. Key value map of metadata to assign to this independent disk.
 * `metadata_entry` - (Optional; *v3.8+*) A set of metadata entries to assign. See [Metadata](#metadata) section for details.
 
@@ -60,8 +60,8 @@ Supported in provider *v2.5+*
 * `owner_name` - (Computed) The owner name of the disk
 * `datastore_name` - (Computed) Data store name. Readable only for system user.
 * `is_attached` - (Computed) True if the disk is already attached
-* `encrypted` - (Computed, *v3.6+* and VCD 10.2+) True if disk is encrypted
-* `uuid` - (Computed, *v3.6+* and VCD 10.2+) The UUID of this named disk's device backing
+* `encrypted` - (Computed, *v3.6+* and Vcloud 10.2+) True if disk is encrypted
+* `uuid` - (Computed, *v3.6+* and Vcloud 10.2+) The UUID of this named disk's device backing
 * `attached_vm_ids` - (Computed, *v3.6+*) IDs of VM which are using the disk
 
 <a id="metadata"></a>

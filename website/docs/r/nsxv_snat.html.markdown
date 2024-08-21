@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_snat"
-sidebar_current: "docs-vcd-resource-nsxv-snat"
+sidebar_current: "docs-vcloud-resource-nsxv-snat"
 description: |-
   Provides a Viettel IDC Cloud SNAT resource for advanced edge gateways (NSX-V). This
   can be used to create, modify, and delete source NATs to allow vApps to send external traffic.
 ---
 
-# vcd\_nsxv\_snat
+# vcloud\_nsxv\_snat
 
 Provides a Viettel IDC Cloud SNAT resource for advanced edge gateways (NSX-V). This
 can be used to create, modify, and delete source NATs to allow vApps to send external traffic.

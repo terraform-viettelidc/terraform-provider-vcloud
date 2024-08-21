@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_static_route"
-sidebar_current: "docs-vcd-resource-nsxt-edgegateway-static-route"
+sidebar_current: "docs-vcloud-resource-nsxt-edgegateway-static-route"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway Static Routes.
 ---
 
-# vcd\_nsxt\_edgegateway\_static\_route
+# vcloud\_nsxt\_edgegateway\_static\_route
 
-Supported in provider *v3.10+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.10+* and Vcloud 10.4.0+ with NSX-T.
 
 Provides a resource to manage NSX-T Edge Gateway Static Routes.
 
@@ -68,14 +68,14 @@ Each member `next_hop` contains the following attributes:
 * `scope` - (Optional) Scope holds a reference to an entity where the next hop of a Static Route is
 reachable. In general, the reference should be an Org VDC network or segment backed external
 network, but scope could also reference a SYSTEM_OWNED entity if the next hop is configured outside
-of VCD. See [Next Hop Scope](#next-hop-scope) for definition structure.
+of Vcloud. See [Next Hop Scope](#next-hop-scope) for definition structure.
 
 <a id="next-hop-scope"></a>
 ## Next Hop Scope
 
 * `id` - (Required) ID of Org VDC network or segment backed external network
 * `type` - (Required) Type of backing entity. In general this will be `NETWORK` but can become
-  `SYSTEM_OWNED` if the Static Route is modified outside of VCD
+  `SYSTEM_OWNED` if the Static Route is modified outside of Vcloud
 
 ## Importing
 

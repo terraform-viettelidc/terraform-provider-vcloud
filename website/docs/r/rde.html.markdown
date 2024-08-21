@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde"
-sidebar_current: "docs-vcd-resource-rde"
+sidebar_current: "docs-vcloud-resource-rde"
 description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 ---
 
-# vcd\_rde
+# vcloud\_rde
 
 Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 
--> VCD allows to have multiple RDEs of the same [RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) with
+-> Vcloud allows to have multiple RDEs of the same [RDE Type](/providers/vmware/vcloud/latest/docs/resources/rde_type) with
 the same name, meaning that they would be only distinguishable by their ID. This could lead to potential issues when fetching
 a unique RDE with the data source, so take this trait into account when creating them.
 
@@ -118,8 +118,8 @@ resource "vcloud_rde" "my-rde" {
 
 The following arguments are supported:
 
-* `org` - (Optional) Name of the [Organization](/providers/vmware/vcd/latest/docs/resources/org) that will own the RDE, optional if defined at provider level.
-* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/vmware/vcd/latest/docs/data-sources/rde_type) to instantiate. It only supports
+* `org` - (Optional) Name of the [Organization](/providers/vmware/vcloud/latest/docs/resources/org) that will own the RDE, optional if defined at provider level.
+* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/vmware/vcloud/latest/docs/data-sources/rde_type) to instantiate. It only supports
   updating to a **newer/lower** `version` of the **same** RDE Type.
 * `name` - (Required) The name of the Runtime Defined Entity. It can be non-unique.
 * `resolve` - (Required) If `true`, the Runtime Defined Entity will be resolved by this provider. If `false`, it won't be
@@ -137,13 +137,13 @@ The following arguments are supported:
 
 The following attributes are supported:
 
-* `computed_entity` - The real state of this RDE in VCD. See [Input entity vs Computed entity](#input-entity-vs-computed-entity) below for details.
+* `computed_entity` - The real state of this RDE in Vcloud. See [Input entity vs Computed entity](#input-entity-vs-computed-entity) below for details.
 * `entity_in_sync` - It's `true` when `computed_entity` is equal to either `input_entity` or the contents of `input_entity_url`,
-  meaning that the computed RDE retrieved from VCD is synchronized with the input RDE.
-* `owner_user_id` - The ID of the [Organization user](/providers/vmware/vcd/latest/docs/resources/org_user) that owns this Runtime Defined Entity.
-* `org_id` - The ID of the [Organization](/providers/vmware/vcd/latest/docs/resources/org) to which the Runtime Defined Entity belongs.
+  meaning that the computed RDE retrieved from Vcloud is synchronized with the input RDE.
+* `owner_user_id` - The ID of the [Organization user](/providers/vmware/vcloud/latest/docs/resources/org_user) that owns this Runtime Defined Entity.
+* `org_id` - The ID of the [Organization](/providers/vmware/vcloud/latest/docs/resources/org) to which the Runtime Defined Entity belongs.
 * `state` - Specifies whether the entity is correctly resolved or not. When created it will be in `PRE_CREATED` state.
-  If the entity is correctly validated against its [RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) schema, the state will be `RESOLVED`,
+  If the entity is correctly validated against its [RDE Type](/providers/vmware/vcloud/latest/docs/resources/rde_type) schema, the state will be `RESOLVED`,
   otherwise it will be `RESOLUTION_ERROR`.
 
 <a id="input-entity-vs-computed-entity"></a>
@@ -160,7 +160,7 @@ If your RDE is intended to be managed **only and exclusively** by Terraform, the
 always match with those retrieved into `computed_entity`, and this will be reflected in the `entity_in_sync` attribute,
 which should be always `true`.
 
-Otherwise, only `computed_entity` will reflect the current state of the RDE in VCD and `entity_in_sync` will be `false`, whereas
+Otherwise, only `computed_entity` will reflect the current state of the RDE in Vcloud and `entity_in_sync` will be `false`, whereas
 `input_entity` and `input_entity_url` will only specify the RDE contents that were used either on creation or in a deliberate
 update that will cause the RDE contents to be **completely overridden**.
 
@@ -177,7 +177,7 @@ of `computed_entity` and `input_entity` to avoid overriding the whole entity by 
 ## RDE resolution
 
 When a RDE is created, its `state` will be `PRE_CREATED`, which means that the entity JSON was not validated against the
-[RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) schema. After resolution, `state` should be either `RESOLVED`
+[RDE Type](/providers/vmware/vcloud/latest/docs/resources/rde_type) schema. After resolution, `state` should be either `RESOLVED`
 or `RESOLUTION_ERROR` if the input JSON doesn't match the schema.
 
 The RDE must be eventually resolved to be used or deleted, and this operation can be done either by Terraform with
@@ -241,7 +241,7 @@ resource "vcloud_rde" "my-rde" {
 ~> **Note:** The current implementation of Terraform import can only import resources into the state. It does not generate
 configuration. [More information.][docs-import]
 
--> Note: VCD allows to have many Runtime Defined Entities from a given type with the same name. The only way to differentiate
+-> Note: Vcloud allows to have many Runtime Defined Entities from a given type with the same name. The only way to differentiate
 them is with their unique ID.
 
 An existing Runtime Defined Entity can be [imported][docs-import] into this resource via supplying its `vendor`, `nss`,
@@ -265,7 +265,7 @@ terraform import vcloud_rde.outer_rde bigcorp.tech.4.5.6.foo.1
 Where `vendor=bigcorp`, `nss=tech`, `version=4.5.6`, `name=foo` and we want the first retrieved RDE (`position=1`) in case
 there's more than one with that combination of type parameters and name.
 
-To know how many RDEs are available in VCD with the given combination of type parameters and name, one can do:
+To know how many RDEs are available in Vcloud with the given combination of type parameters and name, one can do:
 
 ```
 terraform import vcloud_rde.outer_rde list@bigcorp.tech.4.5.6.foo

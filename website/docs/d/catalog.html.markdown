@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog"
-sidebar_current: "docs-vcd-data-source-catalog"
+sidebar_current: "docs-vcloud-data-source-catalog"
 description: |-
   Provides a catalog data source.
 ---
 
-# vcd\_catalog
+# vcloud\_catalog
 
 Provides a Viettel IDC Cloud Catalog data source. A Catalog can be used to manage catalog items and media items.
 
@@ -87,5 +87,5 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
   are set, it retrieves the oldest item.
 * `metadata` (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.
 

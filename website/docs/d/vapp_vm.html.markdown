@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_vm"
-sidebar_current: "docs-vcd-datasource-vapp-vm"
+sidebar_current: "docs-vcloud-datasource-vapp-vm"
 description: |-
   Provides a Viettel IDC Cloud VM data source. This can be used to access VMs within a vApp.
 ---
 
-# vcd\_vapp\_vm
+# vcloud\_vapp\_vm
 
 Provides a Viettel IDC Cloud VM data source. This can be used to access VMs within a vApp.
 
@@ -43,7 +43,7 @@ vm = {
   "description" = "This OVA provides a minimal installed profile of PhotonOS. Default password for root user is changeme"
   "disk" = []
   "guest_properties" = {}
-  "href" = "https://my-vcd.org/api/vApp/vm-ecb449a2-0b11-494d-bbc7-6ae2f2ff9b82"
+  "href" = "https://my-vcloud.org/api/vApp/vm-ecb449a2-0b11-494d-bbc7-6ae2f2ff9b82"
   "id" = "urn:vcloud:vm:ecb449a2-0b11-494d-bbc7-6ae2f2ff9b82"
   "memory" = 1024
   "metadata" = {
@@ -119,11 +119,11 @@ The following arguments are supported:
 * `status` - (*v3.8+*) The vApp status as a numeric code.
 * `status_text` - (*v3.8+*) The vApp status as text.
 * `security_tags` - (*v3.9+*) Set of security tags assigned to this VM.
-* `inherited_metadata` - (*v3.11+*; *VCD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCD (10.5.1+) and provides
+* `inherited_metadata` - (*v3.11+*; *Vcloud 10.5.1+*) A map that contains read-only metadata that is automatically added by Vcloud (10.5.1+) and provides
   details on the origin of the VM (e.g. `vm.origin.id`, `vm.origin.name`, `vm.origin.type`).
 
 
-See [VM resource](/providers/vmware/vcd/latest/docs/resources/vapp_vm#attribute-reference) for more info about VM attributes.
+See [VM resource](/providers/vmware/vcloud/latest/docs/resources/vapp_vm#attribute-reference) for more info about VM attributes.
 
 <a id="metadata"></a>
 ## Metadata

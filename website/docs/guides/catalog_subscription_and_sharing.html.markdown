@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: Catalog Subscription and Sharing"
-sidebar_current: "docs-vcd-guides-catalog-subscription-and-sharing"
+sidebar_current: "docs-vcloud-guides-catalog-subscription-and-sharing"
 description: |-
  Provides guidance to VMware Cloud catalog publishing, subscribing, and sharing
 ---
@@ -51,8 +51,8 @@ A `vcloud_catalog` is [published][catalog] when its owners open it for external 
 the catalog contents directly, but obtain a subscription to it. There are no degrees of publishing like in sharing: it's
 either published or not published. When it is published, anyone who knows the subscription URL and the optional password
 can access it. The publishing operation is blind, i.e. the owners may not know who will access the catalog, or from where.
-Another important difference between publishing and sharing is that publishing can be practiced between different VCDs, while sharing
-must be done within the same VCD.
+Another important difference between publishing and sharing is that publishing can be practiced between different Vclouds, while sharing
+must be done within the same Vcloud.
 
 Bottom line: _It's my catalog, and I'll let you copy it if you can see it_.
 
@@ -100,7 +100,7 @@ or synchronisation involved.
 
 There are a few restrictions: 
 
-* a catalog can only be shared within the same VCD.
+* a catalog can only be shared within the same Vcloud.
 * a shared catalog cannot be edited by users of the granted organization. It may happen, then, that more than one catalog
   with the same name appear within one organization.
 
@@ -144,7 +144,7 @@ however, that the publishing entity –either a provider or a designated tenant�
 * publishing a catalog at creation may force subscribers to run synchronisation operations more often.
 
 Owners of a published catalog have no direct visibility over the subscribers. They only advertise the subscription URL
-and pass along the optional password. The recipients can be in the same VCD or in a different one.
+and pass along the optional password. The recipients can be in the same Vcloud or in a different one.
 
 ## Subscribing operations
 
@@ -227,7 +227,7 @@ Thus, we have two ways of operating:
   will happen every time the resource is read, which may introduce some delays in the operations if you were expecting
   `terraform refresh` to be quick. Despite the possible side effects, this is the recommended way.
 
-In the [examples directory](https://github.com/vmware/terraform-provider-vcd/examples/subscribed_catalog) we can see a full
+In the [examples directory](https://github.com/vmware/terraform-provider-vcloud/examples/subscribed_catalog) we can see a full
 example of a published and a subscribed catalog.
 
 ### Synchronisation fine tuning
@@ -337,10 +337,10 @@ run a refresh (if `synch_on_refresh` was set) or an update.
 In case #2 –which may also occur for #1 after the remedy was applied– the only remedy is **waiting** until the synchronisation is done.
 
 
-[catalog]: </providers/vmware/vcd/latest/docs/resources/catalog> (vcloud_catalog)
-[shared]: </providers/vmware/vcd/latest/docs/resources/catalog_access_control> (vcloud_catalog)
-[subscribed]: </providers/vmware/vcd/latest/docs/resources/subscribed_catalog> (vcloud_subscribed_catalog)
-[item]: </providers/vmware/vcd/latest/docs/resources/catalog_item> (vcloud_catalog_item)
-[media]: </providers/vmware/vcd/latest/docs/resources/catalog_media> (vcloud_catalog_media)
-[template]: </providers/vmware/vcd/latest/docs/resources/catalog_vapp_template> (vcloud_catalog_vapp_template)
+[catalog]: </providers/vmware/vcloud/latest/docs/resources/catalog> (vcloud_catalog)
+[shared]: </providers/vmware/vcloud/latest/docs/resources/catalog_access_control> (vcloud_catalog)
+[subscribed]: </providers/vmware/vcloud/latest/docs/resources/subscribed_catalog> (vcloud_subscribed_catalog)
+[item]: </providers/vmware/vcloud/latest/docs/resources/catalog_item> (vcloud_catalog_item)
+[media]: </providers/vmware/vcloud/latest/docs/resources/catalog_media> (vcloud_catalog_media)
+[template]: </providers/vmware/vcloud/latest/docs/resources/catalog_vapp_template> (vcloud_catalog_vapp_template)
 

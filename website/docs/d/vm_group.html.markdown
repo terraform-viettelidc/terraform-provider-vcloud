@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_group"
-sidebar_current: "docs-vcd-data-source-vm-group"
+sidebar_current: "docs-vcloud-data-source-vm-group"
 description: |-
   Provides a Viettel IDC Cloud VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
 ---
 
-# vcd\_vm\_group
+# vcloud\_vm\_group
 
 Provides a Viettel IDC Cloud VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
 
@@ -30,7 +30,7 @@ data "vcloud_vm_group" "vm-group" {
 The following arguments are supported:
 
 * `name` - (Required) The name of VM Group to fetch from vSphere.
-* `provider_vdc_id` - (Required) The ID of [Provider VDC](/providers/vmware/vcd/latest/docs/data-sources/provider_vdc) to which the VM Group belongs.
+* `provider_vdc_id` - (Required) The ID of [Provider VDC](/providers/vmware/vcloud/latest/docs/data-sources/provider_vdc) to which the VM Group belongs.
 
 ## Attributes reference
 

@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_resource_pool"
-sidebar_current: "docs-vcd-data-source-resource-pool"
+sidebar_current: "docs-vcloud-data-source-resource-pool"
 description: |-
   Provides a data source for a resource pool attached to a vCenter.
 ---
 
-# vcd\_resource\_pool
+# vcloud\_resource\_pool
 
 Provides a data source for a resource pool attached to a vCenter. A resource pool is an essential component of a Provider VDC.
 
@@ -26,7 +26,7 @@ data "vcloud_vcenter" "vcenter1" {
 }
 
 data "vcloud_resource_pool" "rp1" {
-  name       = "resource-pool-for-vcd-01"
+  name       = "resource-pool-for-vcloud-01"
   vcenter_id = data.vcloud_vcenter.vcenter1.id
 }
 ```

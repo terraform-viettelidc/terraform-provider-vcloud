@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_resource_list"
-sidebar_current: "docs-vcd-datasource-resource-list"
+sidebar_current: "docs-vcloud-datasource-resource-list"
 description: |-
-  Provides lists of VCD resources
+  Provides lists of Vcloud resources
 ---
 
-# vcd\_resource_list
+# vcloud\_resource_list
 
 Provides a Viettel IDC Cloud generic data source. It provides a list of existing resources in various formats.
 Some of these lists are only informative (i.e. users will look at them to get general information about the existing
@@ -167,7 +167,7 @@ full_networks = [
     "dns_suffix" = ""
     "edge_gateway" = "gw-datacloud"
     "gateway" = "192.168.2.1"
-    "href" = "https://vcd.example.com/api/network/04915abf-0c91-4919-878e-0f292e032e2b"
+    "href" = "https://vcloud.example.com/api/network/04915abf-0c91-4919-878e-0f292e032e2b"
     "id" = "urn:vcloud:network:04915abf-0c91-4919-878e-0f292e032e2b"
     "name" = "net-datacloud-r"
     "netmask" = "255.255.255.0"
@@ -189,7 +189,7 @@ full_networks = [
     "dns_suffix" = ""
     "edge_gateway" = "gw-datacloud"
     "gateway" = "192.168.3.1"
-    "href" = "https://vcd.example.com/api/network/2cc713b1-134f-4f21-9208-79f1e4f3ee36"
+    "href" = "https://vcloud.example.com/api/network/2cc713b1-134f-4f21-9208-79f1e4f3ee36"
     "id" = "urn:vcloud:network:2cc713b1-134f-4f21-9208-79f1e4f3ee36"
     "name" = "net-datacloud-r2"
     "netmask" = "255.255.255.0"
@@ -215,7 +215,7 @@ data "vcloud_resource_list" "list_of_resources" {
   resource_type = "resources"
 }
 
-# Shows the list of resource types for VCD provider
+# Shows the list of resource types for Vcloud provider
 output "resource_list" {
   value = data.vcloud_resource_list.list_of_resources.list
 }
@@ -415,4 +415,4 @@ The following arguments are supported:
 
 * `list` - (Computed) The list of requested resources in the chosen format.
 
-[Import-resources]:https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/importing_resources
+[Import-resources]:https://registry.terraform.io/providers/vmware/vcloud/latest/docs/guides/importing_resources

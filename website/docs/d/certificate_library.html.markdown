@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_library_certificate"
-sidebar_current: "docs-vcd-data-source-certificate-library"
+sidebar_current: "docs-vcloud-data-source-certificate-library"
 description: |-
   Provides a data source to read certificate in System or Org library.
 ---
 
-# vcd\_certificate\_library
-Supported in provider *v3.5+* and VCD 10.2+.
+# vcloud\_certificate\_library
+Supported in provider *v3.5+* and Vcloud 10.2+.
 
 Provides a data source to read certificate in System or Org library and reference in other resources.
 
@@ -34,4 +34,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_library_certificate`](/providers/vmware/vcd/latest/docs/resources/certificate_library) resource are available.
+[`vcloud_library_certificate`](/providers/vmware/vcloud/latest/docs/resources/certificate_library) resource are available.

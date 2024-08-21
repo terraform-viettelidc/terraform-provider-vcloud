@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog_media"
-sidebar_current: "docs-vcd-resource-catalog-media"
+sidebar_current: "docs-vcloud-resource-catalog-media"
 description: |-
   Provides a Viettel IDC Cloud media resource. This can be used to upload and delete media (ISO) file inside a catalog.
 ---
 
-# vcd\_catalog\_media
+# vcloud\_catalog\_media
 
 Provides a Viettel IDC Cloud media resource. This can be used to upload media to catalog and delete it.
 

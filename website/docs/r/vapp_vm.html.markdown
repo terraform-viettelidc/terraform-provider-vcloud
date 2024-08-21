@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_vm"
-sidebar_current: "docs-vcd-resource-vapp-vm"
+sidebar_current: "docs-vcloud-resource-vapp-vm"
 description: |-
   Provides a Viettel IDC Cloud VM resource. This can be used to create, modify, and delete VMs within a vApp.
 ---
 
-# vcd\_vapp\_vm
+# vcloud\_vapp\_vm
 
 Provides a Viettel IDC Cloud VM resource. This can be used to create,
 modify, and delete VMs within a vApp.
@@ -487,7 +487,7 @@ The following arguments are supported:
 * `vapp_name` - (Required) The vApp this VM belongs to.
 * `name` - (Required) A name for the VM, unique within the vApp 
 * `computer_name` - (Optional; *v2.5+*) Computer name to assign to this virtual machine.
-* `vapp_template_id` - (Optional; *v3.8+*) The URN of the vApp Template to use. You can fetch it using a [`vcloud_catalog_vapp_template`](/providers/vmware/vcd/latest/docs/data-sources/catalog_vapp_template) data source.
+* `vapp_template_id` - (Optional; *v3.8+*) The URN of the vApp Template to use. You can fetch it using a [`vcloud_catalog_vapp_template`](/providers/vmware/vcloud/latest/docs/data-sources/catalog_vapp_template) data source.
 * `vm_name_in_template` - (Optional; *v2.9+*) The name of the VM in vApp Template to use. For cases when vApp template has more than one VM.
 * `copy_from_vm_id` - (Optional; *v3.12+*) The ID of *an existing VM* to make a copy of it (it
   cannot be a vApp template). The source VM *must be in the same Org* (but can be in different VDC).
@@ -536,18 +536,18 @@ example for usage details.
   Tools are not present on the VM.
 * `os_type` - (Optional; *v2.9+*) Operating System type. Possible values can be found in [Os Types](#os-types). Required when creating empty VM.
 * `hardware_version` - (Optional; *v2.9+*) Virtual Hardware Version (e.g.`vmx-14`, `vmx-13`, `vmx-12`, etc.). Required when creating empty VM.
-* `firmware` - (Optional; v3.11+, VCD 10.4.1+) Specify boot firmware of the VM. Can be `efi` or `bios`. If unset, defaults to `bios`. Changing the value requires the VM to power off.
+* `firmware` - (Optional; v3.11+, Vcloud 10.4.1+) Specify boot firmware of the VM. Can be `efi` or `bios`. If unset, defaults to `bios`. Changing the value requires the VM to power off.
 * `boot_options` - (Optional; v3.11+) A block to define boot options of the VM. See [Boot Options](#boot-options)
-* `boot_image_id` - (Optional; *v3.8+*) Media URN to mount as boot image. You can fetch it using a [`vcloud_catalog_media`](/providers/vmware/vcd/latest/docs/data-sources/catalog_media) data source.
-  Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/vmware/vcd/latest/docs/resources/inserted_media). 
+* `boot_image_id` - (Optional; *v3.8+*) Media URN to mount as boot image. You can fetch it using a [`vcloud_catalog_media`](/providers/vmware/vcloud/latest/docs/data-sources/catalog_media) data source.
+  Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/vmware/vcloud/latest/docs/resources/inserted_media). 
 * `cpu_hot_add_enabled` - (Optional; *v3.0+*) True if the virtual machine supports addition of virtual CPUs while powered on. Default is `false`.
 * `memory_hot_add_enabled` - (Optional; *v3.0+*) True if the virtual machine supports addition of memory while powered on. Default is `false`.
 * `prevent_update_power_off` - (Optional; *v3.0+*) True if the update of resource should fail when virtual machine power off needed. Default is `false`.
-* `sizing_policy_id` (Optional; *v3.0+*, *vCD 10.0+*) VM sizing policy ID. To be used, it needs to be assigned to [Org VDC](/providers/vmware/vcd/latest/docs/resources/org_vdc)
+* `sizing_policy_id` (Optional; *v3.0+*, *vCD 10.0+*) VM sizing policy ID. To be used, it needs to be assigned to [Org VDC](/providers/vmware/vcloud/latest/docs/resources/org_vdc)
   using `vcloud_org_vdc.vm_sizing_policy_ids` (and `vcloud_org_vdc.default_compute_policy_id` to make it default).
   In this case, if the sizing policy is not set, it will pick the VDC default on creation. It must be set explicitly
   if one wants to update it to another policy (the VM requires at least one Compute Policy), and needs to be set to `""` to be removed.
-* `placement_policy_id` (Optional; *v3.8+*) VM placement policy or [vGPU policy][vgpu-policy] (*3.11+*) ID. To be used, it needs to be assigned to [Org VDC](/providers/vmware/vcd/latest/docs/resources/org_vdc)
+* `placement_policy_id` (Optional; *v3.8+*) VM placement policy or [vGPU policy][vgpu-policy] (*3.11+*) ID. To be used, it needs to be assigned to [Org VDC](/providers/vmware/vcloud/latest/docs/resources/org_vdc)
   In this case, if the placement policy is not set, it will pick the VDC default on creation. It must be set explicitly
   if one wants to update it to another policy (the VM requires at least one Compute Policy), and needs to be set to `""` to be removed.
 * `security_tags` - (Optional; *v3.9+*) Set of security tags to be managed by the `vcloud_vapp_vm` resource.
@@ -555,19 +555,19 @@ example for usage details.
   This is to be consistent with existing security tags that were created by the `vcloud_security_tags` resource.
 * `set_extra_config` - (Optional; *v3.13+*) Set of extra configuration key/values to be added or modified. See [Extra Configuration](#extra-configuration)
 
-~> **Note:** Only one of `security_tags` attribute or [`vcloud_security_tag`](/providers/vmware/vcd/latest/docs/resources/security_tag) resource
+~> **Note:** Only one of `security_tags` attribute or [`vcloud_security_tag`](/providers/vmware/vcloud/latest/docs/resources/security_tag) resource
   should be used. Using both would cause a behavioral conflict.
 
-* `catalog_name` - (Deprecated; *v2.9+*) Use a [`vcloud_catalog`](/providers/vmware/vcd/latest/docs/data-sources/catalog) data source along with `vapp_template_id` or `boot_image_id` instead. The catalog name in which to find the given vApp Template or media for `boot_image`.
+* `catalog_name` - (Deprecated; *v2.9+*) Use a [`vcloud_catalog`](/providers/vmware/vcloud/latest/docs/data-sources/catalog) data source along with `vapp_template_id` or `boot_image_id` instead. The catalog name in which to find the given vApp Template or media for `boot_image`.
 * `template_name` - (Deprecated; *v2.9+*) Use `vapp_template_id` instead. The name of the vApp Template to use
-* `boot_image` - (Deprecated; *v2.9+*) Use `boot_image_id` instead. Media name to mount as boot image. Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/vmware/vcd/latest/docs/resources/inserted_media).
+* `boot_image` - (Deprecated; *v2.9+*) Use `boot_image_id` instead. Media name to mount as boot image. Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/vmware/vcloud/latest/docs/resources/inserted_media).
 
 ## Attribute reference
 
 * `vm_type` - (*3.2+*) Type of the VM (either `vcloud_vapp_vm` or `vcloud_vm`).
 * `status` - (*v3.8+*) The vApp status as a numeric code.
 * `status_text` - (*v3.8+*) The vApp status as text.
-* `inherited_metadata` - (*v3.11+*; *VCD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCD (10.5.1+) and provides
+* `inherited_metadata` - (*v3.11+*; *Vcloud 10.5.1+*) A map that contains read-only metadata that is automatically added by Vcloud (10.5.1+) and provides
   details on the origin of the VM (e.g. `vm.origin.id`, `vm.origin.name`, `vm.origin.type`).
 * `extra_config` - (*v3.13.+*) The VM extra configuration. See [Extra Configuration](#extra-configuration) for more detail.
 
@@ -630,14 +630,14 @@ example for usage details.
 <a id="override-template-disk"></a>
 ## Override template disk
 Allows to update internal disk in template before first VM boot. Disk is matched by `bus_type`, `bus_number` and `unit_number`.
-Changes are ignored on update. This part isn't reread on refresh. To manage internal disk later please use [`vcloud_vm_internal_disk`](/providers/vmware/vcd/latest/docs/resources/vm_internal_disk) resource.
+Changes are ignored on update. This part isn't reread on refresh. To manage internal disk later please use [`vcloud_vm_internal_disk`](/providers/vmware/vcloud/latest/docs/resources/vm_internal_disk) resource.
  
 ~> **Note:** Managing disks in VM with fast provisioned VDC require
 [`consolidate_disks_on_create`](#consolidate_disks_on_create) option.
 
 * `bus_type` - (Required) The type of disk controller. Possible values: `ide`, `parallel`( LSI Logic Parallel SCSI),
   `sas`(LSI Logic SAS (SCSI)), `paravirtual`(Paravirtual (SCSI)), `sata`, `nvme`. **Note** `nvme` requires *v3.5.0+* and
-  VCD *10.2.1+*
+  Vcloud *10.2.1+*
 * `size_in_mb` - (Required) The size of the disk in MB. 
 * `bus_number` - (Required) The number of the SCSI or IDE controller itself.
 * `unit_number` - (Required) The device number on the SCSI or IDE controller of the disk.
@@ -649,13 +649,13 @@ Changes are ignored on update. This part isn't reread on refresh. To manage inte
 
 Allows to specify the boot options of a VM.
 
-* `efi_secure_boot` - (Optional, VCD 10.4.1+) Enable EFI Secure Boot on subsequent boots, requires `firmware` to be set to `efi`.
-* `enter_bios_setup_on_next_boot` - (Optional) Enter BIOS setup on the next boot of the VM. After a VM is booted, the value is set back to false in VCD, because of that, 
+* `efi_secure_boot` - (Optional, Vcloud 10.4.1+) Enable EFI Secure Boot on subsequent boots, requires `firmware` to be set to `efi`.
+* `enter_bios_setup_on_next_boot` - (Optional) Enter BIOS setup on the next boot of the VM. After a VM is booted, the value is set back to false in Vcloud, because of that, 
   Terraform will return an inconsistent plan and try to set this field back to `true`. **NOTE:** If there are any [cold changes](#hot-and-cold-update) on update that cause the VM to power-cycle with this field set to `true`,
   the VM will boot straight into BIOS. For reducing side effects, one should set this field to `true` and `power_on` to `false`, then switch `power_on` to `true`.
 * `boot_delay` - (Optional) Delay between the power-on and boot of the VM in milliseconds.
-* `boot_retry_enabled` - (Optional, VCD 10.4.1+) If set to `true`, will attempt to reboot the VM after a failed boot.
-* `boot_retry_delay` - (Optional, VCD 10.4.1+) Delay before the VM is rebooted after a failed boot. Has no effect if `boot_retry_enabled` is set to `false`
+* `boot_retry_enabled` - (Optional, Vcloud 10.4.1+) If set to `true`, will attempt to reboot the VM after a failed boot.
+* `boot_retry_delay` - (Optional, Vcloud 10.4.1+) Delay before the VM is rebooted after a failed boot. Has no effect if `boot_retry_enabled` is set to `false`
 
 <a id="customization-block"></a>
 ## Customization
@@ -973,7 +973,7 @@ These fields can be updated when VM is **powered on**:
 Notes about **removing** `network`:
 
 * Guest OS must support hot NIC removal for NICs to be removed using network definition. If Guest OS doesn't support it - `power_on=false` can be used to power off the VM before removing NICs.
-* VCD 10.1 has a bug and all NIC removals will be performed in cold manner.
+* Vcloud 10.1 has a bug and all NIC removals will be performed in cold manner.
 
 ## Extra Configuration
 
@@ -985,7 +985,7 @@ more blocks with the following fields:
   the value to an empty string will remove the item.
 
 ~> We should only insert or modify the fields we want to handle, without touching the ones already present in the VM.
-   VCD uses the extra-config items for its own purposes, and modifying them could lead to destabilising side effects.
+   Vcloud uses the extra-config items for its own purposes, and modifying them could lead to destabilising side effects.
 
 Notes:
 
@@ -1102,4 +1102,4 @@ resource for further operations, you will need to integrate it with data from th
 is used to create the VM, such as `catalog_name`, `template_name`.
 
 [docs-import]:https://www.terraform.io/docs/import/
-[vgpu-policy]:/providers/vmware/vcd/latest/docs/resources/vm_vgpu_policy
+[vgpu-policy]:/providers/vmware/vcloud/latest/docs/resources/vm_vgpu_policy

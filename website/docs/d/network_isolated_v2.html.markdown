@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_isolated_v2"
-sidebar_current: "docs-vcd-data-source-network-isolated-v2"
+sidebar_current: "docs-vcloud-data-source-network-isolated-v2"
 description: |-
   Provides a Viettel IDC Cloud Org VDC isolated Network data source to read data or reference existing network.
 ---
 
-# vcd\_network\_isolated\_v2
+# vcloud\_network\_isolated\_v2
 
 Provides a Viettel IDC Cloud Org VDC isolated Network data source to read data or reference existing network.
 
@@ -57,11 +57,11 @@ and inherited from provider configuration)
 
 ## Attribute reference
 
-All attributes defined in [isolated network resource](/providers/vmware/vcd/latest/docs/resources/network_isolated_v2#attribute-reference) are supported.
+All attributes defined in [isolated network resource](/providers/vmware/vcloud/latest/docs/resources/network_isolated_v2#attribute-reference) are supported.
 
 ## Filter arguments
 
 * `name_regex` - (Optional) matches the name using a regular expression.
 * `ip` - (Optional) matches the IP of the resource using a regular expression.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.

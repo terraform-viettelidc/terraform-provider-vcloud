@@ -1,24 +1,24 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_external_network_v2"
-sidebar_current: "docs-vcd-resource-external-network-v2"
+sidebar_current: "docs-vcloud-resource-external-network-v2"
 description: |-
   Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource
-  uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
+  uses new Vcloud API and is capable of creating NSX-T backed external networks as well as port group
   backed ones.
 ---
 
-# vcd\_external\_network\_v2
+# vcloud\_external\_network\_v2
 
 Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource 
-uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
+uses new Vcloud API and is capable of creating NSX-T backed external networks as well as port group
 backed ones.
 
 -> This resource manages NSX-T **External Networks**, NSX-V **External Networks**, and **NSX-T
 Provider Gateways**
 
 This resource supports **IP Spaces** - read [IP Spaces guide
-page](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/ip_spaces) for more
+page](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/guides/ip_spaces) for more
 information.
 
 ## Example Usage (NSX-T Tier 0 Router backed External Network backed by IP Spaces)
@@ -188,9 +188,9 @@ The following arguments are supported:
 
 * `name` - (Required) A unique name for the network
 * `description` - (Optional) Network friendly description
-* `use_ip_spaces` - (Optional; *v3.10+*; *VCD 10.4.1+*) Defines if the network uses IP Spaces. Do
+* `use_ip_spaces` - (Optional; *v3.10+*; *Vcloud 10.4.1+*) Defines if the network uses IP Spaces. Do
   not specify `ip_scope` when using IP Spaces. (default `false`)
-* `dedicated_org_id` - (Optional; *v3.10+*; *VCD 10.4.1+*) An Org ID that this network should be
+* `dedicated_org_id` - (Optional; *v3.10+*; *Vcloud 10.4.1+*) An Org ID that this network should be
   dedicated to. Only applicable when `use_ip_spaces=true`
 * `ip_scope` - (Optional) One or more IP scopes for the network. See [IP Scope](#ipscope) below for details.
 * `vsphere_network` - (Optional) One or more blocks of [vSphere Network](#vspherenetwork)..
@@ -217,16 +217,16 @@ The following arguments are supported:
 <a id="vspherenetwork"></a>
 ## vSphere Network
 
-* `vcenter_id` - (Required) vCenter ID. Can be looked up using [`vcloud_vcenter`](/providers/vmware/vcd/latest/docs/data-sources/vcenter) data source.
-* `portgroup_id` - (Required) vSphere portgroup ID. Can be looked up using  [`vcloud_portgroup`](/providers/vmware/vcd/latest/docs/data-sources/portgroup) data source.
+* `vcenter_id` - (Required) vCenter ID. Can be looked up using [`vcloud_vcenter`](/providers/vmware/vcloud/latest/docs/data-sources/vcenter) data source.
+* `portgroup_id` - (Required) vSphere portgroup ID. Can be looked up using  [`vcloud_portgroup`](/providers/vmware/vcloud/latest/docs/data-sources/portgroup) data source.
 
 <a id="nsxtnetwork"></a>
 ## NSX-T Network
 
-* `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcloud_nsxt_manager`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_manager) data source.
+* `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcloud_nsxt_manager`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_manager) data source.
 * `nsxt_tier0_router_id` - (Optional) NSX-T Tier-0 router ID. Can be looked up using
-  [`vcloud_nsxt_tier0_router`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_tier0_router) data source.
-* `nsxt_segment_name` - (Optional; *v3.4+*; *VCD 10.3+*) Existing NSX-T segment name.
+  [`vcloud_nsxt_tier0_router`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_tier0_router) data source.
+* `nsxt_segment_name` - (Optional; *v3.4+*; *Vcloud 10.3+*) Existing NSX-T segment name.
 
 ## Importing
 
@@ -256,4 +256,4 @@ NOTE: the default separator (.) can be changed using Provider.import_separator o
 While the above structure is the minimum needed to get an import, it is not sufficient to run `terraform plan`,
 as it lacks several mandatory fields. To use the imported resource, you will need to add the missing properties
 using the data in `terraform.tfstate` as a reference. If the resource does not need modifications, consider using
-an [external network data source](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2) instead. 
+an [external network data source](/providers/vmware/vcloud/latest/docs/data-sources/external_network_v2) instead. 

@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_dynamic_security_group"
-sidebar_current: "docs-vcd-data-source-nsxt-dynamic-security-group"
+sidebar_current: "docs-vcloud-data-source-nsxt-dynamic-security-group"
 description: |-
   Provides a data source to read NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
   Machines based on specific criteria (VM Names or Security tags) to which Distributed Firewall Rules
   apply.
 ---
 
-# vcd\_nsxt\_dynamic\_security\_group
+# vcloud\_nsxt\_dynamic\_security\_group
 
-Supported in provider *v3.7+* and VCD 10.3+ with NSX-T backed VDC Groups.
+Supported in provider *v3.7+* and Vcloud 10.3+ with NSX-T backed VDC Groups.
 
 Provides a data source to read NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
 Machines based on specific criteria (VM Names or Security tags) to which Distributed Firewall Rules
@@ -42,4 +42,4 @@ The following arguments are supported:
 * `name` - (Required) A unique name for existing Dynamic Security Group
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_dynamic_security_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_dynamic_security_group) resource are available.
+[`vcloud_nsxt_dynamic_security_group`](/providers/vmware/vcloud/latest/docs/resources/nsxt_dynamic_security_group) resource are available.

@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_application_finder"
-sidebar_current: "docs-vcd-data-source-nsxv-application-finder"
+sidebar_current: "docs-vcloud-data-source-nsxv-application-finder"
 description: |-
   Provides a Viettel IDC Cloud data source for searching NSX-V distributed firewall applications and application groups
 ---
 
-# vcd\_nsxv\_application_finder
+# vcloud\_nsxv\_application_finder
 
 Provides a Viettel IDC Cloud NSX-V distributed firewall applications and application groups finder
 used to retrieve existing ones by regular expressions.

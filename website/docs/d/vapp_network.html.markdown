@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_network"
-sidebar_current: "docs-vcd-datasource-vapp-network"
+sidebar_current: "docs-vcloud-datasource-vapp-network"
 description: |-
   Provides a Viettel IDC Cloud vApp network data source. This can be used to access a vApp network.
 ---
 
-# vcd\_vapp\_network
+# vcloud\_vapp\_network
 
 Provides a Viettel IDC Cloud vApp network data source. This can be used to access a vApp network.
 
@@ -41,5 +41,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All attributes defined in [`vcloud_vapp_network`](/providers/vmware/vcd/latest/docs/resources/vapp_network#attribute-reference) are supported.
+All attributes defined in [`vcloud_vapp_network`](/providers/vmware/vcloud/latest/docs/resources/vapp_network#attribute-reference) are supported.
 

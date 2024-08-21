@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_type_behavior"
-sidebar_current: "docs-vcd-resource-rde-type-behavior"
+sidebar_current: "docs-vcloud-resource-rde-type-behavior"
 description: |-
    Provides the capability of managing RDE Type Behaviors in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_type\_behavior
+# vcloud\_rde\_type\_behavior
 
 Provides the capability of managing RDE Type Behaviors in Viettel IDC Cloud, which override an existing [RDE Interface
-Behavior](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior).
+Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior).
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
 
@@ -34,7 +34,7 @@ resource "vcloud_rde_interface_behavior" "my_interface_behavior" {
 
 resource "vcloud_rde_type" "my_rde_type" {
   vendor        = "vmware"
-  nss           = "vcd"
+  nss           = "vcloud"
   version       = "4.5.6"
   name          = "My VMware RDE Type"
   interface_ids = [data.vcloud_rde_interface.my_interface.id]
@@ -60,11 +60,11 @@ resource "vcloud_rde_type_behavior" "my_rde_type_behavior" {
 The following arguments are supported:
 
 * `rde_type_id` - (Required) The ID of the RDE Type that owns the Behavior
-* `rde_interface_behavior_id` - (Required) The ID of the [RDE Interface Behavior](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior) to override
+* `rde_interface_behavior_id` - (Required) The ID of the [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior) to override
 * `description` - (Optional) The description of the RDE Type Behavior.
 * `execution` - (Required) A map that specifies the Behavior execution mechanism.
   You can find more information about the different execution types, like `WebHook`, `noop`, `Activity`, `MQTT`, `VRO`, `AWSLambdaFaaS`
-  and others [in the Extensibility SDK documentation](https://vmware.github.io/vcd-ext-sdk/docs/defined_entities_api/behaviors)
+  and others [in the Extensibility SDK documentation](https://vmware.github.io/vcloud-ext-sdk/docs/defined_entities_api/behaviors)
 
 ## Attribute Reference
 

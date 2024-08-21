@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: VM Guest Customization"
-sidebar_current: "docs-vcd-guides-vm-guest-customization"
+sidebar_current: "docs-vcloud-guides-vm-guest-customization"
 description: |-
   Provides guidance on VM Guest Customization.
 ---
@@ -24,9 +24,9 @@ would happily accept a Pull Request with documentation how to use it.
 ## Guest Customization using Ignition files
 
 The main point is that **Ignition** configuration can be supplied using
-[`guest_properties`](/providers/vmware/vcd/latest/docs/resources/vapp_vm#guest_properties) key value
-map in [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm) or
-[`vcloud_vm`](/providers/vmware/vcd/latest/docs/resources/vm) resources.
+[`guest_properties`](/providers/vmware/vcloud/latest/docs/resources/vapp_vm#guest_properties) key value
+map in [`vcloud_vapp_vm`](/providers/vmware/vcloud/latest/docs/resources/vapp_vm) or
+[`vcloud_vm`](/providers/vmware/vcloud/latest/docs/resources/vm) resources.
 
 [Ignition documentation](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-vmware/)
 mentions two required fields for guest properties to enable customization:
@@ -75,7 +75,7 @@ hash generator) and set hostname to `core1` in guest. Store these contents in `i
     }
 }
 ```
-To supply it to Guest VM using Terraform provider VCD one must read contents and encode it.
+To supply it to Guest VM using Terraform provider Vcloud one must read contents and encode it.
 
 ```hcl
 resource "vcloud_vm" "customized" {
@@ -109,9 +109,9 @@ configuration options.
 ## Guest Customization using CloudInit (OVF datasource)
 
 Configuration can be passed to CloudInit using
-[`guest_properties`](/providers/vmware/vcd/latest/docs/resources/vapp_vm#guest_properties) key value
-map in [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm) or
-[`vcloud_vm`](/providers/vmware/vcd/latest/docs/resources/vm) resources.
+[`guest_properties`](/providers/vmware/vcloud/latest/docs/resources/vapp_vm#guest_properties) key value
+map in [`vcloud_vapp_vm`](/providers/vmware/vcloud/latest/docs/resources/vapp_vm) or
+[`vcloud_vm`](/providers/vmware/vcloud/latest/docs/resources/vm) resources.
 
 More about [CloudInit](https://cloudinit.readthedocs.io/en/latest/) and
 [OVF](https://cloudinit.readthedocs.io/en/latest/topics/datasources/ovf.html)

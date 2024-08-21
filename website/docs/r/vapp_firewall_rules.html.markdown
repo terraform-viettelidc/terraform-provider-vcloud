@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_firewall_rules"
-sidebar_current: "docs-vcd-resource-vapp-firewall-rules"
+sidebar_current: "docs-vcloud-resource-vapp-firewall-rules"
 description: |-
   Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create, modify, and delete firewall settings and rules.
 ---
 
-# vcd\_vapp\_firewall\_rules
+# vcloud\_vapp\_firewall\_rules
 
 Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create,
-modify, and delete firewall settings and rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
-Firewall rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcd/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcd/r/vapp_org_network) which are fenced. 
+modify, and delete firewall settings and rules in a [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
+Firewall rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcloud/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcloud/r/vapp_org_network) which are fenced. 
 
 !> **Warning:** Using this resource overrides any existing firewall rules on vApp network. It's recommended to have only one resource per vApp and vApp network. 
 
@@ -68,8 +68,8 @@ The following arguments are supported:
 
 * `org` - The name of organization to use, optional if defined at provider level. Useful when connected as sysadmin working across different organisations.
 * `vdc` - The name of VDC to use, optional if defined at provider level.
-* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcd/latest/docs/resources/vapp).
-* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
+* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcloud/latest/docs/resources/vapp).
+* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
 * `enabled` - (Optional) Enable or disable firewall. Default is `true`.
 * `default_action` - (Required) Either 'allow' or 'drop'. Specifies what to do should none of the rules match.
 * `log_default_action` - (Optional) Flag to enable logging for default action. Default value is `false`.
@@ -124,7 +124,7 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing vApp Network IDs
 
-If you want to list IDs there is a special command **`terraform import vcloud_vapp_firewall_rules.imported list@org-name.vcd-name.vapp-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vapp_firewall_rules.imported list@org-name.vcloud-name.vapp-name`**
 where `org-name` is the organization used, `vdc-name` is VDC name and `vapp-name` is vApp name. 
 The output for this command should look similar to the one below:
 

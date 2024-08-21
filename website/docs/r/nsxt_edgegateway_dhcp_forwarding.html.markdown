@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcp_forwarding"
-sidebar_current: "docs-vcd-resource-nsxt-edge-dhcp-forwarding"
+sidebar_current: "docs-vcloud-resource-nsxt-edge-dhcp-forwarding"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway DHCP forwarding configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_dhcp\_forwarding
+# vcloud\_nsxt\_edgegateway\_dhcp\_forwarding
 
-Supported in provider *v3.10+* and VCD 10.3.1+ with NSX-T.
+Supported in provider *v3.10+* and Vcloud 10.3.1+ with NSX-T.
 
 Provides a resource to manage NSX-T Edge Gateway DHCP forwarding configuration.
 
@@ -50,7 +50,7 @@ The following arguments are supported:
 * `enabled` - (Required) DHCP Forwarding status.
 * `dhcp_servers` - (Required) IP addresses of DHCP servers. Maximum 8 can be specified.
 
-~> Modification of the `dhcp_servers` field will not be changed in VCD when `enabled = false` because VCD API ignores DHCP server changes when DHCP forwarding is disabled.
+~> Modification of the `dhcp_servers` field will not be changed in Vcloud when `enabled = false` because Vcloud API ignores DHCP server changes when DHCP forwarding is disabled.
 
 ## Importing
 

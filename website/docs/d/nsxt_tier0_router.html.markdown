@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_tier0_router"
-sidebar_current: "docs-vcd-data-source-nsxt-tier0-router"
+sidebar_current: "docs-vcloud-data-source-nsxt-tier0-router"
 description: |-
   Provides a data source for available NSX-T Tier-0 routers.
 ---
 
-# vcd\_nsxt\_tier0\_router
+# vcloud\_nsxt\_tier0\_router
 
 Provides a data source for available NSX-T Tier-0 routers.
 
@@ -14,7 +14,7 @@ Supported in provider *v3.0+*
 
 ~> **Note:** This resource uses new Viettel IDC Cloud
 [OpenAPI](https://code.vmware.com/docs/11982/getting-started-with-vmware-cloud-director-openapi) and
-requires at least VCD *10.1.1+* and NSX-T *3.0+*.
+requires at least Vcloud *10.1.1+* and NSX-T *3.0+*.
 
 ## Example Usage 
 

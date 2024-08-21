@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp_binding"
-sidebar_current: "docs-vcd-resource-nsxt-network-dhcp-binding"
+sidebar_current: "docs-vcloud-resource-nsxt-network-dhcp-binding"
 description: |-
   Provides a resource to manage NSX-T Org VDC network DHCP bindings.
 ---
 
-# vcd\_nsxt\_network\_dhcp\_binding
+# vcloud\_nsxt\_network\_dhcp\_binding
 
 Provides a resource to manage NSX-T Org VDC network DHCP bindings.
 
--> This resource requires VCD 10.3.1+
+-> This resource requires Vcloud 10.3.1+
 
 ## Example Usage (IPv4 binding)
 

@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog_vapp_template"
-sidebar_current: "docs-vcd-data-source-catalog-vapp_template"
+sidebar_current: "docs-vcloud-data-source-catalog-vapp_template"
 description: |-
   Provides a vApp Template data source.
 ---
 
-# vcd\_catalog\_vapp\_template
+# vcloud\_catalog\_vapp\_template
 
 Provides a Viettel IDC Cloud vApp Template data source. A vApp Template can be used to reference an already existing
-vApp Template in VCD and use its data within other resources or data sources.
+vApp Template in Vcloud and use its data within other resources or data sources.
 
 Supported in provider *v3.8+*
 
@@ -116,7 +116,7 @@ The following arguments are supported:
 * `description` - vApp Template description
 * `vm_names` - Set of VM names within the vApp template
 * `metadata` - (Deprecated) Use `metadata_entry` instead. Key/value map of metadata for the associated vApp template.
-* `metadata_entry` - A set of metadata entries assigned to this vApp Template. See [Metadata](/providers/vmware/vcd/latest/docs/resources/catalog_vapp_template#metadata) section for details.
+* `metadata_entry` - A set of metadata entries assigned to this vApp Template. See [Metadata](/providers/vmware/vcloud/latest/docs/resources/catalog_vapp_template#metadata) section for details.
 
 * `lease` - (*v3.11+*) - The information about the vApp Template lease. It includes the following field:
   * `storage_lease_in_sec` - How long the vApp Template is available before being automatically deleted or marked as expired. 0 means never expires (or maximum allowed by parent Org allows).
@@ -135,4 +135,4 @@ The following arguments are supported:
   are set, it retrieves the oldest item.
 * `metadata` - (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.

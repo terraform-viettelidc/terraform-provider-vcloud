@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp"
-sidebar_current: "docs-vcd-datasource-vapp"
+sidebar_current: "docs-vcloud-datasource-vapp"
 description: |-
   Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 ---
 
-# vcd\_vapp
+# vcloud\_vapp
 
 Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 
@@ -63,7 +63,7 @@ The following arguments are supported:
 * `lease` - (*v3.5+*) - The information about the vApp lease. It includes the following fields:
   * `runtime_lease_in_sec` - How long any of the VMs in the vApp can run before the vApp is automatically powered off or suspended. 0 means never expires.
   * `storage_lease_in_sec` - How long the vApp is available before being automatically deleted or marked as expired. 0 means never expires.
-* `inherited_metadata` - (*v3.11+*; *VCD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCD (10.5.1+) and provides
+* `inherited_metadata` - (*v3.11+*; *Vcloud 10.5.1+*) A map that contains read-only metadata that is automatically added by Vcloud (10.5.1+) and provides
   details on the origin of the vApp (e.g. `vapp.origin.id`, `vapp.origin.name`, `vapp.origin.type`).
 
 <a id="metadata"></a>

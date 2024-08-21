@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_dynamic_security_group"
-sidebar_current: "docs-vcd-resource-nsxt-dynamic-security-group"
+sidebar_current: "docs-vcloud-resource-nsxt-dynamic-security-group"
 description: |-
   Provides a resource to manage NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
   Machines based on specific criteria (VM Names or Security tags) to which Distributed Firewall Rules
   apply.
 ---
 
-# vcd\_nsxt\_dynamic\_security\_group
+# vcloud\_nsxt\_dynamic\_security\_group
 
-Supported in provider *v3.7+* and VCD 10.3+ with NSX-T backed VDC Groups.
+Supported in provider *v3.7+* and Vcloud 10.3+ with NSX-T backed VDC Groups.
 
 Provides a resource to manage NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
 Machines based on specific criteria (VM Names or Security tags) to which Distributed Firewall Rules
@@ -167,7 +167,7 @@ Each member Rule contains following attributes:
 ## Attribute Reference
 * `member_vms` A set of member VMs (if exist). see [Member VMs](#member-vms) below for details.
 
-~> VCD does not immediately populate `member_vms` values therefore it is not guaranteed that all
+~> Vcloud does not immediately populate `member_vms` values therefore it is not guaranteed that all
 values are available after a Terraform operation.
 
 <a id="member-vms"></a>

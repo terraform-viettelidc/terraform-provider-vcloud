@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_interface"
-sidebar_current: "docs-vcd-data-source-rde-interface"
+sidebar_current: "docs-vcloud-data-source-rde-interface"
 description: |-
    Provides the capability of fetching an existing Runtime Defined Entity Interface from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface
+# vcloud\_rde\_interface
 
 Provides the capability of fetching an existing Runtime Defined Entity Interface from Viettel IDC Cloud.
 
@@ -41,4 +41,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the supported attributes are defined in the
-[RDE Interface resource](/providers/vmware/vcd/latest/docs/resources/rde_interface#argument-reference).
+[RDE Interface resource](/providers/vmware/vcloud/latest/docs/resources/rde_interface#argument-reference).

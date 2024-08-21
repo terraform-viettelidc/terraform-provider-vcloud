@@ -1,19 +1,19 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_network_imported"
-sidebar_current: "docs-vcd-data-source-nsxt-network-imported"
+sidebar_current: "docs-vcloud-data-source-nsxt-network-imported"
 description: |-
   Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 ---
 
-# vcd\_nsxt\_network\_imported
+# vcloud\_nsxt\_network\_imported
 
 Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 
 -> This is **not Terraform imported** data source, but a special **Imported** type of **Org VDC
-network** in NSX-T VDC. Read more about Imported Network in [official VCD
+network** in NSX-T VDC. Read more about Imported Network in [official Vcloud
 documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB303D62-67EA-4209-BE4D-C3746481BCC8.html).
 
 ## Example Usage (Looking up Imported Network in VDC)
@@ -60,11 +60,11 @@ and inherited from provider configuration)
 
 ## Attribute reference
 
-All attributes defined in [imported network resource](/providers/vmware/vcd/latest/docs/resources/nsxt_network_imported#attribute-reference) are supported.
+All attributes defined in [imported network resource](/providers/vmware/vcloud/latest/docs/resources/nsxt_network_imported#attribute-reference) are supported.
 
 ## Filter arguments
 
 * `name_regex` - (Optional) matches the name using a regular expression.
 * `ip` - (Optional) matches the IP of the resource using a regular expression.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.

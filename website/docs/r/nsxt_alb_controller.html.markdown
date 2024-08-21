@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_controller"
-sidebar_current: "docs-vcd-resource-nsxt-alb-controller"
+sidebar_current: "docs-vcloud-resource-nsxt-alb-controller"
 description: |-
   Provides a resource to manage ALB Controller for Providers. It helps to integrate Viettel IDC Cloud with Avi Load Balancer deployment. Controller instances are registered with Viettel IDC Cloud instance. Controller
   instances serve as a central control plane for the load-balancing services provided by Avi Load Balancer.
 ---
 
-# vcd\_nsxt\_alb\_controller
+# vcloud\_nsxt\_alb\_controller
 
-Supported in provider *v3.4+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.4+* and Vcloud 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Controller for Providers. It helps to integrate Viettel IDC Cloud with Avi 
 Load Balancer deployment. Controller instances are registered with Viettel IDC Cloud instance. Controller
@@ -17,8 +17,8 @@ instances serve as a central control plane for the load-balancing services provi
 
 ~> Only `System Administrator` can create this resource.
 
-~> VCD 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
-[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
+~> Vcloud 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
+[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
 Controller is created. This data should be available 15 minutes after the Controller is created.
 
 ## Example Usage (Adding ALB Controller to provider)
@@ -45,7 +45,7 @@ The following arguments are supported:
 * `password` - (Required) The password for ALB Controller. Password will not be refreshed.
 * `license_type` - (Optional) License type of ALB Controller (`ENTERPRISE` or `BASIC`)
 
-~> The attribute `license_type` must not be used in VCD 10.4+, it is replaced by [nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group) and [nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings) attribute `supported_feature_set`.
+~> The attribute `license_type` must not be used in Vcloud 10.4+, it is replaced by [nsxt_alb_service_engine_group](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_service_engine_group) and [nsxt_alb_settings](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_settings) attribute `supported_feature_set`.
 
 ## Attribute Reference
 

@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_vdc"
-sidebar_current: "docs-vcd-data-source-org-vdc"
+sidebar_current: "docs-vcloud-data-source-org-vdc"
 description: |-
   Provides an organization VDC data source.
 ---
 
-# vcd\_org\_vdc
+# vcloud\_org\_vdc
 
 Provides a Viettel IDC Cloud Organization VDC data source. An Organization VDC can be used to
 reference a VDC and use its data within other resources or data sources.
@@ -38,10 +38,10 @@ The following arguments are supported:
 
 ## Attribute reference
 
-* `edge_cluster_id` - (*v3.8+*, *VCD 10.3+*) An ID of NSX-T Edge Cluster which should provide vApp
+* `edge_cluster_id` - (*v3.8+*, *Vcloud 10.3+*) An ID of NSX-T Edge Cluster which should provide vApp
   Networking Services or DHCP for Isolated Networks. This value **might be unavailable** in data
   source if user has insufficient rights.
 
 All other attributes are defined in [organization VDC
-resource](/providers/vmware/vcd/latest/docs/resources/org_vdc#attribute-reference) are supported.
+resource](/providers/vmware/vcloud/latest/docs/resources/org_vdc#attribute-reference) are supported.
 

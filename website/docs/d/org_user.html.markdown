@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_user"
-sidebar_current: "docs-vcd-datasource-org-user"
+sidebar_current: "docs-vcloud-datasource-org-user"
 description: |-
   Provides a Viettel IDC Cloud Organization user data source. This can be used to read organization users.
 ---
 
-# vcd\_org\_user
+# vcloud\_org\_user
 
 Provides a Viettel IDC Cloud Org User data source. This can be used to read organization users, including org administrators.
 

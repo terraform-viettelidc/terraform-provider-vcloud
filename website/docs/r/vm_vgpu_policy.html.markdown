@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_vgpu_policy"
-sidebar_current: "docs-vcd-resource-vm-vgpu-policy"
+sidebar_current: "docs-vcloud-resource-vm-vgpu-policy"
 description: |-
   Provides a resource to manage vGPU policies for virtual machines in Viettel IDC Cloud.
 ---
 
-# vcd\_vm\_vgpu\_policy
+# vcloud\_vm\_vgpu\_policy
 
 Experimental in provider *3.11*.
 
@@ -194,6 +194,6 @@ $ terraform import vcloud_vm_vgpu_policy.imported urn:vcloud:vdcComputePolicy:44
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
-[cpu]:/providers/vmware/vcd/latest/docs/resources/vm_sizing_policy#cpu
-[memory]:/providers/vmware/vcd/latest/docs/resources/vm_sizing_policy#memory
+[cpu]:/providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy#cpu
+[memory]:/providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy#memory
 

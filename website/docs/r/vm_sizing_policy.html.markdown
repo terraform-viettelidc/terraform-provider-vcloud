@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_sizing_policy"
-sidebar_current: "docs-vcd-resource-vm-sizing-policy"
+sidebar_current: "docs-vcloud-resource-vm-sizing-policy"
 description: |-
   Provides a Viettel IDC Cloud VM sizing policy resource. This can be
   used to create, modify, and delete VM sizing policy.
 ---
 
-# vcd\_vm\_sizing\_policy
+# vcloud\_vm\_sizing\_policy
 
 Provides a Viettel IDC Cloud VM sizing policy resource. This can be
 used to create, modify, and delete VM sizing policy.
 
-Supported in provider *v3.0+* and requires VCD 10.0+
+Supported in provider *v3.0+* and requires Vcloud 10.0+
 
 -> **Note:** This resource requires system administrator privileges.
 

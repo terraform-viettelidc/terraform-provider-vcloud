@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_nat_rules"
-sidebar_current: "docs-vcd-resource-vapp-nat-rules"
+sidebar_current: "docs-vcloud-resource-vapp-nat-rules"
 description: |-
   Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create, modify, and delete NAT rules.
 ---
 
-# vcd\_vapp\_nat\_rules
+# vcloud\_vapp\_nat\_rules
 
 Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create,
-modify, and delete NAT rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
-NAT rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcd/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcd/r/vapp_org_network) which are fenced.
+modify, and delete NAT rules in a [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
+NAT rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcloud/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcloud/r/vapp_org_network) which are fenced.
 
 !> **Warning:** Using this resource overrides any existing NAT rules on vApp network. It's recommended to have only one resource per vApp and vApp network. 
 
@@ -107,9 +107,9 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful when connected as sysadmin working across different organisations.
 * `vdc` - (Optional) The name of VDC to use, optional if defined at provider level.
-* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcd/latest/docs/resources/vapp).
-* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
-* `enabled` - (Optional) Enable or disable NAT. Default is `true`. To enable the NAT service, [vcloud_vapp_firewall_rules](/providers/vmware/vcd/latest/docs/resources/vapp_firewall_rules) needs to be enabled as well.
+* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcloud/latest/docs/resources/vapp).
+* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
+* `enabled` - (Optional) Enable or disable NAT. Default is `true`. To enable the NAT service, [vcloud_vapp_firewall_rules](/providers/vmware/vcloud/latest/docs/resources/vapp_firewall_rules) needs to be enabled as well.
 * `nat_type` - (Required) "One of: `ipTranslation` (use IP translation), `portForwarding` (use port forwarding). For `ipTranslation` fields `vm_id`, `vm_nic_id`, `mapping_mode` are required and `external_ip` is optional. For `portForwarding` fields `vm_id`, `vm_nic_id`, `protocol`, `external_port` and `forward_to_port` are required.
 * `enable_ip_masquerade` - (Optional) When enabled translates a virtual machine's private, internal IP address to a public IP address for outbound traffic. Default value is `false`.
 * `rule` - (Optional) Configures a NAT rule; see [Rules](#rules) below for details.
@@ -153,7 +153,7 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing vApp Network IDs
 
-If you want to list IDs there is a special command **`terraform import vcloud_vapp_nat_rules.imported list@org-name.vcd-name.vapp-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vapp_nat_rules.imported list@org-name.vcloud-name.vapp-name`**
 where `org-name` is the organization used, `vdc-name` is VDC name and `vapp-name` is vApp name. 
 The output for this command should look similar to the one below:
 

@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_distributed_firewall"
-sidebar_current: "docs-vcd-resource-nsxv-distributed-firewall"
+sidebar_current: "docs-vcloud-resource-nsxv-distributed-firewall"
 description: |-
   The NSX-V Distributed Firewall allows user to segment organization virtual data center entities, such as
   virtual machines, edges, networks, based on several attributes
 ---
 
-# vcd\_nsxv\_distributed\_firewall
+# vcloud\_nsxv\_distributed\_firewall
 
 The Distributed Firewall allows user to segment organization virtual data center entities, such as
 virtual machines, edges, networks, based on several attributes. This resource handles only **layer 3** rules.

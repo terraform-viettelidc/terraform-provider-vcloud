@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_provider_vdc"
-sidebar_current: "docs-vcd-resource-provider-vdc"
+sidebar_current: "docs-vcloud-resource-provider-vdc"
 description: |-
   Provides a Provider VDC resource.
 ---
 
-# vcd\_provider\_vdc
+# vcloud\_provider\_vdc
 
 Provides a Viettel IDC Cloud Provider VDC resource. This resource can be used to create, modify, and delete a Provider VDC and use its 
 data within other resources or data sources.
@@ -23,13 +23,13 @@ data "vcloud_vcenter" "vcenter1" {
 }
 
 data "vcloud_resource_pool" "rp1" {
-  name       = "resource-pool-for-vcd-01"
+  name       = "resource-pool-for-vcloud-01"
   vcenter_id = data.vcloud_vcenter.vcenter1.id
   # maximum hardware version: "vmx-18"
 }
 
 data "vcloud_resource_pool" "rp2" {
-  name       = "resource-pool-for-vcd-01"
+  name       = "resource-pool-for-vcloud-01"
   vcenter_id = data.vcloud_vcenter.vcenter1.id
   # maximum hardware version: "vmx-19"
 }
@@ -140,7 +140,7 @@ The `metadata_entry` is a set of metadata entries that have the following struct
 configuration. [More information.][docs-import]
 
 An existing provider VDC configuration can be [imported][docs-import] into this resource via supplying the path for the provider VDC.
-Since the provider VDC is at the top of the VCD hierarchy, the path corresponds to the provider VDC name.
+Since the provider VDC is at the top of the Vcloud hierarchy, the path corresponds to the provider VDC name.
 For example, using the structure in [example usage](#example-usage-1), representing an existing provider VDC configuration
 that was **not** created using Terraform:
 

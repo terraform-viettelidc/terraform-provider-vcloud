@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_distributed_firewall"
-sidebar_current: "docs-vcd-data-source-nsxv-distributed-firewall"
+sidebar_current: "docs-vcloud-data-source-nsxv-distributed-firewall"
 description: |-
   The NSX-V Distributed Firewall data source reads all defined rules for a particular VDC
 ---
 
-# vcd\_nsxv\_distributed\_firewall
+# vcloud\_nsxv\_distributed\_firewall
 
 The NSX-V Distributed Firewall data source reads all defined rules for a particular VDC.
 

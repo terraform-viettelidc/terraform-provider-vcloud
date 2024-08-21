@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_vdc_nsxt_network_profile"
-sidebar_current: "docs-vcd-data-source-nsxt-segment-profile-template"
+sidebar_current: "docs-vcloud-data-source-nsxt-segment-profile-template"
 description: |-
   Provides a data source to read Network Profile for NSX-T VDCs.
 ---
 
-# vcd\_org\_vdc\_nsxt\_network\_profile
+# vcloud\_org\_vdc\_nsxt\_network\_profile
 
 Provides a data source to read Network Profile for NSX-T VDCs.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T.
 
 ## Example Usage
 
@@ -39,6 +39,6 @@ The following arguments are supported:
   networks withing this VDC
 
 All other attributes are defined in [organization VDC network profile
-resource](/providers/vmware/vcd/latest/docs/resources/org_vdc_nsxt_network_profile.html#attribute-reference)
+resource](/providers/vmware/vcloud/latest/docs/resources/org_vdc_nsxt_network_profile.html#attribute-reference)
 are supported.
 

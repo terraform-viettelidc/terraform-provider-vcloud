@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_ldap"
-sidebar_current: "docs-vcd-data-source-org-ldap"
+sidebar_current: "docs-vcloud-data-source-org-ldap"
 description: |-
   Provides a data source to read LDAP configuration for an organization.
 ---
 
-# vcd\_org\_ldap
+# vcloud\_org\_ldap
 
 Supported in provider *v3.8+*.
 
@@ -33,4 +33,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_org_ldap`](/providers/vmware/vcd/latest/docs/resources/org_ldap) resource are available.
+[`vcloud_org_ldap`](/providers/vmware/vcloud/latest/docs/resources/org_ldap) resource are available.

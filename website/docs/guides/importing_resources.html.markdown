@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: Importing resources"
-sidebar_current: "docs-vcd-guides-importing-resources"
+sidebar_current: "docs-vcloud-guides-importing-resources"
 description: |-
  Provides guidance to VMware Cloud resources importing
 ---
@@ -145,11 +145,11 @@ Here we see that the import is an operation that will happen during `apply`.
 Compared to full manual importing, the procedure of writing an *import block* instead of the full HCL *resource block* is
 a huge improvement. Even so, if we need to import all the vApp templates from a catalog, or the VMs from a vApp, this
 reduced task can still be time-consuming and error-prone.
-To reduce the manual effort and minimize errors, `terraform-provider-vcd` **v3.11+** offers a new functionality, embedded
-in [`vcloud_resource_list`][vcd-resource-list].
+To reduce the manual effort and minimize errors, `terraform-provider-vcloud` **v3.11+** offers a new functionality, embedded
+in [`vcloud_resource_list`][vcloud-resource-list].
 
 Let's suppose we want to import all VMs from a vApp *SampleClonedVapp*, wich was either created outside of Terraform,
-or was created using [`vcloud_cloned_vapp`][vcd-cloned-vapp] . We could write the *import block* for every VM manually, or 
+or was created using [`vcloud_cloned_vapp`][vcloud-cloned-vapp] . We could write the *import block* for every VM manually, or 
 we can ask `vcloud_resource_list` to do that for us:
 
 ```hcl
@@ -249,9 +249,9 @@ If we edit the file `generated_resources.tf`, changing the value for `starting_v
 ### Phantom updates
 
 In addition to missing required properties, we may have the problem of properties that are needed during creation, but
-their values are not stored in the VCD, and consequently can't be retrieved and used to populate the importing HCL code.
+their values are not stored in the Vcloud, and consequently can't be retrieved and used to populate the importing HCL code.
 For example, the [`accept_all_eulas`][accept-all-eulas] property is only used during VM creation, but we can't retrieve it
-from the VM data in VCD.
+from the VM data in Vcloud.
 When we have such fields, Terraform will signal that the resource needs to be updated, and it will do so at the next
 occurrence of `terraform apply`. This is a minor annoyance, which will delay the operation by a few seconds, but which
 won't actually change anything in the resource. What this update means is that Terraform is trying to match the HCL data
@@ -293,12 +293,12 @@ There is no simple solution to this issue, other than manually editing the gener
 
 ## Examples
 
-There are two complete examples of multiple resource imports in the [`terraform-provider-vcd` repository][examples].
+There are two complete examples of multiple resource imports in the [`terraform-provider-vcloud` repository][examples].
 They show how we can import multiple VMs, or multiple catalog items, with step-by-step instructions.
 
 [terraform-state]:https://developer.hashicorp.com/terraform/language/state
 [terraform-import]:https://developer.hashicorp.com/terraform/language/import
-[vcd-resource-list]:https://registry.terraform.io/providers/vmware/vcd/latest/docs/data-sources/resource_list
-[vcd-cloned-vapp]:https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/resources/cloned_vapp
-[accept-all-eulas]:https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/resources/vapp_vm#accept_all_eulas
-[examples]:https://github.com/vmware/terraform-provider-vcd/tree/import-compound-resources/examples/importing
+[vcloud-resource-list]:https://registry.terraform.io/providers/vmware/vcloud/latest/docs/data-sources/resource_list
+[vcloud-cloned-vapp]:https://registry.terraform.io/providers/vmware/vcloud/3.10.0/docs/resources/cloned_vapp
+[accept-all-eulas]:https://registry.terraform.io/providers/vmware/vcloud/3.10.0/docs/resources/vapp_vm#accept_all_eulas
+[examples]:https://github.com/vmware/terraform-provider-vcloud/tree/import-compound-resources/examples/importing

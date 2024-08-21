@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rights_bundle"
-sidebar_current: "docs-vcd-data-source-rights-bundle"
+sidebar_current: "docs-vcloud-data-source-rights-bundle"
 description: |-
  Provides a Viettel IDC Cloud rights bundle data source. This can be used to read rights bundles.
 ---
 
-# vcd\_rights\_bundle
+# vcloud\_rights\_bundle
 
 Provides a Viettel IDC Cloud rights bundle data source. This can be used to read rights bundles.
 
@@ -170,5 +170,5 @@ The following arguments are supported:
 
 ## More information
 
-See [Roles management](/providers/vmware/vcd/latest/docs/guides/roles_management) for a broader description of how rights bundles and
+See [Roles management](/providers/vmware/vcloud/latest/docs/guides/roles_management) for a broader description of how rights bundles and
 rights work together.

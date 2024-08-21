@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_network_context_profile"
-sidebar_current: "docs-vcd-data-source-nsxt-network-context-profile"
+sidebar_current: "docs-vcloud-data-source-nsxt-network-context-profile"
 description: |-
   Provides a data source for NSX-T Network Context Profile lookup to later be used in Distributed
   Firewall.
 ---
 
-# vcd\_nsxt\_network\_context\_profile
+# vcloud\_nsxt\_network\_context\_profile
 
 Provides a data source for NSX-T Network Context Profile lookup to later be used in Distributed
 Firewall.

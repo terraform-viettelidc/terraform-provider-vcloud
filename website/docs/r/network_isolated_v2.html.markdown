@@ -1,23 +1,23 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_isolated_v2"
-sidebar_current: "docs-vcd-resource-network-isolated-v2"
+sidebar_current: "docs-vcloud-resource-network-isolated-v2"
 description: |-
   Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
   delete isolated VDC networks (backed by NSX-T or NSX-V).
 ---
 
-# vcd\_network\_isolated\_v2
+# vcloud\_network\_isolated\_v2
 
 Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
 delete isolated VDC networks (backed by NSX-T or NSX-V).
 
 Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.
 
--> Starting with **v3.6.0** Terraform provider VCD supports NSX-T VDC Groups and `vdc` fields (in
+-> Starting with **v3.6.0** Terraform provider Vcloud supports NSX-T VDC Groups and `vdc` fields (in
 resource and inherited from provider configuration) are deprecated. New field `owner_id` supports
 IDs of both VDC and VDC Groups. More about VDC Group support in a [VDC Groups
-guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
+guide](/providers/vmware/vcloud/latest/docs/guides/vdc_groups).
 
 ## Example Usage (NSX-T backed isolated Org VDC network)
 
@@ -157,7 +157,7 @@ and inherited from provider configuration)
 * `secondary_static_ip_pool` - (Optional; *v3.10+*) One or more [IPv6 static
   pools](#secondary-ip-pools) *when Dual-Stack mode is enabled*
 
--> When using IPv6, VCD API will expand IP Addresses if they are specified using *double colon*
+-> When using IPv6, Vcloud API will expand IP Addresses if they are specified using *double colon*
 notation and it will cause inconsistent plan. (e.g. `2002::1234:abcd:ffff:c0a6:121` will be
 converted to `2002:0:0:1234:abcd:ffff:c0a6:121`)
 

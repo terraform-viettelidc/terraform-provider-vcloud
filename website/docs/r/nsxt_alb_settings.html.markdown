@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_settings"
-sidebar_current: "docs-vcd-resource-nsxt-alb-settings"
+sidebar_current: "docs-vcloud-resource-nsxt-alb-settings"
 description: |-
   Provides a resource to manage ALB General Settings for particular NSX-T Edge Gateway. One can activate or
   deactivate ALB for a defined Edge Gateway.
 ---
 
-# vcd\_nsxt\_alb\_settings
+# vcloud\_nsxt\_alb\_settings
 
-Supported in provider *v3.5+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.5+* and Vcloud 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB General Settings for particular NSX-T Edge Gateway. One can activate or
 deactivate ALB for a defined Edge Gateway.
@@ -65,18 +65,18 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to which the edge gateway belongs. Optional if defined at provider level.
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `is_active` - (Required) Boolean value `true` or `false` if ALB is enabled. **Note** Delete operation of this resource
   will set it to `false`
 * `supported_feature_set` - (Optional; *v3.7+*) Feature set of this Edge Gateway if ALB is enabled (`STANDARD` or `PREMIUM`)
-* `is_transparent_mode_enabled` - (Optional; *v3.9+*, *VCD 10.4.1+*) When enabled, it allows to
+* `is_transparent_mode_enabled` - (Optional; *v3.9+*, *Vcloud 10.4.1+*) When enabled, it allows to
   configure Preserve Client IP on a Virtual Service
 * `service_network_specification` - (Optional) Gateway CIDR format which will be used by Load
   Balancer service. All the load balancer service engines associated with the Service Engine Group
   will be attached to this network. The subnet prefix length must be 25. If nothing is set and
   `ipv6_service_network_specification` is not used, the **default is 192.168.255.125/25**. This
   field cannot be updated
-* `ipv6_service_network_specification` (Optional; *v3.9+*, *VCD 10.4.0+*) The IPv6 network
+* `ipv6_service_network_specification` (Optional; *v3.9+*, *Vcloud 10.4.0+*) The IPv6 network
   definition in CIDR format which will be used by Load Balancer service in the Edge Gateway. All the
   load balancer service engines associated with the Service Engine Group will be attached to this
   network. This field cannot be updated
@@ -86,7 +86,7 @@ The following arguments are supported:
 service network with a dual IPv4 and IPv6 stack. If only `ipv6_service_network_specification` is
 used, then only IPv6 will be used.
 
-~> The attribute `supported_feature_set` must not be used in VCD versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller).
+~> The attribute `supported_feature_set` must not be used in Vcloud versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_controller).
 
 ## Importing
 

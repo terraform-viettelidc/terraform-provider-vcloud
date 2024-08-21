@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_edgegateway_settings"
-sidebar_current: "docs-vcd-resource-edgegateway-settings"
+sidebar_current: "docs-vcloud-resource-edgegateway-settings"
 description: |-
   Provides a Viettel IDC Cloud edge gateway global settings. This can be used to update global edge gateways settings related to firewall and load balancing.
 ---
 
-# vcd\_edgegateway\_settings
+# vcloud\_edgegateway\_settings
 
 Provides a resource that can update Viettel IDC Cloud edge gateway global settings either as System Administrator or as
 Organization user.

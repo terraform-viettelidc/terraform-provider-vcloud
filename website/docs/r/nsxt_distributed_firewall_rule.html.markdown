@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_distributed_firewall_rule"
-sidebar_current: "docs-vcd-resource-nsxt-distributed-firewall-rule"
+sidebar_current: "docs-vcloud-resource-nsxt-distributed-firewall-rule"
 description: |-
   The Distributed Firewall rule allows user to segment organization network entities by creating firewall rules.
 ---
 
-# vcd\_nsxt\_distributed\_firewall\_rule
+# vcloud\_nsxt\_distributed\_firewall\_rule
 
 The Distributed Firewall rule allows user to segment organization network entities by creating
 firewall rules.
@@ -17,7 +17,7 @@ API provides no direct endpoint to create a single rule. To overcome this,
 and this call is serialized to avoid data conflicts.
 
 !> There is a different resource
-[`vcloud_nsxt_distributed_firewall`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
+[`vcloud_nsxt_distributed_firewall`](/providers/vmware/vcloud/latest/docs/resources/nsxt_distributed_firewall)
 that can manage all firewall rules in one resource. One should use **only one of**
 `vcloud_nsxt_distributed_firewall` or `vcloud_nsxt_distributed_firewall_rule` as using both will result in
 unexpected firewall configuration.
@@ -74,20 +74,20 @@ The following arguments are supported:
   created at the bottom of the list
 
 -> When activating Distributed Firewall with resource
-[`vcloud_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group), there is a default firewall
+[`vcloud_vdc_group`](/providers/vmware/vcloud/latest/docs/resources/vdc_group), there is a default firewall
 rule created which can make inconvenient to use this resource. For that reason, resource
-[`vcloud_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group) has a parameter
+[`vcloud_vdc_group`](/providers/vmware/vcloud/latest/docs/resources/vdc_group) has a parameter
 `remove_default_firewall_rule` which can remove default firewall rule.
 
 * `vdc_group_id` - (Required) The ID of VDC Group to manage Distributed Firewall in. Can be looked
   up using `vcloud_vdc_group` resource or data source.
 * `name` - (Required) Explanatory name for firewall rule (uniqueness not enforced)
-* `comment` - (Optional; *VCD 10.3.2+*) Comment field shown in UI
+* `comment` - (Optional; *Vcloud 10.3.2+*) Comment field shown in UI
 * `description` - (Optional) Description of firewall rule (not shown in UI)
 * `direction` - (Optional) One of `IN`, `OUT`, or `IN_OUT`. (default `IN_OUT`)
 * `ip_protocol` - (Optional) One of `IPV4`,  `IPV6`, or `IPV4_IPV6` (default `IPV4_IPV6`)
 * `action` - (Required) Defines if it should `ALLOW`, `DROP`, `REJECT` traffic. `REJECT` is only
-  supported in VCD 10.2.2+
+  supported in Vcloud 10.2.2+
 * `enabled` - (Optional) Defines if the rule is enabled (default `true`)
 * `logging` - (Optional) Defines if logging for this rule is enabled (default `false`)
 * `source_ids` - (Optional) A set of source object Firewall Groups (`IP Sets` or `Security groups`).
@@ -97,9 +97,9 @@ groups`). Leaving it empty matches `Any` (all)
 * `app_port_profile_ids` - (Optional) An optional set of Application Port Profiles.
 * `network_context_profile_ids` - (Optional) An optional set of Network Context Profiles. Can be
   looked up using `vcloud_nsxt_network_context_profile` data source.
-* `source_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `source_ids` for the rule to
+* `source_groups_excluded` - (Optional; Vcloud 10.3.2+) - reverses value of `source_ids` for the rule to
   match everything except specified IDs.
-* `destination_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `destination_ids` for
+* `destination_groups_excluded` - (Optional; Vcloud 10.3.2+) - reverses value of `destination_ids` for
   the rule to match everything except specified IDs.
 
 

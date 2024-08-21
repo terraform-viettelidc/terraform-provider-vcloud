@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vdc_group"
-sidebar_current: "docs-vcd-data-source-vdc-group"
+sidebar_current: "docs-vcloud-data-source-vdc-group"
 description: |-
   Provides a data source to read VDC groups.
 ---
 
-# vcd\_vdc\_group
-Supported in provider *v3.5+* and VCD 10.2+.
+# vcloud\_vdc\_group
+Supported in provider *v3.5+* and Vcloud 10.2+.
 
 Provides a data source to read NSX-T VDC group and reference in other resources.
 
@@ -34,4 +34,4 @@ Either `name` or `id` must be used. If both are missing, an error arises.
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group) resource are available.
+[`vcloud_vdc_group`](/providers/vmware/vcloud/latest/docs/resources/vdc_group) resource are available.

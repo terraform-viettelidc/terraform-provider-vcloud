@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_static_route"
-sidebar_current: "docs-vcd-data-source-nsxt-edgegateway-static-route"
+sidebar_current: "docs-vcloud-data-source-nsxt-edgegateway-static-route"
 description: |-
   Provides a data source to read NSX-T Edge Gateway Static Routes.
 ---
 
-# vcd\_nsxt\_edgegateway\_static\_route
+# vcloud\_nsxt\_edgegateway\_static\_route
 
-Supported in provider *v3.10+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.10+* and Vcloud 10.4.0+ with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway Static Routes.
 
@@ -47,5 +47,5 @@ make the filtering more precise by supplying `network_cidr` in addition to `name
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_edgegateway_static_route`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_static_route)
+[`vcloud_nsxt_edgegateway_static_route`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_static_route)
 resource are available.

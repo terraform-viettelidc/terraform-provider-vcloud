@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_network"
-sidebar_current: "docs-vcd-resource-vapp-network"
+sidebar_current: "docs-vcloud-resource-vapp-network"
 description: |-
  Allows to provision a vApp network and optionally connect it to an existing Org VDC network.
 ---
 
-# vcd\_vapp\_network
+# vcloud\_vapp\_network
 
  Allows to provision a vApp network and optionally connect it to an existing Org VDC network.
 
@@ -28,7 +28,7 @@ resource "vcloud_vapp_network" "vappNet" {
   dns_suffix         = "mybiz.biz"
   guest_vlan_allowed = true
 
-  # VCD 10.4.1+ API does not allow to remove vApp network from
+  # Vcloud 10.4.1+ API does not allow to remove vApp network from
   # a powered on vApp. Setting reboot_vapp_on_removal to true
   # will allow to power off parent vApp for network removal.
   # Note. It will power on the vApp if it was not powered off 
@@ -63,7 +63,7 @@ resource "vcloud_vapp_network" "vappNet_ipv6" {
   dns_suffix         = "mybiz.biz"
   guest_vlan_allowed = true
 
-  # VCD 10.4.1+ API does not allow to remove vApp network from
+  # Vcloud 10.4.1+ API does not allow to remove vApp network from
   # a powered on vApp. Setting reboot_vapp_on_removal to true
   # will allow to power off parent vApp for network removal.
   # Note. It will power on the vApp if it was not powered off 
@@ -100,7 +100,7 @@ In case that happens, a user needs to add `"netmask" = "255.255.255.0"` to exist
 * `prefix_length` - (Optional) The subnet prefix length for the network.
 * `gateway` - (Required) The gateway for this network.
 
-~> **Note:** VCD returns IPv6 addresses in extended-shortened format e.g `fe80:0:a:ab:0:abc:abcd:aaaa`, it is up to the user
+~> **Note:** Vcloud returns IPv6 addresses in extended-shortened format e.g `fe80:0:a:ab:0:abc:abcd:aaaa`, it is up to the user
 to match it, otherwise Terraform will return an inconsistent plan.
 * `dns1` - (Optional) First DNS server to use.
 * `dns2` - (Optional) Second DNS server to use.
@@ -110,7 +110,7 @@ to match it, otherwise Terraform will return an inconsistent plan.
 * `dhcp_pool` - (Optional) A range of IPs to issue to virtual machines that don't have a static IP; see [IP Pools](#ip-pools) below for details.
 * `org_network_name` - (Optional; *v2.7+*) An Org network name to which vApp network is connected. If not configured, then an isolated network is created.
 * `retain_ip_mac_enabled` - (Optional; *v2.7+*) Specifies whether the network resources such as IP/MAC of router will be retained across deployments. Default is false.
-* `reboot_vapp_on_removal` - (Optional; *v3.9+*) **VCD 10.4.1+** API **prohibits removal of vApp
+* `reboot_vapp_on_removal` - (Optional; *v3.9+*) **Vcloud 10.4.1+** API **prohibits removal of vApp
   network from a powered on vApp**. Set to `true` to power off the vApp during vApp network removal.
   If the vApp's original state was powered on, it will be powered back on after removing the
   network. (default `false`) **Note.** It only affects *delete* operation for the resource and will

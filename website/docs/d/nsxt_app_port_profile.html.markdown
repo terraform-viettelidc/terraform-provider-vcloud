@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_app_port_profile"
-sidebar_current: "docs-vcd-data-source-nsxt-app-port-profile"
+sidebar_current: "docs-vcloud-data-source-nsxt-app-port-profile"
 description: |-
   Provides a data source to read NSX-T Application Port Profiles. Application Port Profiles include 
   a combination of a protocol and a port, or a group of ports, that is used for Firewall and NAT
   services on the Edge Gateway.
 ---
 
-# vcd\_nsxt\_app\_port\_profile
+# vcloud\_nsxt\_app\_port\_profile
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and Vcloud 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to read NSX-T Application Port Profiles. Application Port Profiles include a
 combination of a protocol and a port, or a group of ports, that is used for Firewall and NAT
@@ -74,5 +74,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_app_port_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_app_port_profile) resource
+[`vcloud_nsxt_app_port_profile`](/providers/vmware/vcloud/latest/docs/resources/nsxt_app_port_profile) resource
 are available.

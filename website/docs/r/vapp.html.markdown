@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp"
-sidebar_current: "docs-vcd-resource-vapp"
+sidebar_current: "docs-vcloud-resource-vapp"
 description: |-
   Provides a Viettel IDC Cloud vApp resource. This can be used to create, modify, and delete vApps.
 ---
 
-# vcd\_vapp
+# vcloud\_vapp
 
 Provides a Viettel IDC Cloud vApp resource. This can be used to create, modify, and delete vApps.
 
@@ -129,7 +129,7 @@ The following arguments are supported:
 * `href` - (Computed) The vApp Hyper Reference.
 * `status` - (Computed; *v2.5+*) The vApp status as a numeric code.
 * `status_text` - (Computed; *v2.5+*) The vApp status as text.
-* `inherited_metadata` - (Computed; *v3.11+*; *VCD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCD (10.5.1+) and provides
+* `inherited_metadata` - (Computed; *v3.11+*; *Vcloud 10.5.1+*) A map that contains read-only metadata that is automatically added by Vcloud (10.5.1+) and provides
   details on the origin of the vApp (e.g. `vapp.origin.id`, `vapp.origin.name`, `vapp.origin.type`).
 
 <a id="metadata"></a>

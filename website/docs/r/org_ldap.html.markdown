@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_ldap"
-sidebar_current: "docs-vcd-resource-org-ldap"
+sidebar_current: "docs-vcloud-resource-org-ldap"
 description: |-
   Provides a Viettel IDC Cloud Organization LDAP resource. This can be used to create, delete, and update LDAP configuration for an organization .
 ---
 
-# vcd\_org\_ldap
+# vcloud\_org\_ldap
 
 Provides a Viettel IDC Cloud Org LDAP resource. This can be used to create, update, and delete LDAP configuration for an organization.
 
@@ -17,7 +17,7 @@ Supported in provider *v3.8+*
 ## Example Usage 1 - Custom configuration
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user     = var.admin_user
   password = var.admin_password
   org      = "System"

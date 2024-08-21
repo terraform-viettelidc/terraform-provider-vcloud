@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_library_certificate"
-sidebar_current: "docs-vcd-resource-certificate-library"
+sidebar_current: "docs-vcloud-resource-certificate-library"
 description: |-
   Provides a certificate in System or Org library resource.
 ---
 
-# vcd\_certificate\_library
-Supported in provider *v3.5+* and VCD 10.2+.
+# vcloud\_certificate\_library
+Supported in provider *v3.5+* and Vcloud 10.2+.
 
 Provides a resource to manage certificate in System or Org library.
 
@@ -46,7 +46,7 @@ The following arguments are supported:
 * `alias` - (Required)  - Alias (name) of certificate
 * `description` - (Optional)  - Certificate description
 * `certificate` - (Required)  - Content of Certificate. **Note.** it is best to avoid trailing
-  newlines in the certificate, as some versions of VCD trim trailing newline and `plan/apply`
+  newlines in the certificate, as some versions of Vcloud trim trailing newline and `plan/apply`
   operations might always report it.  
 * `private_key` - (Optional)  - Content of private key
 * `private_key_passphrase` - (Optional)  - private key pass phrase 

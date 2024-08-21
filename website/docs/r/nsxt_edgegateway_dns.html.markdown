@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dns"
-sidebar_current: "docs-vcd-resource-nsxt-edgegateway-dns"
+sidebar_current: "docs-vcloud-resource-nsxt-edgegateway-dns"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway DNS configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_dns
+# vcloud\_nsxt\_edgegateway\_dns
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T.
 
 Provides a resource to manage NSX-T Edge Gateway DNS configuration.
 
@@ -67,11 +67,11 @@ The following arguments are supported:
 * `enabled` - (Optional) Status of the DNS forwarding service. Defaults to `true`.
 * `listener_ip` - (Optional) The IP on which the DNS forwarder listens. If the Edge Gateway 
   has a dedicated external network, this can be changed.
-* `snat_rule_ip_address` - (Optional, VCD 10.5.0+) This argument only applies if the Edge Gateway 
-  is connected to a Provider Gateway using IP Spaces. If specified, VCD will 
+* `snat_rule_ip_address` - (Optional, Vcloud 10.5.0+) This argument only applies if the Edge Gateway 
+  is connected to a Provider Gateway using IP Spaces. If specified, Vcloud will 
   conveniently manage the SNAT rule with the specified IP address for the DNS forwarder.
-  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation) 
-  If not specified, the IP address will be computed and chosen by VCD.
+  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation) 
+  If not specified, the IP address will be computed and chosen by Vcloud.
 * `default_forwarder_zone` - (Required) The default forwarder zone to use if 
   there’s no matching domain in the conditional forwarder zones. See [`default_forwarder_zone`](#default-forwarder-zone)
 * `conditional_forwarder_zone` - (Optional) A set (up to 5) of conditional forwarder zones that allows to define 
@@ -134,4 +134,4 @@ The above would import the `dns-imported` Edge Gateway DNS forwarder configurati
 Edge Gateway.
 
 [docs-import]: https://www.terraform.io/docs/import/
-[importing-resources]:https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/guides/importing_resources
+[importing-resources]:https://registry.terraform.io/providers/vmware/vcloud/3.10.0/docs/guides/importing_resources

@@ -1,24 +1,24 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_network_imported"
-sidebar_current: "docs-vcd-resource-nsxt-network-imported"
+sidebar_current: "docs-vcloud-resource-nsxt-network-imported"
 description: |-
   Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 ---
 
-# vcd\_nsxt\_network\_imported
+# vcloud\_nsxt\_network\_imported
 
 Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 
--> Starting with **v3.6.0** Terraform provider VCD supports NSX-T VDC Groups and `vdc` fields (in
+-> Starting with **v3.6.0** Terraform provider Vcloud supports NSX-T VDC Groups and `vdc` fields (in
 resource and inherited from provider configuration) are deprecated. New field `owner_id` supports
 IDs of both VDC and VDC Groups. More about VDC Group support in a [VDC Groups
-guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
+guide](/providers/vmware/vcloud/latest/docs/guides/vdc_groups).
 
 -> This is **not Terraform imported** resource, but a special **Imported** type of **Org VDC
-network** in NSX-T VDC. Read more about Imported Network in [official VCD
+network** in NSX-T VDC. Read more about Imported Network in [official Vcloud
 documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB303D62-67EA-4209-BE4D-C3746481BCC8.html).
 
 ## Example Usage (NSX-T backed imported Org VDC network backed by NSX-T logical switch)
@@ -150,7 +150,7 @@ and inherited from provider configuration)
 * `secondary_static_ip_pool` - (Optional; *v3.10+*) One or more [IPv6 static
   pools](#secondary-ip-pools) *when Dual-Stack mode is enabled*
 
--> When using IPv6, VCD API will expand IP Addresses if they are specified using *double colon*
+-> When using IPv6, Vcloud API will expand IP Addresses if they are specified using *double colon*
 notation and it will cause inconsistent plan. (e.g. `2002::1234:abcd:ffff:c0a6:121` will be
 converted to `2002:0:0:1234:abcd:ffff:c0a6:121`)
 

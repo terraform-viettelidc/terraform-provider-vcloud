@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_edgegateway_vpn"
-sidebar_current: "docs-vcd-resource-edgegateway-vpn"
+sidebar_current: "docs-vcloud-resource-edgegateway-vpn"
 description: |-
   Provides a Viettel IDC Cloud IPsec VPN. This can be used to create, modify, and delete VPN settings and rules.
 ---
 
-# vcd\_edgegateway\_vpn
+# vcloud\_edgegateway\_vpn
 
 Provides a Viettel IDC Cloud IPsec VPN. This can be used to create,
 modify, and delete VPN settings and rules.

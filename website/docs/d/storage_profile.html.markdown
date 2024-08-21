@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_storage_profile"
-sidebar_current: "docs-vcd-data-source-storage-profile"
+sidebar_current: "docs-vcloud-data-source-storage-profile"
 description: |-
   Provides a data source for VDC storage profile.
 ---
 
-# vcd\_storage\_profile
+# vcloud\_storage\_profile
 
 Provides a data source for VDC storage profile.
 
@@ -47,7 +47,7 @@ The following arguments are supported:
 <a id="iopsSettings"></a>
 ## IOPS settings
 
-(Supported from VCD *v10.2*)
+(Supported from Vcloud *v10.2*)
 
 * `iops_limiting_enabled` - True if this storage profile is IOPS-based placement enabled
 * `maximum_disk_iops` - The maximum IOPS value that this storage profile is permitted to deliver. Value of 0 means this max setting is disabled and there is no max disk IOPS restriction

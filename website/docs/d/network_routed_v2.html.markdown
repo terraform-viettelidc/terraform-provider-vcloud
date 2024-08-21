@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_routed_v2"
-sidebar_current: "docs-vcd-data-source-network-routed-v2"
+sidebar_current: "docs-vcloud-data-source-network-routed-v2"
 description: |-
   Provides a Viettel IDC Cloud Org VDC routed Network data source to read data or reference  existing network
   (backed by NSX-T or NSX-V).
 ---
 
-# vcd\_network\_routed\_v2
+# vcloud\_network\_routed\_v2
 
 Provides a Viettel IDC Cloud Org VDC routed Network data source to read data or reference  existing network
 (backed by NSX-T or NSX-V).
@@ -47,7 +47,7 @@ The following arguments are supported:
 * `owner_id` - Parent VDC or VDC Group ID.
 
 All attributes defined in [routed network v2
-resource](/providers/vmware/vcd/latest/docs/resources/network_routed_v2#attribute-reference) are
+resource](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2#attribute-reference) are
 supported.
 
 ## Filter arguments
@@ -55,4 +55,4 @@ supported.
 * `name_regex` - (Optional) matches the name using a regular expression.
 * `ip` - (Optional) matches the IP of the resource using a regular expression.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.

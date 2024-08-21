@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_qos_profile"
-sidebar_current: "docs-vcd-data-source-nsxt-qos-profile"
+sidebar_current: "docs-vcloud-data-source-nsxt-qos-profile"
 description: |-
   Provides a data source to read NSX-T Edge Gateway QoS profiles, which can be used to modify NSX-T 
   Edge Gateway Rate Limiting (QoS) configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_qos\_profile
+# vcloud\_nsxt\_edgegateway\_qos\_profile
 
-Supported in provider *v3.9+* and VCD 10.3.2+ with NSX-T.
+Supported in provider *v3.9+* and Vcloud 10.3.2+ with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway QoS profiles, which can be used to modify NSX-T
 Edge Gateway Rate Limiting (QoS) configuration.

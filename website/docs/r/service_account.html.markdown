@@ -1,21 +1,21 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_service_account"
-sidebar_current: "docs-vcd-resource-service-account"
+sidebar_current: "docs-vcloud-resource-service-account"
 description: |-
   Provides a resource to manage Service Accounts. Service Accounts can have defined roles
-  and act just like a VCD user. Service Accounts, when activated, provide one-time use
-  access tokens for authentication to the VCD API, during which a new access token is generated.
+  and act just like a Vcloud user. Service Accounts, when activated, provide one-time use
+  access tokens for authentication to the Vcloud API, during which a new access token is generated.
 ---
 
-# vcd\_service\_account 
+# vcloud\_service\_account 
 
 Provides a resource to manage Service Accounts. Service Accounts can have defined roles
-and act just like a VCD user. Service Accounts, when activated, provide one-time use
-access tokens for authentication to the VCD API, during which a new access token is generated.
+and act just like a Vcloud user. Service Accounts, when activated, provide one-time use
+access tokens for authentication to the Vcloud API, during which a new access token is generated.
 Explained in more detail [here][service-accounts]
 
-Supported in provider *v3.10+* and VCD 10.4+.
+Supported in provider *v3.10+* and Vcloud 10.4+.
 
 ## Example Usage 
 
@@ -56,7 +56,7 @@ The following arguments are supported:
 * `active` - (Required) Status of the Service Account. Can be set to `false` and back to `true` if
   the access token was lost to get a new one.
 * `file_name` - (Optional) Required only when `active` is set to `true`. Contains the access token
-  that can be used for authenticating to VCD.
+  that can be used for authenticating to Vcloud.
 * `allow_token_file` - (Optional) If set to false, will output a warning about the service account file
   containing sensitive information.
 
@@ -74,4 +74,4 @@ terraform import vcloud_service_account.imported my-org.my-service-account
 
 [service-accounts]: https://blogs.vmware.com/cloudprovider/2022/07/cloud-director-service-accounts.html
 [docs-import]: https://www.terraform.io/docs/import/
-[provider-service-account-token-file]: /providers/vmware/vcd/latest/docs#service_account_token_file
+[provider-service-account-token-file]: /providers/vmware/vcloud/latest/docs#service_account_token_file

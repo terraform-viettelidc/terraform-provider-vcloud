@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_l2_vpn_tunnel"
-sidebar_current: "docs-vcd-data-source-nsxt-edgegateway-l2-vpn-tunnel"
+sidebar_current: "docs-vcloud-data-source-nsxt-edgegateway-l2-vpn-tunnel"
 description: |-
   Provides a data source to read NSX-T Edge Gateway L2 VPN Tunnel sessions and their configurations.
 ---
 
-# vcd\_nsxt\_edgegateway\_l2\_vpn\_tunnel
+# vcloud\_nsxt\_edgegateway\_l2\_vpn\_tunnel
 
-Supported in provider *v3.11+* and VCD *10.4+* with NSX-T.
+Supported in provider *v3.11+* and Vcloud *10.4+* with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway L2 VPN Tunnel sessions and their configurations.
 
@@ -61,11 +61,11 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at 
   provider level. Useful when connected as sysadmin working across different organisations
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). 
-  Can be looked up using [`vcloud_nsxt_edgegateway`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  Can be looked up using [`vcloud_nsxt_edgegateway`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `name` - (Required) The name of the tunnel.
 
 ## Attribute Reference
 
-All properties defined in [vcloud_nsxt_edgegateway_l2_vpn_tunnel](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_l2_vpn_tunnel)
+All properties defined in [vcloud_nsxt_edgegateway_l2_vpn_tunnel](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_l2_vpn_tunnel)
 resource are available.
 

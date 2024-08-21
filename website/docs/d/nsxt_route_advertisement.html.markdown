@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_route_advertisement"
-sidebar_current: "docs-vcd-datasource-nsxt_route_advertisement"
+sidebar_current: "docs-vcloud-datasource-nsxt_route_advertisement"
 description: |-
 Provides a Viettel IDC Cloud data source for reading route advertisement in an NSX-T Edge Gateway.
 ---
 
-# vcd\_nsxt\_route\_advertisement
+# vcloud\_nsxt\_route\_advertisement
 
 Provides a Viettel IDC Cloud data source for reading route advertisement in an NSX-T Edge Gateway.
 
@@ -38,4 +38,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_route_advertisement`](/providers/vmware/vcd/latest/docs/resources/nsxt_route_advertisement) resource are available.
+[`vcloud_nsxt_route_advertisement`](/providers/vmware/vcloud/latest/docs/resources/nsxt_route_advertisement) resource are available.

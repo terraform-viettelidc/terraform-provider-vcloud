@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_interface"
-sidebar_current: "docs-vcd-resource-rde-interface"
+sidebar_current: "docs-vcloud-resource-rde-interface"
 description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface
+# vcloud\_rde\_interface
 
 Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 

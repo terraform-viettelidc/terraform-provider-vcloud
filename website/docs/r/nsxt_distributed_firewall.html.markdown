@@ -1,19 +1,19 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_distributed_firewall"
-sidebar_current: "docs-vcd-resource-nsxt-distributed-firewall"
+sidebar_current: "docs-vcloud-resource-nsxt-distributed-firewall"
 description: |-
   The Distributed Firewall allows user to segment organization virtual data center entities, such as
   virtual machines, based on virtual machine names and attributes. 
 ---
 
-# vcd\_nsxt\_distributed\_firewall
+# vcloud\_nsxt\_distributed\_firewall
 
 The Distributed Firewall allows user to segment organization virtual data center entities, such as
 virtual machines, based on virtual machine names and attributes. 
 
 !> There is a different resource
-[`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
+[`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcloud/latest/docs/resources/nsxt_distributed_firewall_rule)
 that can manage firewall rules one by one. **Note.** One should use **only one of**
 `vcloud_nsxt_distributed_firewall` or `vcloud_nsxt_distributed_firewall_rule` as using both will result in
 unexpected firewall configuration.
@@ -40,11 +40,11 @@ resource "vcloud_nsxt_distributed_firewall" "t1" {
     name        = "rule1"
     action      = "ALLOW"
     description = "description"
-    # 'comment' field is only supported in VCD 10.3.2+
+    # 'comment' field is only supported in Vcloud 10.3.2+
     comment = "My first rule to allow everything"
 
     source_ids             = [data.vcloud_nsxt_ip_set.set1.id, data.vcloud_nsxt_ip_set.set2.id]
-    source_groups_excluded = true # Negates value of 'source_id' (VCD 10.3.2+)
+    source_groups_excluded = true # Negates value of 'source_id' (Vcloud 10.3.2+)
     app_port_profile_ids   = [data.vcloud_nsxt_app_port_profile.WINS.id, data.vcloud_nsxt_app_port_profile.FTP.id]
   }
 
@@ -60,7 +60,7 @@ resource "vcloud_nsxt_distributed_firewall" "t1" {
 
   rule {
     name = "rule3"
-    # 'REJECT' is only supported in VCD 10.2.2+
+    # 'REJECT' is only supported in Vcloud 10.2.2+
     action      = "REJECT"
     ip_protocol = "IPV4"
   }
@@ -71,7 +71,7 @@ resource "vcloud_nsxt_distributed_firewall" "t1" {
     ip_protocol = "IPV6"
     direction   = "OUT"
 
-    # Below two fields are supported in VCD 10.3.2+
+    # Below two fields are supported in Vcloud 10.3.2+
     source_groups_excluded      = false
     destination_groups_excluded = false
   }
@@ -104,12 +104,12 @@ The following arguments are supported:
 Each Firewall Rule contains following attributes:
 
 * `name` - (Required) Explanatory name for firewall rule (uniqueness not enforced)
-* `comment` - (Optional; *VCD 10.3.2+*) Comment field shown in UI
+* `comment` - (Optional; *Vcloud 10.3.2+*) Comment field shown in UI
 * `description` - (Optional) Description of firewall rule (not shown in UI)
 * `direction` - (Optional) One of `IN`, `OUT`, or `IN_OUT`. (default `IN_OUT`)
 * `ip_protocol` - (Optional) One of `IPV4`,  `IPV6`, or `IPV4_IPV6` (default `IPV4_IPV6`)
 * `action` - (Required) Defines if it should `ALLOW`, `DROP`, `REJECT` traffic. `REJECT` is only
-  supported in VCD 10.2.2+
+  supported in Vcloud 10.2.2+
 * `enabled` - (Optional) Defines if the rule is enabled (default `true`)
 * `logging` - (Optional) Defines if logging for this rule is enabled (default `false`)
 * `source_ids` - (Optional) A set of source object Firewall Groups (`IP Sets` or `Security groups`).
@@ -119,9 +119,9 @@ groups`). Leaving it empty matches `Any` (all)
 * `app_port_profile_ids` - (Optional) An optional set of Application Port Profiles.
 * `network_context_profile_ids` - (Optional) An optional set of Network Context Profiles. Can be
   looked up using `vcloud_nsxt_network_context_profile` data source.
-* `source_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `source_ids` for the rule to
+* `source_groups_excluded` - (Optional; Vcloud 10.3.2+) - reverses value of `source_ids` for the rule to
   match everything except specified IDs.
-* `destination_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `destination_ids` for
+* `destination_groups_excluded` - (Optional; Vcloud 10.3.2+) - reverses value of `destination_ids` for
   the rule to match everything except specified IDs.
 
 ## Importing

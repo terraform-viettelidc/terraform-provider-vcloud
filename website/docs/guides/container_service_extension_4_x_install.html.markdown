@@ -1,17 +1,17 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: Container Service Extension 4.2 installation"
-sidebar_current: "docs-vcd-guides-cse-4-x-install"
+sidebar_current: "docs-vcloud-guides-cse-4-x-install"
 description: |-
-  Provides guidance on configuring VCD to be able to install and use Container Service Extension 4.2
+  Provides guidance on configuring Vcloud to be able to install and use Container Service Extension 4.2
 ---
 
 # Container Service Extension 4.2 installation
 
 ## About
 
-This guide describes the required steps to configure VCD to install the Container Service Extension (CSE) 4.2, that
-will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on VCD using Terraform or the UI.
+This guide describes the required steps to configure Vcloud to install the Container Service Extension (CSE) 4.2, that
+will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on Vcloud using Terraform or the UI.
 
 To know more about CSE [4.2](https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/4.2/rn/vmware-cloud-director-container-service-extension-42-release-notes/index.html),
 you can visit [the documentation][cse_docs].
@@ -22,15 +22,15 @@ you can visit [the documentation][cse_docs].
 
 In order to complete the steps described in this guide, please be aware:
 
-* CSE 4.2 is supported from VCD v10.4.2 or above, as specified in the [Product Interoperability Matrix][product_matrix].
-  Please check that the target VCD appliance matches the criteria.
+* CSE 4.2 is supported from Vcloud v10.4.2 or above, as specified in the [Product Interoperability Matrix][product_matrix].
+  Please check that the target Vcloud appliance matches the criteria.
 * Terraform provider needs to be v3.12.0 or above.
 * Both CSE Server and the Bootstrap clusters require outbound Internet connectivity.
-* CSE 4.2 makes use of [ALB](/providers/vmware/vcd/latest/docs/guides/nsxt_alb) capabilities.
+* CSE 4.2 makes use of [ALB](/providers/vmware/vcloud/latest/docs/guides/nsxt_alb) capabilities.
 
 ## Installation process
 
--> To install CSE 4.2, this guide will make use of the example Terraform configuration located [here](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/install).
+-> To install CSE 4.2, this guide will make use of the example Terraform configuration located [here](https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/install).
 You can check it, customise it to your needs and apply. However, reading this guide first is recommended to understand what it does and how to use it.
 
 The installation process is split in two independent steps that must be run one after the other:
@@ -61,27 +61,27 @@ modified and be applied as they are.
 CSE 4.2 requires a set of Runtime Defined Entity items, such as [Interfaces][rde_interface], [Types][rde_type] and [Behaviors][rde_interface_behavior].
 In the [step 1 configuration][step1] you can find the following:
 
-* The required `VCDKEConfig` [RDE Interface][rde_interface] and [RDE Type][rde_type]. These two resources specify the schema of the **CSE Server
+* The required `VcloudKEConfig` [RDE Interface][rde_interface] and [RDE Type][rde_type]. These two resources specify the schema of the **CSE Server
   configuration** that will be instantiated with a [RDE][rde].
 
-* The required `capvcd` [RDE Interface][rde_interface] and `capvcdCluster` [RDE Type][rde_type].
+* The required `capvcloud` [RDE Interface][rde_interface] and `capvcloudCluster` [RDE Type][rde_type].
   These two resources specify the schema of the [TKGm clusters][tkgm_docs].
 
 * The required [RDE Interface Behaviors][rde_interface_behavior] used to retrieve critical information from the [TKGm clusters][tkgm_docs],
   for example, the resulting **Kubeconfig**.
 
-#### RDE (CSE Server configuration / VCDKEConfig)
+#### RDE (CSE Server configuration / VcloudKEConfig)
 
-The CSE Server configuration lives in a [Runtime Defined Entity][rde] that uses the `VCDKEConfig` [RDE Type][rde_type].
+The CSE Server configuration lives in a [Runtime Defined Entity][rde] that uses the `VcloudKEConfig` [RDE Type][rde_type].
 To customise it, the [step 1 configuration][step1] asks for the following variables that you can set in `terraform.tfvars`:
 
-* `vcdkeconfig_template_filepath` references a local file that defines the `VCDKEConfig` [RDE][rde] contents.
+* `vcloudkeconfig_template_filepath` references a local file that defines the `VcloudKEConfig` [RDE][rde] contents.
   It should be a JSON file with template variables that Terraform can interpret, like
-  [the RDE template file for CSE 4.2](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/entities/vcdkeconfig.json.template)
+  [the RDE template file for CSE 4.2](https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/entities/vcloudkeconfig.json.template)
   used in the step 1 configuration, that can be rendered correctly with the Terraform built-in function `templatefile`.
   (Note: In `terraform.tfvars.example` the path for the CSE 4.2 RDE contents is already provided).
-* `capvcloud_version`: The version for CAPVCD. Must be **"1.2.0"** for CSE 4.2.0, or **"1.3.0"** for CSE 4.2.1.
-  (Note: Do not confuse with the version of the `capvcdCluster` [RDE Type][rde_type], which **must be "1.3.0"** for CSE 4.2.X, and cannot be changed through a variable).
+* `capvcloud_version`: The version for CAPVcloud. Must be **"1.2.0"** for CSE 4.2.0, or **"1.3.0"** for CSE 4.2.1.
+  (Note: Do not confuse with the version of the `capvcloudCluster` [RDE Type][rde_type], which **must be "1.3.0"** for CSE 4.2.X, and cannot be changed through a variable).
 * `cpi_version`: The version for CPI (Cloud Provider Interface). Must be **"1.5.0"** for CSE 4.2.0, or **"1.6.0"** for CSE 4.2.1.
 * `csi_version`: The version for CSI (Cloud Storage Interface). Must be **"1.5.0"** for CSE 4.2.0, or **"1.6.0"** for CSE 4.2.1.
 * `rde_projector_version`: The version for the RDE Projector. The default value is **"0.7.0"** for CSE 4.2.X.
@@ -99,7 +99,7 @@ To customise it, the [step 1 configuration][step1] asks for the following variab
 * `node_unknown_timeout`: A healthy node will be considered unhealthy and remediated if it is unreachable for longer than this timeout (seconds, defaults to 300 in the step 1 configuration).
 * `max_unhealthy_node_percentage`: Remediation will be suspended when the number of unhealthy nodes exceeds this percentage.
   (100% means that unhealthy nodes will always be remediated, while 0% means that unhealthy nodes will never be remediated). Defaults to 100 in the step 1 configuration.
-* `container_registry_url`: URL from where TKG clusters will fetch container images, useful for VCD appliances that are completely isolated from Internet. Defaults to "projects.registry.vmware.com" in the step 1 configuration.
+* `container_registry_url`: URL from where TKG clusters will fetch container images, useful for Vcloud appliances that are completely isolated from Internet. Defaults to "projects.registry.vmware.com" in the step 1 configuration.
 * `bootstrap_vm_certificates`: Certificate(s) to allow the ephemeral VM (created during cluster creation) to authenticate with.
   For instance, when pulling images from a container registry. Optional in the step 1 configuration.
 * `k8s_cluster_certificates`: Certificate(s) to allow clusters to authenticate with.
@@ -129,7 +129,7 @@ Once all variables are reviewed and set, you can start the installation with `te
 
 ~> Make sure that the previous step is successfully completed.
 
-This step will create all the remaining elements to install CSE 4.2 in VCD. You can read the subsequent sections
+This step will create all the remaining elements to install CSE 4.2 in Vcloud. You can read the subsequent sections
 to have a better understanding of the building blocks that are described in the [step 2 Terraform configuration][step2].
 
 In this [configuration][step2] you can also find a file named `terraform.tfvars.example` that needs to be updated with correct values and renamed to `terraform.tfvars`
@@ -242,10 +242,10 @@ In order to create all the items listed above, the [step 2 configuration][step2]
     ["10.20.30.180", "10.20.30.182"], # A range of three IPs ending in 180,181,182
   ]
   ```
-* `alb_controller_url`: URL of an existing ALB controller that will be created in VCD side. See the [ALB guide][alb] for more info.
+* `alb_controller_url`: URL of an existing ALB controller that will be created in Vcloud side. See the [ALB guide][alb] for more info.
 * `alb_controller_username`: Username to access the ALB controller. See the [ALB guide][alb] for more info.
 * `alb_controller_password`: Password of the username used to access the ALB controller. See the [ALB guide][alb] for more info.
-* `alb_importable_cloud_name`: Name of the existing ALB Cloud defined in the ALB controller that will be imported to create an ALB Cloud in VCD. See the [ALB guide][alb] for more info.
+* `alb_importable_cloud_name`: Name of the existing ALB Cloud defined in the ALB controller that will be imported to create an ALB Cloud in Vcloud. See the [ALB guide][alb] for more info.
 * `solutions_routed_network_gateway_ip`: The gateway IP of the [Routed network][routed_network] that will be created in the Solutions Organization.
 * `solutions_routed_network_prefix_length`: The prefix length of the [Routed network][routed_network] that will be created in the Solutions Organization.
 * `solutions_routed_network_ip_pool_start_address`: The [Routed network][routed_network] that will be created in the Solutions Organization will have a pool of usable IPs, this field
@@ -341,7 +341,7 @@ The most common issues are:
   * Verify your Internet connectivity is not having any issues.
   * OVAs are quite big, you could tune `upload_piece_size` to speed up the upload process.
   * If upload fails, or you need to re-upload it, you can do a `terraform apply -replace=vcloud_catalog_vapp_template.cse_ova`.
-  * Verify that there's not a huge latency between your VCD and the place where Terraform configuration is run.
+  * Verify that there's not a huge latency between your Vcloud and the place where Terraform configuration is run.
 
 * Cluster creation is failing:
   * Please visit the [CSE documentation][cse_docs] to learn how to monitor the logs and troubleshoot possible problems.
@@ -359,26 +359,26 @@ Create a new version of the [RDE Types][rde_type] that were used in 4.1. This wi
 so we can perform a smooth upgrade.
 
 ```hcl
-resource "vcloud_rde_type" "capvcdcluster_type_v130" {
+resource "vcloud_rde_type" "capvcloudcluster_type_v130" {
   # Same attributes as 4.1, except for:
   version = "1.3.0" # New version
   # New schema:
-  schema_url = "https://raw.githubusercontent.com/vmware/terraform-provider-vcd/main/examples/container-service-extension/v4.2/schemas/capvcd-type-schema-v1.3.0.json"
+  schema_url = "https://raw.githubusercontent.com/vmware/terraform-provider-vcloud/main/examples/container-service-extension/v4.2/schemas/capvcloud-type-schema-v1.3.0.json"
   # Behaviors need to be created before any RDE Type
   depends_on = [vcloud_rde_interface_behavior.capvcloud_behavior]
 }
 ```
 
-### Upgrade the VCDKEConfig RDE (CSE Server configuration)
+### Upgrade the VcloudKEConfig RDE (CSE Server configuration)
 
-With the new [RDE Types][rde_type] in place, you need to perform an upgrade of the existing `VCDKEConfig` [RDE][rde], which
-stores the CSE Server configuration. By using the v3.12.0 of the VCD Terraform Provider, you can do this update without forcing
+With the new [RDE Types][rde_type] in place, you need to perform an upgrade of the existing `VcloudKEConfig` [RDE][rde], which
+stores the CSE Server configuration. By using the v3.12.0 of the Vcloud Terraform Provider, you can do this update without forcing
 a replacement:
 
 ```hcl
-resource "vcloud_rde" "vcdkeconfig_instance" {
+resource "vcloud_rde" "vcloudkeconfig_instance" {
   # Same values as before, except:
-  input_entity = templatefile(var.vcdkeconfig_template_filepath, {
+  input_entity = templatefile(var.vcloudkeconfig_template_filepath, {
     # Same values as before, except:
     capvcloud_version        = "1.2.0"
     cpi_version           = "1.5.0"
@@ -388,7 +388,7 @@ resource "vcloud_rde" "vcdkeconfig_instance" {
 }
 ```
 
-You can find the meaning of these values in the section ["RDE (CSE Server configuration / VCDKEConfig)"](#rde-cse-server-configuration--vcdkeconfig).
+You can find the meaning of these values in the section ["RDE (CSE Server configuration / VcloudKEConfig)"](#rde-cse-server-configuration--vcloudkeconfig).
 
 ### Upload the new CSE 4.2.0 OVA
 
@@ -423,13 +423,13 @@ This will re-deploy the VM with the new CSE 4.2.0 Server.
 
 In this section you can find the required steps to update from CSE 4.2.0 to 4.2.1.
 
-Change the `VCDKEConfig` [RDE][rde] to update the `capvcloud_version`, `cpi_version` and `csi_version` (follow [the instructions
+Change the `VcloudKEConfig` [RDE][rde] to update the `capvcloud_version`, `cpi_version` and `csi_version` (follow [the instructions
 in the section below](#update-cse-server-configuration) to know how to upgrade this configuration):
 
 ```hcl
-resource "vcloud_rde" "vcdkeconfig_instance" {
+resource "vcloud_rde" "vcloudkeconfig_instance" {
   # ...omitted
-  input_entity = templatefile(var.vcdkeconfig_template_filepath, {
+  input_entity = templatefile(var.vcloudkeconfig_template_filepath, {
     # ...omitted
     capvcloud_version = "1.3.0" # It was 1.2.0 in 4.2.0
     cpi_version    = "1.6.0" # It was 1.5.0 in 4.2.0
@@ -483,7 +483,7 @@ like it was done [in the previous section](#update-cse-server).
 
 ## Update CSE Server Configuration
 
-To make changes to the existing server configuration, you should be able to locate the [`vcloud_rde`][rde] resource named `vcdkeconfig_instance`
+To make changes to the existing server configuration, you should be able to locate the [`vcloud_rde`][rde] resource named `vcloudkeconfig_instance`
 in the [step 2 configuration][step2] that was created during the installation process. To update its configuration, you can
 **change the variable values that are referenced**. For this, you can review the **"CSE Server"** section in the Installation process to
 see how this can be done.
@@ -550,37 +550,37 @@ Please read the specific guide on that topic [here][cse_cluster_management_guide
 
 Once all clusters are removed in the background by CSE Server, you may destroy the remaining infrastructure with Terraform command.
 
-[alb]: /providers/vmware/vcd/latest/docs/guides/nsxt_alb
-[api_token]: /providers/vmware/vcd/latest/docs/resources/api_token
-[catalog]: /providers/vmware/vcd/latest/docs/resources/catalog
-[catalog_vapp_template_ds]: /providers/vmware/vcd/latest/docs/data-sources/catalog_vapp_template
-[cse_cluster_management_guide]: /providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_cluster_management
+[alb]: /providers/vmware/vcloud/latest/docs/guides/nsxt_alb
+[api_token]: /providers/vmware/vcloud/latest/docs/resources/api_token
+[catalog]: /providers/vmware/vcloud/latest/docs/resources/catalog
+[catalog_vapp_template_ds]: /providers/vmware/vcloud/latest/docs/data-sources/catalog_vapp_template
+[cse_cluster_management_guide]: /providers/vmware/vcloud/latest/docs/guides/container_service_extension_4_x_cluster_management
 [cse_docs]: https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/index.html
-[edge_cluster]: /providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster
-[edge_gateway]: /providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway
-[global_role]: /providers/vmware/vcd/latest/docs/resources/global_role
-[nat_rule]: /providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule
-[nsxt_manager]: /providers/vmware/vcd/latest/docs/data-sources/nsxt_manager
-[nsxt_tier0_router]: /providers/vmware/vcd/latest/docs/data-sources/nsxt_tier0_router
-[org]: /providers/vmware/vcd/latest/docs/resources/org
-[org_d]: /providers/vmware/vcd/latest/docs/data-sources/org
+[edge_cluster]: /providers/vmware/vcloud/latest/docs/data-sources/nsxt_edge_cluster
+[edge_gateway]: /providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway
+[global_role]: /providers/vmware/vcloud/latest/docs/resources/global_role
+[nat_rule]: /providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule
+[nsxt_manager]: /providers/vmware/vcloud/latest/docs/data-sources/nsxt_manager
+[nsxt_tier0_router]: /providers/vmware/vcloud/latest/docs/data-sources/nsxt_tier0_router
+[org]: /providers/vmware/vcloud/latest/docs/resources/org
+[org_d]: /providers/vmware/vcloud/latest/docs/data-sources/org
 [product_matrix]: https://interopmatrix.vmware.com/Interoperability?col=659,&row=0
-[provider_gateway]: /providers/vmware/vcd/latest/docs/resources/external_network_v2
-[provider_vdc]: /providers/vmware/vcd/latest/docs/data-sources/provider_vdc
-[rights_bundle]: /providers/vmware/vcd/latest/docs/resources/rights_bundle
-[rde]: /providers/vmware/vcd/latest/docs/resources/rde
-[rde_interface]: /providers/vmware/vcd/latest/docs/resources/rde_interface
-[rde_type]: /providers/vmware/vcd/latest/docs/resources/rde_type
-[rde_interface_behavior]: /providers/vmware/vcd/latest/docs/resources/rde_interface_behavior
-[rde_type_behavior_acl]: /providers/vmware/vcd/latest/docs/resources/rde_type_behavior_acl
-[role]: /providers/vmware/vcd/latest/docs/resources/role
-[routed_network]: /providers/vmware/vcd/latest/docs/resources/network_routed_v2
-[sizing]: /providers/vmware/vcd/latest/docs/resources/vm_sizing_policy
-[step1]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/install/step1
-[step2]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/install/step2
+[provider_gateway]: /providers/vmware/vcloud/latest/docs/resources/external_network_v2
+[provider_vdc]: /providers/vmware/vcloud/latest/docs/data-sources/provider_vdc
+[rights_bundle]: /providers/vmware/vcloud/latest/docs/resources/rights_bundle
+[rde]: /providers/vmware/vcloud/latest/docs/resources/rde
+[rde_interface]: /providers/vmware/vcloud/latest/docs/resources/rde_interface
+[rde_type]: /providers/vmware/vcloud/latest/docs/resources/rde_type
+[rde_interface_behavior]: /providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior
+[rde_type_behavior_acl]: /providers/vmware/vcloud/latest/docs/resources/rde_type_behavior_acl
+[role]: /providers/vmware/vcloud/latest/docs/resources/role
+[routed_network]: /providers/vmware/vcloud/latest/docs/resources/network_routed_v2
+[sizing]: /providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy
+[step1]: https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/install/step1
+[step2]: https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/install/step2
 [tkgm_docs]: https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/index.html
-[user]: /providers/vmware/vcd/latest/docs/resources/org_user
-[ui_plugin]: /providers/vmware/vcd/latest/docs/resources/ui_plugin
-[catalog_vapp_template]: /providers/vmware/vcd/latest/docs/resources/catalog_vapp_template
-[vdc]: /providers/vmware/vcd/latest/docs/resources/org_vdc
-[vm]: /providers/vmware/vcd/latest/docs/resources/vapp_vm
+[user]: /providers/vmware/vcloud/latest/docs/resources/org_user
+[ui_plugin]: /providers/vmware/vcloud/latest/docs/resources/ui_plugin
+[catalog_vapp_template]: /providers/vmware/vcloud/latest/docs/resources/catalog_vapp_template
+[vdc]: /providers/vmware/vcloud/latest/docs/resources/org_vdc
+[vm]: /providers/vmware/vcloud/latest/docs/resources/vapp_vm

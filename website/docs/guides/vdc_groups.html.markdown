@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: VDC Groups"
-sidebar_current: "docs-vcd-guides-vdc-groups"
+sidebar_current: "docs-vcloud-guides-vdc-groups"
 description: |-
   Provides guidance to VDC Group support
 ---
@@ -40,17 +40,17 @@ external network.
 
 VDC Group support requires:
 
-* Terraform Provider VCD 3.6+
+* Terraform Provider Vcloud 3.6+
 * Viettel IDC Cloud 10.2+
 
 -> For changed fields (these are usually `vdc` and `owner_id`) the previous behavior is deprecated,
 but still supported. To use VDC Groups though, one needs to migrate to new configuration, which
 shouldn't require rebuilding infrastructure.
 
-## Terraform Provider VCD support 
+## Terraform Provider Vcloud support 
 
-This document describes features that were introduced in Terraform Provider VCD 3.6.0+ for VDC Group
-support. Earlier versions of Terraform Provider VCD do not support VDC Groups.
+This document describes features that were introduced in Terraform Provider Vcloud 3.6.0+ for VDC Group
+support. Earlier versions of Terraform Provider Vcloud do not support VDC Groups.
 
 Major new approach for VDC Group support is the use of new field `owner_id` (except for routed
 network, which inherits parent VDC/VDC Group from Edge Gateway) field instead of `vdc`. `owner_id`
@@ -62,23 +62,23 @@ section.
 The following list of resources (and their corresponding data sources) support NSX-T VDC Groups (no
 NSX-V VDC Group support is provided):
 
-* [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway)
-* [vcloud_network_routed_v2](/providers/vmware/vcd/latest/docs/resources/network_routed_v2)
-* [vcloud_network_isolated_v2](/providers/vmware/vcd/latest/docs/resources/network_isolated_v2)
-* [vcloud_nsxt_network_imported](/providers/vmware/vcd/latest/docs/resources/nsxt_network_imported)
-* [vcloud_nsxt_ip_set](/providers/vmware/vcd/latest/docs/resources/nsxt_ip_set)
-* [vcloud_nsxt_app_port_profile](/providers/vmware/vcd/latest/docs/resources/nsxt_app_port_profile)
-* [vcloud_nsxt_security_group](/providers/vmware/vcd/latest/docs/resources/nsxt_security_group)
-* [vcloud_nsxt_network_dhcp](/providers/vmware/vcd/latest/docs/resources/nsxt_network_dhcp)
-* [vcloud_nsxt_distributed_firewall](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
-* [vcloud_nsxt_network_context_profile](/providers/vmware/vcd/latest/docs/data-sources/nsxt_network_context_profile)
-* [vcloud_nsxt_firewall](/providers/vmware/vcd/latest/docs/resources/nsxt_firewall)
-* [vcloud_nsxt_nat_rule](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule)
-* [vcloud_nsxt_ipsec_vpn_tunnel](/providers/vmware/vcd/latest/docs/resources/nsxt_ipsec_vpn_tunnel)
-* [vcloud_nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
-* [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
-* [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
-* [vcloud_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
+* [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway)
+* [vcloud_network_routed_v2](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2)
+* [vcloud_network_isolated_v2](/providers/vmware/vcloud/latest/docs/resources/network_isolated_v2)
+* [vcloud_nsxt_network_imported](/providers/vmware/vcloud/latest/docs/resources/nsxt_network_imported)
+* [vcloud_nsxt_ip_set](/providers/vmware/vcloud/latest/docs/resources/nsxt_ip_set)
+* [vcloud_nsxt_app_port_profile](/providers/vmware/vcloud/latest/docs/resources/nsxt_app_port_profile)
+* [vcloud_nsxt_security_group](/providers/vmware/vcloud/latest/docs/resources/nsxt_security_group)
+* [vcloud_nsxt_network_dhcp](/providers/vmware/vcloud/latest/docs/resources/nsxt_network_dhcp)
+* [vcloud_nsxt_distributed_firewall](/providers/vmware/vcloud/latest/docs/resources/nsxt_distributed_firewall)
+* [vcloud_nsxt_network_context_profile](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_network_context_profile)
+* [vcloud_nsxt_firewall](/providers/vmware/vcloud/latest/docs/resources/nsxt_firewall)
+* [vcloud_nsxt_nat_rule](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule)
+* [vcloud_nsxt_ipsec_vpn_tunnel](/providers/vmware/vcloud/latest/docs/resources/nsxt_ipsec_vpn_tunnel)
+* [vcloud_nsxt_alb_settings](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_settings)
+* [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_pool)
+* [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_virtual_service)
+* [vcloud_nsxt_alb_pool](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_pool)
 
 The next sub-sections will cover some specifics for resources that have it. Resources that are not
 explicitly mentioned here simply introduce `owner_id` field over deprecated `vdc` field.
@@ -99,7 +99,7 @@ New fields for handling both VDCs and VDC Groups:
 
 #### Resource vcloud_network_routed_v2
 
-Terraform Provider VCD 3.6.0 changes behavior of `vcloud_network_routed_v2` resource. It __does not
+Terraform Provider Vcloud 3.6.0 changes behavior of `vcloud_network_routed_v2` resource. It __does not
 require__ to specify `vdc` or `owner_id` fields. Instead, it inherits VDC or VDC Group membership
 directly from parent Edge Gateway (specified in `edge_gateway_id`). The reason for this is that
 routed Org VDC networks travel to and from VDC Groups with parent Edge Gateway and this does not

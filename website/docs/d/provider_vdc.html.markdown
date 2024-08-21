@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_provider_vdc"
-sidebar_current: "docs-vcd-data-source-provider-vdc"
+sidebar_current: "docs-vcloud-data-source-provider-vdc"
 description: |-
   Provides a Provider VDC data source.
 ---
 
-# vcd\_provider\_vdc
+# vcloud\_provider\_vdc
 
 Gives a Viettel IDC Cloud Provider VDC data source. This data source can be used to reference a Provider VDC and use its 
 data within other resources or data sources.

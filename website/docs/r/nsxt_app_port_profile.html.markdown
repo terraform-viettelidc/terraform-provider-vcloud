@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_app_port_profile"
-sidebar_current: "docs-vcd-resource-nsxt-app-port-profile"
+sidebar_current: "docs-vcloud-resource-nsxt-app-port-profile"
 description: |-
   Provides a resource to manage NSX-T Application Port Profiles. Application Port Profiles include a
   combination of a protocol and a port, or a group of ports, that is used for Firewall and NAT
@@ -9,9 +9,9 @@ description: |-
   NSX-T Data Center, you can create custom Application Port Profiles.
 ---
 
-# vcd\_nsxt\_app\_port\_profile
+# vcloud\_nsxt\_app\_port\_profile
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and Vcloud 10.1+ with NSX-T backed VDCs.
 
 Provides a resource to manage NSX-T Application Port Profiles. Application Port Profiles include a
 combination of a protocol and a port, or a group of ports, that is used for Firewall and NAT

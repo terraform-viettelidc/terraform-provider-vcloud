@@ -1,17 +1,17 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_placement_policy"
-sidebar_current: "docs-vcd-data-source-vm-placement-policy"
+sidebar_current: "docs-vcloud-data-source-vm-placement-policy"
 description: |-
   Provides a Viettel IDC Cloud VM Placement Policy data source. This can be
   used to read a VM placement policy.
 ---
 
-# vcd\_vm\_placement\_policy
+# vcloud\_vm\_placement\_policy
 
 Provides a Viettel IDC Cloud VM Placement Policy data source. This can be used to read a VM Placement Policy.
 
-Supported in provider *v3.8+* and requires VCD 10.2+
+Supported in provider *v3.8+* and requires Vcloud 10.2+
 
 -> **Note:** This resource can be used by both system administrators and tenant users.
 
@@ -67,12 +67,12 @@ output "policyId" {
 The following arguments are supported:
 
 * `name` - (Required) The name VM Placement Policy.
-* `provider_vdc_id` - (Required for System administrator users) The ID of the [Provider VDC](/providers/vmware/vcd/latest/docs/data-sources/provider_vdc) to which the VM Placement Policy belongs.
-* `vdc_id` - (Required for Org users; *v3.8.1+*) The ID of the [VDC](/providers/vmware/vcd/latest/docs/data-sources/org_vdc) to which the VM Placement Policy is assigned.
+* `provider_vdc_id` - (Required for System administrator users) The ID of the [Provider VDC](/providers/vmware/vcloud/latest/docs/data-sources/provider_vdc) to which the VM Placement Policy belongs.
+* `vdc_id` - (Required for Org users; *v3.8.1+*) The ID of the [VDC](/providers/vmware/vcloud/latest/docs/data-sources/org_vdc) to which the VM Placement Policy is assigned.
 
 ## Attribute Reference
 
-All attributes defined in [`vcloud_vm_placement_policy`](/providers/vmware/vcd/latest/docs/resources/vm_placement_policy#attribute-reference) resource are supported,
+All attributes defined in [`vcloud_vm_placement_policy`](/providers/vmware/vcloud/latest/docs/resources/vm_placement_policy#attribute-reference) resource are supported,
 with a special casuistic to take into account:
 
 * `vm_group_ids` - This attribute can't be retrieved if the data source is used by a tenant user when fetching by `vdc_id`.

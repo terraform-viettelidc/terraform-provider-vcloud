@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_profile_template"
-sidebar_current: "docs-vcd-data-source-nsxt-segment-profile-template"
+sidebar_current: "docs-vcloud-data-source-nsxt-segment-profile-template"
 description: |-
   Provides a data source to read NSX-T Segment Profile Templates.
 ---
 
-# vcd\_nsxt\_segment\_profile\_template
+# vcloud\_nsxt\_segment\_profile\_template
 
 Provides a data source to read NSX-T Segment Profile Templates.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T. Requires System Administrator privileges.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T. Requires System Administrator privileges.
 
 ## Example Usage (Complete example with all Segment Profiles)
 
@@ -28,5 +28,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All properties defined in [vcloud_nsxt_segment_profile_template](/providers/vmware/vcd/latest/docs/resources/nsxt_segment_profile_template)
+All properties defined in [vcloud_nsxt_segment_profile_template](/providers/vmware/vcloud/latest/docs/resources/nsxt_segment_profile_template)
 resource are available.

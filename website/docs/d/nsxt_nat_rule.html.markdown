@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_nat_rule"
-sidebar_current: "docs-vcd-data-source-nsxt-nat-rule"
+sidebar_current: "docs-vcloud-data-source-nsxt-nat-rule"
 description: |-
   Provides a data source to read NSX-T NAT rules. Source NAT (SNAT) rules change the source IP 
   address from a private to a public IP address. Destination NAT (DNAT) rules change the destination
   IP address from a public to a private IP address.
 ---
 
-# vcd\_nsxt\_nat\_rule
+# vcloud\_nsxt\_nat\_rule
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and Vcloud 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to read NSX-T NAT rules. Source NAT (SNAT) rules change the source IP 
 address from a private to a public IP address. Destination NAT (DNAT) rules change the destination
@@ -43,4 +43,4 @@ names should be unique so that they can be distinguished.
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_nat_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule) resource are available.
+[`vcloud_nsxt_nat_rule`](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule) resource are available.

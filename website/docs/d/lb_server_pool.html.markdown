@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_lb_server_pool"
-sidebar_current: "docs-vcd-data-source-lb-server-pool"
+sidebar_current: "docs-vcloud-data-source-lb-server-pool"
 description: |-
   Provides an NSX edge gateway load balancer server pool data source.
 ---
 
-# vcd\_lb\_server\_pool
+# vcloud\_lb\_server\_pool
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Server Pool data source. A Server Pool defines
 a group of backend servers (defined as pool members), manages load balancer distribution methods, and has a service 
 monitor attached to it for health check parameters.
 
-~> **Note:** See additional support notes in [server pool resource page](/providers/vmware/vcd/latest/docs/resources/lb_server_pool).
+~> **Note:** See additional support notes in [server pool resource page](/providers/vmware/vcloud/latest/docs/resources/lb_server_pool).
 
 Supported in provider *v2.4+*
 

@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm"
-sidebar_current: "docs-vcd-resource-vm"
+sidebar_current: "docs-vcloud-resource-vm"
 description: |-
   Provides a Viettel IDC Cloud standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
 ---
 
-# vcd\_vm
+# vcloud\_vm
 
 Provides a Viettel IDC Cloud standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
 
@@ -43,7 +43,7 @@ resource "vcloud_vm" "TestVm" {
 
 ## Arguments and attributes reference
 
-This resource provides all arguments and attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm),
+This resource provides all arguments and attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcloud/latest/docs/resources/vapp_vm),
 with the only difference that the `vapp_name` should be left empty.
 
 General notes:

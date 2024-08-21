@@ -1,24 +1,24 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_external_network"
-sidebar_current: "docs-vcd-resource-external-network"
+sidebar_current: "docs-vcloud-resource-external-network"
 description: |-
   Provides a Viettel IDC Cloud external network resource.  This can be used to create and delete external networks.
 ---
 
-# vcd\_external\_network
+# vcloud\_external\_network
 
 Provides a Viettel IDC Cloud external network resource.  This can be used to create and delete external networks.
 Requires system administrator privileges.
 
 Supported in provider *v2.2+*
 
-~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
+~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/vmware/vcloud/latest/docs/resources/external_network_v2)
 
 ## Example Usage
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user     = var.admin_user
   password = var.admin_password
   org      = "System"
@@ -148,4 +148,4 @@ NOTE: the default separator (.) can be changed using Provider.import_separator o
 While the above structure is the minimum needed to get an import, it is not sufficient to run `terraform plan`,
 as it lacks several mandatory fields. To use the imported resource, you will need to add the missing properties
 using the data in `terraform.tfstate` as a reference. If the resource does not need modifications, consider using
-an [external network data source](/providers/vmware/vcd/latest/docs/data-sources/external_network) instead. 
+an [external network data source](/providers/vmware/vcloud/latest/docs/data-sources/external_network) instead. 

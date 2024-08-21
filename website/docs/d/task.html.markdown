@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_task"
-sidebar_current: "docs-vcd-data-source-task"
+sidebar_current: "docs-vcloud-data-source-task"
 description: |-
  Provides a Viettel IDC Cloud Organization Task data source. This can be used to read existing tasks.
 ---
 
-# vcd\_task
+# vcloud\_task
 
 Provides a data source for available tasks.
 

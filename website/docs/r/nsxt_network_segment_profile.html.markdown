@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_vdc_nsxt_network_profile"
-sidebar_current: "docs-vcd-resource-nsxt-network-segment-profile"
+sidebar_current: "docs-vcloud-resource-nsxt-network-segment-profile"
 description: |-
   Provides a resource to configure Segment Profiles for NSX-T Org VDC networks.
 ---
 
-# vcd\_nsxt\_network\_segment\_profile
+# vcloud\_nsxt\_network\_segment\_profile
 
 Provides a resource to configure Segment Profiles for NSX-T Org VDC networks.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T.
 
 ## Example Usage (Segment Profile Template assignment to Org VDC Network)
 
@@ -120,19 +120,19 @@ The following arguments are supported:
 * `segment_profile_template_id` - (Optional) Segment Profile Template ID to be applied for this Org
   VDC Network
 * `ip_discovery_profile_id` - (Optional) IP Discovery Profile ID. Can be referenced using
-  [`vcloud_nsxt_segment_ip_discovery_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_ip_discovery_profile)
+  [`vcloud_nsxt_segment_ip_discovery_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_ip_discovery_profile)
   data source.
 * `mac_discovery_profile_id` - (Optional) MAC Discovery Profile ID. Can be referenced using
-  [`vcloud_nsxt_segment_mac_discovery_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_mac_discovery_profile)
+  [`vcloud_nsxt_segment_mac_discovery_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_mac_discovery_profile)
   data source.
 * `spoof_guard_profile_id` - (Optional) Spoof Guard Profile ID. Can be referenced using
-  [`vcloud_nsxt_segment_spoof_guard_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_spoof_guard_profile)
+  [`vcloud_nsxt_segment_spoof_guard_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_spoof_guard_profile)
   data source.
 * `qos_profile_id` - (Optional) QoS Profile ID. Can be referenced using
-  [`vcloud_nsxt_segment_qos_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_qos_profile)
+  [`vcloud_nsxt_segment_qos_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_qos_profile)
   data source.
 * `segment_security_profile_id` - (Optional) Segment Security Profile ID. Can be referenced using
-  [`vcloud_nsxt_segment_security_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_security_profile)
+  [`vcloud_nsxt_segment_security_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_security_profile)
   data source.
 
 ## Importing

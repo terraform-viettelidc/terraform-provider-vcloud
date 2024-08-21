@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_ip_prefix_list"
-sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-ip-prefix-list"
+sidebar_current: "docs-vcloud-resource-nsxt-edgegateway-bgp-ip-prefix-list"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway BGP IP Prefix Lists. IP prefix lists can contain 
   single or multiple IP addresses and can be used to assign BGP neighbors with access permissions 
   for route advertisement.
 ---
 
-# vcd\_nsxt\_edgegateway\_bgp\_ip\_prefix\_list
+# vcloud\_nsxt\_edgegateway\_bgp\_ip\_prefix\_list
 
-Supported in provider *v3.7+* and VCD 10.2+ with NSX-T
+Supported in provider *v3.7+* and Vcloud 10.2+ with NSX-T
 
 Provides a resource to manage NSX-T Edge Gateway BGP IP Prefix Lists. IP prefix lists can contain
 single or multiple IP addresses and can be used to assign BGP neighbors with access permissions for

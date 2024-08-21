@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_global_default_segment_profile_template"
-sidebar_current: "docs-vcd-resource-nsxt-segment-profile-template"
+sidebar_current: "docs-vcloud-resource-nsxt-segment-profile-template"
 description: |-
   Provides a resource to manage Global Default NSX-T Segment Profile Templates.
 ---
 
-# vcd\_nsxt\_global\_default\_segment\_profile\_template
+# vcloud\_nsxt\_global\_default\_segment\_profile\_template
 
 Provides a resource to manage Global Default NSX-T Segment Profile Templates.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T. Requires System Administrator privileges.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T. Requires System Administrator privileges.
 
--> This resource is a singleton - only one configuration exists in entire VCD instance. Having
+-> This resource is a singleton - only one configuration exists in entire Vcloud instance. Having
 multiple resource definitions will override each other.
 
 ## Example Usage

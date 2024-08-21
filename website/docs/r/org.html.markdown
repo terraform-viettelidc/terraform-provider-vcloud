@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org"
-sidebar_current: "docs-vcd-resource-org"
+sidebar_current: "docs-vcloud-resource-org"
 description: |-
   Provides a Viettel IDC Cloud Organization resource. This can be used to create  delete, and update an organization.
 ---
 
-# vcd\_org
+# vcloud\_org
 
 Provides a Viettel IDC Cloud Org resource. This can be used to create, update, and delete an organization.
 Requires system administrator privileges.
@@ -16,7 +16,7 @@ Supported in provider *v2.0+*
 ## Example Usage
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user     = var.admin_user
   password = var.admin_password
   org      = "System"
@@ -190,7 +190,7 @@ The state (in `terraform.tfstate`) would look like this:
       "mode": "managed",
       "type": "vcloud_org",
       "name": "my-org",
-      "provider": "provider.vcd",
+      "provider": "provider.vcloud",
       "instances": [
         {
           "schema_version": 0,

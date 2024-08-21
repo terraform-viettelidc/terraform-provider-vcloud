@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_lb_virtual_server"
-sidebar_current: "docs-vcd-resource-lb-virtual-server"
+sidebar_current: "docs-vcloud-resource-lb-virtual-server"
 description: |-
   Provides an NSX edge gateway load balancer virtual server resource.
 ---
 
-# vcd\_lb\_virtual\_server
+# vcloud\_lb\_virtual\_server
 
 Provides a Viettel IDC Cloud edge gateway load balancer virtual server resource. Adds an edge gateway
 internal or uplink interface as a virtual server. A virtual server has a public IP address and services all incoming client requests. 

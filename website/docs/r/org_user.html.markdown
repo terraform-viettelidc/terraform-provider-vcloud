@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_user"
-sidebar_current: "docs-vcd-resource-org-user"
+sidebar_current: "docs-vcloud-resource-org-user"
 description: |-
   Provides a Viettel IDC Cloud Organization user. This can be used to create, update, and delete users.
 ---
 
-# vcd\_org\_user
+# vcloud\_org\_user
 
 Provides a Viettel IDC Cloud Org User. This can be used to create, update, and delete users, including system and org administrators.
 
 If we have the right permissions, we can create both organization and System users: to do so, we indicate "System" as organization name.
 
-The users being created can be assigned either pre-existing roles or [custom roles](/providers/vmware/vcd/latest/docs/resources/role).
+The users being created can be assigned either pre-existing roles or [custom roles](/providers/vmware/vcloud/latest/docs/resources/role).
 
 Supported in provider *v2.4+*
 
@@ -181,7 +181,7 @@ The state (in `terraform.tfstate`) would look like this:
       "mode": "managed",
       "type": "vcloud_org_user",
       "name": "my-org-user",
-      "provider": "provider.vcd",
+      "provider": "provider.vcloud",
       "instances": [
         {
           "schema_version": 0,

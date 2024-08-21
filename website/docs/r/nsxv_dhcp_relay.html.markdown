@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_dhcp_relay"
-sidebar_current: "docs-vcd-resource-nsxv-dhcp-relay"
+sidebar_current: "docs-vcloud-resource-nsxv-dhcp-relay"
 description: |-
   Provides an NSX edge gateway DHCP relay configuration resource.
 ---
 
-# vcd\_nsxv\_dhcp\_relay
+# vcloud\_nsxv\_dhcp\_relay
 
 Provides a Viettel IDC Cloud Edge Gateway DHCP relay configuration resource. The DHCP relay capability
 provided by NSX in Viettel IDC Cloud environment allows to leverage existing DHCP infrastructure from

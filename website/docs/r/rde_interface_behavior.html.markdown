@@ -1,19 +1,19 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_interface_behavior"
-sidebar_current: "docs-vcd-resource-rde-interface-behavior"
+sidebar_current: "docs-vcloud-resource-rde-interface-behavior"
 description: |-
    Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface\_behavior
+# vcloud\_rde\_interface\_behavior
 
 Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
 
-~> Be aware that Behaviors can only be created and deleted when no [RDE Types](/providers/vmware/vcd/latest/docs/resources/rde_type) are using the Interface where they are defined.
-If you want to use RDE Types with Behaviors, you should use `depends_on` as seen in the example [here](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior#example-usage)
+~> Be aware that Behaviors can only be created and deleted when no [RDE Types](/providers/vmware/vcloud/latest/docs/resources/rde_type) are using the Interface where they are defined.
+If you want to use RDE Types with Behaviors, you should use `depends_on` as seen in the example [here](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior#example-usage)
 
 ## Example Usage
 
@@ -65,7 +65,7 @@ The following arguments are supported:
 * `description` - (Optional) A description specifying the contract of the Behavior
 * `execution` - (Required) A map that specifies the Behavior execution mechanism.
   You can find more information about the different execution types, like `WebHook`, `noop`, `Activity`, `MQTT`, `VRO`, `AWSLambdaFaaS`
-  and others [in the Extensibility SDK documentation](https://vmware.github.io/vcd-ext-sdk/docs/defined_entities_api/behaviors)
+  and others [in the Extensibility SDK documentation](https://vmware.github.io/vcloud-ext-sdk/docs/defined_entities_api/behaviors)
 
 ## Attribute Reference
 

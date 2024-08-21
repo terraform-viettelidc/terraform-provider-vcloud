@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_sizing_policy"
-sidebar_current: "docs-vcd-datasource-vm-sizing-policy"
+sidebar_current: "docs-vcloud-datasource-vm-sizing-policy"
 description: |-
   Provides a Viettel IDC Cloud VM sizing policy data source. This can be
   used to read VM sizing policy.
 ---
 
-# vcd\_vm\_sizing\_policy
+# vcloud\_vm\_sizing\_policy
 
 Provides a Viettel IDC Cloud VM sizing policy data source. This can be
 used to read VM sizing policy.
 
-Supported in provider *v3.0+* and requires VCD 10.0+
+Supported in provider *v3.0+* and requires Vcloud 10.0+
 
 ## Example Usage
 
@@ -34,5 +34,5 @@ The following arguments are supported:
 Previously, it was incorrectly stated that the `org` argument was required. In fact, it is not, and it has been deprecated in the resource schema.
 To preserve compatibility until the next release, though, the parameter is still parsed, but ignored.
 
-All arguments defined in [`vcloud_vm_sizing_policy`](/providers/vmware/vcd/latest/docs/resources/vm_sizing_policy#argument-reference) are supported.
+All arguments defined in [`vcloud_vm_sizing_policy`](/providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy#argument-reference) are supported.
 

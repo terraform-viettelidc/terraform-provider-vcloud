@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_neighbor"
-sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-neighbor"
+sidebar_current: "docs-vcloud-resource-nsxt-edgegateway-bgp-neighbor"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway BGP Neighbors and their configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_bgp\_neighbor
+# vcloud\_nsxt\_edgegateway\_bgp\_neighbor
 
-Supported in provider *v3.7+* and VCD 10.2+ with NSX-T
+Supported in provider *v3.7+* and Vcloud 10.2+ with NSX-T
 
 Provides a resource to manage NSX-T Edge Gateway BGP Neighbors and their configuration.
 

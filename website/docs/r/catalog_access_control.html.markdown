@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog_access_control"
-sidebar_current: "docs-vcd-resource-catalog-access-control"
+sidebar_current: "docs-vcloud-resource-catalog-access-control"
 description: |-
   Provides a Viettel IDC Cloud Access Control structure for a Catalog.
 ---
 
-# vcd\_catalog\_access\_control
+# vcloud\_catalog\_access\_control
 
 Provides a Viettel IDC Cloud Access Control structure for a Catalog. This can be used to create, update, and delete access control structures for a Catalog.
 

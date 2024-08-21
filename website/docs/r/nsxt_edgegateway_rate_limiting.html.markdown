@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_rate_limiting"
-sidebar_current: "docs-vcd-resource-nsxt-edge-rate-limiting"
+sidebar_current: "docs-vcloud-resource-nsxt-edge-rate-limiting"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway Rate Limiting (QoS) configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_rate\_limiting
+# vcloud\_nsxt\_edgegateway\_rate\_limiting
 
-Supported in provider *v3.9+* and VCD 10.3.2+ with NSX-T.
+Supported in provider *v3.9+* and Vcloud 10.3.2+ with NSX-T.
 
 Provides a resource to manage NSX-T Edge Gateway Rate Limiting (QoS) configuration.
 
@@ -57,7 +57,7 @@ The following arguments are supported:
   means `unlimited`.
 
 -> Ingress and Egress profile IDs can be looked up using
-  [`vcloud_nsxt_edgegateway_qos_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_qos_profile)
+  [`vcloud_nsxt_edgegateway_qos_profile`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_qos_profile)
   data source. 
 
 ## Importing

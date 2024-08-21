@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_service_account"
-sidebar_current: "docs-vcd-datasource-service-account"
+sidebar_current: "docs-vcloud-datasource-service-account"
 description: |-
-  Provides a data source to read VCD Service Accounts.
+  Provides a data source to read Vcloud Service Accounts.
 ---
 
-# vcd\_service\_account
+# vcloud\_service\_account
 
-Provides a data source to read VCD Service Accounts.
+Provides a data source to read Vcloud Service Accounts.
 
-Supported in provider *v3.10+* and VCD 10.4+.
+Supported in provider *v3.10+* and Vcloud 10.4+.
 
 ## Example Usage
 
@@ -31,5 +31,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_service_account`](/providers/vmware/vcd/latest/docs/resources/service_account)
+All the attributes defined in [`vcloud_service_account`](/providers/vmware/vcloud/latest/docs/resources/service_account)
 resource except `file_name` and `allow_token_file` are available.

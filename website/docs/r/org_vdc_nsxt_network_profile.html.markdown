@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_vdc_nsxt_network_profile
-sidebar_current: "docs-vcd-resource-vcd-org-vdc-nsxt-network-profile"
+sidebar_current: "docs-vcloud-resource-vcloud-org-vdc-nsxt-network-profile"
 description: |-
   Provides a resource to manage NSX-T Org VDC Network Profile.
 ---
 
-# vcd\_org\_vdc\_nsxt\_network\_profile
+# vcloud\_org\_vdc\_nsxt\_network\_profile
 
 Provides a resource to manage NSX-T Org VDC Network Profile.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T.
 
 -> This resource is a "singleton" per VDC as it modifies VDC property (network profile
 configuration)

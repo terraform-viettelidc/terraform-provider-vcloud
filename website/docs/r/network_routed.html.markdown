@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_routed"
-sidebar_current: "docs-vcd-resource-network-routed"
+sidebar_current: "docs-vcloud-resource-network-routed"
 description: |-
   Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
-# vcd\_network\_routed
+# vcloud\_network\_routed
 
 Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create,
 modify, and delete internal networks for vApps to connect.
@@ -14,7 +14,7 @@ modify, and delete internal networks for vApps to connect.
 Supported in provider *v2.0+*
 
 ~> **Note:** This resource supports only NSX-V backed Org VDC networks.
-Please use newer [`vcloud_network_routed_v2`](/providers/vmware/vcd/latest/docs/resources/network_routed_v2) resource
+Please use newer [`vcloud_network_routed_v2`](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2) resource
 which is compatible with NSX-T.
 
 ## Example Usage

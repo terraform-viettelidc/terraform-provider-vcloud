@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_ipsec_vpn_tunnel"
-sidebar_current: "docs-vcd-resource-nsxt-ipsec-vpn-tunnel"
+sidebar_current: "docs-vcloud-resource-nsxt-ipsec-vpn-tunnel"
 description: |-
   Provides a resource to manage NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data
   Center Edge Gateway and remote sites. The remote sites must use NSX-T Data Center, have third-party hardware routers, 
   or VPN gateways that support IPSec.
 ---
 
-# vcd\_nsxt\_ipsec\_vpn\_tunnel
+# vcloud\_nsxt\_ipsec\_vpn\_tunnel
 
 Provides a resource to manage NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data
 Center Edge Gateway and remote sites. The remote sites must use NSX-T Data Center, have third-party hardware routers,

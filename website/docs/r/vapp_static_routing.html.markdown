@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_static_routing"
-sidebar_current: "docs-vcd-resource-vapp-static-routing"
+sidebar_current: "docs-vcloud-resource-vapp-static-routing"
 description: |-
   Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create, modify, and delete static routing rules.
 ---
 
-# vcd\_vapp\_static\_routing
+# vcloud\_vapp\_static\_routing
 
 Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create,
-modify, and delete static routing rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
+modify, and delete static routing rules in a [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
 
 ~> **Note:** Resource used for vApp network, not vApp Org network.
 
@@ -61,8 +61,8 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful when connected as sysadmin working across different organisations.
 * `vdc` - (Optional) The name of VDC to use, optional if defined at provider level.
-* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcd/latest/docs/resources/vapp).
-* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
+* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcloud/latest/docs/resources/vapp).
+* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
 * `enabled` - (Optional) Enable or disable static Routing. Default is `true`.
 * `rule` - (Optional) Configures a static routing rule; see [Rules](#rules) below for details.
 
@@ -101,7 +101,7 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing vApp Network IDs
 
-If you want to list IDs there is a special command **`terraform import vcloud_vapp_static_routing.imported list@org-name.vcd-name.vapp-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vapp_static_routing.imported list@org-name.vcloud-name.vapp-name`**
 where `org-name` is the organization used, `vdc-name` is VDC name and `vapp-name` is vApp name. 
 The output for this command should look similar to the one below:
 

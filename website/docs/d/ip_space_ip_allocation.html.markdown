@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_ip_space_ip_allocation"
-sidebar_current: "docs-vcd-data-source-ip-space-ip-allocation"
+sidebar_current: "docs-vcloud-data-source-ip-space-ip-allocation"
 description: |-
   Provides a data source to read IP IP Allocations within IP Spaces. It supports both - Floating IPs 
   (IPs from IP Ranges) and IP Prefix (subnet) allocations with manual and automatic reservations.
 ---
 
-# vcd\_ip\_space\_ip\_allocation
+# vcloud\_ip\_space\_ip\_allocation
 
 Provides a data source to read IP Allocations within IP Spaces. It supports both - Floating IPs
 (IPs from IP Ranges) and IP Prefix (subnet) allocations with manual and automatic reservations.
 
-IP Spaces require VCD 10.4.1+ with NSX-T.
+IP Spaces require Vcloud 10.4.1+ with NSX-T.
 
 ## Example Usage (IP Space IP Prefix Allocation)
 
@@ -47,5 +47,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+[`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation)
 resource are available.

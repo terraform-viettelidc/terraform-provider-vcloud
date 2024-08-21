@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_lb_app_profile"
-sidebar_current: "docs-vcd-resource-lb-app-profile"
+sidebar_current: "docs-vcloud-resource-lb-app-profile"
 description: |-
   Provides an NSX edge gateway load balancer application profile resource.
 ---
 
-# vcd\_lb\_app\_profile
+# vcloud\_lb\_app\_profile
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Application Profile resource. An application
 profile defines the behavior of the load balancer for a particular type of network traffic. After

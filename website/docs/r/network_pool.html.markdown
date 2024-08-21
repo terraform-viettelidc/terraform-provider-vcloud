@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_pool"
-sidebar_current: "docs-vcd-resource-network-pool"
+sidebar_current: "docs-vcloud-resource-network-pool"
 description: |-
-  Provides a Viettel IDC Cloud Network Pool. This can be used to create, modify, and delete a VCD Network Pool
+  Provides a Viettel IDC Cloud Network Pool. This can be used to create, modify, and delete a Vcloud Network Pool
 ---
 
-# vcd\_network\_pool
+# vcloud\_network\_pool
 
-Provides a Viettel IDC Cloud VCD Network Pool. This can be used to create,
-modify, and delete networks pools attached to a VCD.
+Provides a Viettel IDC Cloud Vcloud Network Pool. This can be used to create,
+modify, and delete networks pools attached to a Vcloud.
 
 Supported in provider *v3.11+*
 
@@ -83,7 +83,7 @@ resource "vcloud_network_pool" "npool" {
 
 ## Example Usage 4 Retrieving backing elements
 
-The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/vmware/vcd/latest/docs/data_sources/resource_list), as in the example below
+The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/vmware/vcloud/latest/docs/data_sources/resource_list), as in the example below
 
 ```hcl
 data "vcloud_nsxt_manager" "mgr" {
@@ -236,4 +236,4 @@ After that, we can expand the configuration file and either update or delete the
 at this stage will show the difference between the minimal configuration file and the network pool's stored properties.
 
 [docs-import]:https://www.terraform.io/docs/import/
-[importing-resources]:https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/guides/importing_resources
+[importing-resources]:https://registry.terraform.io/providers/vmware/vcloud/3.10.0/docs/guides/importing_resources

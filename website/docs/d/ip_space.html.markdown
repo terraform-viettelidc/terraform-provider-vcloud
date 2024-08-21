@@ -1,20 +1,20 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_ip_space"
-sidebar_current: "docs-vcd-data-source-ip-space"
+sidebar_current: "docs-vcloud-data-source-ip-space"
 description: |-
   Provides a data source to read IP Spaces. IP Spaces provide 
   structured approach to allocating public and private IP addresses by preventing the use of 
   overlapping IP addresses across organizations and organization VDCs.
 ---
 
-# vcd\_ip\_space
+# vcloud\_ip\_space
 
 Provides a data source to read IP Spaces. IP Spaces provide structured approach to allocating public
 and private IP addresses by preventing the use of overlapping IP addresses across organizations and
 organization VDCs.
 
-IP Spaces require VCD 10.4.1+ with NSX-T.
+IP Spaces require Vcloud 10.4.1+ with NSX-T.
 
 ## Example Usage (Private IP Space within an Org)
 
@@ -42,4 +42,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_ip_space`](/providers/vmware/vcd/latest/docs/resources/ip_space) resource are available.
+[`vcloud_ip_space`](/providers/vmware/vcloud/latest/docs/resources/ip_space) resource are available.

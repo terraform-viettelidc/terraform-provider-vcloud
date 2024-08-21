@@ -1,20 +1,20 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: security_tag"
-sidebar_current: "docs-vcd-resource-security-tag"
+sidebar_current: "docs-vcloud-resource-security-tag"
 description: |-
 Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.
 ---
 
-# vcd\_security\_tag
+# vcloud\_security\_tag
 
 Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.
 
-Supported in provider *v3.7+* and requires VCD 10.3.0+
+Supported in provider *v3.7+* and requires Vcloud 10.3.0+
 
-~> **Note:** Only one of `vcloud_security_tag` resource or [`security_tags` attribute from `vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm)
+~> **Note:** Only one of `vcloud_security_tag` resource or [`security_tags` attribute from `vcloud_vapp_vm`](/providers/vmware/vcloud/latest/docs/resources/vapp_vm)
 should be used. Using both would cause a behavioral conflict.
 
 -> **Note:** This resource requires either system or org administrator privileges.
@@ -35,7 +35,7 @@ The following arguments are supported:
 * `name` - (Required) The name of the security tag.
 * `vm_ids` - (Required) List of VM IDs that the security tag is going to be applied to.
 
--> The ID of `vcloud_security_tag` is set to its name since VCD behind the scenes doesn't create an ID.
+-> The ID of `vcloud_security_tag` is set to its name since Vcloud behind the scenes doesn't create an ID.
 
 # Importing
 

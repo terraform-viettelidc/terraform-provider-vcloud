@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog_vapp_template"
-sidebar_current: "docs-vcd-resource-catalog-vapp_template"
+sidebar_current: "docs-vcloud-resource-catalog-vapp_template"
 description: |-
   Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload and delete OVA files inside a catalog.
 ---
 
-# vcd\_catalog\_vapp\_template
+# vcloud\_catalog\_vapp\_template
 
 Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload OVA to catalog and delete it.
 
@@ -114,7 +114,7 @@ The following arguments are supported:
 * `name` - (Required) vApp Template name in Catalog
 * `description` - (Optional) Description of the vApp Template. Not to be used with `ovf_url` when target OVA has a description
 * `ova_path` - (Optional) Absolute or relative path to file to upload
-* `ovf_url` - (Optional) URL to OVF file. Only OVF (not OVA) files are supported by VCD uploading by URL
+* `ovf_url` - (Optional) URL to OVF file. Only OVF (not OVA) files are supported by Vcloud uploading by URL
 * `capture_vapp` - (Optional; *v3.12+*) A configuration [block to create template from existing
   vApp](#capture-vapp) (Standalone VM or vApp)
 * `upload_piece_size` - (Optional) - Size in MB for splitting upload size. It can possibly impact upload performance. Default 1MB

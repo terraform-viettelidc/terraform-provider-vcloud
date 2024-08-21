@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_pool"
-sidebar_current: "docs-vcd-data-source-network-pool"
+sidebar_current: "docs-vcloud-data-source-network-pool"
 description: |-
-  Provides a data source for a network pool attached to a VCD.
+  Provides a data source for a network pool attached to a Vcloud.
 ---
 
-# vcd\_network\_pool
+# vcloud\_network\_pool
 
-Provides a data source for a network pool attached to a VCD.
+Provides a data source for a network pool attached to a Vcloud.
 
 Supported in provider *v3.10+*
 
@@ -28,4 +28,4 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All the attributes and arguments of the corresponding resource [vcloud_network_pool](/providers/vmware/vcd/latest/docs/resources/network_pool) are supported
+All the attributes and arguments of the corresponding resource [vcloud_network_pool](/providers/vmware/vcloud/latest/docs/resources/network_pool) are supported

@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_internal_disk"
-sidebar_current: "docs-vcd-vm-internal-disk"
+sidebar_current: "docs-vcloud-vm-internal-disk"
 description: |-
   Provides a Viettel IDC Cloud VM internal disk resource. This can be used to create and delete VM internal disks.
 ---
 
-# vcd\_vm\_internal\_disk
+# vcloud\_vm\_internal\_disk
 
 This can be used to create, update and delete VM internal disks on already created VMs.
 
-~> **Note:** To adjust disk parameters when creating a new VM, please use [override_template_disk](/providers/vmware/vcd/latest/docs/resources/vapp_vm#override-template-disk).
+~> **Note:** To adjust disk parameters when creating a new VM, please use [override_template_disk](/providers/vmware/vcloud/latest/docs/resources/vapp_vm#override-template-disk).
 
 To manage disks which already exist inside a VM, please [import](#importing) them first.
 
@@ -45,7 +45,7 @@ The following arguments are supported:
 * `allow_vm_reboot` - (Optional) Powers off VM when changing any attribute of an IDE disk or unit/bus number of other disk types, after the change is complete VM is powered back on. Without this setting enabled, such changes on a powered-on VM would fail. Defaults to false.
 * `bus_type` - (Required) The type of disk controller. Possible values: `ide`, `parallel`( LSI Logic Parallel SCSI),
   `sas`(LSI Logic SAS (SCSI)), `paravirtual`(Paravirtual (SCSI)), `sata`, `nvme`. **Note** `nvme` requires *v3.4.0+* and
-  VCD *10.2.1+*
+  Vcloud *10.2.1+*
 * `size_in_mb` - (Required) The size of the disk in MB. 
 * `bus_number` - (Required) The number of the SCSI or IDE controller itself.
 * `unit_number` - (Required) The device number on the SCSI or IDE controller of the disk.
@@ -87,7 +87,7 @@ further operations.
 
 ### Listing VM internal disk IDs
 
-If you want to list IDs there is a special command **`terraform import vcloud_vm_internal_disk.imported list@org-name.vcd-name.vapp-name.vm-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vm_internal_disk.imported list@org-name.vcloud-name.vapp-name.vm-name`**
 where `org-name` is the organization used, `vdc-name` is vDC name, `vapp-name` is vAPP name and `vm_name` is VM name in that vAPP.
 The output for this command should look similar to the one below:
 

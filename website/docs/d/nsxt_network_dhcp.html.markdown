@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp"
-sidebar_current: "docs-vcd-datasource-nsxt-network-dhcp"
+sidebar_current: "docs-vcloud-datasource-nsxt-network-dhcp"
 description: |-
   Provides a data source to read DHCP pools for NSX-T Org VDC networks.
 ---
 
-# vcd\_nsxt\_network\_dhcp
+# vcloud\_nsxt\_network\_dhcp
 
 Provides a data source to read DHCP pools for NSX-T Org VDC networks.
 
@@ -38,5 +38,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_nsxt_network_dhcp`](/providers/vmware/vcd/latest/docs/resources/nsxt_network_dhcp)
+All the attributes defined in [`vcloud_nsxt_network_dhcp`](/providers/vmware/vcloud/latest/docs/resources/nsxt_network_dhcp)
 resource are available.

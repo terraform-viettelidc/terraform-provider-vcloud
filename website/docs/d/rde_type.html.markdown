@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_type"
-sidebar_current: "docs-vcd-data-source-rde-type"
+sidebar_current: "docs-vcloud-data-source-rde-type"
 description: |-
    Provides the capability of fetching an existing Runtime Defined Entity Type from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_type
+# vcloud\_rde\_type
 
 Provides the capability of fetching an existing Runtime Defined Entity Type from Viettel IDC Cloud.
 
@@ -41,4 +41,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the supported attributes are defined in the
-[Runtime Defined Entity Type resource](/providers/vmware/vcd/latest/docs/resources/rde_type#argument-reference).
+[Runtime Defined Entity Type resource](/providers/vmware/vcloud/latest/docs/resources/rde_type#argument-reference).

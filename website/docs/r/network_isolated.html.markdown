@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_isolated"
-sidebar_current: "docs-vcd-resource-network-isolated"
+sidebar_current: "docs-vcloud-resource-network-isolated"
 description: |-
   Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
-# vcd\_network\_isolated
+# vcloud\_network\_isolated
 
 Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create,
 modify, and delete internal networks for vApps to connect. This network is not attached to external networks or routers.
@@ -14,7 +14,7 @@ modify, and delete internal networks for vApps to connect. This network is not a
 Supported in provider *v2.0+*
 
 ~> **Note:** This resource supports only NSX-V backed Org VDC networks.
-Please use newer [`vcloud_network_isolated_v2`](/providers/vmware/vcd/latest/docs/resources/network_isolated_v2) resource
+Please use newer [`vcloud_network_isolated_v2`](/providers/vmware/vcloud/latest/docs/resources/network_isolated_v2) resource
 which is compatible with NSX-T.
 
 ## Example Usage

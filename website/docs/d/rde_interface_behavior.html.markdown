@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_interface_behavior"
-sidebar_current: "docs-vcd-data-source-rde-interface-behavior"
+sidebar_current: "docs-vcloud-data-source-rde-interface-behavior"
 description: |-
    Provides the capability of fetching an existing RDE Interface Behavior from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface\_behavior
+# vcloud\_rde\_interface\_behavior
 
 Provides the capability of fetching an existing RDE Interface Behavior from Viettel IDC Cloud.
 
@@ -45,4 +45,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the supported attributes are defined in the
-[RDE Interface Behavior resource](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior#argument-reference).
+[RDE Interface Behavior resource](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior#argument-reference).

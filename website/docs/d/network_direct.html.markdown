@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_direct"
-sidebar_current: "docs-vcd-data-source-network-direct"
+sidebar_current: "docs-vcloud-data-source-network-direct"
 description: |-
   Provides a Viettel IDC Cloud Org VDC Network attached to an external one. This can be used to reference internal networks for vApps to connect.
 ---
 
-# vcd\_network\_direct
+# vcloud\_network\_direct
 
 Provides a Viettel IDC Cloud Org VDC Network data source directly connected to an external network. This can be used to reference
 internal networks for vApps to connect.
@@ -85,4 +85,4 @@ The following arguments are supported:
 * `ip` - (Optional) matches the IP of the resource using a regular expression.
 * `metadata` - (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.

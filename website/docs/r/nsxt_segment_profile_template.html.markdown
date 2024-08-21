@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_profile_template"
-sidebar_current: "docs-vcd-resource-nsxt-segment-profile-template"
+sidebar_current: "docs-vcloud-resource-nsxt-segment-profile-template"
 description: |-
   Provides a resource to manage NSX-T Segment Profile Templates.
 ---
 
-# vcd\_nsxt\_segment\_profile\_template
+# vcloud\_nsxt\_segment\_profile\_template
 
 Provides a resource to manage NSX-T Segment Profile Templates.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T. Requires System Administrator privileges.
+Supported in provider *v3.11+* and Vcloud 10.4.0+ with NSX-T. Requires System Administrator privileges.
 
 ## Example Usage (Example with all Segment Profiles)
 
@@ -63,19 +63,19 @@ resource "vcloud_nsxt_segment_profile_template" "complete" {
 The following arguments are supported:
 
 * `nsxt_manager_id` - (Required) NSX-T Manager ID (can be referenced using
-  [`vcloud_nsxt_manager`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_manager) datasource)
+  [`vcloud_nsxt_manager`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_manager) datasource)
 * `name` - (Required) Name for Segment Profile Template
 * `description` - (Optional) Description of Segment Profile Template
 * `ip_discovery_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_ip_discovery_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_ip_discovery_profile)
+  [`vcloud_nsxt_segment_ip_discovery_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_ip_discovery_profile)
 * `mac_discovery_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_mac_discovery_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_mac_discovery_profile)
+  [`vcloud_nsxt_segment_mac_discovery_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_mac_discovery_profile)
 * `spoof_guard_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_spoof_guard_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_spoof_guard_profile)
+  [`vcloud_nsxt_segment_spoof_guard_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_spoof_guard_profile)
 * `qos_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_qos_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_qos_profile)
+  [`vcloud_nsxt_segment_qos_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_qos_profile)
 * `segment_security_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_security_profile`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_segment_security_profile)
+  [`vcloud_nsxt_segment_security_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_security_profile)
 
 
 ## Importing

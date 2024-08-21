@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway"
-sidebar_current: "docs-vcd-resource-nsxt-edge-gateway"
+sidebar_current: "docs-vcloud-resource-nsxt-edge-gateway"
 description: |-
   Provides a Viettel IDC Cloud NSX-T edge gateway. This can be used to create, update, and delete NSX-T edge gateways connected to external networks.
 ---
 
-# vcd\_nsxt\_edgegateway
+# vcloud\_nsxt\_edgegateway
 
 Provides a Viettel IDC Cloud NSX-T Edge Gateway. This can be used to create, update, and delete
 NSX-T edge gateways connected to external networks.
@@ -16,7 +16,7 @@ You must use `System Adminstrator` account in `provider` configuration
 and then provide `org` and `owner_id` arguments for Edge Gateway to work.
 
 This resource supports **IP Spaces** - read [IP Spaces guide
-page](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/ip_spaces) for more
+page](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/guides/ip_spaces) for more
 information.
 
 ## Example Usage (Simple case)
@@ -310,9 +310,9 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to which the VDC belongs. Optional if defined at provider level.
 * `vdc` - (Optional) **Deprecated** in favor of `owner_id`. The name of VDC that owns the edge
   gateway. Can be inherited from `provider` configuration if not defined here.
-* `owner_id` - (Optional, *v3.6+*,*VCD 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
-  [vcloud_vdc_group](/providers/vmware/vcd/latest/docs/data-sources/vdc_group) or
-  [vcloud_org_vdc](/providers/vmware/vcd/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
+* `owner_id` - (Optional, *v3.6+*,*Vcloud 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
+  [vcloud_vdc_group](/providers/vmware/vcloud/latest/docs/data-sources/vdc_group) or
+  [vcloud_org_vdc](/providers/vmware/vcloud/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
   name.
 
 ~> Only one of `vdc` or `owner_id` can be specified. `owner_id` takes precedence over `vdc`
@@ -322,14 +322,14 @@ definition at provider level.
   (random member of VDC Group or specified in `starting_vdc_id`). Main use case of `starting_vdc_id`
   is to pick egress traffic origin for multi datacenter VDC Groups.
 
-* `starting_vdc_id` - (Optional, *v3.6+*,*VCD 10.2+*)  If `owner_id` is a VDC Group, by default Edge
+* `starting_vdc_id` - (Optional, *v3.6+*,*Vcloud 10.2+*)  If `owner_id` is a VDC Group, by default Edge
   Gateway will be created in random member VDC and moved to destination VDC Group. This field allows
   to specify initial VDC for Edge Gateway (this can define Egress location of traffic in the VDC
   Group) **Note:** It can only be used when `owner_id` is a VDC Group. 
 
 * `name` - (Required) A unique name for the edge gateway.
 * `description` - (Optional) A unique name for the edge gateway.
-* `external_network_id` - (Required) An external network ID. **Note:** Data source [vcloud_external_network_v2](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+* `external_network_id` - (Required) An external network ID. **Note:** Data source [vcloud_external_network_v2](/providers/vmware/vcloud/latest/docs/data-sources/external_network_v2)
 can be used to lookup ID by name.
 * `edge_cluster_id` - (Optional) Specific Edge Cluster ID if required
 * `dedicate_external_network` - (Optional) Dedicating the external network will enable Route Advertisement for this Edge Gateway. Default `false`.
@@ -348,7 +348,7 @@ can be used to lookup ID by name.
 * `total_allocated_ip_count` - (Optional, *v3.9+*) Required with `subnet_with_total_ip_count`. It is
   **read-only** attribute with other other allocation models `subnet` and `subnet_with_ip_count`.
   **Note**. It sets or reports IP count *only for NSX-T Tier 0 backed external network Uplink*.
-* `external_network` - (Optional, *VCD 10.4.1+*, *v3.11+*) attaches NSX-T Segment backed External
+* `external_network` - (Optional, *Vcloud 10.4.1+*, *v3.11+*) attaches NSX-T Segment backed External
   Networks with a given [configuration block](#edgegateway-subnet-external-network). It *does not
   support IP Spaces*.
 
@@ -356,7 +356,7 @@ can be used to lookup ID by name.
 
 ## IP allocation modes
 
-~> Starting with `v3.9.0` of Terraform Provider for VCD, NSX-T Edge Gateway supports automatic IP
+~> Starting with `v3.9.0` of Terraform Provider for Vcloud, NSX-T Edge Gateway supports automatic IP
 allocations. More details in this section. **None** of these methods **should be applied** when Edge
 Gateway is using **IP Spaces**
 
@@ -489,7 +489,7 @@ terraform import vcloud_nsxt_edgegateway.nsxt-edge my-org.nsxt-vdc.nsxt-edge
 ```
 
 * **Note 1**: the separator can be changed using `Provider.import_separator` or variable `vcloud_IMPORT_SEPARATOR`
-* **Note 2**: it is possible to list all available NSX-T edge gateways using data source [vcloud_resource_list](/providers/vmware/vcd/latest/docs/data-sources/resource_list#vcloud_nsxt_edgegateway)
+* **Note 2**: it is possible to list all available NSX-T edge gateways using data source [vcloud_resource_list](/providers/vmware/vcloud/latest/docs/data-sources/resource_list#vcloud_nsxt_edgegateway)
 
 [docs-import]:https://www.terraform.io/docs/import/
 

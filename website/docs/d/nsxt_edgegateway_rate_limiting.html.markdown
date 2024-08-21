@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_rate_limiting"
-sidebar_current: "docs-vcd-data-source-nsxt-edge-rate-limiting"
+sidebar_current: "docs-vcloud-data-source-nsxt-edge-rate-limiting"
 description: |-
   Provides a data source to read NSX-T Edge Gateway Rate Limiting (QoS) configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_rate\_limiting
+# vcloud\_nsxt\_edgegateway\_rate\_limiting
 
-Supported in provider *v3.9+* and VCD 10.3.2+ with NSX-T.
+Supported in provider *v3.9+* and Vcloud 10.3.2+ with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway Rate Limiting (QoS) configuration.
 
@@ -43,5 +43,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_edgegateway_rate_limiting`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_rate_limiting)
+[`vcloud_nsxt_edgegateway_rate_limiting`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_rate_limiting)
 resource are available.

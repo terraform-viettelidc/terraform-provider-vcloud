@@ -1,24 +1,24 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_network_routed_v2"
-sidebar_current: "docs-vcd-resource-network-routed-v2"
+sidebar_current: "docs-vcloud-resource-network-routed-v2"
 description: |-
   Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and
   delete routed VDC networks (backed by NSX-T or NSX-V).
 ---
 
-# vcd\_network\_routed\_v2
+# vcloud\_network\_routed\_v2
 
 Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and
 delete routed VDC networks (backed by NSX-T or NSX-V).
 
 Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.
 
--> Starting with **v3.6.0** Terraform provider VCD supports NSX-T VDC Groups and `vdc` fields (in
+-> Starting with **v3.6.0** Terraform provider Vcloud supports NSX-T VDC Groups and `vdc` fields (in
 resource and inherited from provider configuration) are deprecated. `vcloud_network_routed_v2` will
 inherit VDC or VDC Group membership from parent Edge Gateway specified in `edge_gateway_id` field.
 More about VDC Group support in a [VDC Groups
-guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
+guide](/providers/vmware/vcloud/latest/docs/guides/vdc_groups).
 
 ## Example Usage (NSX-T backed routed Org VDC network)
 
@@ -166,9 +166,9 @@ The following arguments are supported:
   virtual machines; see [IP Pools](#ip-pools) below for details.
 * `guest_vlan_allowed` - (Optional) Set to `true` if network should allow guest VLAN tagging.
   Default `false`.
-* `route_advertisement_enabled` - (Optional; *v3.12+*, *VCD 10.4.1+*) Enables route advertising for
+* `route_advertisement_enabled` - (Optional; *v3.12+*, *Vcloud 10.4.1+*) Enables route advertising for
   this network. **Note** This requires Edge Gateway to use IP Spaces and IP Space *must have* [route
-  advertisement](https://registry.terraform.io/providers/vmware/vcd/latest/docs/resources/ip_space#route_advertisement_enabled)
+  advertisement](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/resources/ip_space#route_advertisement_enabled)
   enabled.
 * `metadata` - (Deprecated; *v3.6+*) Use `metadata_entry` instead. Key value map of metadata to assign to this network. **Not supported** if the owner edge gateway belongs to a VDC Group.
 * `metadata_entry` - (Optional; *v3.8+*) A set of metadata entries to assign. See [Metadata](#metadata) section for details.
@@ -182,7 +182,7 @@ The following arguments are supported:
 * `secondary_static_ip_pool` - (Optional; *v3.10+*) One or more [IPv6 static
   pools](#secondary-ip-pools) *when Dual-Stack mode is enabled*
 
--> When using IPv6, VCD API will expand IP Addresses if they are specified using *double colon*
+-> When using IPv6, Vcloud API will expand IP Addresses if they are specified using *double colon*
 notation and it will cause inconsistent plan. (e.g. `2002::1234:abcd:ffff:c0a6:121` will be
 converted to `2002:0:0:1234:abcd:ffff:c0a6:121`)
 

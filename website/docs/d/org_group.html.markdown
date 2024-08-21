@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_group"
-sidebar_current: "docs-vcd-datasource-org-group"
+sidebar_current: "docs-vcloud-datasource-org-group"
 description: |-
   Provides a data source for Viettel IDC Cloud Organization Groups.
 ---
 
-# vcd\_org\_group
+# vcloud\_org\_group
 
 Provides a data source for Viettel IDC Cloud Organization Groups. This can be used to fetch organization groups already defined in `SAML`, `OAUTH` or `LDAP`.
 
@@ -35,4 +35,4 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All attributes defined in [org_group](/providers/vmware/vcd/latest/docs/resources/org_group#attribute-reference) are supported.
+All attributes defined in [org_group](/providers/vmware/vcloud/latest/docs/resources/org_group#attribute-reference) are supported.

@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_affinity_rule"
-sidebar_current: "docs-vcd-resource-vm-affinity-rule"
+sidebar_current: "docs-vcloud-resource-vm-affinity-rule"
 description: |-
   Provides a Viettel IDC Cloud VM affinity rule resource. This can be
   used to create, modify, and delete VM affinity and anti-affinity rules.
 ---
 
-# vcd\_vm\_affinity\_rule
+# vcloud\_vm\_affinity\_rule
 
 Provides a Viettel IDC Cloud VM affinity rule resource. This can be
 used to create, modify, and delete VM affinity and anti-affinity rules.

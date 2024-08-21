@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org"
-sidebar_current: "docs-vcd-data-source-org"
+sidebar_current: "docs-vcloud-data-source-org"
 description: |-
   Provides an organization data source.
 ---
 
-# vcd\_org
+# vcloud\_org
 
 Provides a Viettel IDC Cloud Org data source. An organization can be used to manage catalogs, virtual
 data centers, and users.

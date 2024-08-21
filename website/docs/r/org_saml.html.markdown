@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_saml"
-sidebar_current: "docs-vcd-resource-org-saml"
+sidebar_current: "docs-vcloud-resource-org-saml"
 description: |-
   Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, delete, and update SAML configuration for an organization.
 ---
 
-# vcd\_org\_saml
+# vcloud\_org\_saml
 
 Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, update, and delete SAML configuration for an organization.
 
@@ -85,7 +85,7 @@ The following arguments are supported:
 configuration. [More information.][docs-import]
 
 An existing SAML configuration for an Org can be [imported][docs-import] into this resource via supplying the path for an Org. Since the Org is
-at the top of the VCD hierarchy, the path corresponds to the Org name.
+at the top of the Vcloud hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing SAML configuration that was **not** created using Terraform:
 
 ```hcl

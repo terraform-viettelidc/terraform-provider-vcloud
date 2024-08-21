@@ -1,19 +1,19 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_lb_service_monitor"
-sidebar_current: "docs-vcd-data-source-lb-service-monitor"
+sidebar_current: "docs-vcloud-data-source-lb-service-monitor"
 description: |-
   Provides an NSX edge gateway load balancer service monitor data source.
 ---
 
-# vcd\_lb\_service\_monitor
+# vcloud\_lb\_service\_monitor
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Service Monitor data source. A service monitor 
 defines health check parameters for a particular type of network traffic. It can be associated with
 a pool. Pool members are monitored according to the service monitor parameters. See example usage of
-this data source in [server pool resource page](/providers/vmware/vcd/latest/docs/resources/lb_server_pool).
+this data source in [server pool resource page](/providers/vmware/vcloud/latest/docs/resources/lb_server_pool).
 
-~> **Note:** See additional support notes in [service monitor resource page](/providers/vmware/vcd/latest/docs/resources/lb_service_monitor).
+~> **Note:** See additional support notes in [service monitor resource page](/providers/vmware/vcloud/latest/docs/resources/lb_service_monitor).
 
 Supported in provider *v2.4+*
 

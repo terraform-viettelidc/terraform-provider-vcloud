@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_external_network"
-sidebar_current: "docs-vcd-data-source-external-network"
+sidebar_current: "docs-vcloud-data-source-external-network"
 description: |-
   Provides an external network data source.
 ---
@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud external network data source. This can be used to r
 
 Supported in provider *v2.5+*
 
-~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/vmware/vcloud/latest/docs/data-sources/external_network_v2)
 
 ## Example Usage
 
@@ -47,11 +47,11 @@ The following arguments are supported:
 ## Attribute Reference
 
 * `description` - Network friendly description
-* `ip_scope` -  A list of IP scopes for the network. See [IP Scope](/providers/vmware/vcd/latest/docs/resources/external_network#ipscope)
+* `ip_scope` -  A list of IP scopes for the network. See [IP Scope](/providers/vmware/vcloud/latest/docs/resources/external_network#ipscope)
    for details.
 * `vsphere_network` -  A list of DV_PORTGROUP or NETWORK objects names that back this network. Each referenced 
   DV_PORTGROUP or NETWORK must exist on a vCenter server registered with the system.
-  See [vSphere Network](/providers/vmware/vcd/latest/docs/resources/external_network#vspherenetwork) for details.
+  See [vSphere Network](/providers/vmware/vcloud/latest/docs/resources/external_network#vspherenetwork) for details.
 * `retain_net_info_across_deployments` -  Specifies whether the network resources such as IP/MAC of router will be 
   retained across deployments.
 

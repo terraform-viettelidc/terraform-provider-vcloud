@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: IP Spaces"
-sidebar_current: "docs-vcd-guides-ip-spaces"
+sidebar_current: "docs-vcloud-guides-ip-spaces"
 description: |-
-  Provides guidance to IP Spaces in VCD 10.4.1+
+  Provides guidance to IP Spaces in Vcloud 10.4.1+
 ---
 
 # IP Spaces
 
-Starting with **Viettel IDC Cloud 10.4.1** and **Terraform Provider for VCD 3.10**, you can use
+Starting with **Viettel IDC Cloud 10.4.1** and **Terraform Provider for Vcloud 3.10**, you can use
 IP Spaces to manage your IP address allocation needs. IP Spaces provide structured approach to
 allocating *public* and *private* IP addresses by preventing the use of overlapping IP addresses
 across organizations and organization VDCs.
@@ -45,22 +45,22 @@ There are three types of IP spaces that you can create.
 ## List of resources with IP Space support
 
 The following resources for IP Space management are available with Terraform Provider for
-VCD starting with version 3.10:
+Vcloud starting with version 3.10:
 
-* [`vcloud_ip_space`](/providers/vmware/vcd/latest/docs/resources/ip_space) - provides IP Space and
+* [`vcloud_ip_space`](/providers/vmware/vcloud/latest/docs/resources/ip_space) - provides IP Space and
   default quota definition capability
-* [`vcloud_ip_space_uplink`](/providers/vmware/vcd/latest/docs/resources/ip_space_uplink) - provides
+* [`vcloud_ip_space_uplink`](/providers/vmware/vcloud/latest/docs/resources/ip_space_uplink) - provides
   capability to assign IP Space Uplink for Provider Gateways (resource
-  [`vcloud_external_network_v2`](/providers/vmware/vcd/latest/docs/resources/external_network_v2))
-* [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+  [`vcloud_external_network_v2`](/providers/vmware/vcloud/latest/docs/resources/external_network_v2))
+* [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation)
   provides capability to allocate floating IPs or IP Prefixes
-* [`vcloud_ip_space_custom_quota`](/providers/vmware/vcd/latest/docs/resources/ip_space_custom_quota) -
+* [`vcloud_ip_space_custom_quota`](/providers/vmware/vcloud/latest/docs/resources/ip_space_custom_quota) -
   provides capability to set Org specific Custom Quotas and override default ones defined in
-  [`vcloud_ip_space`](/providers/vmware/vcd/latest/docs/resources/ip_space_custom_quota)
-* [`vcloud_external_network_v2`](/providers/vmware/vcd/latest/docs/resources/external_network_v2) -
+  [`vcloud_ip_space`](/providers/vmware/vcloud/latest/docs/resources/ip_space_custom_quota)
+* [`vcloud_external_network_v2`](/providers/vmware/vcloud/latest/docs/resources/external_network_v2) -
   fields `use_ip_spaces` and `dedicated_org_id` (applicable only to T0 or T0 VRF backed networks
   also known as Provider Gateways in UI)
-* [`vcloud_nsxt_edgegateway`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway) - none of
+* [`vcloud_nsxt_edgegateway`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway) - none of
   the fields `subnet_with_total_ip_count`, `subnet`, `subnet_with_ip_count` are mandatory when
   specifying `external_network_id` that is using IP Spaces. As a result they will not be populated
   after read operations together with `used_ip_count` and `unused_ip_count`. Additional computed
@@ -68,7 +68,7 @@ VCD starting with version 3.10:
   that has IP Space Uplinks)
 
 
--> There are new rights for IP Space management starting with VCD 10.4.1. Some of them are [listed
+-> There are new rights for IP Space management starting with Vcloud 10.4.1. Some of them are [listed
 in the
 prerequisites](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-575513A8-9ADE-4A3D-92AB-CB0917FF8316.html)
 for IP Space management in Organizations.
@@ -140,29 +140,29 @@ components integrate into a single picture when using IP Spaces.
 The main difference from the above example before IP Space support - one does not need to map IPs in
 each resource. Available IP Ranges and Prefixes are defined in an IP Space. IPs and Prefixes can
 then be allocated dynamically (using
-[`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+[`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation)
 resource).
 
 Here is what this snippet does: 
 
-* Creates a [Public IP Space](/providers/vmware/vcd/latest/docs/resources/ip_space) with IP Prefixes
+* Creates a [Public IP Space](/providers/vmware/vcloud/latest/docs/resources/ip_space) with IP Prefixes
   (Subnets) and IP Ranges (Floating IP ranges)
-* Creates a [Provider Gateway] (/providers/vmware/vcd/latest/docs/resources/external_network_v2)
-  that has an [IP Space Uplink](/providers/vmware/vcd/latest/docs/resources/ip_space_uplink) with
+* Creates a [Provider Gateway] (/providers/vmware/vcloud/latest/docs/resources/external_network_v2)
+  that has an [IP Space Uplink](/providers/vmware/vcloud/latest/docs/resources/ip_space_uplink) with
   the newly created IP Space. 
-* Creates an [NSX-T Edge Gateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway)
+* Creates an [NSX-T Edge Gateway](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway)
   backed by newly created Provider Gateway. **Note** IP Space IP allocations can be performed in the
   VDC *only* after this step as it maps the IP Space to a particular VDC.
 * Creates a DNAT rule
-  [`vcloud_nsxt_nat_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule) that uses
+  [`vcloud_nsxt_nat_rule`](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule) that uses
   Floating IP allocated by
-  [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+  [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation)
   resource.
 * Allocates a floating IP for manual usage using 
-  [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+  [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation)
   resource (usage_state="USED_MANUAL")
-* Creates a [routed network](/providers/vmware/vcd/latest/docs/resources/routed_network_v2) and
-  uses [IP Prefix allocation](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation)
+* Creates a [routed network](/providers/vmware/vcloud/latest/docs/resources/routed_network_v2) and
+  uses [IP Prefix allocation](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation)
 
 ```hcl
 data "vcloud_nsxt_manager" "main" {

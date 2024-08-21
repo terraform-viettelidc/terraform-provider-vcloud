@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_ip_space_custom_quota"
-sidebar_current: "docs-vcd-resource-ip-space-custom-quota"
+sidebar_current: "docs-vcloud-resource-ip-space-custom-quota"
 description: |-
   Provides a data source to read Custom Quotas for a given Org in a particular IP Space.
 ---
 
-# vcd\_ip\_space\_custom\_quota
+# vcloud\_ip\_space\_custom\_quota
 
 Provides a data source to read Custom Quotas for a given Org in a particular IP Space.
 
@@ -29,5 +29,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_ip_space_custom_quota`](/providers/vmware/vcd/latest/docs/resources/ip_space_custom_quota)
+[`vcloud_ip_space_custom_quota`](/providers/vmware/vcloud/latest/docs/resources/ip_space_custom_quota)
 resource are available.

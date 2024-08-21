@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_dnat"
-sidebar_current: "docs-vcd-data-source-nsxv-dnat"
+sidebar_current: "docs-vcloud-data-source-nsxv-dnat"
 description: |-
   Provides a Viettel IDC Cloud DNAT data source for advanced edge gateways (NSX-V). This can be used to read
   existing rule by ID and use its attributes in other resources.
 ---
 
-# vcd\_nsxv\_dnat
+# vcloud\_nsxv\_dnat
 
 Provides a Viettel IDC Cloud DNAT data source for advanced edge gateways (NSX-V). This can be used to
 read existing rule by ID and use its attributes in other resources.

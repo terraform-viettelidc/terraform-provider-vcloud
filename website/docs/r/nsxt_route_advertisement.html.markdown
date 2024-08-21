@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_route_advertisement"
-sidebar_current: "docs-vcd-resource-nsxt_route_advertisement"
+sidebar_current: "docs-vcloud-resource-nsxt_route_advertisement"
 description: |-
 Provides a Viettel IDC Cloud resource for setting route advertisement in an NSX-T Edge Gateway.
 ---
 
-# vcd\_nsxt\_route\_advertisement
+# vcloud\_nsxt\_route\_advertisement
 
 Provides a Viettel IDC Cloud resource for setting route advertisement in an NSX-T Edge Gateway.
 

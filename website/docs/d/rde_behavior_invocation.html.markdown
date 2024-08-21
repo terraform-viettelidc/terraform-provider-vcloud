@@ -1,17 +1,17 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rde_behavior_invocation"
-sidebar_current: "docs-vcd-data-source-rde-behavior-invocation"
+sidebar_current: "docs-vcloud-data-source-rde-behavior-invocation"
 description: |-
    Provides the capability of invoking an existing Runtime Defined Entity Behavior in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_behavior\_invocation
+# vcloud\_rde\_behavior\_invocation
 
 ~> This feature is **experimental** and may change in future
 
-Provides the capability of invoking an existing [RDE Interface Behavior](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior)
-or [RDE Type Behavior](/providers/vmware/vcd/latest/docs/resources/rde_type_behavior) in Viettel IDC Cloud.
+Provides the capability of invoking an existing [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior)
+or [RDE Type Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior) in Viettel IDC Cloud.
 
 Supported in provider *v3.11+*
 
@@ -79,9 +79,9 @@ output "rde_behavior_invocation_output" {
 
 The following arguments are supported:
 
-* `rde_id` - (Required) The ID of the [RDE](/providers/vmware/vcd/latest/docs/resources/rde) which Behavior will be invoked
-* `behavior_id` - (Required) The ID of the [RDE Interface Behavior](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior) or
-  the [RDE Interface Behavior](/providers/vmware/vcd/latest/docs/resources/rde_type_behavior) to invoke
+* `rde_id` - (Required) The ID of the [RDE](/providers/vmware/vcloud/latest/docs/resources/rde) which Behavior will be invoked
+* `behavior_id` - (Required) The ID of the [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior) or
+  the [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior) to invoke
 * `arguments` - (Optional) A map with the arguments of the invocation
 * `metadata` - (Optional) A map with the metadata of the invocation
 * `invoke_on_refresh` - (Optional) Defaults to `true`, indicates whether the Behavior should be invoked on every refresh.

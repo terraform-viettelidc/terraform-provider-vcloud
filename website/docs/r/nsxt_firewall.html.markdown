@@ -1,15 +1,15 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_firewall"
-sidebar_current: "docs-vcd-data-source-nsxt-firewall"
+sidebar_current: "docs-vcloud-data-source-nsxt-firewall"
 description: |-
   Provides a resource to manage NSX-T Firewall. Firewalls allow user to control the incoming and 
   outgoing network traffic to and from an NSX-T Data Center Edge Gateway.
 ---
 
-# vcd\_nsxt\_firewall
+# vcloud\_nsxt\_firewall
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed Edge Gateways.
+Supported in provider *v3.3+* and Vcloud 10.1+ with NSX-T backed Edge Gateways.
 
 Provides a resource to manage NSX-T Firewall. Firewalls allow user to control the incoming and 
 outgoing network traffic to and from an NSX-T Data Center Edge Gateway.

@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_org_network"
-sidebar_current: "docs-vcd-resource-vapp-org-network"
+sidebar_current: "docs-vcloud-resource-vapp-org-network"
 description: |-
   Provides capability to attach an existing Org VDC Network to a vApp and toggle network features.
 ---
 
-# vcd\_vapp\_org\_network
+# vcloud\_vapp\_org\_network
 
  Provides capability to attach an existing Org VDC Network to a vApp and toggle network features.
 
@@ -24,7 +24,7 @@ resource "vcloud_vapp_org_network" "vappOrgNet" {
   # Comment below line to create an isolated vApp network
   org_network_name = "my-org-network"
 
-  # VCD 10.4.1+ API does not allow to remove vApp network from
+  # Vcloud 10.4.1+ API does not allow to remove vApp network from
   # a powered on vApp. Setting reboot_vapp_on_removal to true
   # will allow to power off parent vApp for network removal.
   # Note. It will power on the vApp if it was not powered off 
@@ -44,7 +44,7 @@ The following arguments are supported:
 * `org_network_name` - (Optional; *v2.7+*) An Org network name to which vApp network is connected. If not configured, then an isolated network is created.
 * `is_fenced` (Optional) Fencing allows identical virtual machines in different vApp networks connect to organization VDC networks that are accessed in this vApp. Default is false.
 * `retain_ip_mac_enabled` - (Optional) Specifies whether the network resources such as IP/MAC of router will be retained across deployments. Configurable when `is_fenced` is true.
-* `reboot_vapp_on_removal` - (Optional; *v3.9+*) **VCD 10.4.1+** API **prohibits removal of vApp
+* `reboot_vapp_on_removal` - (Optional; *v3.9+*) **Vcloud 10.4.1+** API **prohibits removal of vApp
   network from a powered on vApp**. Set to `true` to power off the vApp during vApp network removal.
   If the vApp's original state was powered on, it will be powered back on after removing the
   network. (default `false`) **Note.** It only affects *delete* operation for the resource and will

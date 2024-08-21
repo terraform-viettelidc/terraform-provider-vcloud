@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: Data Source Filters"
-sidebar_current: "docs-vcd-guides-filters"
+sidebar_current: "docs-vcloud-guides-filters"
 description: |-
   Provides guidance on filters.
 ---
@@ -89,7 +89,7 @@ Like populated filters, when the search returns more than one item, the data sou
 
 Metadata can be searched even for those data sources that don't expose metadata in their interface. If the `filter`
 section lists `metadata` among the available criteria, you can search the metadata and get the results accordingly,
-although the vcd provider may not show the metadata for the found item.
+although the vcloud provider may not show the metadata for the found item.
 Note that the names of the metadata fields are case-sensitive.
 
 ## Example filter 1

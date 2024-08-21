@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vapp_org_network"
-sidebar_current: "docs-vcd-datasource-vapp-org-network"
+sidebar_current: "docs-vcloud-datasource-vapp-org-network"
 description: |-
   Provides a data source for Viettel IDC Cloud Org network attached to vApp. This can be used to access vApp Org network.
 ---
 
-# vcd\_vapp\_org\_network
+# vcloud\_vapp\_org\_network
 
 Provides a data source for Viettel IDC Cloud Org network attached to vApp. This can be used to access vApp Org VDC network.
 
@@ -41,5 +41,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All attributes defined in [`vcloud_vapp_org_network`](/providers/vmware/vcd/latest/docs/resources/vapp_org_network#attribute-reference) are supported.
+All attributes defined in [`vcloud_vapp_org_network`](/providers/vmware/vcloud/latest/docs/resources/vapp_org_network#attribute-reference) are supported.
 

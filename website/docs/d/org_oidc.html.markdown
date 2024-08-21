@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_oidc"
-sidebar_current: "docs-vcd-data-source-org-oidc"
+sidebar_current: "docs-vcloud-data-source-org-oidc"
 description: |-
   Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 ---
 
-# vcd\_org\_oidc
+# vcloud\_org\_oidc
 
 Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 
@@ -32,4 +32,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the arguments and attributes from [the `vcloud_org_oidc` resource](/providers/vmware/vcd/latest/docs/resources/org_oidc) are available as read-only.
+All the arguments and attributes from [the `vcloud_org_oidc` resource](/providers/vmware/vcloud/latest/docs/resources/org_oidc) are available as read-only.

@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_service_engine_group"
-sidebar_current: "docs-vcd-resource-nsxt-alb-service-engine-group"
+sidebar_current: "docs-vcloud-resource-nsxt-alb-service-engine-group"
 description: |-
   Provides a resource to manage ALB Service Engine Groups. A Service Engine Group is an isolation domain that also
   defines shared service engine properties, such as size, network access, and failover. Resources in a service engine
@@ -9,9 +9,9 @@ description: |-
   between different service engine groups.
 ---
 
-# vcd\_nsxt\_alb\_service\_engine\_group
+# vcloud\_nsxt\_alb\_service\_engine\_group
 
-Supported in provider *v3.4+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.4+* and Vcloud 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Service Engine Groups. A Service Engine Group is an isolation domain that also
 defines shared service engine properties, such as size, network access, and failover. Resources in a service engine
@@ -73,12 +73,12 @@ The following arguments are supported:
   source
 * `reservation_model` - (Required) Definition if the Service Engine Group is `DEDICATED` or `SHARED`
 * `importable_service_engine_group_name` - (Required) Name of available Service Engine Group in ALB
-* `sync_on_refresh` (Optional) - A special argument that is not passed to VCD, but alters behaviour of this resource so
+* `sync_on_refresh` (Optional) - A special argument that is not passed to Vcloud, but alters behaviour of this resource so
   that it performs a Sync operation on every Terraform refresh. *Note* this may impact refresh performance, but should
   ensure up-to-date information is read. Default is **false**.
 * `supported_feature_set` - (Optional; *v3.7+*) Feature set of this ALB Service Engine Group (`STANDARD` or `PREMIUM`)
 
-~> The attribute `supported_feature_set` must not be used in VCD versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller).
+~> The attribute `supported_feature_set` must not be used in Vcloud versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_controller).
 
 ## Attribute Reference
 

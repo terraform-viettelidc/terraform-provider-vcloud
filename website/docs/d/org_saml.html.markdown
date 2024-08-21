@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_org_saml"
-sidebar_current: "docs-vcd-data-source-org-saml"
+sidebar_current: "docs-vcloud-data-source-org-saml"
 description: |-
   Provides a data source to read SAML configuration for an organization.
 ---
 
-# vcd\_org\_saml
+# vcloud\_org\_saml
 
 Supported in provider *v3.10+*.
 

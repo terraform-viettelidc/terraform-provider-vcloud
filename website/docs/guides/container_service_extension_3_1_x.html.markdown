@@ -1,20 +1,20 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: Container Service Extension v3.1.x"
-sidebar_current: "docs-vcd-guides-cse-3-1-x"
+sidebar_current: "docs-vcloud-guides-cse-3-1-x"
 description: |-
-  Provides guidance on configuring VCD to be able to install Container Service Extension v3.1.x.
+  Provides guidance on configuring Vcloud to be able to install Container Service Extension v3.1.x.
 ---
 
 # Container Service Extension v3.1.x
 
 ~> This CSE installation method is **deprecated** in favor of CSE v4.x. Please have a look at the new guide
-[here](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install)
+[here](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/guides/container_service_extension_4_x_install)
 
 ## About
 
-This guide describes the required steps to configure VCD to install the Container Service Extension (CSE) v3.1.x, that
-will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on VCD using the UI. For that purpose, after completing the steps described below you
+This guide describes the required steps to configure Vcloud to install the Container Service Extension (CSE) v3.1.x, that
+will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on Vcloud using the UI. For that purpose, after completing the steps described below you
 will need also to **publish the Container UI Plugin** to the desired tenants and **run the CSE server** in your infrastructure.
 
 To know more about CSE v3.1.x, you can explore [the official website](https://vmware.github.io/container-service-extension/).
@@ -23,21 +23,21 @@ To know more about CSE v3.1.x, you can explore [the official website](https://vm
 
 In order to complete the steps described in this guide, please be aware:
 
-* CSE v3.1.x is supported from VCD v10.3.1 or above, make sure your VCD appliance matches the criteria.
+* CSE v3.1.x is supported from Vcloud v10.3.1 or above, make sure your Vcloud appliance matches the criteria.
 * Terraform provider needs to be v3.8.0 or above.
 * All CSE elements use NSX-T backed resources, NSX-V **is not** is supported.
-* Some steps require the usage of `cse` extension for `vcd` CLI. Make sure you have them installed and working.
-  Go [here](http://vmware.github.io/vcd-cli/install.html) for `vcd` CLI installation,
+* Some steps require the usage of `cse` extension for `vcloud` CLI. Make sure you have them installed and working.
+  Go [here](http://vmware.github.io/vcloud-cli/install.html) for `vcloud` CLI installation,
   and [here](https://vmware.github.io/container-service-extension/cse3_0/INSTALLATION.html#getting_cse) to install `cse`.
 
 ## Installation process
 
 -> You can find examples of a fully automated CSE installation in the [Examples](#examples) section below.
 
-To start installing CSE v3.1.x in a VCD appliance, you must use **v3.7.0 or above** of the VCD Terraform Provider:
+To start installing CSE v3.1.x in a Vcloud appliance, you must use **v3.7.0 or above** of the Vcloud Terraform Provider:
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "administrator"
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -53,8 +53,8 @@ As you will be creating several administrator-scoped resources like Orgs, VDCs, 
 
 ### Step 1: Initialization
 
-This step assumes that you want to install CSE in a brand new [Organization](/providers/vmware/vcd/latest/docs/resources/org)
-with no [VDCs](/providers/vmware/vcd/latest/docs/resources/org_vdc), or that is a fresh installation of VCD.
+This step assumes that you want to install CSE in a brand new [Organization](/providers/vmware/vcloud/latest/docs/resources/org)
+with no [VDCs](/providers/vmware/vcloud/latest/docs/resources/org_vdc), or that is a fresh installation of Vcloud.
 Otherwise, please skip this step and configure `org` and `vdc` attributes in the provider configuration above or use an
 available data source to fetch them.
 
@@ -109,12 +109,12 @@ resource "vcloud_org_vdc" "cse_vdc" {
 
 For the Kubernetes clusters to be functional, you need to provide some networking resources to the target VDC:
 
-* [Tier-0 Gateway](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
-* [Edge Gateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway)
-* [Routed Network](/providers/vmware/vcd/latest/docs/resources/network_routed_v2)
-* [SNAT rule](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule)
+* [Tier-0 Gateway](/providers/vmware/vcloud/latest/docs/resources/external_network_v2)
+* [Edge Gateway](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway)
+* [Routed Network](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2)
+* [SNAT rule](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule)
 
-The [Tier-0 Gateway](/providers/vmware/vcd/latest/docs/resources/external_network_v2) will provide access to the
+The [Tier-0 Gateway](/providers/vmware/vcloud/latest/docs/resources/external_network_v2) will provide access to the
 outside world. For example, this will allow cluster users to communicate with Kubernetes API server with **kubectl** and
 download required dependencies for the cluster to be created correctly.
 
@@ -126,7 +126,7 @@ data "vcloud_nsxt_manager" "main" {
 }
 
 data "vcloud_nsxt_tier0_router" "router" {
-  name            = "VCD T0 edgeCluster"
+  name            = "Vcloud T0 edgeCluster"
   nsxt_manager_id = data.vcloud_nsxt_manager.main.id
 }
 
@@ -151,7 +151,7 @@ resource "vcloud_external_network_v2" "cse_external_network_nsxt" {
 }
 ```
 
-Create also an [Edge Gateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway) that will use the recently created
+Create also an [Edge Gateway](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway) that will use the recently created
 external network. This will act as the main router connecting our nodes in the internal network to the external (Provider Gateway) network:
 
 ```hcl
@@ -177,11 +177,11 @@ resource "vcloud_nsxt_edgegateway" "cse_egw" {
 ```
 
 The above resource creates a basic Edge Gateway, but you can of course add more configurations like
-[firewall rules](/providers/vmware/vcd/latest/docs/resources/nsxt_firewall)
+[firewall rules](/providers/vmware/vcloud/latest/docs/resources/nsxt_firewall)
 to fit with your organization requirements. Make sure that traffic is allowed, as the cluster creation process
 requires software to be installed in the nodes, otherwise cluster creation will fail.
 
-Create a [Routed Network](/providers/vmware/vcd/latest/docs/resources/network_routed_v2) that will be using the recently
+Create a [Routed Network](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2) that will be using the recently
 created Edge Gateway. This network is the one used by all the Kubernetes nodes in the cluster, so the used IP pool will determine
 the number of nodes you can have in the cluster.
 
@@ -207,7 +207,7 @@ resource "vcloud_network_routed_v2" "cse_routed" {
 ```
 
 To be able to reach the Kubernetes nodes within the routed network, you need also a
-[SNAT rule](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule):
+[SNAT rule](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule):
 
 ```hcl
 resource "vcloud_nsxt_nat_rule" "snat" {
@@ -229,22 +229,22 @@ resource "vcloud_nsxt_nat_rule" "snat" {
 Avi Load Balancers are required for CSE to be able to handle Kubernetes services and other internal capabilities.
 You need the following resources:
 
-* [ALB Controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller)
-* [ALB Cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
-* [ALB Service Engine Group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
-* [ALB Settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
-* [ALB Edge Gateway Service Engine Group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
-* [ALB Pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
-* [ALB Virtual Service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
+* [ALB Controller](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_controller)
+* [ALB Cloud](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_cloud)
+* [ALB Service Engine Group](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_service_engine_group)
+* [ALB Settings](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_settings)
+* [ALB Edge Gateway Service Engine Group](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
+* [ALB Pool](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_pool)
+* [ALB Virtual Service](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_virtual_service)
 
-You can have a look at [this guide](/providers/vmware/vcd/latest/docs/guides/nsxt_alb) as it explains every resource
-and provides some examples of how to set up ALB in VCD. You can also have a look at the "[Examples](#examples)" section below
+You can have a look at [this guide](/providers/vmware/vcloud/latest/docs/guides/nsxt_alb) as it explains every resource
+and provides some examples of how to set up ALB in Vcloud. You can also have a look at the "[Examples](#examples)" section below
 where the full ALB setup is provided.
 
 ### Step 4: Create a Service Account
 
 It is **recommended** using a user with CSE Service Role for CSE server management.
-The role comes with all the VCD rights that CSE needs to function:
+The role comes with all the Vcloud rights that CSE needs to function:
 
 ```hcl
 resource "vcloud_role" "cse-service-role" {
@@ -354,7 +354,7 @@ resource "vcloud_role" "cse-service-role" {
 }
 ```
 
-Once created, you can create a [User](/providers/vmware/vcd/latest/docs/resources/org_user) and use it, as this will provide
+Once created, you can create a [User](/providers/vmware/vcloud/latest/docs/resources/org_user) and use it, as this will provide
 more security and traceability to the CSE management operations, which is recommended:
 
 ```hcl
@@ -369,7 +369,7 @@ To use this user in the subsequent operations, you can configure a new provider 
 [alias](https://www.terraform.io/language/providers/configuration#alias-multiple-provider-configurations):
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   alias    = "cse-service-account"
   user     = vcloud_org_user.cse-service-account.name
   password = vcloud_org_user.cse-service-account.password
@@ -379,7 +379,7 @@ provider "vcd" {
 
 ### Step 5: Configure catalogs and OVAs
 
-You need to have a [Catalog](/providers/vmware/vcd/latest/docs/resources/catalog) for vApp Templates and upload the corresponding
+You need to have a [Catalog](/providers/vmware/vcloud/latest/docs/resources/catalog) for vApp Templates and upload the corresponding
 TKGm (Tanzu Kubernetes Grid) OVA files to be able to create Kubernetes clusters.
 
 ```hcl
@@ -404,7 +404,7 @@ resource "vcloud_catalog" "cat-cse" {
 ```
 
 Then you can upload TKGm OVAs to this catalog. These can be downloaded from **VMware Customer Connect**.
-To upload them, use the [Catalog Item](/providers/vmware/vcd/latest/docs/resources/catalog_item) resource with
+To upload them, use the [Catalog Item](/providers/vmware/vcloud/latest/docs/resources/catalog_item) resource with
 `metadata_entry`.
 
 ~> Only TKGm OVAs are supported. CSE is **not compatible** yet with PhotonOS
@@ -413,7 +413,7 @@ In the example below, the downloaded OVA corresponds to **TKGm v1.4.0** and uses
 
 ```hcl
 resource "vcloud_catalog_item" "tkgm_ova" {
-  provider = vcd.cse-service-account # Using CSE Service Account for this resource
+  provider = vcloud.cse-service-account # Using CSE Service Account for this resource
 
   org     = vcloud_org.cse_org.name
   catalog = vcloud_catalog.cat-cse.name
@@ -502,8 +502,8 @@ An example file is provided below, with all the information from the snippets sh
 mqtt:
   verify_ssl: false
  
-vcd:
-  host: my-vcd-dev.company.com
+vcloud:
+  host: my-vcloud-dev.company.com
   log: true
   password: "*****"
   port: 443
@@ -564,7 +564,7 @@ resource "null_resource" "cse-install-script" {
   provisioner "local-exec" {
     on_failure = continue # Ignores failures to allow re-creating the whole HCL after a destroy, as cse doesn't have an uninstall option.
     command = format("printf '%s' > config.yaml && chmod 0400 config.yaml && cse install -c config.yaml", templatefile("${path.module}/config.yaml.template", {
-      vcloud_url         = replace(replace(var.vcd-url, "/api", ""), "/http.*\\/\\//", "")
+      vcloud_url         = replace(replace(var.vcloud-url, "/api", ""), "/http.*\\/\\//", "")
       vcloud_username    = vcloud_org_user.cse-service-account.name # Using CSE Service Account
       vcloud_password    = vcloud_org_user.cse-service-account.password
       catalog         = vcloud_catalog.cat-cse.name
@@ -582,13 +582,13 @@ When using the HCL option, take into account the following important aspects:
 * `cse install` must run just once (in subsequent runs it should be `cse upgrade`), so a way to allowing Terraform to
   apply and destroy multiple times is to add `on_failure = continue` to the local-exec provisioner.
 * As a consequence, if `config.yaml` is wrong or the `cse` command is not present, `on_failure = continue` will make
-  Terraform continue on any failure. In this case, you'll see a failure in next steps, as `cse` installs several rights in VCD
+  Terraform continue on any failure. In this case, you'll see a failure in next steps, as `cse` installs several rights in Vcloud
   that are needed.
 
 ### Step 7: Rights and roles
 
-You need to publish a new [Rights Bundle](/providers/vmware/vcd/latest/docs/resources/rights_bundle) to your
-Organization with the new rights that `cse install` command created in VCD.
+You need to publish a new [Rights Bundle](/providers/vmware/vcloud/latest/docs/resources/rights_bundle) to your
+Organization with the new rights that `cse install` command created in Vcloud.
 The required new rights are listed in the example below. It creates a new bundle with a mix of the existent Default Rights Bundle rights and
 the new ones.
 
@@ -598,7 +598,7 @@ data "vcloud_rights_bundle" "default-rb" {
 }
 
 resource "vcloud_rights_bundle" "cse-rb" {
-  provider = vcd.cse-service-account # Using CSE Service Account for this resource
+  provider = vcloud.cse-service-account # Using CSE Service Account for this resource
 
   name        = "CSE Rights Bundle"
   description = "Rights bundle to manage CSE"
@@ -619,14 +619,14 @@ Notice that the next example is assigning the new rights provided by the new pub
 
 ```hcl
 data "vcloud_role" "vapp_author" {
-  provider = vcd.cse-service-account # Using CSE Service Account for this data source
+  provider = vcloud.cse-service-account # Using CSE Service Account for this data source
 
   org  = vcloud_org.cse_org.name
   name = "vApp Author"
 }
 
 resource "vcloud_role" "cluster_author" {
-  provider = vcd.cse-service-account # Using CSE Service Account for this resource
+  provider = vcloud.cse-service-account # Using CSE Service Account for this resource
 
   org         = vcloud_org.cse_org.name
   name        = "Cluster Author"
@@ -654,7 +654,7 @@ as above, create a clone. This is also recommended so doing `terraform destroy` 
 
 ```hcl
 data "vcloud_rights_bundle" "cse-native-cluster-entl" {
-  provider = vcd.cse-service-account # Using CSE Service Account for this data source
+  provider = vcloud.cse-service-account # Using CSE Service Account for this data source
 
   name = "cse:nativeCluster Entitlement"
 
@@ -662,7 +662,7 @@ data "vcloud_rights_bundle" "cse-native-cluster-entl" {
 }
 
 resource "vcloud_rights_bundle" "published-cse-rights-bundle" {
-  provider = vcd.cse-service-account # Using CSE Service Account for this resource
+  provider = vcloud.cse-service-account # Using CSE Service Account for this resource
 
   name                   = "cse:nativeCluster Entitlement Published"
   description            = data.vcloud_rights_bundle.cse-native-cluster-entl.description
@@ -675,16 +675,16 @@ resource "vcloud_rights_bundle" "published-cse-rights-bundle" {
 ### Final step
 
 After applying all the above resources successfully, make sure you publish the **Container UI Plugin** to the desired tenants.
-To do this, login in VCD as System administrator, click on "More" in the top bar, then "Customize Portal".
+To do this, login in Vcloud as System administrator, click on "More" in the top bar, then "Customize Portal".
 You will see a list of plugins, you need to publish **Container UI Plugin** to the target tenant.
 
 Finally, **run the CSE server** in your infrastructure, by executing `cse run -c config.yaml`. Take into account that server
 will start running indefinitely, so plan to execute this command in a dedicated place.
 
-The `cse run` command should fetch all resources and OVAs and allow the tenant users to provision Kubernetes clusters in VCD web UI.
+The `cse run` command should fetch all resources and OVAs and allow the tenant users to provision Kubernetes clusters in Vcloud web UI.
 If they have the required rights from the role created in previous step, they should now be able to see the "Kubernetes Container Clusters"
 option in the "More" option in the top bar.
 
 ## Examples
 
-There are available examples in the [GitHub repository](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension-3.1.x).
+There are available examples in the [GitHub repository](https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension-3.1.x).

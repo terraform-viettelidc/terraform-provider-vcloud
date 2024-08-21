@@ -1,17 +1,17 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm_placement_policy"
-sidebar_current: "docs-vcd-resource-vm-placement-policy"
+sidebar_current: "docs-vcloud-resource-vm-placement-policy"
 description: |-
   Provides a Viettel IDC Cloud VM Placement Policy resource. This can be
   used to create, modify, and delete VM Placement Policies.
 ---
 
-# vcd\_vm\_placement\_policy
+# vcloud\_vm\_placement\_policy
 
 Provides a Viettel IDC Cloud VM Placement Policy resource. This can be used to create, modify, and delete VM Placement Policy.
 
-Supported in provider *v3.8+* and requires VCD 10.2+
+Supported in provider *v3.8+* and requires Vcloud 10.2+
 
 -> **Note:** This resource requires system administrator privileges.
 
@@ -54,7 +54,7 @@ via supplying the full dot separated path to VM Placement Policy. An example is
 below:
 
 ```
-terraform import vcloud_vm_placement_policy.my-policy policy_name_in_vcd
+terraform import vcloud_vm_placement_policy.my-policy policy_name_in_vcloud
 ```
 or using IDs:
 ```

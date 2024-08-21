@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcp_forwarding"
-sidebar_current: "docs-vcd-data-source-nsxt-edge-dhcp-forwarding"
+sidebar_current: "docs-vcloud-data-source-nsxt-edge-dhcp-forwarding"
 description: |-
   Provides a data source to manage NSX-T Edge Gateway DHCP forwarding configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_dhcp\_forwarding
+# vcloud\_nsxt\_edgegateway\_dhcp\_forwarding
 
-Supported in provider *v3.10+* and VCD 10.3.1+ with NSX-T.
+Supported in provider *v3.10+* and Vcloud 10.3.1+ with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway DHCP forwarding configuration.
 
@@ -44,5 +44,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_edgegateway_dhcp_forwarding`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_dhcp_forwarding)
+[`vcloud_nsxt_edgegateway_dhcp_forwarding`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_dhcp_forwarding)
 resource are available.

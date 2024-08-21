@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcpv6"
-sidebar_current: "docs-vcd-resource-nsxt-edge-dhcpv6"
+sidebar_current: "docs-vcloud-resource-nsxt-edge-dhcpv6"
 description: |-
   Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.
 ---
 
-# vcd\_nsxt\_edgegateway\_dhcpv6
+# vcloud\_nsxt\_edgegateway\_dhcpv6
 
 Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.
 

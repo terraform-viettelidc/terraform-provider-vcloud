@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_rights_bundle"
-sidebar_current: "docs-vcd-resource-rights-bundle"
+sidebar_current: "docs-vcloud-resource-rights-bundle"
 description: |-
  Provides a Viettel IDC Cloud rights bundle. This can be used to create, modify, and delete rights bundles.
 ---
 
-# vcd\_rights\_bundle
+# vcloud\_rights\_bundle
 
 Provides a Viettel IDC Cloud rights bundle. This can be used to create, modify, and delete rights bundles.
 
@@ -79,5 +79,5 @@ at this stage will show the difference between the minimal configuration file an
 
 ## More information
 
-See [Roles management](/providers/vmware/vcd/latest/docs/guides/roles_management) for a broader description of how rights bundles and
+See [Roles management](/providers/vmware/vcloud/latest/docs/guides/roles_management) for a broader description of how rights bundles and
 rights work together.

@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_ipsec_vpn_tunnel"
-sidebar_current: "docs-vcd-data-source-nsxt-ipsec-vpn-tunnel"
+sidebar_current: "docs-vcloud-data-source-nsxt-ipsec-vpn-tunnel"
 description: |-
   Provides a data source to read NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data
   Center Edge Gateway and remote sites. The remote sites must use NSX-T Data Center, have third-party hardware routers,
   or VPN gateways that support IPSec.
 ---
 
-# vcd\_nsxt\_ipsec\_vpn\_tunnel
+# vcloud\_nsxt\_ipsec\_vpn\_tunnel
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and Vcloud 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to read NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data
 Center Edge Gateway and remote sites. The remote sites must use NSX-T Data Center, have third-party hardware routers,
@@ -41,4 +41,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_ipsec_vpn_tunnel`](/providers/vmware/vcd/latest/docs/resources/nsxt_ipsec_vpn_tunnel) resource are available.
+[`vcloud_nsxt_ipsec_vpn_tunnel`](/providers/vmware/vcloud/latest/docs/resources/nsxt_ipsec_vpn_tunnel) resource are available.

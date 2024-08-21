@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: Container Service Extension v4.1 Kubernetes clusters management"
-sidebar_current: "docs-vcd-guides-cse-4-x-cluster-management"
+sidebar_current: "docs-vcloud-guides-cse-4-x-cluster-management"
 description: |-
   Provides guidance on provisioning Kubernetes clusters using Container Service Extension v4.1
 ---
@@ -9,13 +9,13 @@ description: |-
 # Container Service Extension v4.1 Kubernetes clusters management
 
 ~> **This guide is DEPRECATED since v3.12+**. You should use the resource
-[`vcloud_cse_kubernetes_cluster`](/providers/vmware/vcd/latest/docs/resources/cse_kubernetes_cluster)
-to provision and manage Kubernetes clusters in a VCD appliance where Container Service Extension is installed
+[`vcloud_cse_kubernetes_cluster`](/providers/vmware/vcloud/latest/docs/resources/cse_kubernetes_cluster)
+to provision and manage Kubernetes clusters in a Vcloud appliance where Container Service Extension is installed
 and running.
 
 ## About
 
-This guide explains how to create, update and delete **Tanzu Kubernetes Grid multicloud (TKGm)** clusters in a VCD appliance with Container Service Extension v4.1
+This guide explains how to create, update and delete **Tanzu Kubernetes Grid multicloud (TKGm)** clusters in a Vcloud appliance with Container Service Extension v4.1
 installed, using Terraform.
 
 We will use the Runtime Defined Entity (RDE) resource [`vcloud_rde`][rde] for this purpose.
@@ -51,7 +51,7 @@ The [`vcloud_rde`][rde] argument `input_entity` is taking the output of the Terr
 a JSON template that is located at [here][tkgmcluster_template]. This function will set the correct values to the following
 placeholders that can be found in that file:
 
-* `vcloud_url`: The VCD URL, the same that was used during CSE installation.
+* `vcloud_url`: The Vcloud URL, the same that was used during CSE installation.
 * `name`: This will be the TKGm cluster name. It must contain only lowercase alphanumeric characters or '-',
   start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters.
 * `org`: The Organization in which the TKGm clusters will be created. In this guide it was created as `tenant_org` and named
@@ -60,7 +60,7 @@ placeholders that can be found in that file:
   "Tenant VDC" during CSE installation phase.
 * `api_token`: The API token that corresponds to the user that will create the cluster. This is created with a [`vcloud_api_token`][api_token] resource.
   One can customise the path to the JSON file where the API token is stored using `cluster_author_token_file` variable.
-* `capi_yaml`: This must be set with a valid CAPVCD YAML, that is explained below.
+* `capi_yaml`: This must be set with a valid CAPVcloud YAML, that is explained below.
 * `delete`: This is used to delete a cluster. See ["Deleting a Kubernetes cluster"](#deleting-a-kubernetes-cluster) section for more info.
   During creation, it should be always `false`.
 * `force_delete`: This is used to forcefully delete a cluster. See ["Deleting a Kubernetes cluster"](#deleting-a-kubernetes-cluster) section for more info.
@@ -76,10 +76,10 @@ If this is not needed, please remove the whole `defaultStorageClassOptions` bloc
 * `default_storage_class_storage_profile`: Storage profile to use for the default storage class, for example `*`.
 * `default_storage_class_delete_reclaim_policy`: Set this to `true` to use a "Delete" reclaim policy, that deletes the volume when the PersistentVolumeClaim is deleted.
 
-To create a valid input for the `capi_yaml` placeholder, a [CAPVCD][capvcd] YAML is required, which describes the TKGm cluster to be
+To create a valid input for the `capi_yaml` placeholder, a [CAPVcloud][capvcloud] YAML is required, which describes the TKGm cluster to be
 created. In order to craft it, we need to follow these steps:
 
-* First, we need to download a YAML template from the [CAPVCD repository][capvcloud_templates].
+* First, we need to download a YAML template from the [CAPVcloud repository][capvcloud_templates].
   We should choose the template that matches the TKGm OVA. For example, if we uploaded the `ubuntu-2004-kube-v1.25.7+vmware.2-tkg.1-8a74b9f12e488c54605b3537acb683bc.ova`
   and we want to use it, the template that we need to obtain corresponds to v1.25.7, that is `cluster-template-v1.25.7.yaml`.
 
@@ -153,7 +153,7 @@ spec:
 ---
 ```
 
-* To use a Control Plane IP and/or a Virtual IP Subnet, you must add the following snippets to the kind `VCDCluster` spec section. The [proposed example][cluster]
+* To use a Control Plane IP and/or a Virtual IP Subnet, you must add the following snippets to the kind `VcloudCluster` spec section. The [proposed example][cluster]
   is not using this feature, so you must add a correct value for the `CONTROL_PLANE_IP` and/or `VIRTUAL_IP_SUBNET` placeholders:
 
 ```yaml
@@ -167,13 +167,13 @@ spec:
 ```
 
 * The downloaded template has a single worker pool (to see an example with **two** worker pools, please check the [proposed example][cluster]).
-  If we need to have **more than one worker pool**, we have to add more objects of kind `VCDMachineTemplate`, `KubeadmConfigTemplate` and
+  If we need to have **more than one worker pool**, we have to add more objects of kind `VcloudMachineTemplate`, `KubeadmConfigTemplate` and
   `MachineDeployment`. In the downloaded template, they look like this:
 
 ```yaml
 # ...
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
-kind: VCDMachineTemplate
+kind: VcloudMachineTemplate
 metadata:
   name: ${CLUSTER_NAME}-md-0
 # ...
@@ -204,7 +204,7 @@ Below is the explanation of each one of them. See also [the working example][clu
 start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters.
 * `TARGET_NAMESPACE`: This will be the TKGm cluster namespace. In [the example][cluster] the value is
 `"${var.k8s_cluster_name}-ns"`, which mimics the UI behaviour, as the namespace is the name of the TKGm cluster concatenated with `-ns`.
-* `vcloud_SITE`: The VCD URL, the same that was used during CSE installation.
+* `vcloud_SITE`: The Vcloud URL, the same that was used during CSE installation.
 * `vcloud_ORGANIZATION`: The Organization in which the TKGm clusters will be created. In this guide it was created as `tenant_org` and named
 "Tenant Organization" during CSE installation phase.
 * `vcloud_ORGANIZATION_VDC`: The VDC in which the TKGm clusters will be created. In this guide it was created as `tenant_vdc` and named
@@ -217,7 +217,7 @@ It must be encoded in Base64.
   It must be encoded in Base64. Please do **not** use this value (by setting it to `""`) and use `vcloud_REFRESH_TOKEN_B64` instead.
 * `vcloud_REFRESH_TOKEN_B64`: An API token that belongs to the user above. In UI, the API tokens can be generated in the user preferences
   in the top right, then go to the API tokens section, add a new one. Or we can visit `/tenant/<TENANT-NAME>/administration/settings/user-preferences`
-  in the target VCD, logged in as the cluster author user in the desired tenant. It must be encoded in Base64.
+  in the target Vcloud, logged in as the cluster author user in the desired tenant. It must be encoded in Base64.
 * `SSH_PUBLIC_KEY`: We can set a public SSH key to be able to debug the TKGm control plane nodes. It can be empty (`""`)
 * `CONTROL_PLANE_MACHINE_COUNT`: Number of control plane nodes (VMs). **Must be an odd number and higher than 0**.
 * `vcloud_CONTROL_PLANE_SIZING_POLICY`: Name of an existing VM Sizing Policy, created during CSE installation. Can be empty to use the VDC default (`""`)
@@ -234,7 +234,7 @@ It must be encoded in Base64.
 * `POD_CIDR`: The CIDR used for Pod networking, for example `"100.96.0.0/11"`.
 * `SERVICE_CIDR`: The CIDR used for Service networking, for example `"100.64.0.0/13"`.
 
-There are some extra variables that are obtained from the `VCDKEConfig` RDE that was created during CSE installation.
+There are some extra variables that are obtained from the `VcloudKEConfig` RDE that was created during CSE installation.
 In the [proposed example][cluster] they are read with a `vcloud_rde` data source:
 
 * `NODE_STARTUP_TIMEOUT`: A node will be considered unhealthy and remediated if joining the cluster takes longer than this timeout (seconds, defaults to 900 in the sample configuration).
@@ -242,7 +242,7 @@ In the [proposed example][cluster] they are read with a `vcloud_rde` data source
 * `NODE_UNKNOWN_TIMEOUT`: A healthy node will be considered unhealthy and remediated if it is unreachable for longer than this timeout (seconds, defaults to 300 in the sample configuration).
 * `MAX_UNHEALTHY_NODE_PERCENTAGE`: Remediation will be suspended when the number of unhealthy nodes exceeds this percentage.
   (100% means that unhealthy nodes will always be remediated, while 0% means that unhealthy nodes will never be remediated). Defaults to 100 in the sample configuration.
-* `CONTAINER_REGISTRY_URL`: URL from where TKG clusters will fetch container images, useful for VCD appliances that are completely isolated from Internet. Defaults to "projects.registry.vmware.com" in the sample configuration.
+* `CONTAINER_REGISTRY_URL`: URL from where TKG clusters will fetch container images, useful for Vcloud appliances that are completely isolated from Internet. Defaults to "projects.registry.vmware.com" in the sample configuration.
 
 There are two additional variables that we added manually: `TKR_VERSION` and `TKGVERSION`.
 To know their values, one can use [this script](https://github.com/vmware/cluster-api-provider-cloud-director/blob/main/docs/WORKLOAD_CLUSTER.md#script-to-get-kubernetes-etcd-coredns-versions-from-tkg-ova),
@@ -258,14 +258,14 @@ or check the following table with some script outputs:
 | v1.22.17+vmware.1-tkg.1-df08b304658a6cf17f5e74dc0ab7543c | v1.22.17---vmware.1-tkg.1 | v2.1.1     |
 
 The final two variables are optional, `CONTROL_PLANE_IP` and `VIRTUAL_IP_SUBNET`.
-If one decided to add the Control Plane IP and the Virtual IP Subnet to the `kind: VCDCluster` block in the CAPVCD YAML
+If one decided to add the Control Plane IP and the Virtual IP Subnet to the `kind: VcloudCluster` block in the CAPVcloud YAML
 that was explained above, then these will be mandatory and must be set with a valid IP and CIDR respectively.
 
 In [the TKGm cluster creation example][cluster], the built-in Terraform function `templatefile` is used to substitute every placeholder
-mentioned above with its final value. The returned value is the CAPVCD YAML payload that needs to be set in the `capi_yaml` placeholder in the
+mentioned above with its final value. The returned value is the CAPVcloud YAML payload that needs to be set in the `capi_yaml` placeholder in the
 JSON template.
 
-~> Notice that we need to use the Terraform built-in function `jsonencode` with the final CAPVCD YAML payload, so all 
+~> Notice that we need to use the Terraform built-in function `jsonencode` with the final CAPVcloud YAML payload, so all 
 special characters are correctly escaped in the payload. This is also done in [the mentioned example][cluster].
 
 When we have set all the required values, a `terraform apply` should trigger a TKGm cluster creation. The operation is asynchronous, meaning that
@@ -279,12 +279,12 @@ locals {
 
 # Outputs the TKGm Cluster creation status
 output "computed_k8s_cluster_status" {
-  value = local.has_status ? local.k8s_cluster_computed["status"]["vcdKe"]["state"] : null
+  value = local.has_status ? local.k8s_cluster_computed["status"]["vcloudKe"]["state"] : null
 }
 
 # Outputs the TKGm Cluster creation events
 output "computed_k8s_cluster_events" {
-  value = local.has_status ? local.k8s_cluster_computed["status"]["vcdKe"]["eventSet"] : null
+  value = local.has_status ? local.k8s_cluster_computed["status"]["vcloudKe"]["eventSet"] : null
 }
 
 ```
@@ -296,11 +296,11 @@ the following snippet to the existing configuration:
 ```hcl
 data "vcloud_rde_behavior_invocation" "get_kubeconfig" {
   rde_id      = vcloud_rde.k8s_cluster_instance.id
-  behavior_id = "urn:vcloud:behavior-interface:getFullEntity:cse:capvcd:1.0.0"
+  behavior_id = "urn:vcloud:behavior-interface:getFullEntity:cse:capvcloud:1.0.0"
 }
 
 output "kubeconfig" {
-  value = jsondecode(data.vcloud_rde_behavior_invocation.get_kubeconfig.result)["entity"]["status"]["capvcd"]["private"]["kubeConfig"]
+  value = jsondecode(data.vcloud_rde_behavior_invocation.get_kubeconfig.result)["entity"]["status"]["capvcloud"]["private"]["kubeConfig"]
 }
 ```
 
@@ -346,14 +346,14 @@ This file should look like this once updated:
 
 ```
 {
-  "apiVersion": "capvcd.vmware.com/v1.1",
-  "kind": "CAPVCDCluster",
+  "apiVersion": "capvcloud.vmware.com/v1.1",
+  "kind": "CAPVcloudCluster",
   "name": "${name}",
   "metadata": {
      ...omitted
   },
   "spec": {
-    "vcdKe": {
+    "vcloudKe": {
       ...omitted
     },
     "capiYaml": ${capi_yaml}
@@ -375,18 +375,18 @@ Upgradeable items:
 To upgrade a cluster from CSE v4.0 to v4.1, first of all you need to change the RDE Type that the TKGm cluster `vcloud_rde` uses:
 
 ```
-rde_type_id = data.vcloud_rde_type.capvcdcluster_type_v1_2_0.id # This must reference the CAPVCD RDE Type v1.2.0
+rde_type_id = data.vcloud_rde_type.capvcloudcluster_type_v1_2_0.id # This must reference the CAPVcloud RDE Type v1.2.0
 ```
 
 Then, before updating, please revisit the ["Creating a Kubernetes cluster"](#creating-a-kubernetes-cluster) and
 ["Updating a Kubernetes cluster"](#updating-a-kubernetes-cluster) sections, to be sure that you consider the new features
-and requirements of v4.1 that need to be included in the CAPVCD YAML:
+and requirements of v4.1 that need to be included in the CAPVcloud YAML:
 
 * Adding the `MachineHealthCheck` section to the cluster template YAML to use CSE v4.1 health checking capabilities.
 * Adding the needed `preKubeadmCommands` sections to the cluster template YAML.
 * Updating to a supported TKGm OVA (see the table above with the supported versions).
 
-With the new CAPVCD YAML, you need to get the actual cluster state from the `vcloud_rde` `computed_entity` attribute and
+With the new CAPVcloud YAML, you need to get the actual cluster state from the `vcloud_rde` `computed_entity` attribute and
 create a new value for the input `entity` argument. Follow the steps mentioned in ["Updating a Kubernetes cluster"](#updating-a-kubernetes-cluster).
 
 ## Deleting a Kubernetes cluster
@@ -396,26 +396,26 @@ when the TKGm cluster is created, such as vApps, networks, virtual services, etc
 this section to destroy a cluster entirely.
 
 To delete an existing TKGm cluster, one needs to mark it for deletion in the `vcloud_rde` resource. In the [example configuration][cluster],
-there are two keys `delete` and `force_delete` that correspond to the CAPVCD [RDE Type][rde_type] schema fields `markForDelete`
+there are two keys `delete` and `force_delete` that correspond to the CAPVcloud [RDE Type][rde_type] schema fields `markForDelete`
 and `forceDelete` respectively.
 
-* Setting `delete = true` will make the CSE Server remove the cluster from VCD and eventually the RDE.
+* Setting `delete = true` will make the CSE Server remove the cluster from Vcloud and eventually the RDE.
 * Setting also `force_delete = true` will force the CSE Server to delete the cluster, and their associated resources
   that are not fully complete and that are in an unremovable state.
 
 Follow the instructions described in ["Updating a Kubernetes cluster"](#updating-a-kubernetes-cluster) to learn how to perform
 the update of these two properties.
 
-Once updated, one can monitor the `vcloud_rde` resource to check the deletion process. Eventually, the RDE won't exist anymore in VCD and Terraform will
+Once updated, one can monitor the `vcloud_rde` resource to check the deletion process. Eventually, the RDE won't exist anymore in Vcloud and Terraform will
 ask for creation again. It can be now removed from the HCL configuration.
 
-[api_token]: /providers/vmware/vcd/latest/docs/resources/api_token
-[capvcd]: https://github.com/vmware/cluster-api-provider-cloud-director
+[api_token]: /providers/vmware/vcloud/latest/docs/resources/api_token
+[capvcloud]: https://github.com/vmware/cluster-api-provider-cloud-director
 [capvcloud_templates]: https://github.com/vmware/cluster-api-provider-cloud-director/tree/main/templates
-[cluster]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/cluster
-[cse_install_guide]: /providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install
+[cluster]: https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.1/cluster
+[cse_install_guide]: /providers/vmware/vcloud/latest/docs/guides/container_service_extension_4_x_install
 [cse_docs]: https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/index.html
-[rde]: /providers/vmware/vcd/latest/docs/resources/rde
-[rde_input_vs_computed]: /providers/vmware/vcd/latest/docs/resources/rde#input-entity-vs-computed-entity
-[rde_type]: /providers/vmware/vcd/latest/docs/resources/rde_type
-[tkgmcluster_template]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/entities/tkgmcluster.json.template
+[rde]: /providers/vmware/vcloud/latest/docs/resources/rde
+[rde_input_vs_computed]: /providers/vmware/vcloud/latest/docs/resources/rde#input-entity-vs-computed-entity
+[rde_type]: /providers/vmware/vcloud/latest/docs/resources/rde_type
+[tkgmcluster_template]: https://github.com/vmware/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.1/entities/tkgmcluster.json.template

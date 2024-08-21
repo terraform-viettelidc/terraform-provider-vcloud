@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_solution_landing_zone"
-sidebar_current: "docs-vcd-resource-solution-landing-zone"
+sidebar_current: "docs-vcloud-resource-solution-landing-zone"
 description: |-
-  Provides a resource to configure VCD Solution Add-on Landing Zone
+  Provides a resource to configure Vcloud Solution Add-on Landing Zone
 ---
 
-# vcd\_solution\_landing\_zone
+# vcloud\_solution\_landing\_zone
 
-Supported in provider *v3.13+* and VCD 10.4.1+.
+Supported in provider *v3.13+* and Vcloud 10.4.1+.
 
-Provides a resource to configure VCD Solution Add-on Landing Zone.
+Provides a resource to configure Vcloud Solution Add-on Landing Zone.
 
-~> Only `System Administrator` can create this resource and there can *be only one resource per VCD*.
+~> Only `System Administrator` can create this resource and there can *be only one resource per Vcloud*.
 
 ## Example Solution Landing Zone configuration
 
@@ -101,7 +101,7 @@ The following arguments are supported:
 The following attributes are exported on this resource:
 
 * `state` - reports the state of parent [Runtime Defined
-  Entity](/providers/vmware/vcd/latest/docs/resources/rde)
+  Entity](/providers/vmware/vcloud/latest/docs/resources/rde)
 
 ## Importing
 

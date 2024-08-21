@@ -1,7 +1,7 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Provider: Viettel IDC Cloud"
-sidebar_current: "docs-vcd-index"
+sidebar_current: "docs-vcloud-index"
 description: |-
   The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 ---
@@ -11,14 +11,14 @@ description: |-
 The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 
 Use the navigation to the left to read about the available resources. Please refer to
-[CHANGELOG.md](https://github.com/vmware/terraform-provider-vcd/blob/main/CHANGELOG.md)
+[CHANGELOG.md](https://github.com/vmware/terraform-provider-vcloud/blob/main/CHANGELOG.md)
 to track feature additions.
 
 ~> **NOTE:** The Viettel IDC Cloud Provider documentation pages include *v2.x+* or *v3.x+* labels in resource and/or field
 descriptions. These labels are designed to show at which provider version a certain feature was introduced.
 When upgrading the provider please check for such labels for the resources you are using.
 
-## Supported VCD Versions
+## Supported Vcloud Versions
 
 The following Cloud Director versions are supported by this provider:
 
@@ -33,7 +33,7 @@ The most common - tenant - use case when you set user to organization administra
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user                 = var.vcloud_user
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -56,7 +56,7 @@ When you want to manage resources across different organizations from a single c
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user                 = "administrator"
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -89,7 +89,7 @@ When you want to manage resources across different organizations but set a defau
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user                 = "administrator"
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -120,7 +120,7 @@ resource "vcloud_network_routed" "net2" {
 You can connect using an authorization token instead of username and password.
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "none"
   password             = "none"
   auth_type            = "token"
@@ -142,14 +142,14 @@ When using a token, the fields `user` and `password` will be ignored, but they n
 
 ## Connecting with an API token/API token file
 
-With VCD 10.3.1+, you can connect using an API token, as defined in the [documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html).
+With Vcloud 10.3.1+, you can connect using an API token, as defined in the [documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html).
 The API token is not a bearer token, but one will be created and automatically used by the Terraform provider when an API
 token is supplied. You can create an API token file by utilizing the [`vcloud_api_token`][api-token] resource.
 
 #### Example usage (API token)
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "none"
   password             = "none"
   auth_type            = "api_token"
@@ -171,7 +171,7 @@ resource "vcloud_network_routed" "net1" {
 #### Example usage (API token file)
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "none"
   password             = "none"
   auth_type            = "api_token_file"
@@ -200,7 +200,7 @@ Note that when connecting with API tokens you can't create or modify users, role
 
 ## Connecting with a Service Account API token
 
-With VCD 10.4.0+, similar to API token file, you can connect using a service account API token, as 
+With Vcloud 10.4.0+, similar to API token file, you can connect using a service account API token, as 
 defined in the 
 [documentation](https://blogs.vmware.com/cloudprovider/2022/07/cloud-director-service-accounts.html). 
 Because a new API token is provided on every authentication request, 
@@ -225,11 +225,11 @@ The API token file is **sensitive data** and it's up to the user to secure it.
 it's up to the user to provide the initial API token. A service account 
 can be created using the [`service_account`][service-account] resource, 
 also it can be done using a sample shell script for creating, authorizing 
-and activating a VCD Service Account can be found in the 
+and activating a Vcloud Service Account can be found in the 
 [repository][service-account-script]
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   auth_type                  = "service_account_token_file"
   service_account_token_file = "token.json"
   sysorg                     = "System"
@@ -283,7 +283,7 @@ The string after `X-VMWARE-VCLOUD-ACCESS-TOKEN` is the bearer token
 ```
 
 Either token will grant the same abilities as the account used to run the above script. Note, however, that the deprecated
-token may not work in recent VCD versions.
+token may not work in recent Vcloud versions.
 
 Using a token produced by an org admin to run a task that requires a system administrator will fail.
 
@@ -293,12 +293,12 @@ Take special attention to `user`, `use_saml_adfs` and `saml_rpt_id` fields.
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user      = "test@contoso.com"
   password  = var.vcloud_pass
   sysorg    = "my-org"
   auth_type = "saml_adfs"
-  # If `saml_adfs_rpt_id` is not specified - VCD SAML Entity ID will be used automatically
+  # If `saml_adfs_rpt_id` is not specified - Vcloud SAML Entity ID will be used automatically
   saml_adfs_rpt_id     = "my-custom-rpt-id"
   org                  = var.vcloud_org # Default for resources
   vdc                  = var.vcloud_vdc # Default for resources
@@ -323,7 +323,7 @@ The following arguments are used to configure the Viettel IDC Cloud Provider:
 
 * `auth_type` - (Optional) `integrated`, `token`, `api_token`, `service_account_token_file` or `saml_adfs`. 
   Default is `integrated`. Can also be set with `vcloud_AUTH_TYPE` environment variable. 
-  * `integrated` - VCD local users and LDAP users (provided LDAP is configured for Organization).
+  * `integrated` - Vcloud local users and LDAP users (provided LDAP is configured for Organization).
   * `saml_adfs` allows to use SAML login flow with Active Directory Federation
   Services (ADFS) using "/adfs/services/trust/13/usernamemixed" endpoint. Please note that
   credentials for ADFS should be formatted as `user@contoso.com` or `contoso.com\user`. 
@@ -342,23 +342,23 @@ The following arguments are used to configure the Viettel IDC Cloud Provider:
 * `api_token` - (Optional; *v3.5+*) This is the API token that a System or organization administrator can create and 
    distribute to users. It is used instead of username and password (in combination with `auth_type=api_token`). When
    this field is filled, username and password are ignored. An API token can also be specified with the `vcloud_API_TOKEN`
-   environment variable. This token requires at least VCD 10.3.1. There are restrictions to its use, as defined in
+   environment variable. This token requires at least Vcloud 10.3.1. There are restrictions to its use, as defined in
    [the documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html)
 
 * `api_token_file` - (Optional; *v3.10+*)) Same as `api_token`, only provided 
    as a JSON file. Can also be specified with the `vcloud_API_TOKEN_FILE` environment variable.
  
-* `service_account_token_file` - (Optional; *v3.9+, VCD 10.4+*) This is the file that contains a Service Account API token. The
+* `service_account_token_file` - (Optional; *v3.9+, Vcloud 10.4+*) This is the file that contains a Service Account API token. The
    path to the file could be provided as absolute or relative to the working directory. It is used instead of username
    and password (in combination with `auth_type=service_account_token_file`. The file can also be specified with the 
    `vcloud_SA_TOKEN_FILE` environment variable. There are restrictions to its use, as defined in 
    [the documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-8CD3C8BE-3187-4769-B960-3E3315492C16.html)
 
-* `allow_service_account_token_file` - (Optional; *v3.9+, VCD 10.4+*) When using `auth_type=service_account_token_file`,
+* `allow_service_account_token_file` - (Optional; *v3.9+, Vcloud 10.4+*) When using `auth_type=service_account_token_file`,
   if set to `true`, will suppress a warning to the user about the service account token file containing *sensitive information*.
   Can also be set with `vcloud_ALLOW_SA_TOKEN_FILE`.
 
-* `saml_adfs_rpt_id` - (Optional) When using `auth_type=saml_adfs` VCD SAML entity ID will be used
+* `saml_adfs_rpt_id` - (Optional) When using `auth_type=saml_adfs` Vcloud SAML entity ID will be used
   as Relaying Party Trust Identifier (RPT ID) by default. If a different RPT ID is needed - one can
   set it using this field. It can also be set with `vcloud_SAML_ADFS_RPT_ID` environment variable.
 
@@ -423,7 +423,7 @@ by an external actor, or after they were created by Terraform.
 it. In other words, to ignore metadata when the deprecated `metadata` argument is used, please use the native Terraform `lifecycle.ignore_changes` block.
 
 ~> Be aware that setting a `metadata_entry` in the Terraform configuration that matches any `ignore_metadata_changes` can produce inconsistent
-results, as the metadata will be stored in state but nothing will be done in VCD. Using `ignore_metadata_changes` with matching metadata entries
+results, as the metadata will be stored in state but nothing will be done in Vcloud. Using `ignore_metadata_changes` with matching metadata entries
 in the code is NOT recommended. In the event that it contains such conflict, though, the ensuing action can be controlled with
 `conflict_action`, which can be `error`, `warn` or `none`.
 
@@ -433,12 +433,12 @@ The available sub-attributes for `ignore_metadata_changes` are:
   *"vcloud_catalog"*, *"vcloud_catalog_item"*, *"vcloud_catalog_media"*, *"vcloud_catalog_vapp_template"*, *"vcloud_independent_disk"*, *"vcloud_network_direct"*,
   *"vcloud_network_isolated"*, *"vcloud_network_isolated_v2"*, *"vcloud_network_routed"*, *"vcloud_network_routed_v2"*, *"vcloud_org"*, *"vcloud_org_vdc"*, *"vcloud_provider_vdc"*,
   *"vcloud_rde" (v3.11+)*, *"vcloud_storage_profile"*, *"vcloud_vapp"*, *"vcloud_vapp_vm"* or *"vcloud_vm"*, which are the resources compatible with `metadata_entry`.
-* `resource_name`- (Optional) Specifies the name of the entity in VCD which metadata needs to be ignored. This attribute can be used with
+* `resource_name`- (Optional) Specifies the name of the entity in Vcloud which metadata needs to be ignored. This attribute can be used with
    any kind of `resource_type`, except for *vcloud_storage_profile* which **cannot be filtered by name**.
 * `key_regex`- (Optional) A regular expression that can filter out metadata keys that match. Either `key_regex` or `value_regex` are required on each block. 
 * `value_regex`- (Optional) A regular expression that can filter out metadata values that match. Either `key_regex` or `value_regex` are required on each block.
 * `conflict_action` - (Optional) Defines what to do if a conflict exists between a `metadata_entry` that is managed
-  by Terraform, and it matches the criteria defined in the `ignore_metadata_changes` block, as the metadata will be stored in state but nothing will be done in VCD.
+  by Terraform, and it matches the criteria defined in the `ignore_metadata_changes` block, as the metadata will be stored in state but nothing will be done in Vcloud.
   If the value is `error`, when this happens, any read operation (like a Plan or Refresh) will fail. When the value is `warn`, it will just give a warning but the operation will continue,
   and with the `none` value nothing will be shown. Defaults to `error`.
 
@@ -449,7 +449,7 @@ Note that these attributes **are evaluated as a logical `and`**. This means that
 that belong to the specific Organization named "client1" **and** which keys match the regular expression `[Ee]nvironment`:
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   # ...
   ignore_metadata_changes {
     resource_type = "vcloud_org"
@@ -465,15 +465,15 @@ provider "vcd" {
 We can have more than one block, to ignore more entries:
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   # ...
 
-  # Filters all metadata with key "Environment" or "environment" in all VCD objects with any name.
+  # Filters all metadata with key "Environment" or "environment" in all Vcloud objects with any name.
   ignore_metadata_changes {
     key_regex = "^[Ee]nvironment$"
   }
 
-  # Filters all metadata with key "NiceMetadataKey" in all VCD objects named "SpecificName".
+  # Filters all metadata with key "NiceMetadataKey" in all Vcloud objects named "SpecificName".
   ignore_metadata_changes {
     resource_name = "SpecificName"
     key_regex     = "^NiceMetadataKey$"
@@ -504,7 +504,7 @@ resource "vcloud_org" "my_org" {
 }
 ```
 
-Note that this argument **does not affect metadata of the [data source filters](/providers/vmware/vcd/latest/docs/guides/data_source_filters)**.
+Note that this argument **does not affect metadata of the [data source filters](/providers/vmware/vcloud/latest/docs/guides/data_source_filters)**.
 
 ## Connection Cache (*2.0+*)
 
@@ -513,7 +513,7 @@ multiple connections. There is a cache engine, disabled by default, which can be
 environment variable. When enabled, the provider will not reconnect, but reuse an active connection for up to 20 
 minutes, and then connect again.
 
-[service-account]: /providers/vmware/vcd/latest/docs/resources/service_account
-[service-account-script]: https://github.com/vmware/terraform-provider-vcd/blob/main/scripts/create_service_account.sh
-[api-token]: /providers/vmware/vcd/latest/docs/resource/api_token
+[service-account]: /providers/vmware/vcloud/latest/docs/resources/service_account
+[service-account-script]: https://github.com/vmware/terraform-provider-vcloud/blob/main/scripts/create_service_account.sh
+[api-token]: /providers/vmware/vcloud/latest/docs/resource/api_token
 

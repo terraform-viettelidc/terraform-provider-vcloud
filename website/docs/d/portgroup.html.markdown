@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_portgroup"
-sidebar_current: "docs-vcd-data-source-portgroup"
+sidebar_current: "docs-vcloud-data-source-portgroup"
 description: |-
   Provides a data source for available vCenter Port Groups.
 ---
 
-# vcd\_portgroup
+# vcloud\_portgroup
 
 Provides a data source for available vCenter Port Groups.
 

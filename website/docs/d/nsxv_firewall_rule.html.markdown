@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_firewall_rule"
-sidebar_current: "docs-vcd-data-source-nsxv-firewall-rule"
+sidebar_current: "docs-vcloud-data-source-nsxv-firewall-rule"
 description: |-
   Provides a Viettel IDC Cloud firewall rule data source for advanced edge gateways (NSX-V). This can
   be used to read existing rules by ID and use its attributes in other resources.
 ---
 
-# vcd\_nsxv\_firewall\_rule
+# vcloud\_nsxv\_firewall\_rule
 
 Provides a Viettel IDC Cloud firewall rule data source for advanced edge gateways (NSX-V). This can be
 used to read existing rules by ID and use its attributes in other resources.
@@ -34,9 +34,9 @@ The following arguments are supported:
 * `vdc` - (Optional) The name of VDC to use, optional if defined at provider level.
 * `edge_gateway` - (Required) The name of the edge gateway on which to apply the DNAT rule.
 * `rule_id` - (Required) ID of firewall rule (not UI number). See more information about firewall
-rule ID in `vcloud_nsxv_firewall_rule` [import section](/providers/vmware/vcd/latest/docs/resources/nsxv_firewall_rule#listing-real-firewall-rule-ids).
+rule ID in `vcloud_nsxv_firewall_rule` [import section](/providers/vmware/vcloud/latest/docs/resources/nsxv_firewall_rule#listing-real-firewall-rule-ids).
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_nsxv_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxv_firewall_rule)
+All the attributes defined in [`vcloud_nsxv_firewall_rule`](/providers/vmware/vcloud/latest/docs/resources/nsxv_firewall_rule)
 resource are available.

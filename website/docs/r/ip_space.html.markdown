@@ -1,20 +1,20 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_ip_space"
-sidebar_current: "docs-vcd-resource-ip-space"
+sidebar_current: "docs-vcloud-resource-ip-space"
 description: |-
   Provides a resource to manage IP Spaces for IP address management needs. IP Spaces provide 
   structured approach to allocating public and private IP addresses by preventing the use of 
   overlapping IP addresses across organizations and organization VDCs.
 ---
 
-# vcd\_ip\_space
+# vcloud\_ip\_space
 
 Provides a resource to manage IP Spaces for IP address management needs. IP Spaces provide
 structured approach to allocating public and private IP addresses by preventing the use of
 overlapping IP addresses across organizations and organization VDCs.
 
-IP Spaces require VCD 10.4.1+ with NSX-T.
+IP Spaces require Vcloud 10.4.1+ with NSX-T.
 
 ## Example Usage (Private IP Space)
 
@@ -139,7 +139,7 @@ resource "vcloud_ip_space" "space1" {
 }
 ```
 
-## Example Usage (VCD 10.5.0+ - Public IP Space with Firewall and NAT rule autocreation)
+## Example Usage (Vcloud 10.5.0+ - Public IP Space with Firewall and NAT rule autocreation)
 
 ```hcl
 resource "vcloud_ip_space" "space1" {
@@ -200,11 +200,11 @@ The following arguments are supported:
 * `ip_prefix` - (Optional) One or more IP prefixes (blocks) [ip_prefix](#ipspace-ip-prefix)
 * `route_advertisement_enabled` - (Optional) Toggle on the route advertisement option to
   enable advertising networks with IP prefixes from this IP space (default `false`)
-* `default_firewall_rule_creation_enabled` - (Optional, *v3.11+*, *VCD 10.5.0+*) Defines whether
+* `default_firewall_rule_creation_enabled` - (Optional, *v3.11+*, *Vcloud 10.5.0+*) Defines whether
   default firewall rule creation should be enabled
-* `default_no_snat_rule_creation_enabled` - (Optional, *v3.11+*, *VCD 10.5.0+*) Defines whether NO SNAT
+* `default_no_snat_rule_creation_enabled` - (Optional, *v3.11+*, *Vcloud 10.5.0+*) Defines whether NO SNAT
   rule creation should be enabled
-* `default_snat_rule_creation_enabled` - (Optional, *v3.11+*, *VCD 10.5.0+*) Defines whether SNAT rule
+* `default_snat_rule_creation_enabled` - (Optional, *v3.11+*, *Vcloud 10.5.0+*) Defines whether SNAT rule
   creation should be enabled
 
 <a id="ipspace-ip-range"></a>

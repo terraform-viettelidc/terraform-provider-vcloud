@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_mac_discovery_profile"
-sidebar_current: "docs-vcd-data-source-nsxt-segment-mac-discovery-profile"
+sidebar_current: "docs-vcloud-data-source-nsxt-segment-mac-discovery-profile"
 description: |-
   Provides a Viettel IDC Cloud NSX-T MAC Discovery Profile data source. This can be used to read NSX-T Segment Profile definitions.
 ---
 
-# vcd\_nsxt\_segment\_mac\_discovery\_profile
+# vcloud\_nsxt\_segment\_mac\_discovery\_profile
 
 Provides a Viettel IDC Cloud NSX-T MAC Discovery Profile data source. This can be used to read NSX-T Segment Profile definitions.
 

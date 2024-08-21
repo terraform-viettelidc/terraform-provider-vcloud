@@ -1,23 +1,23 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_cloud"
-sidebar_current: "docs-vcd-resource-nsxt-alb-cloud"
+sidebar_current: "docs-vcloud-resource-nsxt-alb-cloud"
 description: |-
   Provides a resource to manage ALB Clouds for Providers. An NSX-T Cloud is a service provider-level construct that
   consists of an NSX-T Manager and an NSX-T Data Center transport zone.
 ---
 
-# vcd\_nsxt\_alb\_cloud
+# vcloud\_nsxt\_alb\_cloud
 
-Supported in provider *v3.4+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.4+* and Vcloud 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Clouds for Providers. An NSX-T Cloud is a service provider-level construct that
 consists of an NSX-T Manager and an NSX-T Data Center transport zone.
 
 ~> Only `System Administrator` can create this resource.
 
-~> VCD 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
-[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
+~> Vcloud 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
+[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
 Controller is created. This data should be available 15 minutes after the Controller is created.
 
 

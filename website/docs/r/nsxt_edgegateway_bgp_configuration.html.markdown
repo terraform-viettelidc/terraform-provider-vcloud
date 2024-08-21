@@ -1,13 +1,13 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_configuration"
-sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-configuration"
+sidebar_current: "docs-vcloud-resource-nsxt-edgegateway-bgp-configuration"
 description: |-
   Provides a resource to manage BGP configuration on NSX-T Edge Gateway that has a dedicated Tier-0 
   Gateway or VRF.
 ---
 
-# vcd\_nsxt\_edgegateway\_bgp\_configuration
+# vcloud\_nsxt\_edgegateway\_bgp\_configuration
 
 Provides a resource to manage BGP configuration on NSX-T Edge Gateway that has a dedicated Tier-0
 Gateway or VRF. BGP makes core routing decisions by using a table of IP networks, or prefixes, which

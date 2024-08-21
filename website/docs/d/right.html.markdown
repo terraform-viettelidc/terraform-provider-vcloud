@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_right"
-sidebar_current: "docs-vcd-data-source-right"
+sidebar_current: "docs-vcloud-data-source-right"
 description: |-
  Provides a Viettel IDC Cloud Organization Right data source. This can be used to read existing rights
 ---
 
-# vcd\_right
+# vcloud\_right
 
 Provides a data source for available rights.
 
@@ -67,5 +67,5 @@ The following arguments are supported:
 
 ## More information
 
-See [Roles management](/providers/vmware/vcd/latest/docs/guides/roles_management) for a broader description of how roles and
+See [Roles management](/providers/vmware/vcloud/latest/docs/guides/roles_management) for a broader description of how roles and
 rights work together.

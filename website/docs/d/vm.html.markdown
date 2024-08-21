@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vm"
-sidebar_current: "docs-vcd-datasource-vm"
+sidebar_current: "docs-vcloud-datasource-vm"
 description: |-
   Provides a Viettel IDC Cloud VM data source. This can be used to access standalone VMs.
 ---
 
-# vcd\_vm
+# vcloud\_vm
 
 Provides a Viettel IDC Cloud standalone VM data source. This can be used to access standalone VMs.
 
@@ -78,5 +78,5 @@ The following arguments are supported:
 
 ## Attributes reference
 
-This data source provides all attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/data-sources/vapp_vm).
+This data source provides all attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcloud/latest/docs/data-sources/vapp_vm).
 

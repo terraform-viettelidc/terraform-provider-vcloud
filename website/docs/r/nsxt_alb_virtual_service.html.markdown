@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_virtual_service"
-sidebar_current: "docs-vcd-resource-nsxt-alb-virtual-service"
+sidebar_current: "docs-vcloud-resource-nsxt-alb-virtual-service"
 description: |-
   Provides a resource to manage ALB Virtual services for particular NSX-T Edge Gateway. A virtual service advertises
   an IP address and ports to the external world and listens for client traffic. When a virtual service receives traffic,
   it directs it to members in ALB Pool.
 ---
 
-# vcd\_nsxt\_alb\_virtual\_service
+# vcloud\_nsxt\_alb\_virtual\_service
 
-Supported in provider *v3.5+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.5+* and Vcloud 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Virtual services for particular NSX-T Edge Gateway. A virtual service advertises
 an IP address and ports to the external world and listens for client traffic. When a virtual service receives traffic,
@@ -129,7 +129,7 @@ resource "vcloud_nsxt_alb_virtual_service" "test" {
 }
 ```
 
-## Example Usage (VCD 10.4.1+ - Virtual Service Transparent mode and Pool Group Membership)
+## Example Usage (Vcloud 10.4.1+ - Virtual Service Transparent mode and Pool Group Membership)
 ```hcl
 data "vcloud_nsxt_ip_set" "frontend" {
   org             = "my-org" # Optional
@@ -150,7 +150,7 @@ resource "vcloud_nsxt_alb_virtual_service" "test" {
   name            = "new-virtual-service"
   edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
-  # Preserve Client IP - can only be enabled in VCD 10.4.1+ (must also be enabled in `vcloud_nsxt_alb_settings`)
+  # Preserve Client IP - can only be enabled in Vcloud 10.4.1+ (must also be enabled in `vcloud_nsxt_alb_settings`)
   is_transparent_mode_enabled = true
 
   pool_id                  = vcloud_nsxt_alb_pool.test.id
@@ -172,7 +172,7 @@ The following arguments are supported:
   when connected as sysadmin working across different organisations.
 * `name` - (Required) A name for ALB Virtual Service
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `description` - (Optional) An optional description ALB Virtual Service
 * `pool_id` - (Required) A reference to ALB Pool. Can be looked up using `vcloud_nsxt_alb_pool` resource or data
   source
@@ -180,12 +180,12 @@ The following arguments are supported:
   `vcloud_nsxt_alb_edgegateway_service_engine_group` resource or data source
 * `application_profile_type` - (Required) One of `HTTP`, `HTTPS`, `L4`, `L4_TLS`. 
 * `virtual_ip_address` - (Required) IP Address for the service to listen on.
-* `ipv6_virtual_ip_address` - (Optional; *v3.10+*, *VCD 10.4.0+*) IPv6 Address for the service to listen on. 
+* `ipv6_virtual_ip_address` - (Optional; *v3.10+*, *Vcloud 10.4.0+*) IPv6 Address for the service to listen on. 
 * `ca_certificate_id` - (Optional) ID reference of CA certificate. Required when `application_profile_type` is `HTTPS`
   or `L4_TLS`
 * `service_port` - (Required) A block to define port, port range and traffic type. Multiple can be used. See
   [service_port](#service-port-block) and example for usage details.
-* `is_transparent_mode_enabled` - (Optional; *v3.9+*, *VCD 10.4.1+*) Preserves Client IP on a
+* `is_transparent_mode_enabled` - (Optional; *v3.9+*, *Vcloud 10.4.1+*) Preserves Client IP on a
   Virtual Service. **Note** - the following criteria must be matched to make transparent mode work:
   * ALB Pool membership must be configured in Group mode
   * Backing Avi Service Engine Group must be in Legacy Active Standby mode

@@ -1,18 +1,18 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog"
-sidebar_current: "docs-vcd-resource-subscribed-catalog"
+sidebar_current: "docs-vcloud-resource-subscribed-catalog"
 description: |-
   Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to create, update, and delete a subscribed catalog.
 ---
 
-# vcd\_subscribed\_catalog
+# vcloud\_subscribed\_catalog
 
 Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to create, update, and delete a subscribed catalog.
 
 A `vcloud_subscribed_catalog` is a catalog that was created by subscribing to another catalog. It can be used, to some extent,
 like any other catalog, but users must keep in mind that this resource depends on the connection to another catalog, which
-may not even be in the same VCD. For more information, see the full [Catalog subscription and sharing](/providers/vmware/vcd/latest/docs/guides/catalog_subscription_and_sharing) guide.
+may not even be in the same Vcloud. For more information, see the full [Catalog subscription and sharing](/providers/vmware/vcloud/latest/docs/guides/catalog_subscription_and_sharing) guide.
 
 Supported in provider *v3.8+*
 

@@ -1,16 +1,16 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_security_group"
-sidebar_current: "docs-vcd-data-source-nsxt-security-group"
+sidebar_current: "docs-vcloud-data-source-nsxt-security-group"
 description: |-
   Provides a data source to access NSX-T Security Group configuration. Security Groups are groups of
   data center group networks to which distributed firewall rules apply. Grouping networks helps you 
   to reduce the total number of distributed firewall rules to be created. 
 ---
 
-# vcd\_nsxt\_security\_group
+# vcloud\_nsxt\_security\_group
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and Vcloud 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to access NSX-T Security Group configuration. Security Groups are groups of
 data center group networks to which distributed firewall rules apply. Grouping networks helps you to
@@ -49,4 +49,4 @@ The following arguments are supported:
 * `owner_id` - Parent VDC or VDC Group ID.
  
 All the arguments and attributes defined in
-[`vcloud_nsxt_security_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_security_group) resource are available.
+[`vcloud_nsxt_security_group`](/providers/vmware/vcloud/latest/docs/resources/nsxt_security_group) resource are available.

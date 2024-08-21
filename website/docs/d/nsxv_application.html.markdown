@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxv_application"
-sidebar_current: "docs-vcd-data-source-nsxv-application"
+sidebar_current: "docs-vcloud-data-source-nsxv-application"
 description: |-
   Provides a Viettel IDC Cloud data source for reading NSX-V distributed firewall applications
 ---
 
-# vcd\_nsxv\_application
+# vcloud\_nsxv\_application
 
 Provides a Viettel IDC Cloud data source for reading NSX-V distributed firewall applications.
 

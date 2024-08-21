@@ -1,14 +1,14 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_vgpu_profile"
-sidebar_current: "docs-vcd-datasource-vgpu-policy"
+sidebar_current: "docs-vcloud-datasource-vgpu-policy"
 description: |-
   Provides a datasource to read vGPU profiles in Viettel IDC Cloud.
 ---
 
-# vcd\_vm\_vgpu\_profile
+# vcloud\_vm\_vgpu\_profile
 
-Supported in provider *3.11* and VCD *10.4.0+*.
+Supported in provider *3.11* and Vcloud *10.4.0+*.
 
 -> **Note:** This data source requires system administrator privileges.
 

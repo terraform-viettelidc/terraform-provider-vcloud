@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_catalog_media"
-sidebar_current: "docs-vcd-data-source-catalog-media"
+sidebar_current: "docs-vcloud-data-source-catalog-media"
 description: |-
   Provides a catalog media data source.
 ---
 
-# vcd\_catalog\_media
+# vcloud\_catalog\_media
 
 Provides a Viettel IDC Cloud Catalog media data source. A Catalog media can be used to reference a catalog media and use its 
 data within other resources or data sources.
@@ -50,13 +50,13 @@ The following arguments are supported:
 * `download_to_file` - (Optional; *3.11+*) Will download the contents of the media item into the given file
 
 -> NOTE: downloading of media items can take unexpectedly long amounts of time for large items. The ability of
-downloading media items is supplied here to solve a specific problem, i.e. saving small files in the VCD as help
-to other workflows. For example, you could save into a media item an HCL file used to configure the VCD, the file 
+downloading media items is supplied here to solve a specific problem, i.e. saving small files in the Vcloud as help
+to other workflows. For example, you could save into a media item an HCL file used to configure the Vcloud, the file 
 `terraform.tfstate`, planning documents, an image of the deployment topology, and so on.
 
 ## Attribute reference
 
-All attributes defined in [catalog_media](/providers/vmware/vcd/latest/docs/resources/catalog_media#attribute-reference) are supported.
+All attributes defined in [catalog_media](/providers/vmware/vcloud/latest/docs/resources/catalog_media#attribute-reference) are supported.
 
 ## Filter arguments
 
@@ -74,5 +74,5 @@ All attributes defined in [catalog_media](/providers/vmware/vcd/latest/docs/reso
   are set, it retrieves the oldest item.
 * `metadata` - (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.
 

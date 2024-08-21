@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp"
-sidebar_current: "docs-vcd-resource-nsxt-network-dhcp"
+sidebar_current: "docs-vcloud-resource-nsxt-network-dhcp"
 description: |-
   Provides a resource to manage DHCP pools for NSX-T Org VDC networks.
 ---
 
-# vcd\_nsxt\_network\_dhcp
+# vcloud\_nsxt\_network\_dhcp
 
 Provides a resource to manage DHCP pools for NSX-T Org VDC networks.
 
@@ -131,9 +131,9 @@ The following arguments are supported:
     NSX-T Edge Gateway.
 * `listener_ip_address` - (Optional; *v3.8+*) IP address of DHCP server in network. Must match
   subnet. **Only** used when `mode=NETWORK`.
-* `lease_time` - (Optional; *v3.8+*; VCD `10.3.1+`) - Lease time in seconds. Minimum value is 60s
+* `lease_time` - (Optional; *v3.8+*; Vcloud `10.3.1+`) - Lease time in seconds. Minimum value is 60s
   and maximum is 4294967295s (~ 49 days).
-* `dns_servers` - (Optional; *v3.7+*; VCD `10.3.1+`) - The DNS server IPs to be assigned by this
+* `dns_servers` - (Optional; *v3.7+*; Vcloud `10.3.1+`) - The DNS server IPs to be assigned by this
   DHCP service. Maximum two values. 
 
 ## Pools

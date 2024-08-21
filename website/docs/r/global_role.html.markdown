@@ -1,12 +1,12 @@
 ---
-layout: "vcd"
+layout: "vcloud"
 page_title: "Viettel IDC Cloud: vcloud_global_role"
-sidebar_current: "docs-vcd-resource-global-role"
+sidebar_current: "docs-vcloud-resource-global-role"
 description: |-
  Provides a Viettel IDC Cloud global role. This can be used to create, modify, and delete global roles.
 ---
 
-# vcd\_global\_role
+# vcloud\_global\_role
 
 Provides a Viettel IDC Cloud global role. This can be used to create, modify, and delete global roles.
 
@@ -79,5 +79,5 @@ at this stage will show the difference between the minimal configuration file an
 
 ## More information
 
-See [Roles management](/providers/vmware/vcd/latest/docs/guides/roles_management) for a broader description of how global roles and
+See [Roles management](/providers/vmware/vcloud/latest/docs/guides/roles_management) for a broader description of how global roles and
 rights work together.
