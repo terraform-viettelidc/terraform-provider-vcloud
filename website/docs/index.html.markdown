@@ -214,7 +214,7 @@ Note that the file will be rewritten at every usage, and the updated file will h
 {
   "token_type": "Service Account",
   "refresh_token": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "updated_by": "terraform-provider-viettelidc/v3.9.0 (darwin/arm64; isProvider:true)",
+  "updated_by": "terraform-provider-vcloud/v3.9.0 (darwin/arm64; isProvider:true)",
   "updated_on": "2023-04-18T14:33:07+02:00"
  }
 ```
