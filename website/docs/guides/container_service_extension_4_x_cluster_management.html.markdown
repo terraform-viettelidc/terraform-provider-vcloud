@@ -205,15 +205,15 @@ start with an alphabetic character, end with an alphanumeric, and contain at mos
 * `TARGET_NAMESPACE`: This will be the TKGm cluster namespace. In [the example][cluster] the value is
 `"${var.k8s_cluster_name}-ns"`, which mimics the UI behaviour, as the namespace is the name of the TKGm cluster concatenated with `-ns`.
 * `vcloud_SITE`: The Vcloud URL, the same that was used during CSE installation.
-* `vcloud_ORGANIZATION`: The Organization in which the TKGm clusters will be created. In this guide it was created as `tenant_org` and named
+* `VCLOUD_ORGANIZATION`: The Organization in which the TKGm clusters will be created. In this guide it was created as `tenant_org` and named
 "Tenant Organization" during CSE installation phase.
-* `vcloud_ORGANIZATION_VDC`: The VDC in which the TKGm clusters will be created. In this guide it was created as `tenant_vdc` and named
+* `VCLOUD_ORGANIZATION_VDC`: The VDC in which the TKGm clusters will be created. In this guide it was created as `tenant_vdc` and named
   "Tenant VDC" during CSE installation phase.
-* `vcloud_ORGANIZATION_VDC_NETWORK`: The VDC network that the TKGm clusters will use. In this guide it was created as a Routed
+* `VCLOUD_ORGANIZATION_VDC_NETWORK`: The VDC network that the TKGm clusters will use. In this guide it was created as a Routed
   network called `tenant_net_routed`.
-* `vcloud_USERNAME_B64`: The name of a user with the "Kubernetes Cluster Author" role (`k8s_cluster_author`) that was created during CSE installation.
+* `VCLOUD_USERNAME_B64`: The name of a user with the "Kubernetes Cluster Author" role (`k8s_cluster_author`) that was created during CSE installation.
 It must be encoded in Base64.
-* `vcloud_PASSWORD_B64` (**Discouraged in favor of `vcloud_REFRESH_TOKEN_B64`**): The password of the user above.
+* `VCLOUD_PASSWORD_B64` (**Discouraged in favor of `vcloud_REFRESH_TOKEN_B64`**): The password of the user above.
   It must be encoded in Base64. Please do **not** use this value (by setting it to `""`) and use `vcloud_REFRESH_TOKEN_B64` instead.
 * `vcloud_REFRESH_TOKEN_B64`: An API token that belongs to the user above. In UI, the API tokens can be generated in the user preferences
   in the top right, then go to the API tokens section, add a new one. Or we can visit `/tenant/<TENANT-NAME>/administration/settings/user-preferences`

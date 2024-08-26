@@ -117,7 +117,7 @@ Error: [VM affinity rule import] list of all VM affinity rules:
   2 my-ar                          Anti-Affinity 390d737e-45ed-4fa0-86c5-2100efee7808
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

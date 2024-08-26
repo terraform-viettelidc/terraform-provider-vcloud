@@ -61,7 +61,7 @@ or using IDs:
 terraform import vcloud_vm_placement_policy.my-policy urn:vcloud:vdcComputePolicy:39579936-6211-40b5-adf6-2a74d4413e9e
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -57,4 +57,4 @@ via supplying the full dot separated path for NSX-T Edge Gateway. An example is 
 terraform import vcloud_nsxt_route_advertisement.my-route-advertisement my-org.my-org-vdc-or-vdc-group-name.my-edge-gw
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

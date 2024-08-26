@@ -276,7 +276,7 @@ It will return a list of IDs. Then one can import again specifying the position,
 terraform import vcloud_rde.outer_rde urn:vcloud:entity:bigcorp:tech:a074f9e9-5d76-4f1e-8c37-f4e8b28e51ff
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

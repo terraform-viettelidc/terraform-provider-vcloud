@@ -249,7 +249,7 @@ terraform import vcloud_nsxv_distributed_firewall.dfw1 my-org.my-vdc
 
 NOTE 1: To get the VDC ID, you can use a `vcloud_org_vdc` data source, and check its ID from the Terraform state file (`terraform.tfstate`).
 
-NOTE 2: The default separator (.) can be changed using `Provider.import_separator` or the environmant variable `vcloud_IMPORT_SEPARATOR`
+NOTE 2: The default separator (.) can be changed using `Provider.import_separator` or the environmant variable `VCLOUD_IMPORT_SEPARATOR`
 
 [docs-import]:https://www.terraform.io/docs/import/
 

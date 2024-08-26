@@ -313,16 +313,16 @@ provider "vcloud" {
 The following arguments are used to configure the Viettel IDC Cloud Provider:
 
 * `user` - (Required) This is the username for Cloud Director API operations. Can also be specified
-  with the `vcloud_USER` environment variable. *v2.0+* `user` may be "administrator" (set `org` or
+  with the `VCLOUD_USER` environment variable. *v2.0+* `user` may be "administrator" (set `org` or
   `sysorg` to "System" in this case). 
   *v2.9+* When using with SAML and ADFS - username format must be in Active Directory format -
   `user@contoso.com` or `contoso.com\user` in combination with `use_saml_adfs` option.
   
 * `password` - (Required) This is the password for Cloud Director API operations. Can
-  also be specified with the `vcloud_PASSWORD` environment variable.
+  also be specified with the `VCLOUD_PASSWORD` environment variable.
 
 * `auth_type` - (Optional) `integrated`, `token`, `api_token`, `service_account_token_file` or `saml_adfs`. 
-  Default is `integrated`. Can also be set with `vcloud_AUTH_TYPE` environment variable. 
+  Default is `integrated`. Can also be set with `VCLOUD_AUTH_TYPE` environment variable. 
   * `integrated` - Vcloud local users and LDAP users (provided LDAP is configured for Organization).
   * `saml_adfs` allows to use SAML login flow with Active Directory Federation
   Services (ADFS) using "/adfs/services/trust/13/usernamemixed" endpoint. Please note that
@@ -336,22 +336,22 @@ The following arguments are used to configure the Viettel IDC Cloud Provider:
 * `token` - (Optional; *v2.6+*) This is the bearer token that can be used instead of username
    and password (in combination with field `auth_type=token`). When this is set, username and
    password will be ignored, but should be left in configuration either empty or with any custom
-   values. A token can be specified with the `vcloud_TOKEN` environment variable.
+   values. A token can be specified with the `VCLOUD_TOKEN` environment variable.
    Both a (deprecated) authorization token or a bearer token (*v3.1+*) can be used in this field.
 
 * `api_token` - (Optional; *v3.5+*) This is the API token that a System or organization administrator can create and 
    distribute to users. It is used instead of username and password (in combination with `auth_type=api_token`). When
-   this field is filled, username and password are ignored. An API token can also be specified with the `vcloud_API_TOKEN`
+   this field is filled, username and password are ignored. An API token can also be specified with the `VCLOUD_API_TOKEN`
    environment variable. This token requires at least Vcloud 10.3.1. There are restrictions to its use, as defined in
    [the documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html)
 
 * `api_token_file` - (Optional; *v3.10+*)) Same as `api_token`, only provided 
-   as a JSON file. Can also be specified with the `vcloud_API_TOKEN_FILE` environment variable.
+   as a JSON file. Can also be specified with the `VCLOUD_API_TOKEN_FILE` environment variable.
  
 * `service_account_token_file` - (Optional; *v3.9+, Vcloud 10.4+*) This is the file that contains a Service Account API token. The
    path to the file could be provided as absolute or relative to the working directory. It is used instead of username
    and password (in combination with `auth_type=service_account_token_file`. The file can also be specified with the 
-   `vcloud_SA_TOKEN_FILE` environment variable. There are restrictions to its use, as defined in 
+   `VCLOUD_SA_TOKEN_FILE` environment variable. There are restrictions to its use, as defined in 
    [the documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-8CD3C8BE-3187-4769-B960-3E3315492C16.html)
 
 * `allow_service_account_token_file` - (Optional; *v3.9+, Vcloud 10.4+*) When using `auth_type=service_account_token_file`,
@@ -360,26 +360,26 @@ The following arguments are used to configure the Viettel IDC Cloud Provider:
 
 * `saml_adfs_rpt_id` - (Optional) When using `auth_type=saml_adfs` Vcloud SAML entity ID will be used
   as Relaying Party Trust Identifier (RPT ID) by default. If a different RPT ID is needed - one can
-  set it using this field. It can also be set with `vcloud_SAML_ADFS_RPT_ID` environment variable.
+  set it using this field. It can also be set with `VCLOUD_SAML_ADFS_RPT_ID` environment variable.
 
 * `org` - (Required) This is the Cloud Director Org on which to run API
-  operations. Can also be specified with the `vcloud_ORG` environment
+  operations. Can also be specified with the `VCLOUD_ORG` environment
   variable.  
   *v2.0+* `org` may be set to "System" when connection as Sys Admin is desired
   (set `user` to "administrator" in this case).  
   Note: `org` value is case sensitive.
   
 * `sysorg` - (Optional; *v2.0+*) - Organization for user authentication. Can also be
-   specified with the `vcloud_SYS_ORG` environment variable. Set `sysorg` to "System" and
+   specified with the `VCLOUD_SYS_ORG` environment variable. Set `sysorg` to "System" and
    `user` to "administrator" to free up `org` argument for setting a default organization
    for resources to use.
    
 * `url` - (Required) This is the URL for the Cloud Director API endpoint. e.g.
-  https://server.domain.com/api. Can also be specified with the `vcloud_URL` environment variable.
+  https://server.domain.com/api. Can also be specified with the `VCLOUD_URL` environment variable.
   
 * `vdc` - (Optional) This is the virtual datacenter within Cloud Director to run
   API operations against. If not set the plugin will select the first virtual
-  datacenter available to your Org. Can also be specified with the `vcloud_VDC` environment
+  datacenter available to your Org. Can also be specified with the `VCLOUD_VDC` environment
   variable.
   
 * `max_retry_timeout` - (Optional) This provides you with the ability to specify the maximum
@@ -387,7 +387,7 @@ The following arguments are used to configure the Viettel IDC Cloud Provider:
   by Cloud Director to be successful. If a resource action fails, the action will be retried
   (as long as it is still within the `max_retry_timeout` value) to try and ensure success.
   Defaults to 60 seconds if not set.
-  Can also be specified with the `vcloud_MAX_RETRY_TIMEOUT` environment variable.
+  Can also be specified with the `VCLOUD_MAX_RETRY_TIMEOUT` environment variable.
   
 * `maxRetryTimeout` - (Deprecated) Use `max_retry_timeout` instead.
 
@@ -395,14 +395,14 @@ The following arguments are used to configure the Viettel IDC Cloud Provider:
   disable SSL certificate verification. This should be used with care as it
   could allow an attacker to intercept your auth token. If omitted, default
   value is false. Can also be specified with the
-  `vcloud_ALLOW_UNVERIFIED_SSL` environment variable.
+  `VCLOUD_ALLOW_UNVERIFIED_SSL` environment variable.
 
 * `logging` - (Optional; *v2.0+*) Boolean that enables API calls logging from upstream library `go-vcloud-director`. 
    The logging file will record all API requests and responses, plus some debug information that is part of this 
-   provider. Logging can also be activated using the `vcloud_API_LOGGING` environment variable.
+   provider. Logging can also be activated using the `VCLOUD_API_LOGGING` environment variable.
 
 * `logging_file` - (Optional; *v2.0+*) The name of the log file (when `logging` is enabled). By default is 
-  `go-vcloud-director` and it can also be changed using the `vcloud_API_LOGGING_FILE` environment variable.
+  `go-vcloud-director` and it can also be changed using the `VCLOUD_API_LOGGING_FILE` environment variable.
   
 * `import_separator` - (Optional; *v2.5+*) The string to be used as separator with `terraform import`. By default
   it is a dot (`.`).

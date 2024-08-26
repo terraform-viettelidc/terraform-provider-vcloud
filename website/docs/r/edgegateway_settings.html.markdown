@@ -98,7 +98,7 @@ terraform import vcloud_edgegateway_settings.tf-egw my-org.my-vdc.63ed92de-4001-
 ```
 
 * **Note 1**: the name to provide here is the name of the edge gateway, as this resource is tied to it.
-* **Note 2**: the separator can be changed using `Provider.import_separator` or variable `vcloud_IMPORT_SEPARATOR`
+* **Note 2**: the separator can be changed using `Provider.import_separator` or variable `VCLOUD_IMPORT_SEPARATOR`
 * **Note 3**: the identifier of the resource could be either the edge gateway name or the ID
 
 [docs-import]:https://www.terraform.io/docs/import/

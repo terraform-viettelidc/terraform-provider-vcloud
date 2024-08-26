@@ -140,7 +140,7 @@ An example is below:
 terraform import vcloud_org_vdc_access_control.my_access_control my-org.my-vdc
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 
 [docs-import]:https://www.terraform.io/docs/import/

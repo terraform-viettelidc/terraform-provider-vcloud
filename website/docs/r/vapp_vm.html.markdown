@@ -1095,7 +1095,7 @@ You can import such vapp into terraform state using this command
 terraform import vcloud_vapp_vm.tf-vm my-org.my-vdc.my-vapp.my-vm
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable vcloud_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 After importing, the data for this VM will be in the state file (`terraform.tfstate`). If you want to use this
 resource for further operations, you will need to integrate it with data from the state file, and with some data that

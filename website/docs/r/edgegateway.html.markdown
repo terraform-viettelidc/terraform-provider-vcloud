@@ -227,7 +227,7 @@ terraform import vcloud_edgegateway.tf-egw my-org.my-vdc.my-edge-gw
 terraform import vcloud_edgegateway.tf-egw my-org.my-vdc.63ed92de-4001-450c-879f-deadbeef0123
 ```
 
-* **Note 1**: the separator can be changed using `Provider.import_separator` or variable `vcloud_IMPORT_SEPARATOR`
+* **Note 1**: the separator can be changed using `Provider.import_separator` or variable `VCLOUD_IMPORT_SEPARATOR`
 * **Note 2**: the identifier of the resource could be either the edge gateway name or the ID
 
 [docs-import]:https://www.terraform.io/docs/import/
