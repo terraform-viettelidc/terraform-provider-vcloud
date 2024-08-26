@@ -48,7 +48,7 @@ auth=$(echo -n "$user"@System:"$password" |base64 $options)
 
 bearer=$(curl -I -s -k --header "Accept: application/*;version=37.0" \
     --header "Authorization: Basic $auth" \
-    --request POST https://$IP/api/login | grep -i 'x-vmware-viettelidc-access-token' \
+    --request POST https://$IP/api/login | grep -i 'x-vmware-vcloud-access-token' \
     | awk -F":" '{print $2}' | sed 's/^ *//g' | tr -d '\n' | tr -d '\r' )
 
 auth_header="Authorization: Bearer $bearer"
