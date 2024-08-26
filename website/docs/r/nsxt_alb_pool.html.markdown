@@ -96,7 +96,7 @@ The following arguments are supported:
 * `description` - (Optional) An optional description ALB Pool
 * `enabled` - (Optional) Boolean value if ALB Pool should be enabled (default `true`)
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `algorithm` - (Optional) Optional algorithm for choosing pool members (default `LEAST_CONNECTIONS`). Other options
   contain `ROUND_ROBIN`, `CONSISTENT_HASH` (uses Source IP Address hash), `FASTEST_RESPONSE`, `LEAST_LOAD`,
   `FEWEST_SERVERS`, `RANDOM`, `FEWEST_TASKS`, `CORE_AFFINITY`
@@ -109,7 +109,7 @@ The following arguments are supported:
 * `ssl_enabled` (Optional; *v3.11+*) Enables SSL - Will be turned on automatically when CA certificates are used
 * `ca_certificate_ids` - (Optional) A set of CA Certificates to be used when validating certificates presented by the
   pool members. Can be looked up using
-  [vcloud_library_certificate](/providers/vmware/vcloud/latest/docs/data-sources/library_certificate) data source
+  [vcloud_library_certificate](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/library_certificate) data source
 * `cn_check_enabled` - (Optional) Specifies whether to check the common name of the certificate presented by the pool
   member
 * `domain_names` - (Optional) A set of domain names which will be used to verify the common names or subject alternative

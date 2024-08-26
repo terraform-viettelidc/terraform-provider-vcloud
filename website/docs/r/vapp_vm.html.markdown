@@ -487,7 +487,7 @@ The following arguments are supported:
 * `vapp_name` - (Required) The vApp this VM belongs to.
 * `name` - (Required) A name for the VM, unique within the vApp 
 * `computer_name` - (Optional; *v2.5+*) Computer name to assign to this virtual machine.
-* `vapp_template_id` - (Optional; *v3.8+*) The URN of the vApp Template to use. You can fetch it using a [`vcloud_catalog_vapp_template`](/providers/vmware/vcloud/latest/docs/data-sources/catalog_vapp_template) data source.
+* `vapp_template_id` - (Optional; *v3.8+*) The URN of the vApp Template to use. You can fetch it using a [`vcloud_catalog_vapp_template`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/catalog_vapp_template) data source.
 * `vm_name_in_template` - (Optional; *v2.9+*) The name of the VM in vApp Template to use. For cases when vApp template has more than one VM.
 * `copy_from_vm_id` - (Optional; *v3.12+*) The ID of *an existing VM* to make a copy of it (it
   cannot be a vApp template). The source VM *must be in the same Org* (but can be in different VDC).
@@ -538,16 +538,16 @@ example for usage details.
 * `hardware_version` - (Optional; *v2.9+*) Virtual Hardware Version (e.g.`vmx-14`, `vmx-13`, `vmx-12`, etc.). Required when creating empty VM.
 * `firmware` - (Optional; v3.11+, Vcloud 10.4.1+) Specify boot firmware of the VM. Can be `efi` or `bios`. If unset, defaults to `bios`. Changing the value requires the VM to power off.
 * `boot_options` - (Optional; v3.11+) A block to define boot options of the VM. See [Boot Options](#boot-options)
-* `boot_image_id` - (Optional; *v3.8+*) Media URN to mount as boot image. You can fetch it using a [`vcloud_catalog_media`](/providers/vmware/vcloud/latest/docs/data-sources/catalog_media) data source.
-  Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/vmware/vcloud/latest/docs/resources/inserted_media). 
+* `boot_image_id` - (Optional; *v3.8+*) Media URN to mount as boot image. You can fetch it using a [`vcloud_catalog_media`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/catalog_media) data source.
+  Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/terraform-viettelidc/vcloud/latest/docs/resources/inserted_media). 
 * `cpu_hot_add_enabled` - (Optional; *v3.0+*) True if the virtual machine supports addition of virtual CPUs while powered on. Default is `false`.
 * `memory_hot_add_enabled` - (Optional; *v3.0+*) True if the virtual machine supports addition of memory while powered on. Default is `false`.
 * `prevent_update_power_off` - (Optional; *v3.0+*) True if the update of resource should fail when virtual machine power off needed. Default is `false`.
-* `sizing_policy_id` (Optional; *v3.0+*, *vCD 10.0+*) VM sizing policy ID. To be used, it needs to be assigned to [Org VDC](/providers/vmware/vcloud/latest/docs/resources/org_vdc)
+* `sizing_policy_id` (Optional; *v3.0+*, *vCD 10.0+*) VM sizing policy ID. To be used, it needs to be assigned to [Org VDC](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc)
   using `vcloud_org_vdc.vm_sizing_policy_ids` (and `vcloud_org_vdc.default_compute_policy_id` to make it default).
   In this case, if the sizing policy is not set, it will pick the VDC default on creation. It must be set explicitly
   if one wants to update it to another policy (the VM requires at least one Compute Policy), and needs to be set to `""` to be removed.
-* `placement_policy_id` (Optional; *v3.8+*) VM placement policy or [vGPU policy][vgpu-policy] (*3.11+*) ID. To be used, it needs to be assigned to [Org VDC](/providers/vmware/vcloud/latest/docs/resources/org_vdc)
+* `placement_policy_id` (Optional; *v3.8+*) VM placement policy or [vGPU policy][vgpu-policy] (*3.11+*) ID. To be used, it needs to be assigned to [Org VDC](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc)
   In this case, if the placement policy is not set, it will pick the VDC default on creation. It must be set explicitly
   if one wants to update it to another policy (the VM requires at least one Compute Policy), and needs to be set to `""` to be removed.
 * `security_tags` - (Optional; *v3.9+*) Set of security tags to be managed by the `vcloud_vapp_vm` resource.
@@ -555,12 +555,12 @@ example for usage details.
   This is to be consistent with existing security tags that were created by the `vcloud_security_tags` resource.
 * `set_extra_config` - (Optional; *v3.13+*) Set of extra configuration key/values to be added or modified. See [Extra Configuration](#extra-configuration)
 
-~> **Note:** Only one of `security_tags` attribute or [`vcloud_security_tag`](/providers/vmware/vcloud/latest/docs/resources/security_tag) resource
+~> **Note:** Only one of `security_tags` attribute or [`vcloud_security_tag`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/security_tag) resource
   should be used. Using both would cause a behavioral conflict.
 
-* `catalog_name` - (Deprecated; *v2.9+*) Use a [`vcloud_catalog`](/providers/vmware/vcloud/latest/docs/data-sources/catalog) data source along with `vapp_template_id` or `boot_image_id` instead. The catalog name in which to find the given vApp Template or media for `boot_image`.
+* `catalog_name` - (Deprecated; *v2.9+*) Use a [`vcloud_catalog`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/catalog) data source along with `vapp_template_id` or `boot_image_id` instead. The catalog name in which to find the given vApp Template or media for `boot_image`.
 * `template_name` - (Deprecated; *v2.9+*) Use `vapp_template_id` instead. The name of the vApp Template to use
-* `boot_image` - (Deprecated; *v2.9+*) Use `boot_image_id` instead. Media name to mount as boot image. Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/vmware/vcloud/latest/docs/resources/inserted_media).
+* `boot_image` - (Deprecated; *v2.9+*) Use `boot_image_id` instead. Media name to mount as boot image. Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/terraform-viettelidc/vcloud/latest/docs/resources/inserted_media).
 
 ## Attribute reference
 
@@ -630,7 +630,7 @@ example for usage details.
 <a id="override-template-disk"></a>
 ## Override template disk
 Allows to update internal disk in template before first VM boot. Disk is matched by `bus_type`, `bus_number` and `unit_number`.
-Changes are ignored on update. This part isn't reread on refresh. To manage internal disk later please use [`vcloud_vm_internal_disk`](/providers/vmware/vcloud/latest/docs/resources/vm_internal_disk) resource.
+Changes are ignored on update. This part isn't reread on refresh. To manage internal disk later please use [`vcloud_vm_internal_disk`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_internal_disk) resource.
  
 ~> **Note:** Managing disks in VM with fast provisioned VDC require
 [`consolidate_disks_on_create`](#consolidate_disks_on_create) option.
@@ -1102,4 +1102,4 @@ resource for further operations, you will need to integrate it with data from th
 is used to create the VM, such as `catalog_name`, `template_name`.
 
 [docs-import]:https://www.terraform.io/docs/import/
-[vgpu-policy]:/providers/vmware/vcloud/latest/docs/resources/vm_vgpu_policy
+[vgpu-policy]:/providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_vgpu_policy

@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to cr
 
 A `vcloud_subscribed_catalog` is a catalog that was created by subscribing to another catalog. It can be used, to some extent,
 like any other catalog, but users must keep in mind that this resource depends on the connection to another catalog, which
-may not even be in the same Vcloud. For more information, see the full [Catalog subscription and sharing](/providers/vmware/vcloud/latest/docs/guides/catalog_subscription_and_sharing) guide.
+may not even be in the same Vcloud. For more information, see the full [Catalog subscription and sharing](/providers/terraform-viettelidc/vcloud/latest/docs/guides/catalog_subscription_and_sharing) guide.
 
 Supported in provider *v3.8+*
 

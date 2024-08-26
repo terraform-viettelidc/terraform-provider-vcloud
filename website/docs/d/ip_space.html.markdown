@@ -42,4 +42,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_ip_space`](/providers/vmware/vcloud/latest/docs/resources/ip_space) resource are available.
+[`vcloud_ip_space`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space) resource are available.

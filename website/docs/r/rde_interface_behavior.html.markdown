@@ -12,8 +12,8 @@ Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
 
-~> Be aware that Behaviors can only be created and deleted when no [RDE Types](/providers/vmware/vcloud/latest/docs/resources/rde_type) are using the Interface where they are defined.
-If you want to use RDE Types with Behaviors, you should use `depends_on` as seen in the example [here](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior#example-usage)
+~> Be aware that Behaviors can only be created and deleted when no [RDE Types](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) are using the Interface where they are defined.
+If you want to use RDE Types with Behaviors, you should use `depends_on` as seen in the example [here](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior#example-usage)
 
 ## Example Usage
 

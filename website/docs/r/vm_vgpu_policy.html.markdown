@@ -194,6 +194,6 @@ $ terraform import vcloud_vm_vgpu_policy.imported urn:vcloud:vdcComputePolicy:44
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
-[cpu]:/providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy#cpu
-[memory]:/providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy#memory
+[cpu]:/providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_sizing_policy#cpu
+[memory]:/providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_sizing_policy#memory
 

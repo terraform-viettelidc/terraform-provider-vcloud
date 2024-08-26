@@ -83,7 +83,7 @@ resource "vcloud_network_pool" "npool" {
 
 ## Example Usage 4 Retrieving backing elements
 
-The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/vmware/vcloud/latest/docs/data_sources/resource_list), as in the example below
+The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/terraform-viettelidc/vcloud/latest/docs/data_sources/resource_list), as in the example below
 
 ```hcl
 data "vcloud_nsxt_manager" "mgr" {

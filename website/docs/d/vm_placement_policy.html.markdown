@@ -67,12 +67,12 @@ output "policyId" {
 The following arguments are supported:
 
 * `name` - (Required) The name VM Placement Policy.
-* `provider_vdc_id` - (Required for System administrator users) The ID of the [Provider VDC](/providers/vmware/vcloud/latest/docs/data-sources/provider_vdc) to which the VM Placement Policy belongs.
-* `vdc_id` - (Required for Org users; *v3.8.1+*) The ID of the [VDC](/providers/vmware/vcloud/latest/docs/data-sources/org_vdc) to which the VM Placement Policy is assigned.
+* `provider_vdc_id` - (Required for System administrator users) The ID of the [Provider VDC](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/provider_vdc) to which the VM Placement Policy belongs.
+* `vdc_id` - (Required for Org users; *v3.8.1+*) The ID of the [VDC](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/org_vdc) to which the VM Placement Policy is assigned.
 
 ## Attribute Reference
 
-All attributes defined in [`vcloud_vm_placement_policy`](/providers/vmware/vcloud/latest/docs/resources/vm_placement_policy#attribute-reference) resource are supported,
+All attributes defined in [`vcloud_vm_placement_policy`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_placement_policy#attribute-reference) resource are supported,
 with a special casuistic to take into account:
 
 * `vm_group_ids` - This attribute can't be retrieved if the data source is used by a tenant user when fetching by `vdc_id`.

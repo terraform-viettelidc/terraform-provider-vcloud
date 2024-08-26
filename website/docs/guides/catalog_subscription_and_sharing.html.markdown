@@ -337,10 +337,10 @@ run a refresh (if `synch_on_refresh` was set) or an update.
 In case #2 –which may also occur for #1 after the remedy was applied– the only remedy is **waiting** until the synchronisation is done.
 
 
-[catalog]: </providers/vmware/vcloud/latest/docs/resources/catalog> (vcloud_catalog)
-[shared]: </providers/vmware/vcloud/latest/docs/resources/catalog_access_control> (vcloud_catalog)
-[subscribed]: </providers/vmware/vcloud/latest/docs/resources/subscribed_catalog> (vcloud_subscribed_catalog)
-[item]: </providers/vmware/vcloud/latest/docs/resources/catalog_item> (vcloud_catalog_item)
-[media]: </providers/vmware/vcloud/latest/docs/resources/catalog_media> (vcloud_catalog_media)
-[template]: </providers/vmware/vcloud/latest/docs/resources/catalog_vapp_template> (vcloud_catalog_vapp_template)
+[catalog]: </providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog> (vcloud_catalog)
+[shared]: </providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_access_control> (vcloud_catalog)
+[subscribed]: </providers/terraform-viettelidc/vcloud/latest/docs/resources/subscribed_catalog> (vcloud_subscribed_catalog)
+[item]: </providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_item> (vcloud_catalog_item)
+[media]: </providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_media> (vcloud_catalog_media)
+[template]: </providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_vapp_template> (vcloud_catalog_vapp_template)
 

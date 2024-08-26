@@ -70,7 +70,7 @@ The following arguments are supported:
 * `snat_rule_ip_address` - (Optional, Vcloud 10.5.0+) This argument only applies if the Edge Gateway 
   is connected to a Provider Gateway using IP Spaces. If specified, Vcloud will 
   conveniently manage the SNAT rule with the specified IP address for the DNS forwarder.
-  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcloud/latest/docs/resources/ip_space_ip_allocation) 
+  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space_ip_allocation) 
   If not specified, the IP address will be computed and chosen by Vcloud.
 * `default_forwarder_zone` - (Required) The default forwarder zone to use if 
   there’s no matching domain in the conditional forwarder zones. See [`default_forwarder_zone`](#default-forwarder-zone)

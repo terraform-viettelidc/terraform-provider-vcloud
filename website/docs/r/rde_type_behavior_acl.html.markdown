@@ -8,7 +8,7 @@ description: |-
 
 # vcloud\_rde\_type\_behavior\_acl
 
-Provides the capability of managing [RDE Type Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior) Access Levels
+Provides the capability of managing [RDE Type Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior) Access Levels
 in Viettel IDC Cloud.
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
@@ -87,8 +87,8 @@ resource "vcloud_rde_type_behavior_acl" "acl2" {
 The following arguments are supported:
 
 * `rde_type_id` - (Required) The ID of the RDE Type
-* `behavior_id` - (Required) The ID of either a [RDE Type Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior)
-  or a [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior)
+* `behavior_id` - (Required) The ID of either a [RDE Type Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior)
+  or a [RDE Interface Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior)
 * `access_level_ids` - (Required) Set of Access Level IDs to associate to the Behavior defined in `behavior_id` argument
 
 ## Importing

@@ -56,7 +56,7 @@ to other workflows. For example, you could save into a media item an HCL file us
 
 ## Attribute reference
 
-All attributes defined in [catalog_media](/providers/vmware/vcloud/latest/docs/resources/catalog_media#attribute-reference) are supported.
+All attributes defined in [catalog_media](/providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_media#attribute-reference) are supported.
 
 ## Filter arguments
 
@@ -74,5 +74,5 @@ All attributes defined in [catalog_media](/providers/vmware/vcloud/latest/docs/r
   are set, it retrieves the oldest item.
 * `metadata` - (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/terraform-viettelidc/vcloud/latest/docs/guides/data_source_filters) for details and examples.
 

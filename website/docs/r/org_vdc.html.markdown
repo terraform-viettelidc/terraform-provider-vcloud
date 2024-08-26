@@ -245,7 +245,7 @@ The following arguments are supported:
 * `edge_cluster_id` - (Deprecated; Optional, *v3.8+*, *Vcloud 10.3+*) An ID of NSX-T Edge Cluster which
   should provide vApp Networking Services or DHCP for isolated networks. Can be looked up using
   `vcloud_nsxt_edge_cluster` data source. This field is **deprecated** in favor of
-  [`vcloud_org_vdc_nsxt_network_profile`](/providers/vmware/vcloud/latest/docs/resources/org_vdc_nsxt_network_profile).
+  [`vcloud_org_vdc_nsxt_network_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc_nsxt_network_profile).
 * `enable_nsxv_distributed_firewall` - (Optional, *v3.9+*, *Vcloud 10.3+*) Enables or disables the NSX-V distributed firewall.
 
 <a id="storageprofile"></a>

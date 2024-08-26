@@ -34,4 +34,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_library_certificate`](/providers/vmware/vcloud/latest/docs/resources/certificate_library) resource are available.
+[`vcloud_library_certificate`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/certificate_library) resource are available.

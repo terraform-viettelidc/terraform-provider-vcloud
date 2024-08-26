@@ -63,19 +63,19 @@ resource "vcloud_nsxt_segment_profile_template" "complete" {
 The following arguments are supported:
 
 * `nsxt_manager_id` - (Required) NSX-T Manager ID (can be referenced using
-  [`vcloud_nsxt_manager`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_manager) datasource)
+  [`vcloud_nsxt_manager`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_manager) datasource)
 * `name` - (Required) Name for Segment Profile Template
 * `description` - (Optional) Description of Segment Profile Template
 * `ip_discovery_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_ip_discovery_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_ip_discovery_profile)
+  [`vcloud_nsxt_segment_ip_discovery_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_segment_ip_discovery_profile)
 * `mac_discovery_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_mac_discovery_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_mac_discovery_profile)
+  [`vcloud_nsxt_segment_mac_discovery_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_segment_mac_discovery_profile)
 * `spoof_guard_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_spoof_guard_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_spoof_guard_profile)
+  [`vcloud_nsxt_segment_spoof_guard_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_segment_spoof_guard_profile)
 * `qos_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_qos_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_qos_profile)
+  [`vcloud_nsxt_segment_qos_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_segment_qos_profile)
 * `segment_security_profile_id` - (Optional) IP Discovery Profile ID. can be referenced using
-  [`vcloud_nsxt_segment_security_profile`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_segment_security_profile)
+  [`vcloud_nsxt_segment_security_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_segment_security_profile)
 
 
 ## Importing

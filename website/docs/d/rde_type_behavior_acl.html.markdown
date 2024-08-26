@@ -48,8 +48,8 @@ output "access_levels" {
 The following arguments are supported:
 
 * `rde_type_id` - (Required) The ID of the RDE Type
-* `behavior_id` - (Required) The ID of either a [RDE Type Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior)
-  or a [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior)
+* `behavior_id` - (Required) The ID of either a [RDE Type Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior)
+  or a [RDE Interface Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior)
 
 ## Attribute Reference
 

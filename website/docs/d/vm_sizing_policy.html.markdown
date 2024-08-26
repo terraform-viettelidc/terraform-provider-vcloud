@@ -34,5 +34,5 @@ The following arguments are supported:
 Previously, it was incorrectly stated that the `org` argument was required. In fact, it is not, and it has been deprecated in the resource schema.
 To preserve compatibility until the next release, though, the parameter is still parsed, but ignored.
 
-All arguments defined in [`vcloud_vm_sizing_policy`](/providers/vmware/vcloud/latest/docs/resources/vm_sizing_policy#argument-reference) are supported.
+All arguments defined in [`vcloud_vm_sizing_policy`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_sizing_policy#argument-reference) are supported.
 

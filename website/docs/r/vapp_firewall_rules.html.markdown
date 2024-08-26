@@ -9,8 +9,8 @@ description: |-
 # vcloud\_vapp\_firewall\_rules
 
 Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create,
-modify, and delete firewall settings and rules in a [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
-Firewall rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcloud/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcloud/r/vapp_org_network) which are fenced. 
+modify, and delete firewall settings and rules in a [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).
+Firewall rules can be applied to [vApp networks connected to Org network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcloud/r/vapp_org_network) which are fenced. 
 
 !> **Warning:** Using this resource overrides any existing firewall rules on vApp network. It's recommended to have only one resource per vApp and vApp network. 
 
@@ -68,8 +68,8 @@ The following arguments are supported:
 
 * `org` - The name of organization to use, optional if defined at provider level. Useful when connected as sysadmin working across different organisations.
 * `vdc` - The name of VDC to use, optional if defined at provider level.
-* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcloud/latest/docs/resources/vapp).
-* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcloud/latest/docs/resources/vapp_network).
+* `vapp_id` - (Required) The identifier of [vApp](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp).
+* `network_id` - (Required) The identifier of [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).
 * `enabled` - (Optional) Enable or disable firewall. Default is `true`.
 * `default_action` - (Required) Either 'allow' or 'drop'. Specifies what to do should none of the rules match.
 * `log_default_action` - (Optional) Flag to enable logging for default action. Default value is `false`.

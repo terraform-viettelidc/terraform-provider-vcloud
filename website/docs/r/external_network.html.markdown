@@ -13,7 +13,7 @@ Requires system administrator privileges.
 
 Supported in provider *v2.2+*
 
-~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/vmware/vcloud/latest/docs/resources/external_network_v2)
+~> This resource is deprecated in favor of [`vcloud_external_network_v2`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/external_network_v2)
 
 ## Example Usage
 
@@ -148,4 +148,4 @@ NOTE: the default separator (.) can be changed using Provider.import_separator o
 While the above structure is the minimum needed to get an import, it is not sufficient to run `terraform plan`,
 as it lacks several mandatory fields. To use the imported resource, you will need to add the missing properties
 using the data in `terraform.tfstate` as a reference. If the resource does not need modifications, consider using
-an [external network data source](/providers/vmware/vcloud/latest/docs/data-sources/external_network) instead. 
+an [external network data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/external_network) instead. 

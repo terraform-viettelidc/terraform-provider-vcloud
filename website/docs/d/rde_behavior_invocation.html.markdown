@@ -10,8 +10,8 @@ description: |-
 
 ~> This feature is **experimental** and may change in future
 
-Provides the capability of invoking an existing [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior)
-or [RDE Type Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior) in Viettel IDC Cloud.
+Provides the capability of invoking an existing [RDE Interface Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior)
+or [RDE Type Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior) in Viettel IDC Cloud.
 
 Supported in provider *v3.11+*
 
@@ -79,9 +79,9 @@ output "rde_behavior_invocation_output" {
 
 The following arguments are supported:
 
-* `rde_id` - (Required) The ID of the [RDE](/providers/vmware/vcloud/latest/docs/resources/rde) which Behavior will be invoked
-* `behavior_id` - (Required) The ID of the [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_interface_behavior) or
-  the [RDE Interface Behavior](/providers/vmware/vcloud/latest/docs/resources/rde_type_behavior) to invoke
+* `rde_id` - (Required) The ID of the [RDE](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde) which Behavior will be invoked
+* `behavior_id` - (Required) The ID of the [RDE Interface Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior) or
+  the [RDE Interface Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior) to invoke
 * `arguments` - (Optional) A map with the arguments of the invocation
 * `metadata` - (Optional) A map with the metadata of the invocation
 * `invoke_on_refresh` - (Optional) Defaults to `true`, indicates whether the Behavior should be invoked on every refresh.

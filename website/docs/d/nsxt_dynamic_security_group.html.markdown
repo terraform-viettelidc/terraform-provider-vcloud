@@ -42,4 +42,4 @@ The following arguments are supported:
 * `name` - (Required) A unique name for existing Dynamic Security Group
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_dynamic_security_group`](/providers/vmware/vcloud/latest/docs/resources/nsxt_dynamic_security_group) resource are available.
+[`vcloud_nsxt_dynamic_security_group`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_dynamic_security_group) resource are available.

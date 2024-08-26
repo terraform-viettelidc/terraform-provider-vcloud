@@ -101,7 +101,7 @@ The following arguments are supported:
 The following attributes are exported on this resource:
 
 * `state` - reports the state of parent [Runtime Defined
-  Entity](/providers/vmware/vcloud/latest/docs/resources/rde)
+  Entity](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde)
 
 ## Importing
 

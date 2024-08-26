@@ -123,7 +123,7 @@ The following arguments are supported:
   details on the origin of the VM (e.g. `vm.origin.id`, `vm.origin.name`, `vm.origin.type`).
 
 
-See [VM resource](/providers/vmware/vcloud/latest/docs/resources/vapp_vm#attribute-reference) for more info about VM attributes.
+See [VM resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_vm#attribute-reference) for more info about VM attributes.
 
 <a id="metadata"></a>
 ## Metadata

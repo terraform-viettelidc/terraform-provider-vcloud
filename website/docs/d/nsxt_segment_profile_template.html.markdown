@@ -28,5 +28,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All properties defined in [vcloud_nsxt_segment_profile_template](/providers/vmware/vcloud/latest/docs/resources/nsxt_segment_profile_template)
+All properties defined in [vcloud_nsxt_segment_profile_template](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_segment_profile_template)
 resource are available.

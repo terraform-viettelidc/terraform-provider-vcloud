@@ -41,4 +41,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_ipsec_vpn_tunnel`](/providers/vmware/vcloud/latest/docs/resources/nsxt_ipsec_vpn_tunnel) resource are available.
+[`vcloud_nsxt_ipsec_vpn_tunnel`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_ipsec_vpn_tunnel) resource are available.

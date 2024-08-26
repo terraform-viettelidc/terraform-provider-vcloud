@@ -42,7 +42,7 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All **attributes** defined in [`vcloud_ui_plugin`](/providers/vmware/vcloud/latest/docs/resources/ui_plugin#attribute-reference) are supported.
+All **attributes** defined in [`vcloud_ui_plugin`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ui_plugin#attribute-reference) are supported.
 
 Also, the arguments `enabled`, `tenant_ids`, `provider_scoped` and `tenant_scoped` that are defined in the same resource
 are available as read-only attributes. 

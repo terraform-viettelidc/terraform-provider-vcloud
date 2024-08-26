@@ -38,4 +38,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_route_advertisement`](/providers/vmware/vcloud/latest/docs/resources/nsxt_route_advertisement) resource are available.
+[`vcloud_nsxt_route_advertisement`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_route_advertisement) resource are available.

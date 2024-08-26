@@ -58,7 +58,7 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All attributes defined in [edge gateway resource](/providers/vmware/vcloud/latest/docs/resources/edgegateway#attribute-reference) are supported.
+All attributes defined in [edge gateway resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/edgegateway#attribute-reference) are supported.
 
 ## Filter arguments
 
@@ -66,5 +66,5 @@ All attributes defined in [edge gateway resource](/providers/vmware/vcloud/lates
 
 * `name_regex` - (Optional) matches the name using a regular expression.
 
-See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/terraform-viettelidc/vcloud/latest/docs/guides/data_source_filters) for details and examples.
 

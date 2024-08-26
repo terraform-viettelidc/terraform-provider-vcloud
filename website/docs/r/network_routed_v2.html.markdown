@@ -18,7 +18,7 @@ Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.
 resource and inherited from provider configuration) are deprecated. `vcloud_network_routed_v2` will
 inherit VDC or VDC Group membership from parent Edge Gateway specified in `edge_gateway_id` field.
 More about VDC Group support in a [VDC Groups
-guide](/providers/vmware/vcloud/latest/docs/guides/vdc_groups).
+guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/vdc_groups).
 
 ## Example Usage (NSX-T backed routed Org VDC network)
 
@@ -168,7 +168,7 @@ The following arguments are supported:
   Default `false`.
 * `route_advertisement_enabled` - (Optional; *v3.12+*, *Vcloud 10.4.1+*) Enables route advertising for
   this network. **Note** This requires Edge Gateway to use IP Spaces and IP Space *must have* [route
-  advertisement](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/resources/ip_space#route_advertisement_enabled)
+  advertisement](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space#route_advertisement_enabled)
   enabled.
 * `metadata` - (Deprecated; *v3.6+*) Use `metadata_entry` instead. Key value map of metadata to assign to this network. **Not supported** if the owner edge gateway belongs to a VDC Group.
 * `metadata_entry` - (Optional; *v3.8+*) A set of metadata entries to assign. See [Metadata](#metadata) section for details.

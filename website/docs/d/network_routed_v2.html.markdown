@@ -47,7 +47,7 @@ The following arguments are supported:
 * `owner_id` - Parent VDC or VDC Group ID.
 
 All attributes defined in [routed network v2
-resource](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2#attribute-reference) are
+resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/network_routed_v2#attribute-reference) are
 supported.
 
 ## Filter arguments
@@ -55,4 +55,4 @@ supported.
 * `name_regex` - (Optional) matches the name using a regular expression.
 * `ip` - (Optional) matches the IP of the resource using a regular expression.
 
-See [Filters reference](/providers/vmware/vcloud/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/terraform-viettelidc/vcloud/latest/docs/guides/data_source_filters) for details and examples.

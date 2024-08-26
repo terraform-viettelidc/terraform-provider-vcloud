@@ -43,5 +43,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_edgegateway_rate_limiting`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_rate_limiting)
+[`vcloud_nsxt_edgegateway_rate_limiting`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway_rate_limiting)
 resource are available.

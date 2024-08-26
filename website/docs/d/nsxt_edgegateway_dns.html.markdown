@@ -36,10 +36,10 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at 
   provider level. Useful when connected as sysadmin working across different organisations
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). 
-  Can be looked up using [`vcloud_nsxt_edgegateway`](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
+  Can be looked up using [`vcloud_nsxt_edgegateway`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 
 ## Attribute Reference
 
-All properties defined in [vcloud_nsxt_edgegateway_dns](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_dns)
+All properties defined in [vcloud_nsxt_edgegateway_dns](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway_dns)
 resource are available.
 

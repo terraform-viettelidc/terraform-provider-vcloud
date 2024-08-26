@@ -37,5 +37,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All properties defined in [vcloud_nsxt_firewall](/providers/vmware/vcloud/latest/docs/resources/nsxt_firewall)
+All properties defined in [vcloud_nsxt_firewall](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_firewall)
 resource are available.

@@ -31,5 +31,5 @@ The following arguments are supported:
 ## Attribute Reference
  
 All the arguments and attributes defined in
-[`vcloud_nsxt_network_segment_profile`](/providers/vmware/vcloud/latest/docs/resources/nsxt_network_segment_profile)
+[`vcloud_nsxt_network_segment_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_network_segment_profile)
 resource are available.

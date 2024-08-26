@@ -172,7 +172,7 @@ The following arguments are supported:
   when connected as sysadmin working across different organisations.
 * `name` - (Required) A name for ALB Virtual Service
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `description` - (Optional) An optional description ALB Virtual Service
 * `pool_id` - (Required) A reference to ALB Pool. Can be looked up using `vcloud_nsxt_alb_pool` resource or data
   source

@@ -16,7 +16,7 @@ You must use `System Adminstrator` account in `provider` configuration
 and then provide `org` and `owner_id` arguments for Edge Gateway to work.
 
 This resource supports **IP Spaces** - read [IP Spaces guide
-page](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/guides/ip_spaces) for more
+page](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/ip_spaces) for more
 information.
 
 ## Example Usage (Simple case)
@@ -311,8 +311,8 @@ The following arguments are supported:
 * `vdc` - (Optional) **Deprecated** in favor of `owner_id`. The name of VDC that owns the edge
   gateway. Can be inherited from `provider` configuration if not defined here.
 * `owner_id` - (Optional, *v3.6+*,*Vcloud 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
-  [vcloud_vdc_group](/providers/vmware/vcloud/latest/docs/data-sources/vdc_group) or
-  [vcloud_org_vdc](/providers/vmware/vcloud/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
+  [vcloud_vdc_group](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/vdc_group) or
+  [vcloud_org_vdc](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
   name.
 
 ~> Only one of `vdc` or `owner_id` can be specified. `owner_id` takes precedence over `vdc`
@@ -329,7 +329,7 @@ definition at provider level.
 
 * `name` - (Required) A unique name for the edge gateway.
 * `description` - (Optional) A unique name for the edge gateway.
-* `external_network_id` - (Required) An external network ID. **Note:** Data source [vcloud_external_network_v2](/providers/vmware/vcloud/latest/docs/data-sources/external_network_v2)
+* `external_network_id` - (Required) An external network ID. **Note:** Data source [vcloud_external_network_v2](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/external_network_v2)
 can be used to lookup ID by name.
 * `edge_cluster_id` - (Optional) Specific Edge Cluster ID if required
 * `dedicate_external_network` - (Optional) Dedicating the external network will enable Route Advertisement for this Edge Gateway. Default `false`.
@@ -489,7 +489,7 @@ terraform import vcloud_nsxt_edgegateway.nsxt-edge my-org.nsxt-vdc.nsxt-edge
 ```
 
 * **Note 1**: the separator can be changed using `Provider.import_separator` or variable `vcloud_IMPORT_SEPARATOR`
-* **Note 2**: it is possible to list all available NSX-T edge gateways using data source [vcloud_resource_list](/providers/vmware/vcloud/latest/docs/data-sources/resource_list#vcloud_nsxt_edgegateway)
+* **Note 2**: it is possible to list all available NSX-T edge gateways using data source [vcloud_resource_list](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/resource_list#vcloud_nsxt_edgegateway)
 
 [docs-import]:https://www.terraform.io/docs/import/
 

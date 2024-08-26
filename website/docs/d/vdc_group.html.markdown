@@ -34,4 +34,4 @@ Either `name` or `id` must be used. If both are missing, an error arises.
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_vdc_group`](/providers/vmware/vcloud/latest/docs/resources/vdc_group) resource are available.
+[`vcloud_vdc_group`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vdc_group) resource are available.

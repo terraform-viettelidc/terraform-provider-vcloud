@@ -57,7 +57,7 @@ The following arguments are supported:
 * `name` - (Required) Catalog name
 * `description` - (Optional) Description of catalog
 * `storage_profile_id` - (Optional, *v3.1+*) Allows to set specific storage profile to be used for catalog. **Note.** Data
-source [vcloud_storage_profile](/providers/vmware/vcloud/latest/docs/data-sources/storage_profile) can help to lookup storage profile ID.
+source [vcloud_storage_profile](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/storage_profile) can help to lookup storage profile ID.
 * `delete_recursive` - (Optional, but recommended) When destroying use `delete_recursive=true` to remove the catalog and any objects it contains that are in a state that normally allows removal. Default is `false`
 * `delete_force` - (Optional, but recommended) When destroying use `delete_force=true` with `delete_recursive=true` to remove a catalog and any objects it contains, regardless of their state. Default is `false`
 * `publish_enabled` - (Optional, *v3.6+*) Enable allows to publish a catalog externally to make its vApp templates and media files available for subscription by organizations outside the Cloud Director installation. Default is `false`. 

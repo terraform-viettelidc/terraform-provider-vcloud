@@ -19,7 +19,7 @@ Supports the following **Container Service Extension** versions:
 * 4.2.0
 * 4.2.1
 
--> To install CSE in Viettel IDC Cloud, please follow [this guide](/providers/vmware/vcloud/latest/docs/guides/container_service_extension_4_x_install)
+-> To install CSE in Viettel IDC Cloud, please follow [this guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/container_service_extension_4_x_install)
 
 ## Example Usage with ID
 
@@ -62,5 +62,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All attributes defined in [vcloud_cse_kubernetes_cluster](/providers/vmware/vcloud/latest/docs/resources/cse_kubernetes_cluster) resource are supported.
+All attributes defined in [vcloud_cse_kubernetes_cluster](/providers/terraform-viettelidc/vcloud/latest/docs/resources/cse_kubernetes_cluster) resource are supported.
 Also, the resource arguments are also available as read-only attributes.

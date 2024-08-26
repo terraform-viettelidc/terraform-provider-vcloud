@@ -28,4 +28,4 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All the attributes and arguments of the corresponding resource [vcloud_network_pool](/providers/vmware/vcloud/latest/docs/resources/network_pool) are supported
+All the attributes and arguments of the corresponding resource [vcloud_network_pool](/providers/terraform-viettelidc/vcloud/latest/docs/resources/network_pool) are supported

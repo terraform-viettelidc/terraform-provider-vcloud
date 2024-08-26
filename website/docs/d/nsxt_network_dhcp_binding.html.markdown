@@ -40,5 +40,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_network_dhcp_binding`](/providers/vmware/vcloud/latest/docs/resources/nsxt_network_dhcp_binding)
+[`vcloud_nsxt_network_dhcp_binding`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_network_dhcp_binding)
 resource are available.

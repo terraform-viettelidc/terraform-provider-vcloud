@@ -9,7 +9,7 @@ description: |-
 # Container Service Extension v3.1.x
 
 ~> This CSE installation method is **deprecated** in favor of CSE v4.x. Please have a look at the new guide
-[here](https://registry.terraform.io/providers/vmware/vcloud/latest/docs/guides/container_service_extension_4_x_install)
+[here](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/container_service_extension_4_x_install)
 
 ## About
 
@@ -53,8 +53,8 @@ As you will be creating several administrator-scoped resources like Orgs, VDCs, 
 
 ### Step 1: Initialization
 
-This step assumes that you want to install CSE in a brand new [Organization](/providers/vmware/vcloud/latest/docs/resources/org)
-with no [VDCs](/providers/vmware/vcloud/latest/docs/resources/org_vdc), or that is a fresh installation of Vcloud.
+This step assumes that you want to install CSE in a brand new [Organization](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org)
+with no [VDCs](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc), or that is a fresh installation of Vcloud.
 Otherwise, please skip this step and configure `org` and `vdc` attributes in the provider configuration above or use an
 available data source to fetch them.
 
@@ -109,12 +109,12 @@ resource "vcloud_org_vdc" "cse_vdc" {
 
 For the Kubernetes clusters to be functional, you need to provide some networking resources to the target VDC:
 
-* [Tier-0 Gateway](/providers/vmware/vcloud/latest/docs/resources/external_network_v2)
-* [Edge Gateway](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway)
-* [Routed Network](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2)
-* [SNAT rule](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule)
+* [Tier-0 Gateway](/providers/terraform-viettelidc/vcloud/latest/docs/resources/external_network_v2)
+* [Edge Gateway](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway)
+* [Routed Network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/network_routed_v2)
+* [SNAT rule](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_nat_rule)
 
-The [Tier-0 Gateway](/providers/vmware/vcloud/latest/docs/resources/external_network_v2) will provide access to the
+The [Tier-0 Gateway](/providers/terraform-viettelidc/vcloud/latest/docs/resources/external_network_v2) will provide access to the
 outside world. For example, this will allow cluster users to communicate with Kubernetes API server with **kubectl** and
 download required dependencies for the cluster to be created correctly.
 
@@ -151,7 +151,7 @@ resource "vcloud_external_network_v2" "cse_external_network_nsxt" {
 }
 ```
 
-Create also an [Edge Gateway](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway) that will use the recently created
+Create also an [Edge Gateway](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway) that will use the recently created
 external network. This will act as the main router connecting our nodes in the internal network to the external (Provider Gateway) network:
 
 ```hcl
@@ -177,11 +177,11 @@ resource "vcloud_nsxt_edgegateway" "cse_egw" {
 ```
 
 The above resource creates a basic Edge Gateway, but you can of course add more configurations like
-[firewall rules](/providers/vmware/vcloud/latest/docs/resources/nsxt_firewall)
+[firewall rules](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_firewall)
 to fit with your organization requirements. Make sure that traffic is allowed, as the cluster creation process
 requires software to be installed in the nodes, otherwise cluster creation will fail.
 
-Create a [Routed Network](/providers/vmware/vcloud/latest/docs/resources/network_routed_v2) that will be using the recently
+Create a [Routed Network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/network_routed_v2) that will be using the recently
 created Edge Gateway. This network is the one used by all the Kubernetes nodes in the cluster, so the used IP pool will determine
 the number of nodes you can have in the cluster.
 
@@ -207,7 +207,7 @@ resource "vcloud_network_routed_v2" "cse_routed" {
 ```
 
 To be able to reach the Kubernetes nodes within the routed network, you need also a
-[SNAT rule](/providers/vmware/vcloud/latest/docs/resources/nsxt_nat_rule):
+[SNAT rule](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_nat_rule):
 
 ```hcl
 resource "vcloud_nsxt_nat_rule" "snat" {
@@ -229,15 +229,15 @@ resource "vcloud_nsxt_nat_rule" "snat" {
 Avi Load Balancers are required for CSE to be able to handle Kubernetes services and other internal capabilities.
 You need the following resources:
 
-* [ALB Controller](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_controller)
-* [ALB Cloud](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_cloud)
-* [ALB Service Engine Group](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_service_engine_group)
-* [ALB Settings](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_settings)
-* [ALB Edge Gateway Service Engine Group](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
-* [ALB Pool](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_pool)
-* [ALB Virtual Service](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_virtual_service)
+* [ALB Controller](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_controller)
+* [ALB Cloud](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_cloud)
+* [ALB Service Engine Group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_service_engine_group)
+* [ALB Settings](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_settings)
+* [ALB Edge Gateway Service Engine Group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
+* [ALB Pool](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_pool)
+* [ALB Virtual Service](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_virtual_service)
 
-You can have a look at [this guide](/providers/vmware/vcloud/latest/docs/guides/nsxt_alb) as it explains every resource
+You can have a look at [this guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/nsxt_alb) as it explains every resource
 and provides some examples of how to set up ALB in Vcloud. You can also have a look at the "[Examples](#examples)" section below
 where the full ALB setup is provided.
 
@@ -354,7 +354,7 @@ resource "vcloud_role" "cse-service-role" {
 }
 ```
 
-Once created, you can create a [User](/providers/vmware/vcloud/latest/docs/resources/org_user) and use it, as this will provide
+Once created, you can create a [User](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_user) and use it, as this will provide
 more security and traceability to the CSE management operations, which is recommended:
 
 ```hcl
@@ -379,7 +379,7 @@ provider "vcloud" {
 
 ### Step 5: Configure catalogs and OVAs
 
-You need to have a [Catalog](/providers/vmware/vcloud/latest/docs/resources/catalog) for vApp Templates and upload the corresponding
+You need to have a [Catalog](/providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog) for vApp Templates and upload the corresponding
 TKGm (Tanzu Kubernetes Grid) OVA files to be able to create Kubernetes clusters.
 
 ```hcl
@@ -404,7 +404,7 @@ resource "vcloud_catalog" "cat-cse" {
 ```
 
 Then you can upload TKGm OVAs to this catalog. These can be downloaded from **VMware Customer Connect**.
-To upload them, use the [Catalog Item](/providers/vmware/vcloud/latest/docs/resources/catalog_item) resource with
+To upload them, use the [Catalog Item](/providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_item) resource with
 `metadata_entry`.
 
 ~> Only TKGm OVAs are supported. CSE is **not compatible** yet with PhotonOS
@@ -587,7 +587,7 @@ When using the HCL option, take into account the following important aspects:
 
 ### Step 7: Rights and roles
 
-You need to publish a new [Rights Bundle](/providers/vmware/vcloud/latest/docs/resources/rights_bundle) to your
+You need to publish a new [Rights Bundle](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rights_bundle) to your
 Organization with the new rights that `cse install` command created in Vcloud.
 The required new rights are listed in the example below. It creates a new bundle with a mix of the existent Default Rights Bundle rights and
 the new ones.

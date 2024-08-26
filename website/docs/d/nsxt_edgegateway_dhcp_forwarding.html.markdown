@@ -44,5 +44,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_edgegateway_dhcp_forwarding`](/providers/vmware/vcloud/latest/docs/resources/nsxt_edgegateway_dhcp_forwarding)
+[`vcloud_nsxt_edgegateway_dhcp_forwarding`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway_dhcp_forwarding)
 resource are available.

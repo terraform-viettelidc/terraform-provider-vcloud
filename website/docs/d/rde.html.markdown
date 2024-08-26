@@ -10,7 +10,7 @@ description: |-
 
 Provides the capability of reading an existing Runtime Defined Entity in Viettel IDC Cloud.
 
--> Vcloud allows to have multiple RDEs of the same [RDE Type](/providers/vmware/vcloud/latest/docs/resources/rde_type) with
+-> Vcloud allows to have multiple RDEs of the same [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) with
 the same name, meaning that the data source will not be able to fetch a RDE in this situation, as this data source
 can only retrieve **unique RDEs**.
 
@@ -40,8 +40,8 @@ output "rde_output" {
 
 The following arguments are supported:
 
-* `org` - (Optional) Name of the [Organization](/providers/vmware/vcloud/latest/docs/data-sources/org) that owns the RDE, optional if defined at provider level.
-* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/vmware/vcloud/latest/docs/data-sources/rde_type) of the RDE to fetch.
+* `org` - (Optional) Name of the [Organization](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/org) that owns the RDE, optional if defined at provider level.
+* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/rde_type) of the RDE to fetch.
 * `name` - (Required) The name of the Runtime Defined Entity.
 
 ## Attribute Reference
@@ -49,8 +49,8 @@ The following arguments are supported:
 The following attributes are supported:
 
 * `entity` - The entity JSON.
-* `owner_user_id` - The ID of the [Organization user](/providers/vmware/vcloud/latest/docs/resources/org_user) that owns this Runtime Defined Entity.
-* `org_id` - The ID of the [Organization](/providers/vmware/vcloud/latest/docs/resources/org) to which the Runtime Defined Entity belongs.
+* `owner_user_id` - The ID of the [Organization user](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_user) that owns this Runtime Defined Entity.
+* `org_id` - The ID of the [Organization](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org) to which the Runtime Defined Entity belongs.
 * `state` - It can be `RESOLVED`, `RESOLUTION_ERROR` or `PRE_CREATED`.
 * `metadata_entry` - A set of metadata entries that belong to the RDE.
-  Read the [resource](/providers/vmware/vcloud/latest/docs/resources/rde#metadata) documentation for the details of the sub-attributes.
+  Read the [resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde#metadata) documentation for the details of the sub-attributes.

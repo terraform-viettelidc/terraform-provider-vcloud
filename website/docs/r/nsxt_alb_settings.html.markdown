@@ -65,7 +65,7 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to which the edge gateway belongs. Optional if defined at provider level.
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `is_active` - (Required) Boolean value `true` or `false` if ALB is enabled. **Note** Delete operation of this resource
   will set it to `false`
 * `supported_feature_set` - (Optional; *v3.7+*) Feature set of this Edge Gateway if ALB is enabled (`STANDARD` or `PREMIUM`)
@@ -86,7 +86,7 @@ The following arguments are supported:
 service network with a dual IPv4 and IPv6 stack. If only `ipv6_service_network_specification` is
 used, then only IPv6 will be used.
 
-~> The attribute `supported_feature_set` must not be used in Vcloud versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/vmware/vcloud/latest/docs/resources/nsxt_alb_controller).
+~> The attribute `supported_feature_set` must not be used in Vcloud versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_controller).
 
 ## Importing
 

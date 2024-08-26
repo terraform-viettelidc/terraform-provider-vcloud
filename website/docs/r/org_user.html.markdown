@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud Org User. This can be used to create, update, and d
 
 If we have the right permissions, we can create both organization and System users: to do so, we indicate "System" as organization name.
 
-The users being created can be assigned either pre-existing roles or [custom roles](/providers/vmware/vcloud/latest/docs/resources/role).
+The users being created can be assigned either pre-existing roles or [custom roles](/providers/terraform-viettelidc/vcloud/latest/docs/resources/role).
 
 Supported in provider *v2.4+*
 
