@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_edgegateway_settings"
+page_title: "VMware Cloud Director: vcloud_edgegateway_settings"
 sidebar_current: "docs-vcd-resource-edgegateway-settings"
 description: |-
   Provides a VMware Cloud Director edge gateway global settings. This can be used to update global edge gateways settings related to firewall and load balancing.
@@ -19,9 +19,9 @@ some settings for further operations.
 ~> **Warning:** The edge gateway settings info is tied to an edge gateway. Thus, there could be only one instance per 
 edge gateway. Using a different definition for the same edge gateway ID will result in a previous instance to be overwritten.
 
-!> **Warning:** Using a `vcd_edgegateway` and a `vcd_edgegateway_settings` for the same entity does not work correctly,
+!> **Warning:** Using a `vcloud_edgegateway` and a `vcloud_edgegateway_settings` for the same entity does not work correctly,
 as the main purpose of this resource is to handle general settings when the edge gateway was created outside of Terraform.
-If users can create an edge gateway, they don't need `vcd_edgegateway_settings`, as they can set the same properties
+If users can create an edge gateway, they don't need `vcloud_edgegateway_settings`, as they can set the same properties
 directly during creation.
 
 Supported in provider *v3.0+*
@@ -29,12 +29,12 @@ Supported in provider *v3.0+*
 ## Example Usage
 
 ```hcl
-data "vcd_edgegateway" "egw" {
+data "vcloud_edgegateway" "egw" {
   name = "my-egw"
 }
 
-resource "vcd_edgegateway_settings" "egw-settings" {
-  edge_gateway_id         = data.vcd_edgegateway.egw.id
+resource "vcloud_edgegateway_settings" "egw-settings" {
+  edge_gateway_id         = data.vcloud_edgegateway.egw.id
   lb_enabled              = true
   lb_acceleration_enabled = true
   lb_logging_enabled      = true
@@ -47,7 +47,7 @@ resource "vcd_edgegateway_settings" "egw-settings" {
 ```
 
 -> **Tip:** Although this resource changes values in the edge gateway referenced as a data source, due to how Terraform works, the state
-of the edge gateway doesn't get updated. To reconcile the state of the data source with the values modified in `vcd_edgegateway_settings`,
+of the edge gateway doesn't get updated. To reconcile the state of the data source with the values modified in `vcloud_edgegateway_settings`,
 you need to run `terraform refresh` after `apply`.
 
 => **Note:** Although tenants can enable load balancing using this resource, they can't set the properties `lb_logging_enabled` and `lb_loglevel`.
@@ -84,7 +84,7 @@ The path for this resource is made of org-name.vdc-name.edge-name
 For example, using this structure, representing an edge gateway settings that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_edgegateway_settings" "tf-egw" {
+resource "vcloud_edgegateway_settings" "tf-egw" {
   edge_gateway_name = "my-edge-gw"
 }
 ```
@@ -92,9 +92,9 @@ resource "vcd_edgegateway_settings" "tf-egw" {
 You can import such resource into terraform state using one of the commands below
 
 ```
-terraform import vcd_edgegateway_settings.tf-egw my-org.my-vdc.my-edge-gw
+terraform import vcloud_edgegateway_settings.tf-egw my-org.my-vdc.my-edge-gw
 
-terraform import vcd_edgegateway_settings.tf-egw my-org.my-vdc.63ed92de-4001-450c-879f-deadbeef0123
+terraform import vcloud_edgegateway_settings.tf-egw my-org.my-vdc.63ed92de-4001-450c-879f-deadbeef0123
 ```
 
 * **Note 1**: the name to provide here is the name of the edge gateway, as this resource is tied to it.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_pool"
+page_title: "VMware Cloud Director: vcloud_network_pool"
 sidebar_current: "docs-vcd-resource-network-pool"
 description: |-
   Provides a VMware Cloud Director Network Pool. This can be used to create, modify, and delete a VCD Network Pool
@@ -18,14 +18,14 @@ Supported in provider *v3.11+*
 ## Example Usage 1 - Type "GENEVE" (NSX-T)
 
 ```hcl
-data "vcd_nsxt_manager" "mgr" {
+data "vcloud_nsxt_manager" "mgr" {
   name = "mymanager"
 }
 
-resource "vcd_network_pool" "npool" {
+resource "vcloud_network_pool" "npool" {
   name                = "new-network-pool"
   description         = "New network pool"
-  network_provider_id = data.vcd_nsxt_manager.mgr.id
+  network_provider_id = data.vcloud_nsxt_manager.mgr.id
   type                = "GENEVE"
 
   backing {
@@ -39,14 +39,14 @@ resource "vcd_network_pool" "npool" {
 ## Example Usage 2 - Type "VLAN"
 
 ```hcl
-data "vcd_vcenter" "vc1" {
+data "vcloud_vcenter" "vc1" {
   name = "vc1"
 }
 
-resource "vcd_network_pool" "npool" {
+resource "vcloud_network_pool" "npool" {
   name                = "my-vlan-network-pool"
   description         = "New VLAN network pool"
-  network_provider_id = data.vcd_vcenter.vc1.id
+  network_provider_id = data.vcloud_vcenter.vc1.id
   type                = "VLAN"
 
   backing {
@@ -63,14 +63,14 @@ resource "vcd_network_pool" "npool" {
 ## Example Usage 3 - Type "PORTGROUP_BACKED"
 
 ```hcl
-data "vcd_vcenter" "vc1" {
+data "vcloud_vcenter" "vc1" {
   name = "vc1"
 }
 
-resource "vcd_network_pool" "npool" {
+resource "vcloud_network_pool" "npool" {
   name                = "my-pg-network-pool"
   description         = "New Port Group network pool"
-  network_provider_id = data.vcd_vcenter.vc1.id
+  network_provider_id = data.vcloud_vcenter.vc1.id
   type                = "PORTGROUP_BACKED"
 
   backing {
@@ -83,51 +83,51 @@ resource "vcd_network_pool" "npool" {
 
 ## Example Usage 4 Retrieving backing elements
 
-The elements needed as backing for a network pool can be retrieved using [`vcd_resource_list`](/providers/vmware/vcd/latest/docs/data_sources/resource_list), as in the example below
+The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/vmware/vcd/latest/docs/data_sources/resource_list), as in the example below
 
 ```hcl
-data "vcd_nsxt_manager" "mgr" {
+data "vcloud_nsxt_manager" "mgr" {
   name = "nsxManager1"
 }
 
-data "vcd_vcenter" "vc1" {
+data "vcloud_vcenter" "vc1" {
   name = "vc1"
 }
 
-data "vcd_resource_list" "tz" {
+data "vcloud_resource_list" "tz" {
   name          = "tz"
-  resource_type = "vcd_nsxt_transport_zone"
-  parent        = data.vcd_nsxt_manager.mgr.name
+  resource_type = "vcloud_nsxt_transport_zone"
+  parent        = data.vcloud_nsxt_manager.mgr.name
 }
 
-data "vcd_resource_list" "pg" {
+data "vcloud_resource_list" "pg" {
   name          = "pg"
-  resource_type = "vcd_importable_port_group"
-  parent        = data.vcd_vcenter.vc1.name
+  resource_type = "vcloud_importable_port_group"
+  parent        = data.vcloud_vcenter.vc1.name
 }
 
-data "vcd_resource_list" "ds" {
+data "vcloud_resource_list" "ds" {
   name          = "ds"
-  resource_type = "vcd_distributed_switch"
-  parent        = data.vcd_vcenter.vc1.name
+  resource_type = "vcloud_distributed_switch"
+  parent        = data.vcloud_vcenter.vc1.name
 }
 
 output "tzs" {
-  value = data.vcd_resource_list.tz.list
+  value = data.vcloud_resource_list.tz.list
 }
 
 output "pgs" {
-  value = data.vcd_resource_list.pg.list
+  value = data.vcloud_resource_list.pg.list
 }
 
 output "ds" {
-  value = data.vcd_resource_list.ds.list
+  value = data.vcloud_resource_list.ds.list
 }
 ```
 
--> Note: the lists provided as `vcd_resource_list` output are volatile: they only exist for items that have not been used
+-> Note: the lists provided as `vcloud_resource_list` output are volatile: they only exist for items that have not been used
 in a network pool. Once they have been assigned, they cease to be shown. As such, it is not a good idea to use
-`vcd_resource_list` as direct source for one or more network pools: at the first `plan`, terraform would propose
+`vcloud_resource_list` as direct source for one or more network pools: at the first `plan`, terraform would propose
 to remove the network pool, as the element is not shown in the list anymore.
 
 ## Example Usage 5 - automatic backing components selection
@@ -139,27 +139,27 @@ If we are in these circumstances, we could avoid some details and skip the defin
 must specify the value of `backing_selection_constraint` as either `use-when-only-one` or `use-first-available`.
 
 ```hcl
-data "vcd_nsxt_manager" "mgr" {
+data "vcloud_nsxt_manager" "mgr" {
   name = "nsxManager1"
 }
 
-data "vcd_vcenter" "vc1" {
+data "vcloud_vcenter" "vc1" {
   name = "vc1"
 }
 
-resource "vcd_network_pool" "npool-1" {
+resource "vcloud_network_pool" "npool-1" {
   name                = "new-network-pool"
   description         = "network pool without explicit port group"
-  network_provider_id = data.vcd_vcenter.vc1.id
+  network_provider_id = data.vcloud_vcenter.vc1.id
   type                = "PORTGROUP_BACKED"
 
   backing_selection_constraint = "use-when-only-one"
 }
 
-resource "vcd_network_pool" "npool-2" {
+resource "vcloud_network_pool" "npool-2" {
   name                = "new-network-pool"
   description         = "network pool without explicit transport zone"
-  network_provider_id = data.vcd_nsxt_manager.mgr.id
+  network_provider_id = data.vcloud_nsxt_manager.mgr.id
   type                = "GENEVE"
 
   backing_selection_constraint = "use-first-available"
@@ -171,7 +171,7 @@ zone will be shown if we use an `output` for the network pool.
 
 ```hcl
 output "pool1" {
-  value = vcd_network_pool.npool1.backing
+  value = vcloud_network_pool.npool1.backing
 }
 ```
 
@@ -221,7 +221,7 @@ An existing network pool can be [imported][docs-import] into a resource via supp
 network pool. For example, using this structure, representing an existing network pool that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_network_pool" "net_pool" {
+resource "vcloud_network_pool" "net_pool" {
   name = "my-net-pool"
 }
 ```
@@ -229,7 +229,7 @@ resource "vcd_network_pool" "net_pool" {
 We can import such network pool into terraform state using this command
 
 ```bash
-terraform import vcd_network_pool.net_pool my-net-pool
+terraform import vcloud_network_pool.net_pool my-net-pool
 ```
 
 After that, we can expand the configuration file and either update or delete the network pool as needed. Running `terraform plan`

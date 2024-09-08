@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_type_behavior"
+page_title: "VMware Cloud Director: vcloud_rde_type_behavior"
 sidebar_current: "docs-vcd-resource-rde-type-behavior"
 description: |-
    Provides the capability of managing RDE Type Behaviors in VMware Cloud Director.
@@ -16,14 +16,14 @@ Supported in provider *v3.10+*. Requires System administrator privileges.
 ## Example Usage With Execution Override
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "bigcorp"
   nss     = "tech1"
   version = "1.2.3"
 }
 
-resource "vcd_rde_interface_behavior" "my_interface_behavior" {
-  rde_interface_id = vcd_rde_interface.my_interface.id
+resource "vcloud_rde_interface_behavior" "my_interface_behavior" {
+  rde_interface_id = vcloud_rde_interface.my_interface.id
   name             = "MyBehavior"
   description      = "Adds a node to the cluster.\nParameters:\n  clusterId: the ID of the cluster\n  node: The node address\n"
   execution = {
@@ -32,22 +32,22 @@ resource "vcd_rde_interface_behavior" "my_interface_behavior" {
   }
 }
 
-resource "vcd_rde_type" "my_rde_type" {
+resource "vcloud_rde_type" "my_rde_type" {
   vendor        = "vmware"
   nss           = "vcd"
   version       = "4.5.6"
   name          = "My VMware RDE Type"
-  interface_ids = [data.vcd_rde_interface.my_interface.id]
+  interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema        = file("${path.module}/schemas/my-type-schema.json")
 
   # Behaviors can't be created after the RDE Interface is used by a RDE Type
   # so we need to depend on the Behavior to wait for it to be created first.
-  depends_on = [vcd_rde_interface_behavior.my_interface_behavior]
+  depends_on = [vcloud_rde_interface_behavior.my_interface_behavior]
 }
 
-resource "vcd_rde_type_behavior" "my_rde_type_behavior" {
-  rde_type_id               = vcd_rde_type.my_rde_type.id
-  rde_interface_behavior_id = vcd_rde_interface_behavior.my_interface_behavior.id
+resource "vcloud_rde_type_behavior" "my_rde_type_behavior" {
+  rde_type_id               = vcloud_rde_type.my_rde_type.id
+  rde_interface_behavior_id = vcloud_rde_interface_behavior.my_interface_behavior.id
   execution = {
     "id" : "addNodeOverrided"
     "type" : "Activity"
@@ -81,16 +81,16 @@ the Behavior `name`.
 For example, using this structure, representing an existing RDE Type Behavior that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_rde_type_behavior" "my_rde_type_behavior" {
-  rde_type_id               = data.vcd_rde_type.my_rde_type.id
-  rde_interface_behavior_id = data.vcd_rde_interface_behavior.my_interface_behavior.id
+resource "vcloud_rde_type_behavior" "my_rde_type_behavior" {
+  rde_type_id               = data.vcloud_rde_type.my_rde_type.id
+  rde_interface_behavior_id = data.vcloud_rde_interface_behavior.my_interface_behavior.id
 }
 ```
 
 You can import such RDE Type into Terraform state using this command
 
 ```
-terraform import vcd_rde_type.outer_type vmware.k8s.1.0.0.createKubeConfig
+terraform import vcloud_rde_type.outer_type vmware.k8s.1.0.0.createKubeConfig
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

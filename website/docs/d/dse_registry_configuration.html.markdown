@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_dse_registry_configuration"
+page_title: "VMware Cloud Director: vcloud_dse_registry_configuration"
 sidebar_current: "docs-vcd-data-source-dse-registry-configuration"
 description: |-
   Provides a data source to read Data Solution Extension (DSE) registry configuration.
@@ -17,7 +17,7 @@ Provides a data source to read Data Solution Extension (DSE) registry configurat
 ## Example Usage
 
 ```hcl
-data "vcd_dse_registry_configuration" "mongodb" {
+data "vcloud_dse_registry_configuration" "mongodb" {
   name = "MongoDB"
 }
 ```
@@ -31,4 +31,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_dse_registry_configuration`](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration) resource are available.
+[`vcloud_dse_registry_configuration`](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration) resource are available.

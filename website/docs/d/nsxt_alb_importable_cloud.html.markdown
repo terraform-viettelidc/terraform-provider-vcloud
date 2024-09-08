@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_importable_cloud"
+page_title: "VMware Cloud Director: vcloud_nsxt_alb_importable_cloud"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-importable-cloud"
 description: |-
   Provides a data source to reference existing ALB Importable Clouds. An NSX-T Importable Cloud is a reference to a
@@ -23,13 +23,13 @@ available 15 minutes after the Controller is created.
 ## Example Usage
 
 ```hcl
-data "vcd_nsxt_alb_controller" "first" {
+data "vcloud_nsxt_alb_controller" "first" {
   name = "alb-controller"
 }
 
-data "vcd_nsxt_alb_importable_cloud" "cld" {
+data "vcloud_nsxt_alb_importable_cloud" "cld" {
   name          = "NSXT Importable Cloud"
-  controller_id = data.vcd_nsxt_alb_controller.first.id
+  controller_id = data.vcloud_nsxt_alb_controller.first.id
 }
 ```
 

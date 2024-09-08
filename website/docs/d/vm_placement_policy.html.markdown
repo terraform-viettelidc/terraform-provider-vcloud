@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm_placement_policy"
+page_title: "VMware Cloud Director: vcloud_vm_placement_policy"
 sidebar_current: "docs-vcd-data-source-vm-placement-policy"
 description: |-
   Provides a VMware Cloud Director VM Placement Policy data source. This can be
@@ -21,22 +21,22 @@ System administrators have full privileges to retrieve information of the Provid
 belongs. The way to fetch a VM Placement Policy in this case would be:
 
 ```hcl
-data "vcd_org_vdc" "my-vdc" {
+data "vcloud_org_vdc" "my-vdc" {
   org  = "test"
   name = "vdc-test"
 }
 
-data "vcd_provider_vdc" "my-pvdc" {
-  name = data.vcd_org_vdc.my-vdc.provider_vdc_name
+data "vcloud_provider_vdc" "my-pvdc" {
+  name = data.vcloud_org_vdc.my-vdc.provider_vdc_name
 }
 
-data "vcd_vm_placement_policy" "tf-policy-name" {
+data "vcloud_vm_placement_policy" "tf-policy-name" {
   name            = "my-policy"
-  provider_vdc_id = data.vcd_provider_vdc.my-pvdc.id
+  provider_vdc_id = data.vcloud_provider_vdc.my-pvdc.id
 }
 
 output "policyId" {
-  value = data.vcd_vm_placement_policy.tf-policy-name.id
+  value = data.vcloud_vm_placement_policy.tf-policy-name.id
 }
 ```
 
@@ -47,18 +47,18 @@ fetch them using the VDC information. The only constraint is that the desired VM
 to the VDC**.
 
 ```hcl
-data "vcd_org_vdc" "my-vdc" {
+data "vcloud_org_vdc" "my-vdc" {
   org  = "test"
   name = "vdc-test"
 }
 
-data "vcd_vm_placement_policy" "tf-policy-name" {
+data "vcloud_vm_placement_policy" "tf-policy-name" {
   name   = "my-policy"
-  vdc_id = data.vcd_org_vdc.my-vdc.id
+  vdc_id = data.vcloud_org_vdc.my-vdc.id
 }
 
 output "policyId" {
-  value = data.vcd_vm_placement_policy.tf-policy-name.id
+  value = data.vcloud_vm_placement_policy.tf-policy-name.id
 }
 ```
 
@@ -72,7 +72,7 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All attributes defined in [`vcd_vm_placement_policy`](/providers/vmware/vcd/latest/docs/resources/vm_placement_policy#attribute-reference) resource are supported,
+All attributes defined in [`vcloud_vm_placement_policy`](/providers/vmware/vcd/latest/docs/resources/vm_placement_policy#attribute-reference) resource are supported,
 with a special casuistic to take into account:
 
 * `vm_group_ids` - This attribute can't be retrieved if the data source is used by a tenant user when fetching by `vdc_id`.

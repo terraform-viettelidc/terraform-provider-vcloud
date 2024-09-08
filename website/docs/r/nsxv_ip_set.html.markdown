@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_ip_set"
+page_title: "VMware Cloud Director: vcloud_nsxv_ip_set"
 sidebar_current: "docs-vcd-resource-ipset"
 description: |-
   Provides an IP set resource.
@@ -17,7 +17,7 @@ Supported in provider *v2.6+*
 ## Example Usage 1
 
 ```hcl
-resource "vcd_nsxv_ip_set" "test-ipset" {
+resource "vcloud_nsxv_ip_set" "test-ipset" {
   org = "my-org"
   vdc = "my-org-vdc"
 
@@ -31,7 +31,7 @@ resource "vcd_nsxv_ip_set" "test-ipset" {
 ## Example Usage 2 (minimal example)
 
 ```hcl
-resource "vcd_nsxv_ip_set" "test-ipset" {
+resource "vcloud_nsxv_ip_set" "test-ipset" {
   name         = "ipset-two"
   ip_addresses = ["192.168.1.1"]
 }
@@ -40,7 +40,7 @@ resource "vcd_nsxv_ip_set" "test-ipset" {
 ## Example Usage 3 (use IP set in firewall rules)
 
 ```hcl
-resource "vcd_nsxv_ip_set" "test-ipset" {
+resource "vcloud_nsxv_ip_set" "test-ipset" {
   org = "my-org"
   vdc = "my-org-vdc"
 
@@ -50,12 +50,12 @@ resource "vcd_nsxv_ip_set" "test-ipset" {
   ip_addresses           = ["1.1.1.1/24", "10.10.10.100-10.10.10.110"]
 }
 
-resource "vcd_nsxv_ip_set" "test-ipset2" {
+resource "vcloud_nsxv_ip_set" "test-ipset2" {
   name         = "ipset-two"
   ip_addresses = ["192.168.1.1"]
 }
 
-resource "vcd_nsxv_firewall_rule" "ipsets" {
+resource "vcloud_nsxv_firewall_rule" "ipsets" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -64,11 +64,11 @@ resource "vcd_nsxv_firewall_rule" "ipsets" {
   action = "accept"
 
   source {
-    ip_sets = [vcd_nsxv_ip_set.test-ipset.name]
+    ip_sets = [vcloud_nsxv_ip_set.test-ipset.name]
   }
 
   destination {
-    ip_sets = [vcd_nsxv_ip_set.test-ipset2.name]
+    ip_sets = [vcloud_nsxv_ip_set.test-ipset2.name]
   }
 
   service {
@@ -105,7 +105,7 @@ separated path IP set. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxv_ip_set.imported org-name.vdc-name.ipset-name
+terraform import vcloud_nsxv_ip_set.imported org-name.vdc-name.ipset-name
 ```
 
 The above would import the IP set named `ipset-name` that is defined in org named `org-name` and vDC

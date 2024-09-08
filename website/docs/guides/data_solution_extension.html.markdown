@@ -39,35 +39,35 @@ Data Solution Extension configuration resources with their respective data sourc
 
 ### Solution Landing Zone and Add-On resources
 
-* [`vcd_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
-* [`vcd_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
-* [`vcd_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+* [`vcloud_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
+* [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
+* [`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
 
 ### Data Solution Extension resources
 
-* [`vcd_dse_registry_configuration`](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration)
-* [`vcd_dse_solution_publish`](/providers/vmware/vcd/latest/docs/resources/dse_solution_publish)
+* [`vcloud_dse_registry_configuration`](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration)
+* [`vcloud_dse_solution_publish`](/providers/vmware/vcd/latest/docs/resources/dse_solution_publish)
 
 ### Rights management resources
 
 Additionally, after deploying a Solution Add-On, one can leverage resources and data sources for role
 management to provision access to new Add-On features:
 
-* [`vcd_rights_bundle`](/providers/vmware/vcd/latest/docs/resources/rights_bundle)
-* [`vcd_global_role`](/providers/vmware/vcd/latest/docs/resources/global_role)
+* [`vcloud_rights_bundle`](/providers/vmware/vcd/latest/docs/resources/rights_bundle)
+* [`vcloud_global_role`](/providers/vmware/vcd/latest/docs/resources/global_role)
 
 [Read more about role and rights management.](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/roles_management)
 
 ## Solution Landing Zone configuration (Step 1)
 
 The first step for deploying a Solution Add-On is to have a configured Solution Landing Zone and
-[`vcd_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
+[`vcloud_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
 does that. It requires specifying an Organization, Catalog, VDC, Routed Org VDC network and both -
 Storage and Compute policies. There can be only *one Solution Landing Zone per VCD*.
 
 ```hcl
-resource "vcd_catalog" "solution_add_ons" {
-  org = var.vcd_solutions_org
+resource "vcloud_catalog" "solution_add_ons" {
+  org = var.vcloud_solutions_org
 
   name             = "solution_add_ons"
   description      = "Catalog host Data Solution Add-Ons"
@@ -75,46 +75,46 @@ resource "vcd_catalog" "solution_add_ons" {
   delete_force     = true
 }
 
-data "vcd_org_vdc" "solutions_vdc" {
-  org  = var.vcd_solutions_org
-  name = var.vcd_solutions_vdc
+data "vcloud_org_vdc" "solutions_vdc" {
+  org  = var.vcloud_solutions_org
+  name = var.vcloud_solutions_vdc
 }
 
-data "vcd_network_routed_v2" "solutions" {
-  org  = var.vcd_solutions_org
-  vdc  = var.vcd_solutions_vdc
-  name = var.vcd_solutions_vdc_routed_network
+data "vcloud_network_routed_v2" "solutions" {
+  org  = var.vcloud_solutions_org
+  vdc  = var.vcloud_solutions_vdc
+  name = var.vcloud_solutions_vdc_routed_network
 }
 
-data "vcd_storage_profile" "solutions" {
-  org  = var.vcd_solutions_org
-  vdc  = var.vcd_solutions_vdc
-  name = var.vcd_solutions_vdc_storage_profile_name
+data "vcloud_storage_profile" "solutions" {
+  org  = var.vcloud_solutions_org
+  vdc  = var.vcloud_solutions_vdc
+  name = var.vcloud_solutions_vdc_storage_profile_name
 }
 
-resource "vcd_solution_landing_zone" "slz" {
-  org = var.vcd_solutions_org
+resource "vcloud_solution_landing_zone" "slz" {
+  org = var.vcloud_solutions_org
 
   catalog {
-    id = vcd_catalog.solution_add_ons.id
+    id = vcloud_catalog.solution_add_ons.id
   }
 
   vdc {
-    id         = data.vcd_org_vdc.solutions_vdc.id
+    id         = data.vcloud_org_vdc.solutions_vdc.id
     is_default = true
 
     org_vdc_network {
-      id         = data.vcd_network_routed_v2.solutions.id
+      id         = data.vcloud_network_routed_v2.solutions.id
       is_default = true
     }
 
     compute_policy {
-      id         = data.vcd_org_vdc.solutions_vdc.default_compute_policy_id
+      id         = data.vcloud_org_vdc.solutions_vdc.default_compute_policy_id
       is_default = true
     }
 
     storage_policy {
-      id         = data.vcd_storage_profile.solutions.id
+      id         = data.vcloud_storage_profile.solutions.id
       is_default = true
     }
   }
@@ -131,25 +131,25 @@ the catalog defined in Solution Landing Zones.
 
 Each Solution Add-On image file contains a certificate that must be trusted so that a Solution
 Add-On can be used. To do that automatically, one can leverage `auto_trust_certificate` within
-[`vcd_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on) resource.
+[`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on) resource.
 
 ```hcl
-resource "vcd_catalog_media" "dse14" {
-  org        = var.vcd_solutions_org
-  catalog_id = vcd_catalog.solution_add_ons.id
+resource "vcloud_catalog_media" "dse14" {
+  org        = var.vcloud_solutions_org
+  catalog_id = vcloud_catalog.solution_add_ons.id
 
-  name              = basename(var.vcd_dse_add_on_iso_path)
+  name              = basename(var.vcloud_dse_add_on_iso_path)
   description       = "DSE Solution Add-On"
-  media_path        = var.vcd_dse_add_on_iso_path
+  media_path        = var.vcloud_dse_add_on_iso_path
   upload_piece_size = 10
 }
 
-resource "vcd_solution_add_on" "dse14" {
-  catalog_item_id        = data.vcd_catalog_media.dse14.catalog_item_id
-  add_on_path            = var.vcd_dse_add_on_iso_path
+resource "vcloud_solution_add_on" "dse14" {
+  catalog_item_id        = data.vcloud_catalog_media.dse14.catalog_item_id
+  add_on_path            = var.vcloud_dse_add_on_iso_path
   auto_trust_certificate = true
 
-  depends_on = [vcd_solution_landing_zone.slz]
+  depends_on = [vcloud_solution_landing_zone.slz]
 }
 ```
 
@@ -162,8 +162,8 @@ EULA must be accepted with `accept_eula` field. If it isn't - instantiating an a
 with an error message that contains EULA.
 
 ```hcl
-resource "vcd_solution_add_on_instance" "dse14" {
-  add_on_id   = vcd_solution_add_on.dse14.id
+resource "vcloud_solution_add_on_instance" "dse14" {
+  add_on_id   = vcloud_solution_add_on.dse14.id
   accept_eula = true
   name        = "dse-14"
 
@@ -183,7 +183,7 @@ Each Solution Add-On comes with its own input values used for instantiation and 
 renders these values as an input form. It is not that trivial to provide such option for CLI
 applications, like Terraform. Terraform provider VCD attempts to present as much convenience as
 possible by providing dynamic input validation in
-[`vcd_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
 resource.
 
 It works by reading the provided input schema of a Solution Add-On and dynamically validating
@@ -193,11 +193,11 @@ fields (example below).
 
 In the printed error message, each field has an `IsDelete` flag which defines whether it should be
 specified in `input` or `delete_input` value in
-[`vcd_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
 resource.
 
 All fields also have a `Required` flag which hints if they are mandatory or not. By default,
-[`vcd_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
 resource requires providing all `input` and `delete_input` values. If one doesn't want to specify
 some of the non-mandatory fields, it is possible to disable validation for the non required fields by
 setting `validate_only_required_inputs = true`.
@@ -224,9 +224,9 @@ that these values have to be adjusted during removal phase - for that reason it 
 │ 
 │ ERROR: Missing fields 'delete-previous-uiplugin-versions' for Solution Add-On 'vmware.ds-1.4.0-23376809'
 │ 
-│   with vcd_solution_add_on_instance.dse14,
-│   on vcd.TestAccSolutionAddonInstanceAndPublishingstep1.tf line 96, in resource "vcd_solution_add_on_instance" "dse14":
-│   96: resource "vcd_solution_add_on_instance" "dse14" {
+│   with vcloud_solution_add_on_instance.dse14,
+│   on vcd.TestAccSolutionAddonInstanceAndPublishingstep1.tf line 96, in resource "vcloud_solution_add_on_instance" "dse14":
+│   96: resource "vcloud_solution_add_on_instance" "dse14" {
 ...
 ```
 
@@ -235,9 +235,9 @@ that these values have to be adjusted during removal phase - for that reason it 
 The last step for making the Solution Add-On available is publishing it to tenants.
 
 ```hcl
-resource "vcd_solution_add_on_instance_publish" "public" {
-  add_on_instance_id     = vcd_solution_add_on_instance.dse14.id
-  org_ids                = [data.vcd_org.recipient.id]
+resource "vcloud_solution_add_on_instance_publish" "public" {
+  add_on_instance_id     = vcloud_solution_add_on_instance.dse14.id
+  org_ids                = [data.vcloud_org.recipient.id]
   publish_to_all_tenants = false
 }
 ```
@@ -256,21 +256,21 @@ set up custom values.
 The last step of Data Solution configuration is publishing it to a given tenant.
 
 ```hcl
-resource "vcd_dse_registry_configuration" "dso" {
+resource "vcloud_dse_registry_configuration" "dso" {
   name               = "VCD Data Solutions"
   use_default_values = true
 }
 
-resource "vcd_dse_registry_configuration" "mongodb-community" {
+resource "vcloud_dse_registry_configuration" "mongodb-community" {
   name               = "MongoDB Community"
   use_default_values = true
 }
 
 # Publish Mongo DB Data Solution to tenant
-resource "vcd_dse_solution_publish" "mongodb-community" {
-  data_solution_id = vcd_dse_registry_configuration.mongodb-community.id
+resource "vcloud_dse_solution_publish" "mongodb-community" {
+  data_solution_id = vcloud_dse_registry_configuration.mongodb-community.id
 
-  org_id = data.vcd_org.dse-consumer.id
+  org_id = data.vcloud_org.dse-consumer.id
 }
 ```
 
@@ -284,33 +284,33 @@ bundles to create a new role and user.
 Read more about [roles and rights in a designated guide page](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/roles_management).
 
 ```hcl
-data "vcd_rights_bundle" "dse-rb" {
+data "vcloud_rights_bundle" "dse-rb" {
   name = "vmware:dataSolutionsRightsBundle"
 }
 
-data "vcd_rights_bundle" "k8s-rights" {
+data "vcloud_rights_bundle" "k8s-rights" {
   name = "Kubernetes Clusters Rights Bundle"
 }
 
-resource "vcd_global_role" "dse" {
+resource "vcloud_global_role" "dse" {
   name                   = "DSE Role"
   description            = "Global role for consuming DSE"
-  rights                 = setunion(data.vcd_rights_bundle.k8s-rights.rights, data.vcd_rights_bundle.dse-rb.rights)
+  rights                 = setunion(data.vcloud_rights_bundle.k8s-rights.rights, data.vcloud_rights_bundle.dse-rb.rights)
   publish_to_all_tenants = false
   tenants = [
-    data.vcd_org.dse-consumer.name
+    data.vcloud_org.dse-consumer.name
   ]
 }
 
-resource "vcd_org_user" "my-org-admin" {
-  org = data.vcd_org.dse-consumer.name
+resource "vcloud_org_user" "my-org-admin" {
+  org = data.vcloud_org.dse-consumer.name
 
-  name        = var.vcd_tenant_user
+  name        = var.vcloud_tenant_user
   description = "DSE User"
-  role        = vcd_global_role.dse.name
-  password    = var.vcd_tenant_password
+  role        = vcloud_global_role.dse.name
+  password    = var.vcloud_tenant_password
 
-  depends_on = [vcd_global_role.dse]
+  depends_on = [vcloud_global_role.dse]
 }
 ```
 

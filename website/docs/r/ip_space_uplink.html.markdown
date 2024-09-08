@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ip_space_uplink"
+page_title: "VMware Cloud Director: vcloud_ip_space_uplink"
 sidebar_current: "docs-vcd-resource-ip-space-uplink"
 description: |-
   Provides a resource to manage IP Space Uplinks in External Networks (Provider Gateways).
@@ -15,16 +15,16 @@ Provides a resource to manage IP Space Uplinks in External Networks (Provider Ga
 ## Example Usage (Adding IP Space Uplink to Provider Gateway)
 
 ```hcl
-data "vcd_nsxt_manager" "main" {
+data "vcloud_nsxt_manager" "main" {
   name = "nsxManager1"
 }
 
-data "vcd_nsxt_tier0_router" "router" {
+data "vcloud_nsxt_tier0_router" "router" {
   name            = "tier0Router"
-  nsxt_manager_id = data.vcd_nsxt_manager.main.id
+  nsxt_manager_id = data.vcloud_nsxt_manager.main.id
 }
 
-resource "vcd_ip_space" "space1" {
+resource "vcloud_ip_space" "space1" {
   name = "ip-space-1"
   type = "PUBLIC"
 
@@ -33,22 +33,22 @@ resource "vcd_ip_space" "space1" {
   route_advertisement_enabled = false
 }
 
-resource "vcd_external_network_v2" "provider-gateway" {
+resource "vcloud_external_network_v2" "provider-gateway" {
   name = "ProviderGateway1"
 
   nsxt_network {
-    nsxt_manager_id      = data.vcd_nsxt_manager.main.id
-    nsxt_tier0_router_id = data.vcd_nsxt_tier0_router.router.id
+    nsxt_manager_id      = data.vcloud_nsxt_manager.main.id
+    nsxt_tier0_router_id = data.vcloud_nsxt_tier0_router.router.id
   }
 
   use_ip_spaces = true
 }
 
-resource "vcd_ip_space_uplink" "u1" {
+resource "vcloud_ip_space_uplink" "u1" {
   name                = "uplink"
   description         = "uplink number one"
-  external_network_id = vcd_external_network_v2.provider-gateway.id
-  ip_space_id         = vcd_ip_space.space1.id
+  external_network_id = vcloud_external_network_v2.provider-gateway.id
+  ip_space_id         = vcloud_ip_space.space1.id
 }
 ```
 
@@ -80,7 +80,7 @@ supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_ip_space_uplink.imported external-network-name.ip-space-uplink-name
+terraform import vcloud_ip_space_uplink.imported external-network-name.ip-space-uplink-name
 ```
 
 The above would import the `ip-space-uplink-name` IP Space Uplink that is set for

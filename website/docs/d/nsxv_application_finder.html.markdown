@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_application_finder"
+page_title: "VMware Cloud Director: vcloud_nsxv_application_finder"
 sidebar_current: "docs-vcd-data-source-nsxv-application-finder"
 description: |-
   Provides a VMware Cloud Director data source for searching NSX-V distributed firewall applications and application groups
@@ -16,13 +16,13 @@ Supported in provider *v3.9+*
 ## Example usage 1
 
 ```hcl
-data "vcd_odg_vdc" "my-vdc" {
+data "vcloud_odg_vdc" "my-vdc" {
   org  = "my-org"
   name = "my-vdc"
 }
 
-data "vcd_nsxv_application_finder" "my-SQL-services" {
-  vdc_id            = data.vcd_odg_vdc.my-vdc.id
+data "vcloud_nsxv_application_finder" "my-SQL-services" {
+  vdc_id            = data.vcloud_odg_vdc.my-vdc.id
   search_expression = "sql"
   case_sensitive    = false
   type              = "application_group"
@@ -76,8 +76,8 @@ application_groups = {
 ## Example usage 2
 
 ```hcl
-data "vcd_nsxv_application_finder" "applications" {
-  vdc_id            = data.vcd_org_vdc.my-vdc.id
+data "vcloud_nsxv_application_finder" "applications" {
+  vdc_id            = data.vcloud_org_vdc.my-vdc.id
   search_expression = "dns"
   case_sensitive    = false
   type              = "application"

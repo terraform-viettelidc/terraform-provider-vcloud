@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_vapp_template"
+page_title: "VMware Cloud Director: vcloud_catalog_vapp_template"
 sidebar_current: "docs-vcd-data-source-catalog-vapp_template"
 description: |-
   Provides a vApp Template data source.
@@ -16,36 +16,36 @@ Supported in provider *v3.8+*
 ## Example: Fetching a vApp Template from a Catalog
 
 ```hcl
-data "vcd_catalog" "my-catalog" {
+data "vcloud_catalog" "my-catalog" {
   org  = "my-org"
   name = "my-catalog"
 }
 
-data "vcd_catalog_vapp_template" "my-first-vapp-template" {
+data "vcloud_catalog_vapp_template" "my-first-vapp-template" {
   org        = "my-org"
-  catalog_id = data.vcd_catalog.my-catalog.id
+  catalog_id = data.vcloud_catalog.my-catalog.id
   name       = "my-first-vapp-template"
 }
 
-resource "vcd_catalog_vapp_template" "my-second-vapp_template" {
+resource "vcloud_catalog_vapp_template" "my-second-vapp_template" {
   # Using the data source, two properties from another vApp Templates are
   # used in this resource.
   # You can read it as "use the org from vApp Template `my-first-vapp-template`"
   # and "use the catalog from vApp Template `my-first-vapp-template`"
-  org        = data.vcd_catalog_vapp_template.my-first-vapp-template.org
-  catalog_id = data.vcd_catalog_vapp_template.my-first-vapp-template.catalog_id
+  org        = data.vcloud_catalog_vapp_template.my-first-vapp-template.org
+  catalog_id = data.vcloud_catalog_vapp_template.my-first-vapp-template.catalog_id
 
   name = "my-second-item"
 
   # The description uses the data source to create a dynamic text
   # The description will become "Belongs to my-cat"
-  description       = "Belongs to ${data.vcd_catalog.my-catalog.name}"
+  description       = "Belongs to ${data.vcloud_catalog.my-catalog.name}"
   ova_path          = "/path/to/test_vapp_template.ova"
   upload_piece_size = 5
 
   # Assign all the metadata from the vApp template to this new one.
   dynamic "metadata_entry" {
-    for_each = data.vcd_catalog_vapp_template.photon.metadata_entry
+    for_each = data.vcloud_catalog_vapp_template.photon.metadata_entry
     content {
       key         = metadata_entry.value["key"]
       value       = metadata_entry.value["value"]
@@ -60,36 +60,36 @@ resource "vcd_catalog_vapp_template" "my-second-vapp_template" {
 ## Example: Fetching a vApp Template from a VDC
 
 ```hcl
-data "vcd_org_vdc" "my-vdc" {
+data "vcloud_org_vdc" "my-vdc" {
   org  = "my-org"
   name = "my-vdc"
 }
 
-data "vcd_catalog_vapp_template" "my-first-vapp-template" {
+data "vcloud_catalog_vapp_template" "my-first-vapp-template" {
   org    = "my-org"
-  vdc_id = data.vcd_org_vdc.my-vdc.id
+  vdc_id = data.vcloud_org_vdc.my-vdc.id
   name   = "my-first-vapp-template"
 }
 
-resource "vcd_catalog_vapp_template" "my-second-vapp_template" {
+resource "vcloud_catalog_vapp_template" "my-second-vapp_template" {
   # Using the data source, two properties from another vApp Templates are
   # used in this resource.
   # You can read it as "use the org from vApp Template `my-first-vapp-template`"
   # and "use the catalog from vApp Template `my-first-vapp-template`"
-  org        = data.vcd_catalog_vapp_template.my-first-vapp-template.org
-  catalog_id = data.vcd_catalog_vapp_template.my-first-vapp-template.catalog_id
+  org        = data.vcloud_catalog_vapp_template.my-first-vapp-template.org
+  catalog_id = data.vcloud_catalog_vapp_template.my-first-vapp-template.catalog_id
 
   name = "my-second-item"
 
   # The description uses the data source to create a dynamic text
   # The description will become "Belongs to my-vdc"
-  description       = "Belongs to ${data.vcd_org_vdc.my-vdc.name}"
+  description       = "Belongs to ${data.vcloud_org_vdc.my-vdc.name}"
   ova_path          = "/path/to/test_vapp_template.ova"
   upload_piece_size = 5
 
   # Assign all the metadata from the vApp template to this new one.
   dynamic "metadata_entry" {
-    for_each = data.vcd_catalog_vapp_template.photon.metadata_entry
+    for_each = data.vcloud_catalog_vapp_template.photon.metadata_entry
     content {
       key         = metadata_entry.value["key"]
       value       = metadata_entry.value["value"]

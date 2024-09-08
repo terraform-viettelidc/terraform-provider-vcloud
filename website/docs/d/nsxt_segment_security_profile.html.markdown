@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_segment_security_profile"
+page_title: "VMware Cloud Director: vcloud_nsxt_segment_security_profile"
 sidebar_current: "docs-vcd-data-source-nsxt-segment-security-profile"
 description: |-
   Provides a VMware Cloud Director NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
@@ -15,13 +15,13 @@ Supported in provider *v3.11+*.
 ## Example Usage (Segment Security Profile)
 
 ```hcl
-data "vcd_nsxt_manager" "nsxt" {
+data "vcloud_nsxt_manager" "nsxt" {
   name = "nsxManager1"
 }
 
-data "vcd_nsxt_segment_security_profile" "first" {
+data "vcloud_nsxt_segment_security_profile" "first" {
   name            = "segment-security-profile-0"
-  nsxt_manager_id = data.vcd_nsxt_manager.nsxt.id
+  nsxt_manager_id = data.vcloud_nsxt_manager.nsxt.id
 }
 ```
 

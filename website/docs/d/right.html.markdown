@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_right"
+page_title: "VMware Cloud Director: vcloud_right"
 sidebar_current: "docs-vcd-data-source-right"
 description: |-
  Provides a VMware Cloud Director Organization Right data source. This can be used to read existing rights
@@ -15,12 +15,12 @@ Supported in provider *v3.3+*
 ## Example usage
 
 ```hcl
-data "vcd_right" "some-right" {
+data "vcloud_right" "some-right" {
   name = "Catalog: Add vApp from My Cloud"
 }
 
 output "some-right" {
-  value = data.vcd_right.some-right
+  value = data.vcloud_right.some-right
 }
 ```
 

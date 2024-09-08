@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_role"
+page_title: "VMware Cloud Director: vcloud_role"
 sidebar_current: "docs-vcd-data-source-role"
 description: |-
  Provides a VMware Cloud Director role. This can be used to read roles.
@@ -15,7 +15,7 @@ Supported in provider *v3.3+*
 ## Example Usage
 
 ```hcl
-data "vcd_role" "vapp-author" {
+data "vcloud_role" "vapp-author" {
   org  = "my-org"
   name = "vApp Author"
 }

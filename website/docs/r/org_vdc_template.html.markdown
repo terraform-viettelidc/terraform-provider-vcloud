@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_vdc_template"
+page_title: "VMware Cloud Director: vcloud_org_vdc_template"
 sidebar_current: "docs-vcd-resource-org-vdc-template"
 description: |-
   Provides a resource to create Organization VDC Templates in VMware Cloud Director. This can be used to create, delete, and update a Organization VDC Template.
@@ -18,27 +18,27 @@ Supported in provider *v3.13+*
 ## Example Usage
 
 ```hcl
-data "vcd_org" "org" {
+data "vcloud_org" "org" {
   name = "my_org"
 }
 
-data "vcd_provider_vdc" "pvdc1" {
+data "vcloud_provider_vdc" "pvdc1" {
   name = "nsxTPvdc1"
 }
 
-data "vcd_provider_vdc" "pvdc2" {
+data "vcloud_provider_vdc" "pvdc2" {
   name = "nsxTPvdc2"
 }
 
-data "vcd_external_network_v2" "ext_net" {
+data "vcloud_external_network_v2" "ext_net" {
   name = "nsxt-extnet"
 }
 
-data "vcd_network_pool" "np1" {
+data "vcloud_network_pool" "np1" {
   name = "NSX-T Overlay 1"
 }
 
-resource "vcd_org_vdc_template" "tmpl" {
+resource "vcloud_org_vdc_template" "tmpl" {
   name               = "myTemplate"
   description        = "Requires System privileges"
   tenant_name        = "myAwesomeTemplate"
@@ -54,13 +54,13 @@ resource "vcd_org_vdc_template" "tmpl" {
   }
 
   provider_vdc {
-    id                  = data.vcd_provider_vdc.pvdc1.id
-    external_network_id = data.vcd_external_network_v2.ext_net.id
+    id                  = data.vcloud_provider_vdc.pvdc1.id
+    external_network_id = data.vcloud_external_network_v2.ext_net.id
   }
 
   provider_vdc {
-    id                  = data.vcd_provider_vdc.pvdc2.id
-    external_network_id = data.vcd_external_network_v2.ext_net.id
+    id                  = data.vcloud_provider_vdc.pvdc2.id
+    external_network_id = data.vcloud_external_network_v2.ext_net.id
   }
 
   storage_profile {
@@ -69,10 +69,10 @@ resource "vcd_org_vdc_template" "tmpl" {
     limit   = 1024
   }
 
-  network_pool_id = data.vcd_network_pool.np1.id
+  network_pool_id = data.vcloud_network_pool.np1.id
 
   readable_by_org_ids = [
-    data.vcd_org.org.id
+    data.vcloud_org.org.id
   ]
 }
 ```
@@ -87,14 +87,14 @@ The following arguments are supported:
 * `tenant_description` - (Optional) Description of the Organization VDC Template, as seen by the allowed tenants
 * `provider_vdc` - (Required) A block that defines a candidate location for the instantiated VDCs. There must be **at least one**, which has the following properties:
   * `id` - (Required) ID of the Provider VDC, can be obtained with
-  [`vcd_provider_vdc` data source](/providers/vmware/vcd/latest/docs/data-sources/provider_vdc)
+  [`vcloud_provider_vdc` data source](/providers/vmware/vcd/latest/docs/data-sources/provider_vdc)
   * `external_network_id` - (Required) ID of the Provider Gateway to use, can be obtained with
-  [`vcd_external_network_v2` data source](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+  [`vcloud_external_network_v2` data source](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
   * `gateway_edge_cluster_id` - (Optional) ID of the Edge Cluster that the VDCs instantiated from this template will use with the Edge Gateway.
-  Can be obtained with [`vcd_nsxt_edge_cluster` data source](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster).
+  Can be obtained with [`vcloud_nsxt_edge_cluster` data source](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster).
   If set, a `edge_gateway` block **must** be present in the VDC Template configuration (see below).
   * `services_edge_cluster_id` - (Optional) ID of the Edge Cluster that the VDCs instantiated from this template will use for services.
-  Can be obtained with [`vcd_nsxt_edge_cluster` data source](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster)
+  Can be obtained with [`vcloud_nsxt_edge_cluster` data source](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster)
 * `allocation_model` - (Required) Allocation model that the VDCs instantiated from this template will use.
   Must be one of: `AllocationVApp`, `AllocationPool`, `ReservationPool` or  `Flex`
 * `compute_configuration`: The compute configuration for the VDCs instantiated from this template:
@@ -128,7 +128,7 @@ The following arguments are supported:
 * `vm_quota` - (Optional) Quota for the VMs of the instantiated VDCs. 0 means unlimited. Defaults to 0
 * `provisioned_network_quota` - (Optional) Quota for the provisioned networks of the instantiated VDCs. Defaults to 1000
 * `readable_by_org_ids` - (Optional) A set of Organization IDs that will be able to view and read this VDC template, they can be obtained with
-  [`vcd_org` data source](/providers/vmware/vcd/latest/docs/data-sources/org)
+  [`vcloud_org` data source](/providers/vmware/vcd/latest/docs/data-sources/org)
 
 ## Importing
 
@@ -139,7 +139,7 @@ An existing Organization VDC Template can be [imported][docs-import] into this r
 For example, using this structure, representing an existing Organization VDC Template that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_org_vdc_template" "an_existing_vdc_template" {
+resource "vcloud_org_vdc_template" "an_existing_vdc_template" {
   # ...
 }
 ```
@@ -147,7 +147,7 @@ resource "vcd_org_vdc_template" "an_existing_vdc_template" {
 You can import such Organization VDC Template into Terraform state using one of the following commands
 
 ```
-terraform import vcd_org_vdc_template.an_existing_vdc_template "MyTemplate"
+terraform import vcloud_org_vdc_template.an_existing_vdc_template "MyTemplate"
 ```
 
 After that, you must expand the configuration file before you can either update or delete the Organization VDC Template. Running `terraform plan`

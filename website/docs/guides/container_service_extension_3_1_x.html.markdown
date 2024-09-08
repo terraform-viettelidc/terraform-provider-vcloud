@@ -39,12 +39,12 @@ To start installing CSE v3.1.x in a VCD appliance, you must use **v3.7.0 or abov
 ```hcl
 provider "vcd" {
   user                 = "administrator"
-  password             = var.vcd_pass
+  password             = var.vcloud_pass
   auth_type            = "integrated"
   sysorg               = "System"
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 ```
 
@@ -63,7 +63,7 @@ available data source to fetch them.
 Here is an example that creates both the Organization and the VDC:
 
 ```hcl
-resource "vcd_org" "cse_org" {
+resource "vcloud_org" "cse_org" {
   name             = "cse_org"
   full_name        = "Organization to deploy Kubernetes clusters with CSE"
   is_enabled       = true
@@ -71,9 +71,9 @@ resource "vcd_org" "cse_org" {
   delete_recursive = true
 }
 
-resource "vcd_org_vdc" "cse_vdc" {
+resource "vcloud_org_vdc" "cse_vdc" {
   name = "cse_vdc"
-  org  = vcd_org.cse_org.name
+  org  = vcloud_org.cse_org.name
 
   allocation_model  = "AllocationVApp"
   network_pool_name = "NSX-T Overlay"
@@ -121,22 +121,22 @@ download required dependencies for the cluster to be created correctly.
 Here is an example on how to configure this resource:
 
 ```hcl
-data "vcd_nsxt_manager" "main" {
+data "vcloud_nsxt_manager" "main" {
   name = "my-nsxt-manager"
 }
 
-data "vcd_nsxt_tier0_router" "router" {
+data "vcloud_nsxt_tier0_router" "router" {
   name            = "VCD T0 edgeCluster"
-  nsxt_manager_id = data.vcd_nsxt_manager.main.id
+  nsxt_manager_id = data.vcloud_nsxt_manager.main.id
 }
 
-resource "vcd_external_network_v2" "cse_external_network_nsxt" {
+resource "vcloud_external_network_v2" "cse_external_network_nsxt" {
   name        = "extnet-cse"
   description = "NSX-T backed network for k8s clusters"
 
   nsxt_network {
-    nsxt_manager_id      = data.vcd_nsxt_manager.main.id
-    nsxt_tier0_router_id = data.vcd_nsxt_tier0_router.router.id
+    nsxt_manager_id      = data.vcloud_nsxt_manager.main.id
+    nsxt_tier0_router_id = data.vcloud_nsxt_tier0_router.router.id
   }
 
   ip_scope {
@@ -155,13 +155,13 @@ Create also an [Edge Gateway](/providers/vmware/vcd/latest/docs/resources/nsxt_e
 external network. This will act as the main router connecting our nodes in the internal network to the external (Provider Gateway) network:
 
 ```hcl
-resource "vcd_nsxt_edgegateway" "cse_egw" {
-  org      = vcd_org.cse_org.name
-  owner_id = vcd_org_vdc.cse_vdc.id
+resource "vcloud_nsxt_edgegateway" "cse_egw" {
+  org      = vcloud_org.cse_org.name
+  owner_id = vcloud_org_vdc.cse_vdc.id
 
   name                = "cse-egw"
   description         = "CSE edge gateway"
-  external_network_id = vcd_external_network_v2.cse_external_network_nsxt.id
+  external_network_id = vcloud_external_network_v2.cse_external_network_nsxt.id
 
   subnet {
     gateway       = "88.88.88.1"
@@ -172,7 +172,7 @@ resource "vcd_nsxt_edgegateway" "cse_egw" {
       end_address   = "88.88.88.100"
     }
   }
-  depends_on = [vcd_org_vdc.cse_vdc]
+  depends_on = [vcloud_org_vdc.cse_vdc]
 }
 ```
 
@@ -186,12 +186,12 @@ created Edge Gateway. This network is the one used by all the Kubernetes nodes i
 the number of nodes you can have in the cluster.
 
 ```hcl
-resource "vcd_network_routed_v2" "cse_routed" {
-  org         = vcd_org.cse_org.name
+resource "vcloud_network_routed_v2" "cse_routed" {
+  org         = vcloud_org.cse_org.name
   name        = "cse_routed_net"
   description = "My routed Org VDC network backed by NSX-T"
 
-  edge_gateway_id = vcd_nsxt_edgegateway.cse_egw.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.cse_egw.id
 
   gateway       = "192.168.7.0"
   prefix_length = 24
@@ -210,9 +210,9 @@ To be able to reach the Kubernetes nodes within the routed network, you need als
 [SNAT rule](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule):
 
 ```hcl
-resource "vcd_nsxt_nat_rule" "snat" {
-  org             = vcd_org.cse_org.name
-  edge_gateway_id = vcd_nsxt_edgegateway.cse_egw.id
+resource "vcloud_nsxt_nat_rule" "snat" {
+  org             = vcloud_org.cse_org.name
+  edge_gateway_id = vcloud_nsxt_edgegateway.cse_egw.id
 
   name        = "SNAT rule"
   rule_type   = "SNAT"
@@ -247,7 +247,7 @@ It is **recommended** using a user with CSE Service Role for CSE server manageme
 The role comes with all the VCD rights that CSE needs to function:
 
 ```hcl
-resource "vcd_role" "cse-service-role" {
+resource "vcloud_role" "cse-service-role" {
   name        = "CSE Service Role"
   description = "CSE Service Role has all the rights necessary for CSE to operate"
 
@@ -358,10 +358,10 @@ Once created, you can create a [User](/providers/vmware/vcd/latest/docs/resource
 more security and traceability to the CSE management operations, which is recommended:
 
 ```hcl
-resource "vcd_org_user" "cse-service-account" {
+resource "vcloud_org_user" "cse-service-account" {
   name     = var.service-account-user
   password = var.service-account-password
-  role     = vcd_role.cse-service-role.name
+  role     = vcloud_role.cse-service-role.name
 }
 ```
 
@@ -371,8 +371,8 @@ To use this user in the subsequent operations, you can configure a new provider 
 ```hcl
 provider "vcd" {
   alias    = "cse-service-account"
-  user     = vcd_org_user.cse-service-account.name
-  password = vcd_org_user.cse-service-account.password
+  user     = vcloud_org_user.cse-service-account.name
+  password = vcloud_org_user.cse-service-account.password
   # ...
 }
 ```
@@ -383,23 +383,23 @@ You need to have a [Catalog](/providers/vmware/vcd/latest/docs/resources/catalog
 TKGm (Tanzu Kubernetes Grid) OVA files to be able to create Kubernetes clusters.
 
 ```hcl
-data "vcd_storage_profile" "cse_storage_profile" {
-  org        = vcd_org.cse_org.name
-  vdc        = vcd_org_vdc.cse_vdc.name
+data "vcloud_storage_profile" "cse_storage_profile" {
+  org        = vcloud_org.cse_org.name
+  vdc        = vcloud_org_vdc.cse_vdc.name
   name       = "*"
-  depends_on = [vcd_org.cse_org, vcd_org_vdc.cse_vdc]
+  depends_on = [vcloud_org.cse_org, vcloud_org_vdc.cse_vdc]
 }
 
-resource "vcd_catalog" "cat-cse" {
-  org         = vcd_org.cse_org.name
+resource "vcloud_catalog" "cat-cse" {
+  org         = vcloud_org.cse_org.name
   name        = "cat-cse"
   description = "CSE catalog"
 
-  storage_profile_id = data.vcd_storage_profile.cse_storage_profile.id
+  storage_profile_id = data.vcloud_storage_profile.cse_storage_profile.id
 
   delete_force     = true
   delete_recursive = true
-  depends_on       = [vcd_org_vdc.cse_vdc]
+  depends_on       = [vcloud_org_vdc.cse_vdc]
 }
 ```
 
@@ -412,11 +412,11 @@ To upload them, use the [Catalog Item](/providers/vmware/vcd/latest/docs/resourc
 In the example below, the downloaded OVA corresponds to **TKGm v1.4.0** and uses Kubernetes v1.21.2. 
 
 ```hcl
-resource "vcd_catalog_item" "tkgm_ova" {
+resource "vcloud_catalog_item" "tkgm_ova" {
   provider = vcd.cse-service-account # Using CSE Service Account for this resource
 
-  org     = vcd_org.cse_org.name
-  catalog = vcd_catalog.cat-cse.name
+  org     = vcloud_org.cse_org.name
+  catalog = vcloud_catalog.cat-cse.name
 
   name              = "ubuntu-2004-kube-v1.21.2+vmware.1-tkg.1-7832907791984498322"
   description       = "ubuntu-2004-kube-v1.21.2+vmware.1-tkg.1-7832907791984498322"
@@ -564,14 +564,14 @@ resource "null_resource" "cse-install-script" {
   provisioner "local-exec" {
     on_failure = continue # Ignores failures to allow re-creating the whole HCL after a destroy, as cse doesn't have an uninstall option.
     command = format("printf '%s' > config.yaml && chmod 0400 config.yaml && cse install -c config.yaml", templatefile("${path.module}/config.yaml.template", {
-      vcd_url         = replace(replace(var.vcd-url, "/api", ""), "/http.*\\/\\//", "")
-      vcd_username    = vcd_org_user.cse-service-account.name # Using CSE Service Account
-      vcd_password    = vcd_org_user.cse-service-account.password
-      catalog         = vcd_catalog.cat-cse.name
-      network         = vcd_network_routed_v2.cse_routed.name
-      org             = vcd_org.cse_org.name
-      vdc             = vcd_org_vdc.cse_vdc.name
-      storage_profile = data.vcd_storage_profile.cse_sp.name
+      vcloud_url         = replace(replace(var.vcd-url, "/api", ""), "/http.*\\/\\//", "")
+      vcloud_username    = vcloud_org_user.cse-service-account.name # Using CSE Service Account
+      vcloud_password    = vcloud_org_user.cse-service-account.password
+      catalog         = vcloud_catalog.cat-cse.name
+      network         = vcloud_network_routed_v2.cse_routed.name
+      org             = vcloud_org.cse_org.name
+      vdc             = vcloud_org_vdc.cse_vdc.name
+      storage_profile = data.vcloud_storage_profile.cse_sp.name
     }))
   }
 }
@@ -593,16 +593,16 @@ The required new rights are listed in the example below. It creates a new bundle
 the new ones.
 
 ```hcl
-data "vcd_rights_bundle" "default-rb" {
+data "vcloud_rights_bundle" "default-rb" {
   name = "Default Rights Bundle"
 }
 
-resource "vcd_rights_bundle" "cse-rb" {
+resource "vcloud_rights_bundle" "cse-rb" {
   provider = vcd.cse-service-account # Using CSE Service Account for this resource
 
   name        = "CSE Rights Bundle"
   description = "Rights bundle to manage CSE"
-  rights = setunion(data.vcd_rights_bundle.default-rb.rights, [
+  rights = setunion(data.vcloud_rights_bundle.default-rb.rights, [
     "API Tokens: Manage",
     "Organization vDC Shared Named Disk: Create",
     "cse:nativeCluster: View",
@@ -610,7 +610,7 @@ resource "vcd_rights_bundle" "cse-rb" {
     "cse:nativeCluster: Modify"
   ])
   publish_to_all_tenants = false
-  tenants                = [vcd_org.cse_org.name]
+  tenants                = [vcloud_org.cse_org.name]
 }
 ```
 
@@ -618,20 +618,20 @@ Once you have the new bundle created, you can now create a specific role for use
 Notice that the next example is assigning the new rights provided by the new published bundle:
 
 ```hcl
-data "vcd_role" "vapp_author" {
+data "vcloud_role" "vapp_author" {
   provider = vcd.cse-service-account # Using CSE Service Account for this data source
 
-  org  = vcd_org.cse_org.name
+  org  = vcloud_org.cse_org.name
   name = "vApp Author"
 }
 
-resource "vcd_role" "cluster_author" {
+resource "vcloud_role" "cluster_author" {
   provider = vcd.cse-service-account # Using CSE Service Account for this resource
 
-  org         = vcd_org.cse_org.name
+  org         = vcloud_org.cse_org.name
   name        = "Cluster Author"
   description = "Can read and create clusters"
-  rights = setunion(data.vcd_role.vapp_author.rights, [
+  rights = setunion(data.vcloud_role.vapp_author.rights, [
     "API Tokens: Manage",
     "Organization vDC Shared Named Disk: Create",
     "Organization vDC Gateway: View",
@@ -645,7 +645,7 @@ resource "vcd_role" "cluster_author" {
     "Certificate Library: View" # Implicit role needed
   ])
 
-  depends_on = [vcd_rights_bundle.cse-rb]
+  depends_on = [vcloud_rights_bundle.cse-rb]
 }
 ```
 
@@ -653,7 +653,7 @@ You need also to publish the bundle that `cse install` command created, named **
 as above, create a clone. This is also recommended so doing `terraform destroy` will let the original rights bundle intact. 
 
 ```hcl
-data "vcd_rights_bundle" "cse-native-cluster-entl" {
+data "vcloud_rights_bundle" "cse-native-cluster-entl" {
   provider = vcd.cse-service-account # Using CSE Service Account for this data source
 
   name = "cse:nativeCluster Entitlement"
@@ -661,14 +661,14 @@ data "vcd_rights_bundle" "cse-native-cluster-entl" {
   depends_on = [null_resource.cse-install-script]
 }
 
-resource "vcd_rights_bundle" "published-cse-rights-bundle" {
+resource "vcloud_rights_bundle" "published-cse-rights-bundle" {
   provider = vcd.cse-service-account # Using CSE Service Account for this resource
 
   name                   = "cse:nativeCluster Entitlement Published"
-  description            = data.vcd_rights_bundle.cse-native-cluster-entl.description
-  rights                 = data.vcd_rights_bundle.cse-native-cluster-entl.rights
+  description            = data.vcloud_rights_bundle.cse-native-cluster-entl.description
+  rights                 = data.vcloud_rights_bundle.cse-native-cluster-entl.rights
   publish_to_all_tenants = false
-  tenants                = [vcd_org.cse_org.name]
+  tenants                = [vcloud_org.cse_org.name]
 }
 ```
 

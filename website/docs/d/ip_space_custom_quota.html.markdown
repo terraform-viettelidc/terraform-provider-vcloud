@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ip_space_custom_quota"
+page_title: "VMware Cloud Director: vcloud_ip_space_custom_quota"
 sidebar_current: "docs-vcd-resource-ip-space-custom-quota"
 description: |-
   Provides a data source to read Custom Quotas for a given Org in a particular IP Space.
@@ -13,9 +13,9 @@ Provides a data source to read Custom Quotas for a given Org in a particular IP 
 ## Example Usage
 
 ```hcl
-data "vcd_ip_space_custom_quota" "org1" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+data "vcloud_ip_space_custom_quota" "org1" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
 }
 ```
 
@@ -29,5 +29,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_ip_space_custom_quota`](/providers/vmware/vcd/latest/docs/resources/ip_space_custom_quota)
+[`vcloud_ip_space_custom_quota`](/providers/vmware/vcd/latest/docs/resources/ip_space_custom_quota)
 resource are available.

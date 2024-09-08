@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_app_rule"
+page_title: "VMware Cloud Director: vcloud_lb_app_rule"
 sidebar_current: "docs-vcd-data-source-lb-app-rule"
 description: |-
   Provides an NSX edge gateway load balancer application rule data source.
@@ -19,7 +19,7 @@ Supported in provider *v2.4+*
 ## Example Usage
 
 ```hcl
-data "vcd_lb_app_rule" "my-rule" {
+data "vcloud_lb_app_rule" "my-rule" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -39,4 +39,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in `vcd_lb_app_rule` resource are available.
+All the attributes defined in `vcloud_lb_app_rule` resource are available.

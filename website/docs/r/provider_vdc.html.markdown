@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_provider_vdc"
+page_title: "VMware Cloud Director: vcloud_provider_vdc"
 sidebar_current: "docs-vcd-resource-provider-vdc"
 description: |-
   Provides a Provider VDC resource.
@@ -18,40 +18,40 @@ Supported in provider *v3.10+*
 ## Example Usage 1
 
 ```hcl
-data "vcd_vcenter" "vcenter1" {
+data "vcloud_vcenter" "vcenter1" {
   name = "vc1"
 }
 
-data "vcd_resource_pool" "rp1" {
+data "vcloud_resource_pool" "rp1" {
   name       = "resource-pool-for-vcd-01"
-  vcenter_id = data.vcd_vcenter.vcenter1.id
+  vcenter_id = data.vcloud_vcenter.vcenter1.id
   # maximum hardware version: "vmx-18"
 }
 
-data "vcd_resource_pool" "rp2" {
+data "vcloud_resource_pool" "rp2" {
   name       = "resource-pool-for-vcd-01"
-  vcenter_id = data.vcd_vcenter.vcenter1.id
+  vcenter_id = data.vcloud_vcenter.vcenter1.id
   # maximum hardware version: "vmx-19"
 }
 
-data "vcd_nsxt_manager" "mgr1" {
+data "vcloud_nsxt_manager" "mgr1" {
   name = "nsxManager1"
 }
 
-data "vcd_network_pool" "np1" {
+data "vcloud_network_pool" "np1" {
   name = "NSX-T Overlay 1"
 }
 
-resource "vcd_provider_vdc" "pvdc1" {
+resource "vcloud_provider_vdc" "pvdc1" {
   name                               = "myPvdc"
   description                        = "new provider VDC"
   is_enabled                         = true
-  vcenter_id                         = data.vcd_vcenter.vcenter1.id
-  nsxt_manager_id                    = data.vcd_nsxt_manager.mgr1.id
-  network_pool_ids                   = [data.vcd_network_pool.np1.id]
-  resource_pool_ids                  = [data.vcd_resource_pool.rp1.id]
+  vcenter_id                         = data.vcloud_vcenter.vcenter1.id
+  nsxt_manager_id                    = data.vcloud_nsxt_manager.mgr1.id
+  network_pool_ids                   = [data.vcloud_network_pool.np1.id]
+  resource_pool_ids                  = [data.vcloud_resource_pool.rp1.id]
   storage_profile_names              = ["Development"]
-  highest_supported_hardware_version = data.vcd_resource_pool.rp1.hardware_version # vmx-18
+  highest_supported_hardware_version = data.vcloud_resource_pool.rp1.hardware_version # vmx-18
 }
 ```
 
@@ -61,16 +61,16 @@ You can update the provider VDC in [Example Usage 1](#example-usage-1) to use a 
 resource pool that supports such version.
 
 ```hcl
-resource "vcd_provider_vdc" "pvdc1" {
+resource "vcloud_provider_vdc" "pvdc1" {
   name                               = "myPvdc"
   description                        = "new provider VDC"
   is_enabled                         = true
-  vcenter_id                         = data.vcd_vcenter.vcenter1.id
-  nsxt_manager_id                    = data.vcd_nsxt_manager.mgr1.id
-  network_pool_ids                   = [data.vcd_network_pool.np1.id]
-  resource_pool_ids                  = [data.vcd_resource_pool.rp1.id, data.vcd_resource_pool.rp2.id]
+  vcenter_id                         = data.vcloud_vcenter.vcenter1.id
+  nsxt_manager_id                    = data.vcloud_nsxt_manager.mgr1.id
+  network_pool_ids                   = [data.vcloud_network_pool.np1.id]
+  resource_pool_ids                  = [data.vcloud_resource_pool.rp1.id, data.vcloud_resource_pool.rp2.id]
   storage_profile_names              = ["Development"]
-  highest_supported_hardware_version = data.vcd_resource_pool.rp2.hardware_version # vmx-19
+  highest_supported_hardware_version = data.vcloud_resource_pool.rp2.hardware_version # vmx-19
 }
 ```
 
@@ -147,9 +147,9 @@ that was **not** created using Terraform:
 You can import such provider VDC configuration into terraform state using one of the following commands
 
 ```
-terraform import vcd_provider_vdc.pvdc1 myPvdc
+terraform import vcloud_provider_vdc.pvdc1 myPvdc
 # OR
-terraform import vcd_provider_vdc.pvdc1 provider-vdc-ID
+terraform import vcloud_provider_vdc.pvdc1 provider-vdc-ID
 ```
 
 After that, you may need to edit the configuration file before you can either update or delete the provider VDC configuration.

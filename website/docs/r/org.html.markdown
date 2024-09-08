@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org"
+page_title: "VMware Cloud Director: vcloud_org"
 sidebar_current: "docs-vcd-resource-org"
 description: |-
   Provides a VMware Cloud Director Organization resource. This can be used to create  delete, and update an organization.
@@ -23,7 +23,7 @@ provider "vcd" {
   url      = "https://AcmeVcd/api"
 }
 
-resource "vcd_org" "my-org" {
+resource "vcloud_org" "my-org" {
   name             = "my-org"
   full_name        = "My organization"
   description      = "The pride of my work"
@@ -113,7 +113,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_org" "example" {
+resource "vcloud_org" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -152,15 +152,15 @@ Supported in provider *v2.5+*
 ~> **Note:** The current implementation of Terraform import can only import resources into the state. It does not generate
 configuration. [More information.][docs-import]
 
-~> NOTE: when importing and then updating an organization that has LDAP settings, we must import both `vcd_org` and
-`vcd_org_ldap` resources. Setting LDAP outside of Terraform may result in incomplete settings.
+~> NOTE: when importing and then updating an organization that has LDAP settings, we must import both `vcloud_org` and
+`vcloud_org_ldap` resources. Setting LDAP outside of Terraform may result in incomplete settings.
 
 An existing Org can be [imported][docs-import] into this resource via supplying the path for an Org. Since the Org is
 at the top of the vCD hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing Org that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_org" "my-orgadmin" {
+resource "vcloud_org" "my-orgadmin" {
   name             = "my-org"
   full_name        = "guessing"
   delete_recursive = true
@@ -171,7 +171,7 @@ resource "vcd_org" "my-orgadmin" {
 You can import such organization into terraform state using this command
 
 ```
-terraform import vcd_org.my-org my-org
+terraform import vcloud_org.my-org my-org
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/
@@ -188,7 +188,7 @@ The state (in `terraform.tfstate`) would look like this:
   "resources": [
     {
       "mode": "managed",
-      "type": "vcd_org",
+      "type": "vcloud_org",
       "name": "my-org",
       "provider": "provider.vcd",
       "instances": [

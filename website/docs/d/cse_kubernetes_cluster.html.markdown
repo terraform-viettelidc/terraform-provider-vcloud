@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_cse_kubernetes_cluster"
+page_title: "VMware Cloud Director: vcloud_cse_kubernetes_cluster"
 sidebar_current: "docs-vcd-data-source-cse-kubernetes-cluster"
 description: |-
   Provides a data source to read Kubernetes clusters from VMware Cloud Director with Container Service Extension installed and running.
@@ -27,7 +27,7 @@ The cluster ID identifies unequivocally the cluster within VCD, and can be obtai
 the desired cluster and obtaining the ID from the displayed information.
 
 ```hcl
-data "vcd_cse_kubernetes_cluster" "my_cluster" {
+data "vcloud_cse_kubernetes_cluster" "my_cluster" {
   cluster_id = "urn:vcloud:entity:vmware:capvcdCluster:e8e82bcc-50a1-484f-9dd0-20965ab3e865"
 }
 ```
@@ -43,9 +43,9 @@ locals {
   my_clusters = toset(["my-cluster-1", "my-cluster-2", "my-cluster-3"])
 }
 
-data "vcd_cse_kubernetes_cluster" "my_clusters" {
+data "vcloud_cse_kubernetes_cluster" "my_clusters" {
   for_each    = local.my_clusters
-  org_id      = data.vcd_org.org.id
+  org_id      = data.vcloud_org.org.id
   cse_version = "4.2.1"
   name        = each.key
 }
@@ -62,5 +62,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All attributes defined in [vcd_cse_kubernetes_cluster](/providers/vmware/vcd/latest/docs/resources/cse_kubernetes_cluster) resource are supported.
+All attributes defined in [vcloud_cse_kubernetes_cluster](/providers/vmware/vcd/latest/docs/resources/cse_kubernetes_cluster) resource are supported.
 Also, the resource arguments are also available as read-only attributes.

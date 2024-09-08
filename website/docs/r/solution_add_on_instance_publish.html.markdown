@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_add_on_instance_publish"
+page_title: "VMware Cloud Director: vcloud_solution_add_on_instance_publish"
 sidebar_current: "docs-vcd-resource-solution-add-on-instance-publish"
 description: |-
   Provides a resource to manage publishing configuration of Solution Add-On Instances in Cloud Director.
@@ -18,31 +18,31 @@ Provides a resource to manage publishing configuration of Solution Add-On Instan
 ## Example Usage (Creating a Solution Add-On Instance and publishing it to single tenant)
 
 ```hcl
-data "vcd_org" "recipient" {
+data "vcloud_org" "recipient" {
   name = "tenant_org"
 }
 
-resource "vcd_solution_add_on_instance_publish" "public" {
-  add_on_instance_id     = vcd_solution_add_on_instance.dse14.id
-  org_ids                = [data.vcd_org.recipient.id]
+resource "vcloud_solution_add_on_instance_publish" "public" {
+  add_on_instance_id     = vcloud_solution_add_on_instance.dse14.id
+  org_ids                = [data.vcloud_org.recipient.id]
   publish_to_all_tenants = false
 }
 
-data "vcd_catalog_media" "dse14" {
+data "vcloud_catalog_media" "dse14" {
   org        = "solutions_org"
-  catalog_id = data.vcd_catalog.nsxt.id
+  catalog_id = data.vcloud_catalog.nsxt.id
 
   name = "vmware-vcd-ds-1.4.0-23376809.iso"
 }
 
-resource "vcd_solution_add_on" "dse14" {
-  catalog_item_id   = data.vcd_catalog_media.dse14.catalog_item_id
+resource "vcloud_solution_add_on" "dse14" {
+  catalog_item_id   = data.vcloud_catalog_media.dse14.catalog_item_id
   addon_path        = "vmware-vcd-ds-1.4.0-23376809.iso"
   trust_certificate = true
 }
 
-resource "vcd_solution_add_on_instance" "dse14" {
-  add_on_id   = vcd_solution_add_on.dse14.id
+resource "vcloud_solution_add_on_instance" "dse14" {
+  add_on_id   = vcloud_solution_add_on.dse14.id
   accept_eula = true
   name        = "MyDseInstanceName"
 
@@ -70,7 +70,7 @@ this resource via supplying path for it.
 
 
 ```
-terraform import vcd_solution_add_on_instance_publish.public MyDseInstanceName
+terraform import vcloud_solution_add_on_instance_publish.public MyDseInstanceName
 ```
 
 [docs-import]: https://www.terraform.io/docs/import/

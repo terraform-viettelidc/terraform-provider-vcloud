@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_resource_pool"
+page_title: "VMware Cloud Director: vcloud_resource_pool"
 sidebar_current: "docs-vcd-data-source-resource-pool"
 description: |-
   Provides a data source for a resource pool attached to a vCenter.
@@ -21,22 +21,22 @@ Supported in provider *v3.10+*
 ## Example Usage 1
 
 ```hcl
-data "vcd_vcenter" "vcenter1" {
+data "vcloud_vcenter" "vcenter1" {
   name = "vc1"
 }
 
-data "vcd_resource_pool" "rp1" {
+data "vcloud_resource_pool" "rp1" {
   name       = "resource-pool-for-vcd-01"
-  vcenter_id = data.vcd_vcenter.vcenter1.id
+  vcenter_id = data.vcloud_vcenter.vcenter1.id
 }
 ```
 
 ## Example Usage 2
 
 ```hcl
-data "vcd_resource_pool" "rp1" {
+data "vcloud_resource_pool" "rp1" {
   name       = "common-name"
-  vcenter_id = data.vcd_vcenter.vcenter1.id
+  vcenter_id = data.vcloud_vcenter.vcenter1.id
 }
 
 # Error: could not find resource pool by name 'common-name': more than one resource pool was found with name common-name - 
@@ -46,9 +46,9 @@ data "vcd_resource_pool" "rp1" {
 When you receive such error, you can run the script again, but using the resource pool ID instead of the name.
 
 ```hcl
-data "vcd_resource_pool" "rp1" {
+data "vcloud_resource_pool" "rp1" {
   name       = "resgroup-241"
-  vcenter_id = data.vcd_vcenter.vcenter1.id
+  vcenter_id = data.vcloud_vcenter.vcenter1.id
 }
 ```
 

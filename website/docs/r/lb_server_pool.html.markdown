@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_server_pool"
+page_title: "VMware Cloud Director: vcloud_lb_server_pool"
 sidebar_current: "docs-vcd-resource-lb-server-pool"
 description: |-
   Provides an NSX edge gateway load balancer server pool resource.
@@ -24,7 +24,7 @@ Supported in provider *v2.4+*
 ## Example Usage 1 (Simple Server Pool without Service Monitor)
 
 ```hcl
-resource "vcd_lb_server_pool" "web-servers" {
+resource "vcloud_lb_server_pool" "web-servers" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -48,7 +48,7 @@ resource "vcd_lb_server_pool" "web-servers" {
 ## Example Usage 2 (Server Pool with multiple members, algorithm parameters, and existing Service Monitor as data source)
 
 ```hcl
-data "vcd_lb_service_monitor" "web-monitor" {
+data "vcloud_lb_service_monitor" "web-monitor" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -56,7 +56,7 @@ data "vcd_lb_service_monitor" "web-monitor" {
   name = "existing-web-monitor-name"
 }
 
-resource "vcd_lb_server_pool" "web-servers" {
+resource "vcloud_lb_server_pool" "web-servers" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -67,7 +67,7 @@ resource "vcd_lb_server_pool" "web-servers" {
   algorithm_parameters = "headerName=host"
   enable_transparency  = true
 
-  monitor_id = data.vcd_lb_service_monitor.web-monitor.id
+  monitor_id = data.vcloud_lb_service_monitor.web-monitor.id
 
   member {
     condition       = "enabled"
@@ -109,7 +109,7 @@ parameter has one option `headerName=<name>` while the `url` algorithm parameter
 traffic source as the internal IP address of the load balancer. When it is `true` the source IP address is the actual IP
 address of the client and the edge gateway must be set as the default gateway to ensure that return packets go through
 the edge gateway. 
-* `monitor_id` - (Optional) `vcd_lb_service_monitor` resource `id` to attach to server pool for health check parameters
+* `monitor_id` - (Optional) `vcloud_lb_service_monitor` resource `id` to attach to server pool for health check parameters
 * `member` - (Optional) A block to define server pool members. Multiple can be used. See [Member](#member) and 
 example for usage details.
 
@@ -150,7 +150,7 @@ via supplying the full dot separated path for load balancer service monitor. An 
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_server_pool.imported my-org.my-org-vdc.my-edge-gw.my-lb-server-pool
+terraform import vcloud_lb_server_pool.imported my-org.my-org-vdc.my-edge-gw.my-lb-server-pool
 ```
 
 The above would import the server pool named `my-lb-server-pool` that is defined on edge gateway

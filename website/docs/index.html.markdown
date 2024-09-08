@@ -35,18 +35,18 @@ The most common - tenant - use case when you set user to organization administra
 ```hcl
 # Configure the VMware Cloud Director Provider
 provider "vcd" {
-  user                 = var.vcd_user
-  password             = var.vcd_pass
+  user                 = var.vcloud_user
+  password             = var.vcloud_pass
   auth_type            = "integrated"
-  org                  = var.vcd_org
-  vdc                  = var.vcd_vdc
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org
+  vdc                  = var.vcloud_vdc
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in organization and VDC defined above
-resource "vcd_network_routed" "net" {
+resource "vcloud_network_routed" "net" {
   # ...
 }
 ```
@@ -59,16 +59,16 @@ When you want to manage resources across different organizations from a single c
 # Configure the VMware Cloud Director Provider
 provider "vcd" {
   user                 = "administrator"
-  password             = var.vcd_pass
+  password             = var.vcloud_pass
   auth_type            = "integrated"
   org                  = "System"
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in some organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   org = "Org1"
   vdc = "Org1VDC"
 
@@ -76,7 +76,7 @@ resource "vcd_network_routed" "net1" {
 }
 
 # Create a new network in a different organization and VDC
-resource "vcd_network_routed" "net2" {
+resource "vcloud_network_routed" "net2" {
   org = "Org2"
   vdc = "Org2VDC"
 
@@ -92,23 +92,23 @@ When you want to manage resources across different organizations but set a defau
 # Configure the VMware Cloud Director Provider
 provider "vcd" {
   user                 = "administrator"
-  password             = var.vcd_pass
+  password             = var.vcloud_pass
   auth_type            = "integrated"
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 
 # Create a new network in a specific organization and VDC
-resource "vcd_network_routed" "net2" {
+resource "vcloud_network_routed" "net2" {
   org = "OrgZ"
   vdc = "OrgZVDC"
 
@@ -127,15 +127,15 @@ provider "vcd" {
   auth_type            = "token"
   token                = var.token
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 ```
@@ -145,7 +145,7 @@ When using a token, the fields `user` and `password` will be ignored, but they n
 
 With VCD 10.3.1+, you can connect using an API token, as defined in the [documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-A1B3B2FA-7B2C-4EE1-9D1B-188BE703EEDE.html).
 The API token is not a bearer token, but one will be created and automatically used by the Terraform provider when an API
-token is supplied. You can create an API token file by utilizing the [`vcd_api_token`][api-token] resource.
+token is supplied. You can create an API token file by utilizing the [`vcloud_api_token`][api-token] resource.
 
 #### Example usage (API token)
 
@@ -156,15 +156,15 @@ provider "vcd" {
   auth_type            = "api_token"
   api_token            = var.api_token
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 ```
@@ -178,15 +178,15 @@ provider "vcd" {
   auth_type            = "api_token_file"
   api_token            = "token.json"
   sysorg               = "System"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 
 # Create a new network in the default organization and VDC
-resource "vcd_network_routed" "net1" {
+resource "vcloud_network_routed" "net1" {
   # ...
 }
 ```
@@ -234,11 +234,11 @@ provider "vcd" {
   auth_type                  = "service_account_token_file"
   service_account_token_file = "token.json"
   sysorg                     = "System"
-  org                        = var.vcd_org # Default for resources
-  vdc                        = var.vcd_vdc # Default for resources
-  url                        = var.vcd_url
-  max_retry_timeout          = var.vcd_max_retry_timeout
-  allow_unverified_ssl       = var.vcd_allow_unverified_ssl
+  org                        = var.vcloud_org # Default for resources
+  vdc                        = var.vcloud_vdc # Default for resources
+  url                        = var.vcloud_url
+  max_retry_timeout          = var.vcloud_max_retry_timeout
+  allow_unverified_ssl       = var.vcloud_allow_unverified_ssl
 }
 ```
 
@@ -296,16 +296,16 @@ Take special attention to `user`, `use_saml_adfs` and `saml_rpt_id` fields.
 # Configure the VMware Cloud Director Provider
 provider "vcd" {
   user      = "test@contoso.com"
-  password  = var.vcd_pass
+  password  = var.vcloud_pass
   sysorg    = "my-org"
   auth_type = "saml_adfs"
   # If `saml_adfs_rpt_id` is not specified - VCD SAML Entity ID will be used automatically
   saml_adfs_rpt_id     = "my-custom-rpt-id"
-  org                  = var.vcd_org # Default for resources
-  vdc                  = var.vcd_vdc # Default for resources
-  url                  = var.vcd_url
-  max_retry_timeout    = var.vcd_max_retry_timeout
-  allow_unverified_ssl = var.vcd_allow_unverified_ssl
+  org                  = var.vcloud_org # Default for resources
+  vdc                  = var.vcloud_vdc # Default for resources
+  url                  = var.vcloud_url
+  max_retry_timeout    = var.vcloud_max_retry_timeout
+  allow_unverified_ssl = var.vcloud_allow_unverified_ssl
 }
 ```
 
@@ -431,11 +431,11 @@ in the code is NOT recommended. In the event that it contains such conflict, tho
 The available sub-attributes for `ignore_metadata_changes` are:
 
 * `resource_type` - (Optional) Specifies the resource type which metadata needs to be ignored. If set, the resource type must be one of:
-  *"vcd_catalog"*, *"vcd_catalog_item"*, *"vcd_catalog_media"*, *"vcd_catalog_vapp_template"*, *"vcd_independent_disk"*, *"vcd_network_direct"*,
-  *"vcd_network_isolated"*, *"vcd_network_isolated_v2"*, *"vcd_network_routed"*, *"vcd_network_routed_v2"*, *"vcd_org"*, *"vcd_org_vdc"*, *"vcd_provider_vdc"*,
-  *"vcd_rde" (v3.11+)*, *"vcd_storage_profile"*, *"vcd_vapp"*, *"vcd_vapp_vm"* or *"vcd_vm"*, which are the resources compatible with `metadata_entry`.
+  *"vcloud_catalog"*, *"vcloud_catalog_item"*, *"vcloud_catalog_media"*, *"vcloud_catalog_vapp_template"*, *"vcloud_independent_disk"*, *"vcloud_network_direct"*,
+  *"vcloud_network_isolated"*, *"vcloud_network_isolated_v2"*, *"vcloud_network_routed"*, *"vcloud_network_routed_v2"*, *"vcloud_org"*, *"vcloud_org_vdc"*, *"vcloud_provider_vdc"*,
+  *"vcloud_rde" (v3.11+)*, *"vcloud_storage_profile"*, *"vcloud_vapp"*, *"vcloud_vapp_vm"* or *"vcloud_vm"*, which are the resources compatible with `metadata_entry`.
 * `resource_name`- (Optional) Specifies the name of the entity in VCD which metadata needs to be ignored. This attribute can be used with
-   any kind of `resource_type`, except for *vcd_storage_profile* which **cannot be filtered by name**.
+   any kind of `resource_type`, except for *vcloud_storage_profile* which **cannot be filtered by name**.
 * `key_regex`- (Optional) A regular expression that can filter out metadata keys that match. Either `key_regex` or `value_regex` are required on each block. 
 * `value_regex`- (Optional) A regular expression that can filter out metadata values that match. Either `key_regex` or `value_regex` are required on each block.
 * `conflict_action` - (Optional) Defines what to do if a conflict exists between a `metadata_entry` that is managed
@@ -453,7 +453,7 @@ that belong to the specific Organization named "client1" **and** which keys matc
 provider "vcd" {
   # ...
   ignore_metadata_changes {
-    resource_type = "vcd_org"
+    resource_type = "vcloud_org"
     resource_name = "client1"
     key_regex     = "[Ee]nvironment"
     # Setting this value to 'warn' will make all 'metadata_entry' entries that
@@ -482,13 +482,13 @@ provider "vcd" {
 
   # Filters all metadata with values "Yes" in the Organization named "Tatooine".
   ignore_metadata_changes {
-    resource_type = "vcd_org"
+    resource_type = "vcloud_org"
     resource_name = "Tatooine"
     value_regex   = "^Yes$"
   }
 }
 
-resource "vcd_org" "my_org" {
+resource "vcloud_org" "my_org" {
   name = "MyOrg"
   # ...
 

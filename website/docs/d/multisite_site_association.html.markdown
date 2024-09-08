@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_multisite_site_association"
+page_title: "VMware Cloud Director: vcloud_multisite_site_association"
 sidebar_current: "docs-vcd-data-source-multisite-site-association"
 description: |-
   Provides a data source to read a VMware Cloud Director site association with the current site.
@@ -19,7 +19,7 @@ Supported in provider *v3.13+*
 Retrieving a site association using the associated site ID.
 
 ```hcl
-data "vcd_multisite_site_association" "site1-site2" {
+data "vcloud_multisite_site_association" "site1-site2" {
   associated_site_id = "urn:vcloud:site:dca02216-fcf3-414a-be95-a3e26cf1296b"
 }
 ```
@@ -29,7 +29,7 @@ data "vcd_multisite_site_association" "site1-site2" {
 Retrieving a site association using the association data file.
 
 ```hcl
-data "vcd_multisite_site_association" "site1-site2" {
+data "vcloud_multisite_site_association" "site1-site2" {
   association_data_file = "remote-site.xml"
 }
 ```

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_add_on_instance"
+page_title: "VMware Cloud Director: vcloud_solution_add_on_instance"
 sidebar_current: "docs-vcd-data-source-solution-add-on-instance"
 description: |-
   Provides a data source to read Solution Add-On Instances in Cloud Director. A Solution Add-On Instance
@@ -18,7 +18,7 @@ particular instance.
 ## Example Usage
 
 ```hcl
-data "vcd_solution_add_on_instance" "dse14" {
+data "vcloud_solution_add_on_instance" "dse14" {
   name = "MyDseInstance"
 }
 ```
@@ -26,5 +26,5 @@ data "vcd_solution_add_on_instance" "dse14" {
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
 resource are available.

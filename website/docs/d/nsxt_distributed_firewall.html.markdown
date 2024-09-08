@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_distributed_firewall"
+page_title: "VMware Cloud Director: vcloud_nsxt_distributed_firewall"
 sidebar_current: "docs-vcd-data-source-nsxt-distributed-firewall"
 description: |-
   The Distributed Firewall data source reads all defined rules for a particular VDC Group.
@@ -11,20 +11,20 @@ description: |-
 The Distributed Firewall data source reads all defined rules for a particular VDC Group.
 
 -> There is a different data source
-[`vcd_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_distributed_firewall_rule)
+[`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_distributed_firewall_rule)
 resource are available that can fetch a single firewall rule by name.
 
 ## Example Usage
 
 ```hcl
-data "vcd_vdc_group" "g1" {
+data "vcloud_vdc_group" "g1" {
   org  = "my-org" # Optional, can be inherited from Provider configuration
   name = "my-vdc-group"
 }
 
-data "vcd_nsxt_distributed_firewall" "t1" {
+data "vcloud_nsxt_distributed_firewall" "t1" {
   org          = "my-org" # Optional, can be inherited from Provider configuration
-  vdc_group_id = data.vcd_vdc_group.g1.id
+  vdc_group_id = data.vcloud_vdc_group.g1.id
 }
 ```
 
@@ -39,5 +39,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_distributed_firewall`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
+[`vcloud_nsxt_distributed_firewall`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
 resource are available.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp_firewall_rules"
+page_title: "VMware Cloud Director: vcloud_vapp_firewall_rules"
 sidebar_current: "docs-vcd-resource-vapp-firewall-rules"
 description: |-
   Provides a VMware Cloud Director vApp Firewall resource. This can be used to create, modify, and delete firewall settings and rules.
@@ -17,13 +17,13 @@ Firewall rules can be applied to [vApp networks connected to Org network](/provi
 ## Example Usage
 
 ```hcl
-resource "vcd_vapp" "web" {
+resource "vcloud_vapp" "web" {
   name = "web"
 }
 
-resource "vcd_vapp_network" "vapp-net" {
+resource "vcloud_vapp_network" "vapp-net" {
   name             = "my-vapp-net"
-  vapp_name        = vcd_vapp.web.name
+  vapp_name        = vcloud_vapp.web.name
   org_network_name = "my-vdc-int-net"
   gateway          = "192.168.2.1"
   netmask          = "255.255.255.0"
@@ -35,9 +35,9 @@ resource "vcd_vapp_network" "vapp-net" {
   }
 }
 
-resource "vcd_vapp_firewall_rules" "vapp-fw" {
-  vapp_id        = vcd_vapp.web.id
-  network_id     = vcd_vapp_network.vapp-net.id
+resource "vcloud_vapp_firewall_rules" "vapp-fw" {
+  vapp_id        = vcloud_vapp.web.id
+  network_id     = vcloud_vapp_network.vapp-net.id
   default_action = "drop"
 
   rule {
@@ -106,13 +106,13 @@ via supplying the full dot separated path to vApp network. An example is
 below:
 
 ```
-terraform import vcd_vapp_firewall_rules.my-rules my-org.my-vdc.vapp-name.network-name
+terraform import vcloud_vapp_firewall_rules.my-rules my-org.my-vdc.vapp-name.network-name
 ```
 
 or using IDs:
 
 ```
-terraform import vcd_vapp_firewall_rules.my-rules my-org.my-vdc.vapp-id.network-id
+terraform import vcloud_vapp_firewall_rules.my-rules my-org.my-vdc.vapp-id.network-id
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
@@ -124,13 +124,13 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing vApp Network IDs
 
-If you want to list IDs there is a special command **`terraform import vcd_vapp_firewall_rules.imported list@org-name.vcd-name.vapp-name`**
+If you want to list IDs there is a special command **`terraform import vcloud_vapp_firewall_rules.imported list@org-name.vcd-name.vapp-name`**
 where `org-name` is the organization used, `vdc-name` is VDC name and `vapp-name` is vApp name. 
 The output for this command should look similar to the one below:
 
 ```shell
-$ terraform import vcd_vapp_firewall_rules.imported list@org-name.vdc-name.vapp-name
-vcd_vapp_firewall_rules.imported: Importing from ID "list@org-name.vdc-name.vapp-name"...
+$ terraform import vcloud_vapp_firewall_rules.imported list@org-name.vdc-name.vapp-name
+vcloud_vapp_firewall_rules.imported: Importing from ID "list@org-name.vdc-name.vapp-name"...
 Retrieving all vApp networks by name
 No	vApp ID                                                 ID                                      Name	
 --	-------                                                 --                                      ----	
@@ -146,5 +146,5 @@ Error: resource id must be specified in one of these formats:
 Now to import vApp network firewall rules with ID 0027c6ae-7d59-457e-b33e-a89e97f0bdc1 one could supply this command:
 
 ```shell
-$ terraform import vcd_vapp_firewall_rules.imported org-name.vdc-name.urn:vcloud:vapp:77755b9c-5ec9-41f7-aceb-4cf158786482.0027c6ae-7d59-457e-b33e-a89e97f0bdc1
+$ terraform import vcloud_vapp_firewall_rules.imported org-name.vdc-name.urn:vcloud:vapp:77755b9c-5ec9-41f7-aceb-4cf158786482.0027c6ae-7d59-457e-b33e-a89e97f0bdc1
 ```

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_independent_disk"
+page_title: "VMware Cloud Director: vcloud_independent_disk"
 sidebar_current: "docs-vcd-data-source-independent-disk"
 description: |-
   Provides a independent disk data source.
@@ -16,17 +16,17 @@ Supported in provider *v2.5+*
 ## Example Usage
 
 ```hcl
-data "vcd_independent_disk" "existing-disk" {
+data "vcloud_independent_disk" "existing-disk" {
   org  = "my-org"
   vdc  = "my-vdc"
   id   = "urn:vcloud:disk:1bbc273d-7701-4f06-97be-428b46b0805e"
   name = "my-disk"
 }
 output "disk-iops" {
-  value = data.vcd_independent_disk.existing-disk.iops
+  value = data.vcloud_independent_disk.existing-disk.iops
 }
 output "type_is_attached" {
-  value = data.vcd_independent_disk.existing-disk.is_attached
+  value = data.vcloud_independent_disk.existing-disk.is_attached
 }
 ```
 

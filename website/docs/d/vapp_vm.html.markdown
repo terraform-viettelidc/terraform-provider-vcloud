@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp_vm"
+page_title: "VMware Cloud Director: vcloud_vapp_vm"
 sidebar_current: "docs-vcd-datasource-vapp-vm"
 description: |-
   Provides a VMware Cloud Director VM data source. This can be used to access VMs within a vApp.
@@ -16,20 +16,20 @@ Supported in provider *v2.6+*
 
 ```hcl
 
-data "vcd_vapp" "web" {
+data "vcloud_vapp" "web" {
   name = "web"
 }
 
-data "vcd_vapp_vm" "web1" {
-  vapp_name = data.vcd_vapp.web.name
+data "vcloud_vapp_vm" "web1" {
+  vapp_name = data.vcloud_vapp.web.name
   name      = "web1"
 }
 
 output "vm_id" {
-  value = data.vcd_vapp_vm.id
+  value = data.vcloud_vapp_vm.id
 }
 output "vm" {
-  value = data.vcd_vapp_vm.web1
+  value = data.vcloud_vapp_vm.web1
 }
 ```
 
@@ -88,7 +88,7 @@ The following arguments are supported:
 
 ## Attribute reference
 
-* `vm_type` - (*3.2+*) - type of the VM (either `vcd_vapp_vm` or `vcd_vm`)
+* `vm_type` - (*3.2+*) - type of the VM (either `vcloud_vapp_vm` or `vcloud_vm`)
 * `computer_name` -  Computer name to assign to this virtual machine. 
 * `catalog_name` -  The catalog name in which to find the given vApp Template
 * `template_name` -  The name of the vApp Template to use

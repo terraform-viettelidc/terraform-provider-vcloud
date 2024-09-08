@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_type"
+page_title: "VMware Cloud Director: vcloud_rde_type"
 sidebar_current: "docs-vcd-data-source-rde-type"
 description: |-
    Provides the capability of fetching an existing Runtime Defined Entity Type from VMware Cloud Director.
@@ -15,18 +15,18 @@ Supported in provider *v3.9+*
 ## Example Usage
 
 ```hcl
-data "vcd_rde_type" "my_rde_type" {
+data "vcloud_rde_type" "my_rde_type" {
   vendor  = "bigcorp"
   nss     = "tech"
   version = "1.2.3"
 }
 
 output "type-name" {
-  value = data.vcd_rde_type.my_rde_type.name
+  value = data.vcloud_rde_type.my_rde_type.name
 }
 
 output "type-id" {
-  value = data.vcd_rde_type.my_rde_type.id
+  value = data.vcloud_rde_type.my_rde_type.id
 }
 ```
 

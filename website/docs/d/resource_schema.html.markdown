@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_resource_schema"
+page_title: "VMware Cloud Director: vcloud_resource_schema"
 sidebar_current: "docs-vcd-datasource-resource-schema"
 description: |-
   Provides information about a vCD resource structure
@@ -17,14 +17,14 @@ Supported in provider *v3.1+*
 Showing a structure with simple attributes only 
 
 ```hcl
-data "vcd_resource_schema" "org_struct" {
+data "vcloud_resource_schema" "org_struct" {
   name          = "org_struct"
-  resource_type = "vcd_org"
+  resource_type = "vcloud_org"
 }
 
 // Shows the organization attributes
 output "org_struct" {
-  value = data.vcd_resource_schema.org_struct.attributes
+  value = data.vcloud_resource_schema.org_struct.attributes
 }
 /* 
 output:
@@ -137,13 +137,13 @@ org_struct = [
 Showing a structure with both simple and compound attributes
 
 ```hcl
-data "vcd_resource_schema" "network_isolated_struct" {
+data "vcloud_resource_schema" "network_isolated_struct" {
   name          = "net_struct"
-  resource_type = "vcd_network_isolated"
+  resource_type = "vcloud_network_isolated"
 }
 
 output "net_struct" {
-  value = data.vcd_resource_schema.net_struct
+  value = data.vcloud_resource_schema.net_struct
 }
 /* 
 output:
@@ -328,7 +328,7 @@ struct_network_isolated = {
   ] 
   "id" = "struct_network_isolated"
   "name" = "struct_network_isolated"
-  "resource_type" = "vcd_network_isolated"
+  "resource_type" = "vcloud_network_isolated"
 }
 */
 ```
@@ -338,7 +338,7 @@ struct_network_isolated = {
 The following arguments are supported:
 
 * `name` - (Required) An unique name to identify the data source
-* `resource_type` - (Required) Which resource we want to list. It needs to use the full name of the resource (i.e. "vcd_org",
+* `resource_type` - (Required) Which resource we want to list. It needs to use the full name of the resource (i.e. "vcloud_org",
 not simply "org")
 
 ## Attribute Reference

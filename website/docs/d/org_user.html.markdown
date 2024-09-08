@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_user"
+page_title: "VMware Cloud Director: vcloud_org_user"
 sidebar_current: "docs-vcd-datasource-org-user"
 description: |-
   Provides a VMware Cloud Director Organization user data source. This can be used to read organization users.
@@ -16,22 +16,22 @@ Supported in provider *v3.0+*
 ## Example Usage
 
 ```hcl
-data "vcd_org_user" "my-org-admin" {
+data "vcloud_org_user" "my-org-admin" {
   org  = "my-org"
   name = "my-org-admin"
 }
 
-data "vcd_org_user" "my-vapp-creator" {
+data "vcloud_org_user" "my-vapp-creator" {
   org     = "my-org"
   user_id = "urn:vcloud:user:c311eb35-6984-4d26-3ee9-0000deadbeef"
 }
 
 output "admin_user" {
-  value = data.vcd_org_user.my-org-admin
+  value = data.vcloud_org_user.my-org-admin
 }
 
 output "vapp_creator_user" {
-  value = data.vcd_org_user.my-vapp-creator
+  value = data.vcloud_org_user.my-vapp-creator
 }
 ```
 

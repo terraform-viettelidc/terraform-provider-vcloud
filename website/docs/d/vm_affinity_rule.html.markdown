@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm_affinity_rule"
+page_title: "VMware Cloud Director: vcloud_vm_affinity_rule"
 sidebar_current: "docs-vcd-datasource-vm-affinity-rule"
 description: |-
   Provides a VMware Cloud Director VM affinity rule data source. This can be
@@ -20,11 +20,11 @@ entities: they are differentiated by the `polarity` property (See below).
 ## Example Usage
 
 ```hcl
-data "vcd_vm_affinity_rule" "tf-rule-by-name" {
+data "vcloud_vm_affinity_rule" "tf-rule-by-name" {
   name = "my-rule"
 }
 
-data "vcd_vm_affinity_rule" "tf-rule-by-id" {
+data "vcloud_vm_affinity_rule" "tf-rule-by-id" {
   rule_id = "eda9011c-6841-4060-9336-d2f609c110c3"
 }
 ```

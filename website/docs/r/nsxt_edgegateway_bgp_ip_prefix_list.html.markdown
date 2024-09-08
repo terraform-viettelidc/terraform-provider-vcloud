@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_bgp_ip_prefix_list"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_ip_prefix_list"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-ip-prefix-list"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway BGP IP Prefix Lists. IP prefix lists can contain 
@@ -20,10 +20,10 @@ route advertisement.
 ## Example Usage (BGP IP Prefix List with multiple entries)
 
 ```hcl
-resource "vcd_nsxt_edgegateway_bgp_ip_prefix_list" "testing" {
+resource "vcloud_nsxt_edgegateway_bgp_ip_prefix_list" "testing" {
   org = "cloud"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing.id
 
   name        = "sample-ip-prefix-list"
   description = "This definition is meant only to demostrate capabilities"
@@ -66,7 +66,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). Can be looked up using
-  `vcd_nsxt_edgegateway` datasource
+  `vcloud_nsxt_edgegateway` datasource
 * `name` - (Required) The Name of IP Prefix List
 * `description` - (Optional) Description of IP Prefix List
 * `ip_prefix` - (Required) At least one `ip_prefix` definition. See [IP Prefix](#ip-prefix) for
@@ -99,7 +99,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_edgegateway_bgp_ip_prefix_list.imported `my-org.my-vdc-or-vdc-group.my-edge-gateway.ip-prefix-list-name`
+terraform import vcloud_nsxt_edgegateway_bgp_ip_prefix_list.imported `my-org.my-vdc-or-vdc-group.my-edge-gateway.ip-prefix-list-name`
 ```
 
 The above would import the `ip-prefix-list-name` BGP IP Prefix List that is defined in

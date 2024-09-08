@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rights_bundle"
+page_title: "VMware Cloud Director: vcloud_rights_bundle"
 sidebar_current: "docs-vcd-resource-rights-bundle"
 description: |-
  Provides a VMware Cloud Director rights bundle. This can be used to create, modify, and delete rights bundles.
@@ -15,7 +15,7 @@ Supported in provider *v3.3+*
 ## Example Usage
 
 ```hcl
-resource "vcd_rights_bundle" "new-rights-bundle" {
+resource "vcloud_rights_bundle" "new-rights-bundle" {
   name        = "new-rights-bundle"
   description = "new rights bundle from CLI"
   rights = [
@@ -59,7 +59,7 @@ bundle is at the top of the entity hierarchy).
 For example, using this structure, representing an existing rights bundle that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_rights_bundle" "default-set" {
+resource "vcloud_rights_bundle" "default-set" {
   name = "Default Rights Bundle"
 }
 ```
@@ -67,7 +67,7 @@ resource "vcd_rights_bundle" "default-set" {
 You can import such rights bundle into terraform state using this command
 
 ```
-terraform import vcd_rights_bundle.default-set "Default Rights Bundle"
+terraform import vcloud_rights_bundle.default-set "Default Rights Bundle"
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_type_behavior_acl"
+page_title: "VMware Cloud Director: vcloud_rde_type_behavior_acl"
 sidebar_current: "docs-vcd-data-source-rde-type-behavior-acl"
 description: |-
   Provides the capability of fetching the RDE Type Behavior Access Levels from VMware Cloud Director.
@@ -15,30 +15,30 @@ Supported in provider *v3.10+*. Requires System Administrator privileges.
 ## Example Usage
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "vmware"
   nss     = "k8s"
   version = "1.0.0"
 }
 
-data "vcd_rde_interface_behavior" "my_interface_behavior" {
-  interface_id = data.vcd_rde_interface.my_interface.id
+data "vcloud_rde_interface_behavior" "my_interface_behavior" {
+  interface_id = data.vcloud_rde_interface.my_interface.id
   name         = "createKubeConfig"
 }
 
-data "vcd_rde_type" "my_type" {
+data "vcloud_rde_type" "my_type" {
   vendor  = "vmware"
   nss     = "k8s"
   version = "1.2.0"
 }
 
-data "vcd_rde_type_behavior_acl" "my_behavior_acl" {
-  rde_type_id = data.vcd_rde_type.my_type.id
-  behavior_id = data.vcd_rde_interface_behavior.my_interface_behavior.id
+data "vcloud_rde_type_behavior_acl" "my_behavior_acl" {
+  rde_type_id = data.vcloud_rde_type.my_type.id
+  behavior_id = data.vcloud_rde_interface_behavior.my_interface_behavior.id
 }
 
 output "access_levels" {
-  value = data.vcd_rde_type_behavior_acl.my_behavior_acl.access_level_ids
+  value = data.vcloud_rde_type_behavior_acl.my_behavior_acl.access_level_ids
 }
 
 ```

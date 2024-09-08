@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_snat"
+page_title: "VMware Cloud Director: vcloud_nsxv_snat"
 sidebar_current: "docs-vcd-data-source-nsxv-snat"
 description: |-
   Provides a VMware Cloud Director SNAT data source for advanced edge gateways (NSX-V). This can be used to read
@@ -17,7 +17,7 @@ read existing rule by ID and use its attributes in other resources.
 ## Example Usage
 
 ```hcl
-data "vcd_nsxv_snat" "my-rule" {
+data "vcloud_nsxv_snat" "my-rule" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -37,4 +37,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in `vcd_nsxv_snat` resource are available.
+All the attributes defined in `vcloud_nsxv_snat` resource are available.

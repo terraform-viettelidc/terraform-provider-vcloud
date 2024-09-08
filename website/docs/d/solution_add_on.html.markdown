@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_add_on"
+page_title: "VMware Cloud Director: vcloud_solution_add_on"
 sidebar_current: "docs-vcd-data-source-solution-add-on"
 description: |-
   Provides a data source to read Solution Add-Ons in Cloud Director. A Solution Add-On is the
@@ -25,7 +25,7 @@ users, roles, runtime defined entities, and more.
 ## Example Usage
 
 ```hcl
-data "vcd_solution_add_on" "dse14" {
+data "vcloud_solution_add_on" "dse14" {
   name = "vmware.ds-1.4.0-23376809"
 }
 ```
@@ -35,12 +35,12 @@ data "vcd_solution_add_on" "dse14" {
 The following arguments are supported:
 
 * `name` - (Required) Solution Add-On name, e.g. `vmware.ds-1.4.0-23376809`. Solution Add-On
-  resource [`vcd_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
+  resource [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
   `import` with `list@` capability can help listing available names.
 
 
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on) resource are
+[`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on) resource are
 available.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm_vgpu_policy"
+page_title: "VMware Cloud Director: vcloud_vm_vgpu_policy"
 sidebar_current: "docs-vcd-resource-vm-vgpu-policy"
 description: |-
   Provides a resource to manage vGPU policies for virtual machines in VMware Cloud Director.
@@ -17,28 +17,28 @@ Provides a resource to manage vGPU policies for virtual machines in VMware Cloud
 ## Example Usage
 
 ```hcl
-data "vcd_org" "example_org" {
+data "vcloud_org" "example_org" {
   name = "test_org"
 }
 
-data "vcd_vgpu_profile" "example_vgpu_profile" {
+data "vcloud_vgpu_profile" "example_vgpu_profile" {
   name = "grid_a100-10c"
 }
 
-data "vcd_provider_vdc" "example_provider_vdc" {
+data "vcloud_provider_vdc" "example_provider_vdc" {
   name = "example_provider_vdc"
 }
 
-data "vcd_vm_group" "vm_group_example" {
+data "vcloud_vm_group" "vm_group_example" {
   name = "vm-group-1"
 }
 
-resource "vcd_vm_vgpu_policy" "example_vgpu_policy" {
+resource "vcloud_vm_vgpu_policy" "example_vgpu_policy" {
   name        = "example-vgpu-policy"
   description = "An example vGPU policy configuration"
 
   vgpu_profile {
-    id    = data.vcd_vgpu_profile.example_vgpu_profile.id
+    id    = data.vcloud_vgpu_profile.example_vgpu_profile.id
     count = 1
   }
 
@@ -58,16 +58,16 @@ resource "vcd_vm_vgpu_policy" "example_vgpu_policy" {
   }
 
   provider_vdc_scope {
-    provider_vdc_id = data.vcd_provider_vdc.example_provider_vdc.id
+    provider_vdc_id = data.vcloud_provider_vdc.example_provider_vdc.id
     cluster_names   = ["cluster1"]
-    vm_group_id     = data.vcd_vm_group.vm_group_example.id
+    vm_group_id     = data.vcloud_vm_group.vm_group_example.id
   }
 }
 
-resource "vcd_org_vdc" "example_org_vdc" {
-  org               = data.vcd_org.example_org.name
+resource "vcloud_org_vdc" "example_org_vdc" {
+  org               = data.vcloud_org.example_org.name
   name              = "test-org-vdc"
-  provider_vdc_name = data.vcd_provider_vdc.example_provider_vdc.name
+  provider_vdc_name = data.vcloud_provider_vdc.example_provider_vdc.name
   allocation_model  = "Flex"
   delete_force      = true
 
@@ -89,13 +89,13 @@ resource "vcd_org_vdc" "example_org_vdc" {
   elasticity                 = true
   include_vm_memory_overhead = true
   memory_guaranteed          = 1.0
-  default_compute_policy_id  = vcd_vm_vgpu_policy.example_vgpu_policy.id
-  vm_vgpu_policy_ids         = [vcd_vm_vgpu_policy.example_vgpu_policy.id]
+  default_compute_policy_id  = vcloud_vm_vgpu_policy.example_vgpu_policy.id
+  vm_vgpu_policy_ids         = [vcloud_vm_vgpu_policy.example_vgpu_policy.id]
 }
 
-resource "vcd_vm" "test_vm" {
-  org  = data.vcd_org.example_org.name
-  vdc  = vcd_org_vdc.example_org_vdc.name
+resource "vcloud_vm" "test_vm" {
+  org  = data.vcloud_org.example_org.name
+  vdc  = vcloud_org_vdc.example_org_vdc.name
   name = "terraform-provider-vm"
 
   computer_name       = "emptyVM"
@@ -105,26 +105,26 @@ resource "vcd_vm" "test_vm" {
   power_on            = false
   os_type             = "sles11_64Guest"
   hardware_version    = "vmx-19"
-  placement_policy_id = vcd_vm_vgpu_policy.example_vgpu_policy.id
+  placement_policy_id = vcloud_vm_vgpu_policy.example_vgpu_policy.id
 }
 ```
 
 ## Example usage (without a sizing policy)
 
 ```hcl
-resource "vcd_vm_vgpu_policy" "example_vgpu_policy_without_sizing" {
+resource "vcloud_vm_vgpu_policy" "example_vgpu_policy_without_sizing" {
   name        = "example-vgpu-policy-without-sizing"
   description = "An example vGPU policy configuration"
 
   vgpu_profile {
-    id    = data.vcd_vgpu_profile.example_vgpu_profile.id
+    id    = data.vcloud_vgpu_profile.example_vgpu_profile.id
     count = 1
   }
 
   provider_vdc_scope {
-    provider_vdc_id = data.vcd_provider_vdc.example_provider_vdc.id
+    provider_vdc_id = data.vcloud_provider_vdc.example_provider_vdc.id
     cluster_names   = ["cluster1"]
-    vm_group_id     = data.vcd_vm_group.vm_group_example.id
+    vm_group_id     = data.vcloud_vm_group.vm_group_example.id
   }
 }
 ```
@@ -147,7 +147,7 @@ The following arguments are supported:
 ### Provider VDC Scope
 * `provider_vdc_id` - (Required) The ID of the provider VDC that should be in the scope.
 * `cluster_names` - (Optional) A set of vCenter cluster names on which the provider VDC is hosted. 
-  If none are provided, the provider attempts to find one automatically. Can be fetched using `data.vcd_resource_pool.cluster_moref` attribute.
+  If none are provided, the provider attempts to find one automatically. Can be fetched using `data.vcloud_resource_pool.cluster_moref` attribute.
 * `vm_group_id` - (Optional) The ID of a VM group to which the policy is available. If not provided, the policy can be applied to all VMs created
   on the PVDC.
 
@@ -160,13 +160,13 @@ An existing vGPU Policy can be [imported][docs-import] into this resource
 via supplying the path for it. An example is below:
 
 ```hcl
-resource "vcd_vm_vgpu_policy" "imported_policy" {
+resource "vcloud_vm_vgpu_policy" "imported_policy" {
   name = "existing-policy-name"
 }
 ```
 
 ```sh
-terraform import vcd_vm_vgpu_policy.imported_policy vgpu-policy-name
+terraform import vcloud_vm_vgpu_policy.imported_policy vgpu-policy-name
 ```
 
 After that, you can expand the configuration file and either update or delete the VM vGPU policy as needed. Running `terraform plan`
@@ -174,13 +174,13 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing VM vGPU policies
 
-If you want to list IDs there is a special command **`terraform import vcd_vm_vgpu_policy.imported list@`**. 
+If you want to list IDs there is a special command **`terraform import vcloud_vm_vgpu_policy.imported list@`**. 
 The output for this command should look similar to the one below:
 
 ```
-terraform import vcd_vm_vgpu_policy.imported list@
+terraform import vcloud_vm_vgpu_policy.imported list@
 Retrieving all VM vGPU policies
-vcd_vm_vgpu_policy.import: Importing from ID "list@"...
+vcloud_vm_vgpu_policy.import: Importing from ID "list@"...
 No	ID									Name	
 --	--									----	
 1	urn:vcloud:vdcComputePolicy:100dc35a-572b-4876-a762-c734d67c56ef	tf_policy_3
@@ -191,7 +191,7 @@ No	ID									Name
 Now to import VM sizing policy with ID urn:vcloud:vdcComputePolicy:446d623e-1eec-4c8c-8a14-2f7e6086546b one could supply this command:
 
 ```shell
-$ terraform import vcd_vm_vgpu_policy.imported urn:vcloud:vdcComputePolicy:446d623e-1eec-4c8c-8a14-2f7e6086546b
+$ terraform import vcloud_vm_vgpu_policy.imported urn:vcloud:vdcComputePolicy:446d623e-1eec-4c8c-8a14-2f7e6086546b
 ```
 
 [docs-import]:https://www.terraform.io/docs/import/

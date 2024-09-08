@@ -14,7 +14,7 @@ used to assign security tag to VMs.
 
 Supported in provider *v3.7+* and requires VCD 10.3.0+
 
-~> **Note:** Only one of `vcd_security_tag` resource or [`security_tags` attribute from `vcd_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm)
+~> **Note:** Only one of `vcloud_security_tag` resource or [`security_tags` attribute from `vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm)
 should be used. Using both would cause a behavioral conflict.
 
 -> **Note:** This resource requires either system or org administrator privileges.
@@ -22,9 +22,9 @@ should be used. Using both would cause a behavioral conflict.
 ## Example Usage
 
 ```hcl
-resource "vcd_security_tag" "my_tag" {
+resource "vcloud_security_tag" "my_tag" {
   name   = "test-tag"
-  vm_ids = [vcd_vm.my-vm-one.id, vcd_vm.my-vm-two.id]
+  vm_ids = [vcloud_vm.my-vm-one.id, vcloud_vm.my-vm-two.id]
 }
 ```
 ## Argument Reference
@@ -35,7 +35,7 @@ The following arguments are supported:
 * `name` - (Required) The name of the security tag.
 * `vm_ids` - (Required) List of VM IDs that the security tag is going to be applied to.
 
--> The ID of `vcd_security_tag` is set to its name since VCD behind the scenes doesn't create an ID.
+-> The ID of `vcloud_security_tag` is set to its name since VCD behind the scenes doesn't create an ID.
 
 # Importing
 
@@ -47,7 +47,7 @@ The path for this resource is made of org-name.security-tag-name
 An example is below:
 
 ```
-terraform import vcd_security_tag.my-tag my-org.my-security-tag-name
+terraform import vcloud_security_tag.my-tag my-org.my-security-tag-name
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

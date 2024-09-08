@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_dse_solution_publish"
+page_title: "VMware Cloud Director: vcloud_dse_solution_publish"
 sidebar_current: "docs-vcd-data-source-dse-solution-publish"
 description: |-
   Provides a data source to read Data Solution publishing settings for a particular tenant.
@@ -15,12 +15,12 @@ Provides a data source to read Data Solution publishing settings for a particula
 ## Example Usage
 
 ```hcl
-data "vcd_dse_solution_publish" "mongodb-community" {
-  data_solution_id = vcd_dse_registry_configuration.mongodb-community.id
-  org_id           = data.vcd_org.tenant-org.id
+data "vcloud_dse_solution_publish" "mongodb-community" {
+  data_solution_id = vcloud_dse_registry_configuration.mongodb-community.id
+  org_id           = data.vcloud_org.tenant-org.id
 }
 
-data "vcd_org" "tenant-org" {
+data "vcloud_org" "tenant-org" {
   name = "tenant_org"
 }
 ```
@@ -35,5 +35,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_dse_solution_publish`](/providers/vmware/vcd/latest/docs/resources/dse_solution_publish)
+[`vcloud_dse_solution_publish`](/providers/vmware/vcd/latest/docs/resources/dse_solution_publish)
 resource are available.

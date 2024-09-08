@@ -44,7 +44,7 @@ saved into a catalog. See Example 7 below.
 When a filter contains multiple clauses, you achieve the overall match only if all the clauses match. For example:
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
 
   # ...
 
@@ -76,7 +76,7 @@ This filter will retrieve the entity ONLY if ALL the conditions are true:
 ### Availability of filters
 
 Not all the data sources support filters, and when they do, they may not support all the search fields. For example,
-an edge gateway only supports `name_regex`, while the `vcd_network_*` support name, IP, and metadata, and catalog related
+an edge gateway only supports `name_regex`, while the `vcloud_network_*` support name, IP, and metadata, and catalog related
 objects support name, date, and metadata.
 
 ### Empty filter
@@ -95,7 +95,7 @@ Note that the names of the metadata fields are case-sensitive.
 ## Example filter 1
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
 
   org     = "datacloud"
   catalog = "cat-datacloud"
@@ -106,7 +106,7 @@ data "vcd_catalog_item" "unknown" {
 }
 
 output "filtered_item" {
-  value = data.vcd_catalog_item.unknown
+  value = data.vcloud_catalog_item.unknown
 }
 ```
 
@@ -117,7 +117,7 @@ Note that regular expressions are case-sensitive: `photon-v11` and `Photon-v11` 
 ## Example filter 2
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -133,7 +133,7 @@ Will find the most recent item where the name starts by `CentOS`.
 ## Example filter 3
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -155,7 +155,7 @@ Will find the most recent item created on or after March 23rd, 2020
 ## Example filter 4
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -174,7 +174,7 @@ Will fail if the criteria match more than one item.
 ## Example filter 5
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -200,7 +200,7 @@ Will fail if the criteria match more than one item. Will also fail if only one o
 ## Example filter 6
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -226,7 +226,7 @@ To match only `cloud`, the value should be specified as `"^cloud$"`.
 ## Example filter 7
 
 ```hcl
-data "vcd_catalog_item" "unknown" {
+data "vcloud_catalog_item" "unknown" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -254,7 +254,7 @@ Several data sources with a quick search
 
 ```hcl
 # Finds the oldest catalog created after April 2nd, 2020
-data "vcd_catalog" "unknown_cat" {
+data "vcloud_catalog" "unknown_cat" {
   org = "datacloud"
 
   filter {
@@ -263,7 +263,7 @@ data "vcd_catalog" "unknown_cat" {
   }
 }
 # Finds an isolated network with gateway IP starting with `192.168.3`
-data "vcd_network_isolated" "unknown_net" {
+data "vcloud_network_isolated" "unknown_net" {
   org = "datacloud"
   vdc = "vdc-datacloud"
 
@@ -273,7 +273,7 @@ data "vcd_network_isolated" "unknown_net" {
 }
 
 # Finds an edge gateway with name starting with `gw` and ending with `191`
-data "vcd_edgegateway" "unknown_egw" {
+data "vcloud_edgegateway" "unknown_egw" {
   org = "datacloud"
   vdc = "vdc-datacloud"
 
@@ -283,7 +283,7 @@ data "vcd_edgegateway" "unknown_egw" {
 }
 
 # Finds the newest media item created after March 1st, 2020
-data "vcd_catalog_media" "unknown_cm" {
+data "vcloud_catalog_media" "unknown_cm" {
   org     = "datacloud"
   catalog = "cat-datacloud"
 
@@ -294,7 +294,7 @@ data "vcd_catalog_media" "unknown_cm" {
 }
 
 # Finds an edge gateway when you know for sure that there is only one in your VDC
-data "vcd_edgegateway" "only_egw" {
+data "vcloud_edgegateway" "only_egw" {
   org = "datacloud"
   vdc = "vdc-datacloud"
 

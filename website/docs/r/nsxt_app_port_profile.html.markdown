@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_app_port_profile"
+page_title: "VMware Cloud Director: vcloud_nsxt_app_port_profile"
 sidebar_current: "docs-vcd-resource-nsxt-app-port-profile"
 description: |-
   Provides a resource to manage NSX-T Application Port Profiles. Application Port Profiles include a
@@ -21,13 +21,13 @@ NSX-T Data Center, you can create custom Application Port Profiles.
 ## Example Usage 1 (Define Provider wide Application Port Profile)
 
 ```hcl
-resource "vcd_nsxt_app_port_profile" "icmpv4" {
+resource "vcloud_nsxt_app_port_profile" "icmpv4" {
   org         = "System"
   name        = "ICMP custom profile"
   description = "Application port profile for ICMPv4"
 
   scope      = "PROVIDER"
-  context_id = data.vcd_nsxt_manager.first.id
+  context_id = data.vcloud_nsxt_manager.first.id
 
   app_port {
     protocol = "ICMPv4"
@@ -37,14 +37,14 @@ resource "vcd_nsxt_app_port_profile" "icmpv4" {
 
 ## Example Usage 2 (Define Application Port Profile for particular NSX-T VDC 'vdc1')
 ```hcl
-data "vcd_org_vdc" "v1" {
+data "vcloud_org_vdc" "v1" {
   org  = "my-org"
   name = "vdc1"
 }
 
-resource "vcd_nsxt_app_port_profile" "custom-app" {
+resource "vcloud_nsxt_app_port_profile" "custom-app" {
   org        = "my-org"
-  context_id = data.vcd_org_vdc.v1.id
+  context_id = data.vcloud_org_vdc.v1.id
 
   name        = "custom app profile"
   description = "Application port profile for custom application"
@@ -101,7 +101,7 @@ It does not generate configuration. [More information.](https://www.terraform.io
 There are 2 different import paths based on `scope`:
 * `PROVIDER` scoped import path is:
 ```
-terraform import vcd_nsxt_app_port_profile.imported my-nsxt-manager-name.my-app-port-profile-name
+terraform import vcloud_nsxt_app_port_profile.imported my-nsxt-manager-name.my-app-port-profile-name
 ```
 This would import NSX-T Application Port Profile named `my-app-port-profile-name` defined in NSX-T manager
 named `my-nsxt-manager-name`.
@@ -110,7 +110,7 @@ named `my-nsxt-manager-name`.
 
 * `TENANT` scoped import path is:
 ```
-terraform import vcd_nsxt_app_port_profile.imported my-org.my-nsxt-vdc-or-vdc-group.my-app-port-profile-name
+terraform import vcloud_nsxt_app_port_profile.imported my-org.my-nsxt-vdc-or-vdc-group.my-app-port-profile-name
 ```
 
 This would import NSX-T Application Port Profile named `my-app-port-profile-name` defined in Org `my-org` and NSX-T

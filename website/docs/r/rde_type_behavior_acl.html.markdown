@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_type_behavior_acl"
+page_title: "VMware Cloud Director: vcloud_rde_type_behavior_acl"
 sidebar_current: "docs-vcd-resource-rde-type-behavior-acl"
 description: |-
    Provides the capability of managing RDE Type Behavior Access Levels in VMware Cloud Director.
@@ -16,15 +16,15 @@ Supported in provider *v3.10+*. Requires System administrator privileges.
 ## Example Usage
 
 ```hcl
-resource "vcd_rde_interface" "interface" {
+resource "vcloud_rde_interface" "interface" {
   nss     = "nss"
   version = "1.0.0"
   vendor  = "vendor"
   name    = "MyInterface"
 }
 
-resource "vcd_rde_interface_behavior" "behavior1" {
-  rde_interface_id = vcd_rde_interface.interface.id
+resource "vcloud_rde_interface_behavior" "behavior1" {
+  rde_interface_id = vcloud_rde_interface.interface.id
   name             = "MyInterfaceBehavior1"
   description      = "My Behavior Contract goes here"
   execution = {
@@ -33,8 +33,8 @@ resource "vcd_rde_interface_behavior" "behavior1" {
   }
 }
 
-resource "vcd_rde_interface_behavior" "behavior2" {
-  rde_interface_id = vcd_rde_interface.interface.id
+resource "vcloud_rde_interface_behavior" "behavior2" {
+  rde_interface_id = vcloud_rde_interface.interface.id
   name             = "MyInterfaceBehavior2"
   description      = "My Behavior Contract goes here"
   execution = {
@@ -43,23 +43,23 @@ resource "vcd_rde_interface_behavior" "behavior2" {
   }
 }
 
-resource "vcd_rde_type" "type" {
+resource "vcloud_rde_type" "type" {
   nss           = "nss"
   version       = "1.0.0"
   vendor        = "vendor"
   name          = "MyType"
   description   = "Type Description"
-  interface_ids = [vcd_rde_interface.interface.id]
+  interface_ids = [vcloud_rde_interface.interface.id]
   schema        = file("/home/foo/my_rde_type.json")
 
   # Behaviors can't be created after the RDE Interface is used by a RDE Type
   # so we need to depend on the Behaviors to wait for them to be created first.
-  depends_on = [vcd_rde_interface_behavior.behavior1, vcd_rde_interface_behavior.behavior2]
+  depends_on = [vcloud_rde_interface_behavior.behavior1, vcloud_rde_interface_behavior.behavior2]
 }
 
-resource "vcd_rde_type_behavior" "behavior_override" {
-  rde_type_id               = vcd_rde_type.type.id
-  rde_interface_behavior_id = vcd_rde_interface_behavior.behavior1.id
+resource "vcloud_rde_type_behavior" "behavior_override" {
+  rde_type_id               = vcloud_rde_type.type.id
+  rde_interface_behavior_id = vcloud_rde_interface_behavior.behavior1.id
   description               = "MyTypeBehaviorOverride"
   execution = {
     "id" : "MyActivityOverride"
@@ -68,16 +68,16 @@ resource "vcd_rde_type_behavior" "behavior_override" {
 }
 
 # Access levels for the Behavior override defined in a RDE Type
-resource "vcd_rde_type_behavior_acl" "acl1" {
-  rde_type_id      = vcd_rde_type.type.id
-  behavior_id      = vcd_rde_type_behavior.behavior_override.id
+resource "vcloud_rde_type_behavior_acl" "acl1" {
+  rde_type_id      = vcloud_rde_type.type.id
+  behavior_id      = vcloud_rde_type_behavior.behavior_override.id
   access_level_ids = ["urn:vcloud:accessLevel:ReadOnly"]
 }
 
 # Access levels for the Behavior defined in a RDE Interface that is inherited by the RDE Type
-resource "vcd_rde_type_behavior_acl" "acl2" {
-  rde_type_id      = vcd_rde_type.type.id
-  behavior_id      = vcd_rde_interface_behavior.behavior2.id
+resource "vcloud_rde_type_behavior_acl" "acl2" {
+  rde_type_id      = vcloud_rde_type.type.id
+  behavior_id      = vcloud_rde_interface_behavior.behavior2.id
   access_level_ids = ["urn:vcloud:accessLevel:FullControl"]
 }
 ```
@@ -103,16 +103,16 @@ the Behavior `name`.
 For example, using this structure, representing some existing RDE Type Behavior Access Levels that were **not** created using Terraform:
 
 ```hcl
-resource "vcd_rde_type_behavior_acl" "my_acl" {
-  rde_type_id = data.vcd_rde_type.my_rde_type.id
-  behavior_id = data.vcd_rde_interface_behavior.my_interface_behavior.id
+resource "vcloud_rde_type_behavior_acl" "my_acl" {
+  rde_type_id = data.vcloud_rde_type.my_rde_type.id
+  behavior_id = data.vcloud_rde_interface_behavior.my_interface_behavior.id
 }
 ```
 
 You can import such RDE Type into Terraform state using this command
 
 ```
-terraform import vcd_rde_type.outer_type vmware.k8s.1.0.0.createKubeConfig
+terraform import vcloud_rde_type.outer_type vmware.k8s.1.0.0.createKubeConfig
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_user"
+page_title: "VMware Cloud Director: vcloud_org_user"
 sidebar_current: "docs-vcd-resource-org-user"
 description: |-
   Provides a VMware Cloud Director Organization user. This can be used to create, update, and delete users.
@@ -23,7 +23,7 @@ Supported in provider *v2.4+*
 ```hcl
 # A simple user created with the minimum of properties
 # uses the "password" field
-resource "vcd_org_user" "my-org-admin" {
+resource "vcloud_org_user" "my-org-admin" {
   org = "my-org"
 
   name        = "my-org-admin"
@@ -34,7 +34,7 @@ resource "vcd_org_user" "my-org-admin" {
 
 # Another user, created by filling all the fields
 # Uses the "password_file" field.
-resource "vcd_org_user" "test_user_vapp_author" {
+resource "vcloud_org_user" "test_user_vapp_author" {
   org = "datacloud"
 
   name              = "test_user_vapp_author"
@@ -56,7 +56,7 @@ resource "vcd_org_user" "test_user_vapp_author" {
 
 ```hcl
 # A new system administrator
-resource "vcd_org_user" "my-sys-admin" {
+resource "vcloud_org_user" "my-sys-admin" {
   org         = "System"
   name        = "my-sys-admin"
   description = "a new sys admin"
@@ -68,7 +68,7 @@ resource "vcd_org_user" "my-sys-admin" {
 ## Example Usage 3 - A System user with custom role
 
 ```hcl
-resource "vcd_role" "new-sys-role" {
+resource "vcloud_role" "new-sys-role" {
   org         = "System"
   name        = "new-role"
   description = "new role from CLI"
@@ -82,11 +82,11 @@ resource "vcd_role" "new-sys-role" {
   ]
 }
 
-resource "vcd_org_user" "test_sys_user" {
+resource "vcloud_org_user" "test_sys_user" {
   org            = "System"
   name           = "custom-sys-user"
   password       = "mypass"
-  role           = vcd_role.new-sys-role.name
+  role           = vcloud_role.new-sys-role.name
   take_ownership = true
 }
 ```
@@ -150,7 +150,7 @@ An existing user can be [imported][docs-import] into this resource via supplying
 org user. For example, using this structure, representing an existing user that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_org_user" "my-org-admin" {
+resource "vcloud_org_user" "my-org-admin" {
   org  = "my-org"
   name = "my-org-admin"
   role = "Organization Administrator"
@@ -160,7 +160,7 @@ resource "vcd_org_user" "my-org-admin" {
 You can import such user into terraform state using this command
 
 ```
-terraform import vcd_org_user.my-org-admin my-org.my-org-admin
+terraform import vcloud_org_user.my-org-admin my-org.my-org-admin
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
@@ -179,7 +179,7 @@ The state (in `terraform.tfstate`) would look like this:
   "resources": [
     {
       "mode": "managed",
-      "type": "vcd_org_user",
+      "type": "vcloud_org_user",
       "name": "my-org-user",
       "provider": "provider.vcd",
       "instances": [

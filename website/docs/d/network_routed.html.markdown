@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_routed"
+page_title: "VMware Cloud Director: vcloud_network_routed"
 sidebar_current: "docs-vcd-data-source-network-routed"
 description: |-
   Provides a VMware Cloud Director Org VDC routed Network. This can be used to reference internal networks for vApps to connect.
@@ -13,39 +13,39 @@ Provides a VMware Cloud Director Org VDC routed Network data source. This can be
 Supported in provider *v2.5+*
 
 ~> **Note:** This data source supports only NSX-V backed Org VDC networks.
-Please use newer [`vcd_network_routed_v2`](/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
+Please use newer [`vcloud_network_routed_v2`](/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2)
 data source which is compatible with NSX-T.
 
 ## Example Usage
 
 ```hcl
-data "vcd_network_routed" "net" {
+data "vcloud_network_routed" "net" {
   org  = "my-org" # Optional
   vdc  = "my-vdc" # Optional
   name = "my-net"
 }
 
 output "edge_gateway" {
-  value = data.vcd_network_routed.net.edge_gateway
+  value = data.vcloud_network_routed.net.edge_gateway
 }
 
 output "gateway" {
-  value = data.vcd_network_routed.net.gateway
+  value = data.vcloud_network_routed.net.gateway
 }
 output "dhcp_start_address" {
-  value = tolist(data.vcd_network_routed.net.dhcp_pool)[0].start_address
+  value = tolist(data.vcloud_network_routed.net.dhcp_pool)[0].start_address
 }
 
 output "dhcp_end_address" {
-  value = tolist(data.vcd_network_routed.net.dhcp_pool)[0].end_address
+  value = tolist(data.vcloud_network_routed.net.dhcp_pool)[0].end_address
 }
 
 output "static_ip_start_address" {
-  value = tolist(data.vcd_network_routed.net.static_ip_pool)[0].start_address
+  value = tolist(data.vcloud_network_routed.net.static_ip_pool)[0].start_address
 }
 
 output "static_ip_end_address" {
-  value = tolist(data.vcd_network_routed.net.static_ip_pool)[0].end_address
+  value = tolist(data.vcloud_network_routed.net.static_ip_pool)[0].end_address
 }
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_app_rule"
+page_title: "VMware Cloud Director: vcloud_lb_app_rule"
 sidebar_current: "docs-vcd-resource-lb-app-rule"
 description: |-
   Provides an NSX edge gateway load balancer application rule resource.
@@ -25,7 +25,7 @@ Supported in provider *v2.4+*
 ## Example Usage 1 (Application rule with single line script)
 
 ```hcl
-resource "vcd_lb_app_rule" "example-one" {
+resource "vcloud_lb_app_rule" "example-one" {
   edge_gateway = "my-edge-gw"
   org          = "my-org"
   vdc          = "my-org-vdc"
@@ -38,7 +38,7 @@ resource "vcd_lb_app_rule" "example-one" {
 ## Example Usage 2 (Application rule with multi line script)
 
 ```hcl
-resource "vcd_lb_app_rule" "example-two" {
+resource "vcloud_lb_app_rule" "example-two" {
   edge_gateway = "my-edge-gw"
   org          = "my-org"
   vdc          = "my-org-vdc"
@@ -84,7 +84,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_app_rule.imported my-org.my-org-vdc.my-edge-gw.my-lb-app-rule
+terraform import vcloud_lb_app_rule.imported my-org.my-org-vdc.my-edge-gw.my-lb-app-rule
 ```
 
 The above would import the application rule named `my-lb-app-rule` that is defined on edge

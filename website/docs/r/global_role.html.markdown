@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_global_role"
+page_title: "VMware Cloud Director: vcloud_global_role"
 sidebar_current: "docs-vcd-resource-global-role"
 description: |-
  Provides a VMware Cloud Director global role. This can be used to create, modify, and delete global roles.
@@ -15,7 +15,7 @@ Supported in provider *v3.3+*
 ## Example Usage
 
 ```hcl
-resource "vcd_global_role" "new-global-role" {
+resource "vcloud_global_role" "new-global-role" {
   name        = "new-global-role"
   description = "new global role from CLI"
   rights = [
@@ -59,7 +59,7 @@ role is at the top of the entity hierarchy).
 For example, using this structure, representing an existing global role that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_global_role" "catalog-author" {
+resource "vcloud_global_role" "catalog-author" {
   name = "Catalog Author"
 }
 ```
@@ -67,7 +67,7 @@ resource "vcd_global_role" "catalog-author" {
 You can import such global role into terraform state using this command
 
 ```
-terraform import vcd_global_role.catalog-author "Catalog Author"
+terraform import vcloud_global_role.catalog-author "Catalog Author"
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

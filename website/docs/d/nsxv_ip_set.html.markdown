@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_ip_set"
+page_title: "VMware Cloud Director: vcloud_nsxv_ip_set"
 sidebar_current: "docs-vcd-datasource-ipset"
 description: |-
   Provides an IP set data source.
@@ -16,7 +16,7 @@ Supported in provider *v2.6+*
 ## Example Usage
 
 ```hcl
-data "vcd_nsxv_ip_set" "ip-set-DS" {
+data "vcloud_nsxv_ip_set" "ip-set-DS" {
   org = "my-org"
   vdc = "my-org-vdc"
 
@@ -34,4 +34,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcd_nsxv_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxv_ip_set) resource are available.
+All the attributes defined in [`vcloud_nsxv_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxv_ip_set) resource are available.

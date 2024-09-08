@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_cloned_vapp"
+page_title: "VMware Cloud Director: vcloud_cloned_vapp"
 sidebar_current: "docs-vcd-resource-cloned-vapp"
 description: |-
   Provides a VMware Cloud Director Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
@@ -10,7 +10,7 @@ description: |-
 
 Provides a VMware Cloud Director Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
 This resource should be used only on creation, although deletion also works. The result of using this resource is a
-regular vApp ([`vcd_vapp`](/providers/vmware/vcd/latest/docs/resources/vapp)), with all its contents derived by either a vApp template or another vApp.
+regular vApp ([`vcloud_vapp`](/providers/vmware/vcd/latest/docs/resources/vapp)), with all its contents derived by either a vApp template or another vApp.
 As of this first implementation, no configuration is available: the vApp is simply cloned from the source vApp template
 or vApp.
 
@@ -25,20 +25,20 @@ Supported in provider *v3.10+*
 ## Example of creation from vApp template
 
 ```hcl
-data "vcd_catalog" "cat" {
+data "vcloud_catalog" "cat" {
   name = "my-catalog"
 }
 
-data "vcd_catalog_vapp_template" "tmpl" {
-  catalog_id = data.vcd_catalog.cat.id
+data "vcloud_catalog_vapp_template" "tmpl" {
+  catalog_id = data.vcloud_catalog.cat.id
   name       = "3VM"
 }
 
-resource "vcd_cloned_vapp" "vapp_from_template" {
+resource "vcloud_cloned_vapp" "vapp_from_template" {
   name        = "VappFromTemplate"
   description = "vApp from template"
   power_on    = true
-  source_id   = data.vcd_catalog_vapp_template.tmpl.id
+  source_id   = data.vcloud_catalog_vapp_template.tmpl.id
   source_type = "template"
 }
 ```
@@ -46,15 +46,15 @@ resource "vcd_cloned_vapp" "vapp_from_template" {
 ## Example of creation from vApp
 
 ```hcl
-data "vcd_vapp" "source_vapp" {
+data "vcloud_vapp" "source_vapp" {
   name = "source_vapp"
 }
 
-resource "vcd_cloned_vapp" "vapp_from_vapp" {
+resource "vcloud_cloned_vapp" "vapp_from_vapp" {
   name          = "VappFromVapp"
   description   = "vApp from vApp"
   power_on      = true
-  source_id     = data.vcd_vapp.source_vapp.id
+  source_id     = data.vcloud_vapp.source_vapp.id
   source_type   = "vapp"
   delete_source = false
 }
@@ -83,7 +83,7 @@ The following arguments are supported:
 
 ## Importing
 
-There is no importing for this resource, as it should be used only on creation. A vApp can be imported using `vcd_vapp`.
+There is no importing for this resource, as it should be used only on creation. A vApp can be imported using `vcloud_vapp`.
 See [Importing resources](https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/guides/importing_resources) for
 the theory and some [examples](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/importing/vapp-vm) in
 `terraform-provider-vcd` repository.

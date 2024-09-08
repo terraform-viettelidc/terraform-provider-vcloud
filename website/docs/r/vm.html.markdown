@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm"
+page_title: "VMware Cloud Director: vcloud_vm"
 sidebar_current: "docs-vcd-resource-vm"
 description: |-
   Provides a VMware Cloud Director standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
@@ -15,21 +15,21 @@ Supported in provider *v3.2+*
 ## Example Usage
 
 ```hcl
-data "vcd_catalog" "cat-datacloud" {
+data "vcloud_catalog" "cat-datacloud" {
   org  = "test"
   name = "cat-datacloud"
 }
 
-data "vcd_catalog_vapp_template" "photon-hw11" {
+data "vcloud_catalog_vapp_template" "photon-hw11" {
   org        = "test"
-  catalog_id = data.vcd_catalog.cat-datacloud.id
+  catalog_id = data.vcloud_catalog.cat-datacloud.id
   name       = "photon-hw11"
 }
 
-resource "vcd_vm" "TestVm" {
+resource "vcloud_vm" "TestVm" {
   name = "TestVm"
 
-  vapp_template_id = data.vcd_catalog_vapp_template.photon-hw11.id
+  vapp_template_id = data.vcloud_catalog_vapp_template.photon-hw11.id
   cpus             = 2
   memory           = 2048
 
@@ -43,7 +43,7 @@ resource "vcd_vm" "TestVm" {
 
 ## Arguments and attributes reference
 
-This resource provides all arguments and attributes available for [`vcd_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm),
+This resource provides all arguments and attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/resources/vapp_vm),
 with the only difference that the `vapp_name` should be left empty.
 
 General notes:
@@ -54,7 +54,7 @@ General notes:
 
 * The import path of the standalone VM does not need a vApp name. While a standard VM is retrieved with a path like 
 `org-name.vdc-name.vapp-name.vm-name`, for a standalone VM you can use `org-name.vdc-name.vm-name`. If you know the vApp
-  name (as retrieved through a data source, for example), you can safely use it in the path, as if it were a `vcd_vapp_vm`.
+  name (as retrieved through a data source, for example), you can safely use it in the path, as if it were a `vcloud_vapp_vm`.
 
 * The VM name is unique **within the vApp**, which means that it is possible to create multiple standalone VMs with the same name.
   This fact has consequences when importing a resource, where we identify the VM by name. If there are duplicates, we get
@@ -63,7 +63,7 @@ General notes:
 
 For example, given this input
 ```hcl
-resource "vcd_vm" "TestVm" {
+resource "vcloud_vm" "TestVm" {
   org  = "datacloud"
   vdc  = "vdc-datacloud"
   name = "TestVm"
@@ -73,8 +73,8 @@ resource "vcd_vm" "TestVm" {
 If multiple VMs have the same name, we get an error like:
 
 ```
-$ terraform import vcd_vm.TestVm datacloud.vdc-datacloud.TestVm
-vcd_vm.TestVm: Importing from ID "datacloud.vdc-datacloud.TestVm"...
+$ terraform import vcloud_vm.TestVm datacloud.vdc-datacloud.TestVm
+vcloud_vm.TestVm: Importing from ID "datacloud.vdc-datacloud.TestVm"...
 
 Error: [VM import] error retrieving VM TestVm by name: more than one VM found with name TestVm
 ID                                                 Guest OS                       Network
@@ -86,11 +86,11 @@ urn:vcloud:vm:41d5d5a7-040e-49cb-a516-5a604211a395 Debian GNU/Linux 10 (32-bit) 
 We can achieve the goal by providing the ID instead of the name
 
 ```
-$ terraform import vcd_vm.TestVm datacloud.vdc-datacloud.urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003
-vcd_vm.TestVm: Importing from ID "datacloud.vdc-datacloud.urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003"...
-vcd_vm.TestVm: Import prepared!
-  Prepared vcd_vm for import
-vcd_vm.TestVm: Refreshing state... [id=urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003]
+$ terraform import vcloud_vm.TestVm datacloud.vdc-datacloud.urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003
+vcloud_vm.TestVm: Importing from ID "datacloud.vdc-datacloud.urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003"...
+vcloud_vm.TestVm: Import prepared!
+  Prepared vcloud_vm for import
+vcloud_vm.TestVm: Refreshing state... [id=urn:vcloud:vm:26c04f4d-2185-4a33-8ef9-019768d29003]
 
 Import successful!
 ```

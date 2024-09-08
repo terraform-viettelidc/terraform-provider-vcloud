@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_bgp_neighbor"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_neighbor"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-neighbor"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway BGP Neighbors and their configuration.
@@ -15,10 +15,10 @@ Provides a resource to manage NSX-T Edge Gateway BGP Neighbors and their configu
 ## Example Usage (BGP Neighbor configuration with route filtering with referenced BGP IP Prefix List)
 
 ```hcl
-resource "vcd_nsxt_edgegateway_bgp_neighbor" "neighbor-one" {
+resource "vcloud_nsxt_edgegateway_bgp_neighbor" "neighbor-one" {
   org = "datacloud"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing.id
 
   ip_address       = "1.1.1.1"
   remote_as_number = "62513"
@@ -32,8 +32,8 @@ resource "vcd_nsxt_edgegateway_bgp_neighbor" "neighbor-one" {
   bfd_dead_multiple     = 5
 
   route_filtering              = "IPV4"
-  in_filter_ip_prefix_list_id  = data.vcd_nsxt_edgegateway_bgp_ip_prefix_list.in-1.id
-  out_filter_ip_prefix_list_id = data.vcd_nsxt_edgegateway_bgp_ip_prefix_list.out-1.id
+  in_filter_ip_prefix_list_id  = data.vcloud_nsxt_edgegateway_bgp_ip_prefix_list.in-1.id
+  out_filter_ip_prefix_list_id = data.vcloud_nsxt_edgegateway_bgp_ip_prefix_list.out-1.id
 }
 ```
 
@@ -44,7 +44,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations
 * `edge_gateway_id` - (Required) The ID of the edge gateway (NSX-T only). Can be looked up using
-  `vcd_nsxt_edgegateway` datasource
+  `vcloud_nsxt_edgegateway` datasource
 * `ip_address` - (Required) BGP Neighbor IP Address (IPv4 or IPv6)
 * `remote_as_number` - (Required) BGP Neighbor Remote Autonomous System (AS) Number
 * `password` - (Optional) BGP Neighbor Password
@@ -74,7 +74,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_edgegateway_bgp_neighbor.imported `my-org.my-vdc-or-vdc-group.my-edge-gateway.bgp-neighbor-ip`
+terraform import vcloud_nsxt_edgegateway_bgp_neighbor.imported `my-org.my-vdc-or-vdc-group.my-edge-gateway.bgp-neighbor-ip`
 ```
 
 The above would import the `bgp-neighbor-ip` BGP Neighbor that is defined in

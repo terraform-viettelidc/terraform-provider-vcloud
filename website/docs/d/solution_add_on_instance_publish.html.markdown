@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_add_on_instance_publish"
+page_title: "VMware Cloud Director: vcloud_solution_add_on_instance_publish"
 sidebar_current: "docs-vcd-data-source-solution-add-on-instance-publish"
 description: |-
   Provides a data source to read publishing configuration of Solution Add-On Instances in Cloud Director.
@@ -15,7 +15,7 @@ Provides a data source to read publishing configuration of Solution Add-On Insta
 ## Example Usage
 
 ```hcl
-data "vcd_solution_add_on_instance_publish" "public" {
+data "vcloud_solution_add_on_instance_publish" "public" {
   add_on_instance_name = "MyDseInstanceName"
 }
 ```
@@ -30,5 +30,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_solution_add_on_instance_publish`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance_publish) resource are
+[`vcloud_solution_add_on_instance_publish`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance_publish) resource are
 available.

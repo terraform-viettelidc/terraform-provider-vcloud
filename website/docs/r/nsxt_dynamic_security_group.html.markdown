@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_dynamic_security_group"
+page_title: "VMware Cloud Director: vcloud_nsxt_dynamic_security_group"
 sidebar_current: "docs-vcd-resource-nsxt-dynamic-security-group"
 description: |-
   Provides a resource to manage NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
@@ -16,21 +16,21 @@ Provides a resource to manage NSX-T Dynamic Security Groups. Dynamic Security Gr
 Machines based on specific criteria (VM Names or Security tags) to which Distributed Firewall Rules
 apply.
 
--> Dynamic Security Groups can be used in both - Edge Gateway Firewall Rules (`vcd_nsxt_firewall`)
-and Distributed Firewall Rules (`vcd_nsxt_distributed_firewall`), however **it only works when Edge
+-> Dynamic Security Groups can be used in both - Edge Gateway Firewall Rules (`vcloud_nsxt_firewall`)
+and Distributed Firewall Rules (`vcloud_nsxt_distributed_firewall`), however **it only works when Edge
 Gateway belongs to a VDC Group**.
 
 ## Example Usage 1 (Dynamic Security Group with 3 criteria and 4 rules in each criteria)
 
 ```hcl
-data "vcd_vdc_group" "group1" {
+data "vcloud_vdc_group" "group1" {
   org  = "cloud"
   name = "vdc-group-cloud"
 }
 
-resource "vcd_nsxt_dynamic_security_group" "group1" {
+resource "vcloud_nsxt_dynamic_security_group" "group1" {
   org          = "cloud"
-  vdc_group_id = data.vcd_vdc_group.group1.id
+  vdc_group_id = data.vcloud_vdc_group.group1.id
 
   name = "dynamic-security-group-example"
 
@@ -116,14 +116,14 @@ resource "vcd_nsxt_dynamic_security_group" "group1" {
 
 ## Example Usage 2 (Empty Dynamic Security Group)
 ```hcl
-data "vcd_vdc_group" "group1" {
+data "vcloud_vdc_group" "group1" {
   org  = "cloud"
   name = "vdc-group-cloud"
 }
 
-resource "vcd_nsxt_dynamic_security_group" "group1" {
+resource "vcloud_nsxt_dynamic_security_group" "group1" {
   org          = "cloud"
-  vdc_group_id = data.vcd_vdc_group.group1.id
+  vdc_group_id = data.vcloud_vdc_group.group1.id
 
   name = "empty-dynamic-security-group"
 }
@@ -192,7 +192,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_dynamic_security_group.imported my-org.my-vdc-group.my-security-group-name
+terraform import vcloud_nsxt_dynamic_security_group.imported my-org.my-vdc-group.my-security-group-name
 ```
 
 The above would import the `my-security-group-name` Dynamic Security Group config settings that are

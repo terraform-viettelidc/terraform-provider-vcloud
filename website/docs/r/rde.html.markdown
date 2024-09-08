@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde"
+page_title: "VMware Cloud Director: vcloud_rde"
 sidebar_current: "docs-vcd-resource-rde"
 description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entities in VMware Cloud Director.
@@ -19,22 +19,22 @@ Supported in provider *v3.9+*
 ## Example Usage with a JSON file
 
 ```hcl
-data "vcd_rde_type" "my_type" {
+data "vcloud_rde_type" "my_type" {
   vendor    = "bigcorp"
   namespace = "tech1"
   version   = "1.2.3"
 }
 
-resource "vcd_rde" "my_rde" {
+resource "vcloud_rde" "my_rde" {
   org          = "my-org"
-  rde_type_id  = data.vcd_rde_type.my-type.id
+  rde_type_id  = data.vcloud_rde_type.my-type.id
   name         = "My custom RDE"
   resolve      = true
   input_entity = file("${path.module}/entities/custom-rde.json")
 }
 
 output "computed_rde" {
-  value = vcd_rde.my_rde.computed_entity
+  value = vcloud_rde.my_rde.computed_entity
 }
 ```
 
@@ -44,15 +44,15 @@ Using the [`templatefile`](https://developer.hashicorp.com/terraform/language/fu
 allow you to parameterize RDE creation with custom inputs, as follows:
 
 ```hcl
-data "vcd_rde_type" "my_type" {
+data "vcloud_rde_type" "my_type" {
   vendor    = "bigcorp"
   namespace = "tech1"
   version   = "1.2.3"
 }
 
-resource "vcd_rde" "my_rde" {
+resource "vcloud_rde" "my_rde" {
   org         = "my-org"
-  rde_type_id = data.vcd_rde_type.my-type.id
+  rde_type_id = data.vcloud_rde_type.my-type.id
   name        = "My custom RDE"
   resolve     = true
   # Functions are evaluated before the dependency tree is calculated, so the file must exist and not be a reference to
@@ -66,22 +66,22 @@ resource "vcd_rde" "my_rde" {
 }
 
 output "computed_rde" {
-  value = vcd_rde.my_rde.computed_entity
+  value = vcloud_rde.my_rde.computed_entity
 }
 ```
 
 ## Example Usage with a URL that contains a schema file
 
 ```hcl
-data "vcd_rde_type" "my_type" {
+data "vcloud_rde_type" "my_type" {
   vendor    = "bigcorp"
   namespace = "tech1"
   version   = "1.2.3"
 }
 
-resource "vcd_rde" "my-rde" {
+resource "vcloud_rde" "my-rde" {
   org         = "my-org"
-  rde_type_id = data.vcd_rde_type.my-type.id
+  rde_type_id = data.vcloud_rde_type.my-type.id
   name        = "My custom RDE"
   resolve     = true
   entity_url  = "https://just.an-example.com/entities/custom-rde.json"
@@ -91,22 +91,22 @@ resource "vcd_rde" "my-rde" {
 ## Example of Upgrade of the RDE Type Version
 
 ```hcl
-data "vcd_rde_type" "my_type" {
+data "vcloud_rde_type" "my_type" {
   vendor    = "bigcorp"
   namespace = "tech1"
   version   = "1.0.0"
 }
 
-data "vcd_rde_type" "my_updated_type" {
+data "vcloud_rde_type" "my_updated_type" {
   vendor    = "bigcorp"
   namespace = "tech1"
   version   = "1.1.0"
 }
 
-resource "vcd_rde" "my-rde" {
+resource "vcloud_rde" "my-rde" {
   org = "my-org"
-  # Update from 'data.vcd_rde_type.my_type.id' to 'data.vcd_rde_type.my_updated_type.id' to upgrade the RDE Type version
-  rde_type_id = data.vcd_rde_type.my_updated_type.id
+  # Update from 'data.vcloud_rde_type.my_type.id' to 'data.vcloud_rde_type.my_updated_type.id' to upgrade the RDE Type version
+  rde_type_id = data.vcloud_rde_type.my_updated_type.id
   name        = "My custom RDE"
   resolve     = true # This will attempt to resolve after the version is updated
   entity_url  = "https://just.an-example.com/entities/custom-rde.json"
@@ -213,9 +213,9 @@ Updating any other value will re-create the metadata entry.
 Example:
 
 ```hcl
-resource "vcd_rde" "my-rde" {
+resource "vcloud_rde" "my-rde" {
   org         = "my-org"
-  rde_type_id = data.vcd_rde_type.my-type.id
+  rde_type_id = data.vcloud_rde_type.my-type.id
   name        = "My custom RDE"
   resolve     = true
   entity_url  = "https://just.an-example.com/entities/custom-rde.json"
@@ -249,7 +249,7 @@ An existing Runtime Defined Entity can be [imported][docs-import] into this reso
 For example, using this structure, representing an existing Runtime Defined Entity that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_rde" "outer_rde" {
+resource "vcloud_rde" "outer_rde" {
   rde_type_id = data.my_rde_type.id
   name        = "foo"
   # ...
@@ -259,7 +259,7 @@ resource "vcd_rde" "outer_rde" {
 You can import such Runtime Defined Entity into Terraform state using this command
 
 ```
-terraform import vcd_rde.outer_rde bigcorp.tech.4.5.6.foo.1
+terraform import vcloud_rde.outer_rde bigcorp.tech.4.5.6.foo.1
 ```
 
 Where `vendor=bigcorp`, `nss=tech`, `version=4.5.6`, `name=foo` and we want the first retrieved RDE (`position=1`) in case
@@ -268,12 +268,12 @@ there's more than one with that combination of type parameters and name.
 To know how many RDEs are available in VCD with the given combination of type parameters and name, one can do:
 
 ```
-terraform import vcd_rde.outer_rde list@bigcorp.tech.4.5.6.foo
+terraform import vcloud_rde.outer_rde list@bigcorp.tech.4.5.6.foo
 ```
 It will return a list of IDs. Then one can import again specifying the position, or directly with the ID:
 
 ```
-terraform import vcd_rde.outer_rde urn:vcloud:entity:bigcorp:tech:a074f9e9-5d76-4f1e-8c37-f4e8b28e51ff
+terraform import vcloud_rde.outer_rde urn:vcloud:entity:bigcorp:tech:a074f9e9-5d76-4f1e-8c37-f4e8b28e51ff
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

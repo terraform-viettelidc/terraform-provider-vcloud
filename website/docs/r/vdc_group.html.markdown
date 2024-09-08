@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vdc_group"
+page_title: "VMware Cloud Director: vcloud_vdc_group"
 sidebar_current: "docs-vcd-resource-vdc-group"
 description: |-
   Provides a VDC group resource.
@@ -16,20 +16,20 @@ Provides a resource to manage NSX-T VDC groups.
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "startVdc" {
+data "vcloud_org_vdc" "startVdc" {
   name = "existingVdc"
 }
 
-data "vcd_org_vdc" "additionalVdc" {
+data "vcloud_org_vdc" "additionalVdc" {
   name = "oneMoreVdc"
 }
 
-resource "vcd_vdc_group" "new-vdc-group" {
+resource "vcloud_vdc_group" "new-vdc-group" {
   org                   = "myOrg"
   name                  = "newVdcGroup"
   description           = "my description"
-  starting_vdc_id       = data.vcd_org_vdc.startVdc.id
-  participating_vdc_ids = [data.vcd_org_vdc.startVdc.id, data.vcd_org_vdc.additionalVdc.id]
+  starting_vdc_id       = data.vcloud_org_vdc.startVdc.id
+  participating_vdc_ids = [data.vcloud_org_vdc.startVdc.id, data.vcloud_org_vdc.additionalVdc.id]
   dfw_enabled           = true
   default_policy_status = true
 }
@@ -49,7 +49,7 @@ The following arguments are supported:
 * `remove_default_firewall_rule` - (Optional, *3.10+*) Marks whether default firewall rule should be
   removed after activating. Both `dfw_enabled` and `default_policy_status` must be true. **Note.**
   This is mainly useful when using
-  [`vcd_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
+  [`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
   resource as it cannot remove the default rule.
 * `force_delete` - (Optional, *3.11+*) When `true`, will request VCD to force VDC Group deletion. It
   should clean up child components. Default `false` (VCD may fail removing VDC Group if there are
@@ -96,7 +96,7 @@ via supplying the full dot separated path VDC group. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_vdc_group.imported my-org.my-vdc-group
+terraform import vcloud_vdc_group.imported my-org.my-vdc-group
 ```
 
 The above would import the VDC group named `my-vdc-group` which is configured in organization named `my-org`.

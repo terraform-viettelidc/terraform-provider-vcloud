@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_global_default_segment_profile_template"
+page_title: "VMware Cloud Director: vcloud_nsxt_global_default_segment_profile_template"
 sidebar_current: "docs-vcd-resource-nsxt-segment-profile-template"
 description: |-
   Provides a resource to manage Global Default NSX-T Segment Profile Templates.
@@ -18,9 +18,9 @@ multiple resource definitions will override each other.
 ## Example Usage
 
 ```hcl
-resource "vcd_nsxt_global_default_segment_profile_template" "singleton" {
-  vdc_networks_default_segment_profile_template_id  = vcd_nsxt_segment_profile_template.complete.id
-  vapp_networks_default_segment_profile_template_id = vcd_nsxt_segment_profile_template.empty.id
+resource "vcloud_nsxt_global_default_segment_profile_template" "singleton" {
+  vdc_networks_default_segment_profile_template_id  = vcloud_nsxt_segment_profile_template.complete.id
+  vapp_networks_default_segment_profile_template_id = vcloud_nsxt_segment_profile_template.empty.id
 }
 ```
 
@@ -45,7 +45,7 @@ resource via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_global_default_segment_profile_template.imported optional-dummy-id
+terraform import vcloud_nsxt_global_default_segment_profile_template.imported optional-dummy-id
 ```
 
 The above would import the global default Segment Profile Template configuration. **Note**: the

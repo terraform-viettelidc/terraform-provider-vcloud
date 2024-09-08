@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_rde_type"
+page_title: "VMware Cloud Director: vcloud_rde_type"
 sidebar_current: "docs-vcd-resource-rde-type"
 description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entity types in VMware Cloud Director.
@@ -16,18 +16,18 @@ Supported in provider *v3.9+*
 ## Example Usage with a local schema file
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "bigcorp"
   nss     = "tech1"
   version = "1.2.3"
 }
 
-resource "vcd_rde_type" "my_rde_type" {
+resource "vcloud_rde_type" "my_rde_type" {
   vendor        = "vmware"
   nss           = "vcd"
   version       = "4.5.6"
   name          = "My VMware RDE Type"
-  interface_ids = [data.vcd_rde_interface.my_interface.id]
+  interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema        = file("${path.module}/schemas/my-type-schema.json")
 }
 ```
@@ -35,18 +35,18 @@ resource "vcd_rde_type" "my_rde_type" {
 ## Example Usage with a URL hosting the schema file
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "bigcorp"
   ns      = "tech1"
   version = "1.2.3"
 }
 
-resource "vcd_rde_type" "my_rde_type" {
+resource "vcloud_rde_type" "my_rde_type" {
   vendor        = "vmware"
   nss           = "vcd"
   version       = "4.5.6"
   name          = "My VMware RDE Type"
-  interface_ids = [data.vcd_rde_interface.my_interface.id]
+  interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema_url    = "https://just.an-example.com/schemas/my-type-schema.json"
 }
 ```
@@ -57,14 +57,14 @@ resource "vcd_rde_type" "my_rde_type" {
 **before** the Interface is used by any RDE Type, so you'll need to use `depends_on` in this case.
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "bigcorp"
   ns      = "tech1"
   version = "1.2.3"
 }
 
-resource "vcd_rde_interface_behavior" "my_behavior" {
-  interface_id = vcd_rde_interface.my_interface.id
+resource "vcloud_rde_interface_behavior" "my_behavior" {
+  interface_id = vcloud_rde_interface.my_interface.id
   name         = "MyBehavior"
   description  = "Adds a node to the cluster.\nParameters:\n  clusterId: the ID of the cluster\n  node: The node address\n"
   execution = {
@@ -73,29 +73,29 @@ resource "vcd_rde_interface_behavior" "my_behavior" {
   }
 }
 
-resource "vcd_rde_type" "my_rde_type" {
+resource "vcloud_rde_type" "my_rde_type" {
   vendor        = "vmware"
   nss           = "vcd"
   version       = "4.5.6"
   name          = "My VMware RDE Type"
-  interface_ids = [data.vcd_rde_interface.my_interface.id]
+  interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema_url    = "https://just.an-example.com/schemas/my-type-schema.json"
 
-  depends_on = [vcd_rde_interface_behavior.my_behavior] # Behaviors need to be created before any RDE Type
+  depends_on = [vcloud_rde_interface_behavior.my_behavior] # Behaviors need to be created before any RDE Type
 }
 ```
 
 ## Example Usage with Interface Behaviors and Hooks
 
 ```hcl
-data "vcd_rde_interface" "my_interface" {
+data "vcloud_rde_interface" "my_interface" {
   vendor  = "bigcorp"
   ns      = "tech1"
   version = "1.2.3"
 }
 
-resource "vcd_rde_interface_behavior" "my_behavior" {
-  interface_id = vcd_rde_interface.my_interface.id
+resource "vcloud_rde_interface_behavior" "my_behavior" {
+  interface_id = vcloud_rde_interface.my_interface.id
   name         = "MyBehavior"
   description  = "Calls an example Behavior.\nParameters:\n  parameter1: the first param\n  parameter2: the second param\n"
   execution = {
@@ -104,17 +104,17 @@ resource "vcd_rde_interface_behavior" "my_behavior" {
   }
 }
 
-resource "vcd_rde_type" "my_rde_type" {
+resource "vcloud_rde_type" "my_rde_type" {
   vendor        = "vmware"
   nss           = "vcd"
   version       = "4.5.6"
   name          = "My VMware RDE Type"
-  interface_ids = [data.vcd_rde_interface.my_interface.id]
+  interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema_url    = "https://just.an-example.com/schemas/my-type-schema.json"
 
   hook {
     event       = "PostCreate" # Every RDE of this Type that is created will invoke the Behavior automatically
-    behavior_id = vcd_rde_interface_behavior.my_behavior.id
+    behavior_id = vcloud_rde_interface_behavior.my_behavior.id
   }
   # depends_on is not needed in this specific case, because the hook already forces the dependency on the Interface Behavior
 }
@@ -164,7 +164,7 @@ unequivocally identifies it.
 For example, using this structure, representing an existing Runtime Defined Entity Type that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_rde_type" "outer_rde_type" {
+resource "vcloud_rde_type" "outer_rde_type" {
   vendor  = "bigcorp"
   nss     = "tech"
   version = "4.5.6"
@@ -174,7 +174,7 @@ resource "vcd_rde_type" "outer_rde_type" {
 You can import such Runtime Defined Entity Type into Terraform state using this command
 
 ```
-terraform import vcd_rde_type.outer_rde_type bigcorp.tech.4.5.6
+terraform import vcloud_rde_type.outer_rde_type bigcorp.tech.4.5.6
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

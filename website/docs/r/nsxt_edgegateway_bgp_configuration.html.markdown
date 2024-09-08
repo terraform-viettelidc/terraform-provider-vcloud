@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_bgp_configuration"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_configuration"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-configuration"
 description: |-
   Provides a resource to manage BGP configuration on NSX-T Edge Gateway that has a dedicated Tier-0 
@@ -22,10 +22,10 @@ these settings on the parent Tier-0 gateway in NSX-T Data Center.
 ## Example Usage (Using BGP configuration for a dedicated Tier-0 gateway backed Edge Gateway)
 
 ```hcl
-resource "vcd_nsxt_edgegateway_bgp_configuration" "testing" {
+resource "vcloud_nsxt_edgegateway_bgp_configuration" "testing" {
   org = "my-org" # Optional
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing.id
 
   enabled                = false
   local_as_number        = "65430"
@@ -38,10 +38,10 @@ resource "vcd_nsxt_edgegateway_bgp_configuration" "testing" {
 
 ## Example Usage (Using BGP configuration for a dedicated VRF backed Edge Gateway)
 ```hcl
-resource "vcd_nsxt_edgegateway_bgp_configuration" "testing" {
+resource "vcloud_nsxt_edgegateway_bgp_configuration" "testing" {
   org = "my-org"
 
-  edge_gateway_id = vcd_nsxt_edgegateway.vrf-backed.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.vrf-backed.id
 
   enabled      = true
   ecmp_enabled = true
@@ -56,7 +56,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). Can be looked up using
-  `vcd_nsxt_edgegateway` datasource
+  `vcloud_nsxt_edgegateway` datasource
 * `enabled` - (Required) Defines if BGP service is enabled or not
 * `ecmp_enabled` - (Optional) - A flag indicating whether ECMP is enabled or not
 * `local_as_number` - (Optional) BGP autonomous systems (AS) number to advertise to BGP peers. BGP
@@ -89,7 +89,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import terraform import vcd_nsxt_edgegateway_bgp_configuration.imported my-org.vdc-or-vdc-group-name.my-nsxt-edge-gateway
+terraform import terraform import vcloud_nsxt_edgegateway_bgp_configuration.imported my-org.vdc-or-vdc-group-name.my-nsxt-edge-gateway
 ```
 
 The above would import BGP configuration defined on NSX-T Edge Gateway `my-nsxt-edge-gateway` which

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_edgegateway"
+page_title: "VMware Cloud Director: vcloud_edgegateway"
 sidebar_current: "docs-vcd-data-source-edgegateway"
 description: |-
   Provides an NSX-V edge gateway data source.
@@ -16,34 +16,34 @@ Supported in provider *v2.5+*
 ## Example Usage
 
 ```hcl
-data "vcd_edgegateway" "mygw" {
+data "vcloud_edgegateway" "mygw" {
   name = "mygw"
   org  = "myorg"
   vdc  = "myvdc"
 }
 
 output "edge_gateway_id" {
-  value = data.vcd_edgegateway.mygw.id
+  value = data.vcloud_edgegateway.mygw.id
 }
 
 # Get the name of the default gateway from the data source
 # and use it to establish a second data source
-data "vcd_external_network" "external_network1" {
-  name = data.vcd_edgegateway.mygw.external_network.name
+data "vcloud_external_network" "external_network1" {
+  name = data.vcloud_edgegateway.mygw.external_network.name
 }
 
 # From the second data source we extract the basic networking info
 output "gateway" {
-  value = data.vcd_external_network.external_network1.ip_scope.0.gateway
+  value = data.vcloud_external_network.external_network1.ip_scope.0.gateway
 }
 output "netmask" {
-  value = data.vcd_external_network.external_network1.ip_scope.0.netmask
+  value = data.vcloud_external_network.external_network1.ip_scope.0.netmask
 }
 output "DNS" {
-  value = data.vcd_external_network.external_network1.ip_scope.0.dns1
+  value = data.vcloud_external_network.external_network1.ip_scope.0.dns1
 }
 output "external_ip" {
-  value = data.vcd_external_network.external_network1.ip_scope.0.static_ip_pool.0.start_address
+  value = data.vcloud_external_network.external_network1.ip_scope.0.static_ip_pool.0.start_address
 }
 ```
 

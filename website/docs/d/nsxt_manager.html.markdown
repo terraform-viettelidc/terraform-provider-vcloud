@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_manager"
+page_title: "VMware Cloud Director: vcloud_nsxt_manager"
 sidebar_current: "docs-vcd-data-source-nsxt-manager"
 description: |-
   Provides a data source for available NSX-T manager.
@@ -19,7 +19,7 @@ requires at least VCD *10.1.1+* and NSX-T *3.0+*.
 ## Example Usage 
 
 ```hcl
-data "vcd_nsxt_manager" "main" {
+data "vcloud_nsxt_manager" "main" {
   name = "nsxt-manager-one"
 }
 ```

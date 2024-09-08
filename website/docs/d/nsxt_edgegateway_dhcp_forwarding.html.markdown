@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_dhcp_forwarding"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_dhcp_forwarding"
 sidebar_current: "docs-vcd-data-source-nsxt-edge-dhcp-forwarding"
 description: |-
   Provides a data source to manage NSX-T Edge Gateway DHCP forwarding configuration.
@@ -15,21 +15,21 @@ Provides a data source to read NSX-T Edge Gateway DHCP forwarding configuration.
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "v1" {
+data "vcloud_org_vdc" "v1" {
   org  = "datacloud"
   name = "nsxt-vdc-datacloud"
 }
 
-data "vcd_nsxt_edgegateway" "testing-in-vdc" {
+data "vcloud_nsxt_edgegateway" "testing-in-vdc" {
   org      = "datacloud"
-  owner_id = data.vcd_org_vdc.v1.id
+  owner_id = data.vcloud_org_vdc.v1.id
 
   name = "nsxt-gw-datacloud"
 }
 
-data "vcd_nsxt_edgegateway_dhcp_forwarding" "testing-in-vdc" {
+data "vcloud_nsxt_edgegateway_dhcp_forwarding" "testing-in-vdc" {
   org             = "datacloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
 }
 ```
 
@@ -44,5 +44,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_edgegateway_dhcp_forwarding`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_dhcp_forwarding)
+[`vcloud_nsxt_edgegateway_dhcp_forwarding`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_dhcp_forwarding)
 resource are available.

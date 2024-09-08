@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_settings"
+page_title: "VMware Cloud Director: vcloud_nsxt_alb_settings"
 sidebar_current: "docs-vcd-resource-nsxt-alb-settings"
 description: |-
   Provides a resource to manage ALB General Settings for particular NSX-T Edge Gateway. One can activate or
@@ -19,17 +19,17 @@ deactivate ALB for a defined Edge Gateway.
 ## Example Usage (Enabling ALB on NSX-T Edge Gateway)
 
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name = "nsxt-gw"
 }
 
-resource "vcd_nsxt_alb_settings" "org1" {
+resource "vcloud_nsxt_alb_settings" "org1" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
   is_active       = true
 
   # Optional definition of service network for the ALB. "192.168.255.125/25" is the default one.
@@ -40,17 +40,17 @@ resource "vcd_nsxt_alb_settings" "org1" {
 ## Example Usage (Enabling ALB with IPv6 service network and transparent mode on NSX-T Edge Gateway)
 
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name = "nsxt-gw"
 }
 
-resource "vcd_nsxt_alb_settings" "org1" {
+resource "vcloud_nsxt_alb_settings" "org1" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
   is_active       = true
 
   service_network_specification      = "10.10.255.225/27"
@@ -65,7 +65,7 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to which the edge gateway belongs. Optional if defined at provider level.
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
 * `is_active` - (Required) Boolean value `true` or `false` if ALB is enabled. **Note** Delete operation of this resource
   will set it to `false`
 * `supported_feature_set` - (Optional; *v3.7+*) Feature set of this Edge Gateway if ALB is enabled (`STANDARD` or `PREMIUM`)
@@ -99,7 +99,7 @@ path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_settings.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway-name
+terraform import vcloud_nsxt_alb_settings.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway-name
 ```
 
 The above would import the ALB General Settings for Edge Gateway named

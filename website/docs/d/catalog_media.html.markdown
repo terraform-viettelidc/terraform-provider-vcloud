@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_catalog_media"
+page_title: "VMware Cloud Director: vcloud_catalog_media"
 sidebar_current: "docs-vcd-data-source-catalog-media"
 description: |-
   Provides a catalog media data source.
@@ -16,23 +16,23 @@ Supported in provider *v2.5+*
 ## Example Usage
 
 ```hcl
-data "vcd_catalog" "my-catalog" {
+data "vcloud_catalog" "my-catalog" {
   org  = "my-org"
   name = "my-catalog"
 }
 
-data "vcd_catalog_media" "existing-media" {
+data "vcloud_catalog_media" "existing-media" {
   org        = "my-org"
-  catalog_id = data.vcd_catalog.my-catalog.id
+  catalog_id = data.vcloud_catalog.my-catalog.id
   name       = "my-media"
 }
 
 output "media_size" {
-  value = data.vcd_catalog_media.existing-media.size
+  value = data.vcloud_catalog_media.existing-media.size
 }
 
 output "type_is_iso" {
-  value = data.vcd_catalog_media.existing-media.is_iso
+  value = data.vcloud_catalog_media.existing-media.is_iso
 }
 
 

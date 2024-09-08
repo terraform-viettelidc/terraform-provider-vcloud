@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_service_monitor"
+page_title: "VMware Cloud Director: vcloud_lb_service_monitor"
 sidebar_current: "docs-vcd-resource-lb-service-monitor"
 description: |-
   Provides an NSX edge gateway load balancer service monitor resource.
@@ -24,7 +24,7 @@ Supported in provider *v2.4+*
 ## Example Usage
 
 ```hcl
-resource "vcd_lb_service_monitor" "monitor" {
+resource "vcloud_lb_service_monitor" "monitor" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -87,7 +87,7 @@ via supplying the full dot separated path for load balancer service monitor. An 
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_service_monitor.imported my-org.my-org-vdc.my-edge-gw.my-lb-service-monitor
+terraform import vcloud_lb_service_monitor.imported my-org.my-org-vdc.my-edge-gw.my-lb-service-monitor
 ```
 
 The above would import the service monitor named `my-lb-service-monitor` that is defined on edge gateway

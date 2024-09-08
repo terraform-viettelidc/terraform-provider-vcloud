@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_routed_v2"
+page_title: "VMware Cloud Director: vcloud_network_routed_v2"
 sidebar_current: "docs-vcd-resource-network-routed-v2"
 description: |-
   Provides a VMware Cloud Director Org VDC routed Network. This can be used to create, modify, and
@@ -15,7 +15,7 @@ delete routed VDC networks (backed by NSX-T or NSX-V).
 Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.
 
 -> Starting with **v3.6.0** Terraform provider VCD supports NSX-T VDC Groups and `vdc` fields (in
-resource and inherited from provider configuration) are deprecated. `vcd_network_routed_v2` will
+resource and inherited from provider configuration) are deprecated. `vcloud_network_routed_v2` will
 inherit VDC or VDC Group membership from parent Edge Gateway specified in `edge_gateway_id` field.
 More about VDC Group support in a [VDC Groups
 guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
@@ -23,12 +23,12 @@ guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
 ## Example Usage (NSX-T backed routed Org VDC network)
 
 ```hcl
-resource "vcd_network_routed_v2" "nsxt-backed" {
+resource "vcloud_network_routed_v2" "nsxt-backed" {
   org         = "my-org"
   name        = "nsxt-routed 1"
   description = "My routed Org VDC network backed by NSX-T"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   gateway            = "1.1.1.1"
   prefix_length      = 24
@@ -49,10 +49,10 @@ resource "vcd_network_routed_v2" "nsxt-backed" {
 ## Example Usage (NSX-T backed routed Org VDC network and a DHCP pool)
 
 ```hcl
-resource "vcd_network_routed_v2" "parent-network" {
+resource "vcloud_network_routed_v2" "parent-network" {
   name = "nsxt-routed-dhcp"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 
   gateway            = "7.1.1.1"
   prefix_length      = 24
@@ -64,8 +64,8 @@ resource "vcd_network_routed_v2" "parent-network" {
   }
 }
 
-resource "vcd_nsxt_network_dhcp" "pools" {
-  org_network_id = vcd_network_routed_v2.parent-network.id
+resource "vcloud_nsxt_network_dhcp" "pools" {
+  org_network_id = vcloud_network_routed_v2.parent-network.id
 
   pool {
     start_address = "7.1.1.100"
@@ -82,10 +82,10 @@ resource "vcd_nsxt_network_dhcp" "pools" {
 ## Example Usage (Dual-Stack mode with IPv4 and IPv6)
 
 ```hcl
-resource "vcd_network_routed_v2" "ipv6-dualstack" {
+resource "vcloud_network_routed_v2" "ipv6-dualstack" {
   name = "Dual Stack Routed Network"
 
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   gateway       = "192.168.1.1"
   prefix_length = 24
@@ -107,10 +107,10 @@ resource "vcd_network_routed_v2" "ipv6-dualstack" {
 
 ## Example usage (IPv6 only)
 ```hcl
-resource "vcd_network_routed_v2" "ipv6" {
+resource "vcloud_network_routed_v2" "ipv6" {
   name = "IPv6 network"
 
-  edge_gateway_id = vcd_nsxt_edgegateway.nsxt-edge.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.nsxt-edge.id
 
   gateway       = "2002:0:0:1234:abcd:ffff:c0a7:121"
   prefix_length = 124
@@ -125,14 +125,14 @@ resource "vcd_network_routed_v2" "ipv6" {
 ## Example Usage (NSX-V backed routed Org VDC network using `subinterface` NIC)
 
 ```hcl
-resource "vcd_network_routed_v2" "nsxv-backed" {
+resource "vcloud_network_routed_v2" "nsxv-backed" {
   org         = "my-org"
   name        = "nsxv-routed-network"
   description = "NSX-V routed network"
 
   interface_type = "subinterface"
 
-  edge_gateway_id = data.vcd_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_edgegateway.existing.id
 
   gateway       = "1.1.1.1"
   prefix_length = 24
@@ -223,7 +223,7 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
 Example:
 
 ```hcl
-resource "vcd_network_routed_v2" "example" {
+resource "vcloud_network_routed_v2" "example" {
   # ...
   metadata_entry {
     key         = "foo"
@@ -265,7 +265,7 @@ The path for this resource is made of `OrgName.vdc-or-vdc-group-name.NetworkName
 For example, using this structure, representing a routed network that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_network_routed_v2" "tf-mynet" {
+resource "vcloud_network_routed_v2" "tf-mynet" {
   name = "my-net"
   org  = "my-org"
   # ...
@@ -275,7 +275,7 @@ resource "vcd_network_routed_v2" "tf-mynet" {
 You can import such routed network into terraform state using this command
 
 ```
-terraform import vcd_network_routed_v2.tf-mynet my-org.my-vdc.my-net
+terraform import vcloud_network_routed_v2.tf-mynet my-org.my-vdc.my-net
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_settings"
+page_title: "VMware Cloud Director: vcloud_nsxt_alb_settings"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-settings"
 description: |-
   Provides a data source to read ALB General Settings for particular NSX-T Edge Gateway.
@@ -15,17 +15,17 @@ Provides a data source to read ALB General Settings for particular NSX-T Edge Ga
 ## Example Usage
 
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name = "nsxt-gw"
 }
 
-data "vcd_nsxt_alb_settings" "test" {
+data "vcloud_nsxt_alb_settings" "test" {
   org = "my-org"
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.existing.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.existing.id
 }
 ```
 
@@ -35,9 +35,9 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to which the edge gateway belongs. Optional if defined at provider level.
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
 
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_nsxt_alb_settings`](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings) resource are available.
+[`vcloud_nsxt_alb_settings`](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings) resource are available.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_dns"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_dns"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-dns"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway DNS configuration.
@@ -15,21 +15,21 @@ Provides a resource to manage NSX-T Edge Gateway DNS configuration.
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "v1" {
+data "vcloud_org_vdc" "v1" {
   org  = "datacloud"
   name = "nsxt-vdc-datacloud"
 }
 
-data "vcd_nsxt_edgegateway" "testing-in-vdc" {
+data "vcloud_nsxt_edgegateway" "testing-in-vdc" {
   org      = "datacloud"
-  owner_id = data.vcd_org_vdc.v1.id
+  owner_id = data.vcloud_org_vdc.v1.id
 
   name = "nsxt-gw-datacloud"
 }
 
-resource "vcd_nsxt_edgegateway_dns" "testing-in-vdc" {
+resource "vcloud_nsxt_edgegateway_dns" "testing-in-vdc" {
   org             = "datacloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
   enabled         = true
 
   default_forwarder_zone {
@@ -70,7 +70,7 @@ The following arguments are supported:
 * `snat_rule_ip_address` - (Optional, VCD 10.5.0+) This argument only applies if the Edge Gateway 
   is connected to a Provider Gateway using IP Spaces. If specified, VCD will 
   conveniently manage the SNAT rule with the specified IP address for the DNS forwarder.
-  The specified IP can be allocated using [`vcd_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation) 
+  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation) 
   If not specified, the IP address will be computed and chosen by VCD.
 * `default_forwarder_zone` - (Required) The default forwarder zone to use if 
   there’s no matching domain in the conditional forwarder zones. See [`default_forwarder_zone`](#default-forwarder-zone)
@@ -106,28 +106,28 @@ An existing NSX-T Edge Gateway DNS forwarder configuration can be [imported][doc
 resource via supplying path for it. An example is below:
 
 ```tf
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-data "vcd_org_vdc" "my-vdc-or-vdc-group" {
+data "vcloud_org_vdc" "my-vdc-or-vdc-group" {
   name = "my-vdc"
   org  = "my-org"
 }
 
-data "vcd_nsxt_edgegateway" "my-edge-gateway" {
+data "vcloud_nsxt_edgegateway" "my-edge-gateway" {
   name     = "my-edge-gateway"
-  owner_id = data.vcd_org_vdc.my-vdc-or-vdc-group.id
+  owner_id = data.vcloud_org_vdc.my-vdc-or-vdc-group.id
 }
 
-resource "vcd_nsxt_edgegateway_dns" "dns-imported" {
-  edge_gateway_id = data.vcd_nsxt_edgegateway.my-edge-gateway.id
+resource "vcloud_nsxt_edgegateway_dns" "dns-imported" {
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.my-edge-gateway.id
 }
 ```
 
 
 ```
-terraform import vcd_nsxt_edgegateway_dns.dns-imported my-org.nsxt-vdc.nsxt-edge
+terraform import vcloud_nsxt_edgegateway_dns.dns-imported my-org.nsxt-vdc.nsxt-edge
 ```
 
 The above would import the `dns-imported` Edge Gateway DNS forwarder configuration for this particular

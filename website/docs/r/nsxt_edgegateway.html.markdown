@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway"
 sidebar_current: "docs-vcd-resource-nsxt-edge-gateway"
 description: |-
   Provides a VMware Cloud Director NSX-T edge gateway. This can be used to create, update, and delete NSX-T edge gateways connected to external networks.
@@ -22,21 +22,21 @@ information.
 ## Example Usage (Simple case)
 
 ```hcl
-data "vcd_external_network_v2" "nsxt-ext-net" {
+data "vcloud_external_network_v2" "nsxt-ext-net" {
   name = "nsxt-edge"
 }
 
-data "vcd_org_vdc" "vdc1" {
+data "vcloud_org_vdc" "vdc1" {
   name = "existing-vdc"
 }
 
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org         = "my-org"
-  owner_id    = data.vcd_org_vdc.vdc1.id
+  owner_id    = data.vcloud_org_vdc.vdc1.id
   name        = "nsxt-edge"
   description = "Description"
 
-  external_network_id = data.vcd_external_network_v2.nsxt-ext-net.id
+  external_network_id = data.vcloud_external_network_v2.nsxt-ext-net.id
 
   subnet {
     gateway       = "10.150.191.253"
@@ -57,37 +57,37 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
 ## Example Usage (NSX-T Segment backed external networks attachment)
 
 ```hcl
-resource "vcd_nsxt_edgegateway" "with-external-networks" {
+resource "vcloud_nsxt_edgegateway" "with-external-networks" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.vdc1.id
+  owner_id = data.vcloud_org_vdc.vdc1.id
   name     = "edge-with-segment-uplinks"
 
-  external_network_id = data.vcd_external_network_v2.existing-extnet.id
+  external_network_id = data.vcloud_external_network_v2.existing-extnet.id
 
   subnet {
-    gateway       = tolist(data.vcd_external_network_v2.existing-extnet.ip_scope)[0].gateway
-    prefix_length = tolist(data.vcd_external_network_v2.existing-extnet.ip_scope)[0].prefix_length
+    gateway       = tolist(data.vcloud_external_network_v2.existing-extnet.ip_scope)[0].gateway
+    prefix_length = tolist(data.vcloud_external_network_v2.existing-extnet.ip_scope)[0].prefix_length
 
-    primary_ip = tolist(tolist(data.vcd_external_network_v2.existing-extnet.ip_scope)[0].static_ip_pool)[0].end_address
+    primary_ip = tolist(tolist(data.vcloud_external_network_v2.existing-extnet.ip_scope)[0].static_ip_pool)[0].end_address
     allocated_ips {
-      start_address = tolist(tolist(data.vcd_external_network_v2.existing-extnet.ip_scope)[0].static_ip_pool)[0].end_address
-      end_address   = tolist(tolist(data.vcd_external_network_v2.existing-extnet.ip_scope)[0].static_ip_pool)[0].end_address
+      start_address = tolist(tolist(data.vcloud_external_network_v2.existing-extnet.ip_scope)[0].static_ip_pool)[0].end_address
+      end_address   = tolist(tolist(data.vcloud_external_network_v2.existing-extnet.ip_scope)[0].static_ip_pool)[0].end_address
     }
   }
 
   # NSX-T Segment backed uplink with Automatic Primary IP allocation
   external_network {
-    external_network_id = data.vcd_external_network_v2.segment-backed.id
-    gateway             = tolist(data.vcd_external_network_v2.segment-backed.ip_scope)[0].gateway
-    prefix_length       = tolist(data.vcd_external_network_v2.segment-backed.ip_scope)[0].prefix_length
+    external_network_id = data.vcloud_external_network_v2.segment-backed.id
+    gateway             = tolist(data.vcloud_external_network_v2.segment-backed.ip_scope)[0].gateway
+    prefix_length       = tolist(data.vcloud_external_network_v2.segment-backed.ip_scope)[0].prefix_length
     allocated_ip_count  = 4
   }
 
   # NSX-T Segment backed uplink with Primary IP
   external_network {
-    external_network_id = data.vcd_external_network_v2.segment-backed2.id
-    gateway             = tolist(data.vcd_external_network_v2.segment-backed2.ip_scope)[0].gateway
-    prefix_length       = tolist(data.vcd_external_network_v2.segment-backed2.ip_scope)[0].prefix_length
+    external_network_id = data.vcloud_external_network_v2.segment-backed2.id
+    gateway             = tolist(data.vcloud_external_network_v2.segment-backed2.ip_scope)[0].gateway
+    prefix_length       = tolist(data.vcloud_external_network_v2.segment-backed2.ip_scope)[0].prefix_length
     allocated_ip_count  = 4
     primary_ip          = "15.14.14.12"
   }
@@ -97,19 +97,19 @@ resource "vcd_nsxt_edgegateway" "with-external-networks" {
 ## Example Usage (IP Space backed Provider Gateway)
 
 ```hcl
-data "vcd_external_network_v2" "ip-space-provider-gw" {
+data "vcloud_external_network_v2" "ip-space-provider-gw" {
   name = "nsxt-edge"
 }
 
-data "vcd_org_vdc" "vdc1" {
+data "vcloud_org_vdc" "vdc1" {
   name = "existing-vdc"
 }
 
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org                 = "my-org"
-  owner_id            = data.vcd_org_vdc.vdc1.id
+  owner_id            = data.vcloud_org_vdc.vdc1.id
   name                = "ip-space-backed-edge"
-  external_network_id = data.vcd_external_network_v2.ip-space-provider-gw.id
+  external_network_id = data.vcloud_external_network_v2.ip-space-provider-gw.id
 }
 ```
 
@@ -117,29 +117,29 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
 ## Example Usage (Using custom Edge Cluster and multiple subnets)
 
 ```hcl
-data "vcd_nsxt_edge_cluster" "secondary" {
+data "vcloud_nsxt_edge_cluster" "secondary" {
   name = "edge-cluster-two"
 }
 
-data "vcd_external_network_v2" "nsxt-ext-net" {
+data "vcloud_external_network_v2" "nsxt-ext-net" {
   name = "nsxt-edge"
 }
 
-data "vcd_org_vdc" "vdc1" {
+data "vcloud_org_vdc" "vdc1" {
   name = "existing-vdc"
 }
 
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org         = "my-org"
-  owner_id    = data.vcd_org_vdc.vdc1.id
+  owner_id    = data.vcloud_org_vdc.vdc1.id
   name        = "nsxt-edge"
   description = "Description"
 
-  external_network_id       = data.vcd_external_network_v2.nsxt-ext-net.id
+  external_network_id       = data.vcloud_external_network_v2.nsxt-ext-net.id
   dedicate_external_network = true
 
   # Custom edge cluster reference
-  edge_cluster_id = data.vcd_nsxt_edge_cluster.secondary.id
+  edge_cluster_id = data.vcloud_nsxt_edge_cluster.secondary.id
 
   subnet {
     gateway       = "10.150.191.253"
@@ -191,25 +191,25 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
 ## Example Usage (Assigning NSX-T Edge Gateway to VDC Group)
 
 ```hcl
-data "vcd_nsxt_edge_cluster" "secondary" {
+data "vcloud_nsxt_edge_cluster" "secondary" {
   name = "edge-cluster-two"
 }
 
-data "vcd_external_network_v2" "nsxt-ext-net" {
+data "vcloud_external_network_v2" "nsxt-ext-net" {
   name = "nsxt-edge"
 }
 
-data "vcd_vdc_group" "group1" {
+data "vcloud_vdc_group" "group1" {
   name = "existing-group"
 }
 
-data "vcd_org_vdc" "vdc-1" {
+data "vcloud_org_vdc" "vdc-1" {
   name = "existing-group"
 }
 
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org      = "my-org"
-  owner_id = data.vcd_vdc_group.group1.id
+  owner_id = data.vcloud_vdc_group.group1.id
 
   # VDC Group cannot be created directly in VDC Group - 
   # it must originate in some VDC (belonging to 
@@ -219,16 +219,16 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
   # ID is specified in `owner_id` field - this resource will
   # will pick a random member VDC to precreate it and will 
   # move to destination VDC Group in a single apply cycle
-  starting_vdc_id = data.vcd_org_vdc.vdc-1.id
+  starting_vdc_id = data.vcloud_org_vdc.vdc-1.id
 
   name        = "nsxt-edge"
   description = "Description"
 
-  external_network_id       = data.vcd_external_network_v2.nsxt-ext-net.id
+  external_network_id       = data.vcloud_external_network_v2.nsxt-ext-net.id
   dedicate_external_network = true
 
   # Custom edge cluster reference
-  edge_cluster_id = data.vcd_nsxt_edge_cluster.secondary.id
+  edge_cluster_id = data.vcloud_nsxt_edge_cluster.secondary.id
 
   subnet {
     gateway       = "10.150.191.253"
@@ -255,12 +255,12 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
 ## Example Usage (Automatic IP allocation from any subnet)
 
 ```hcl
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.vdc1.id
+  owner_id = data.vcloud_org_vdc.vdc1.id
   name     = "nsxt-edge"
 
-  external_network_id = data.vcd_external_network_v2.ext-net-nsxt.id
+  external_network_id = data.vcloud_external_network_v2.ext-net-nsxt.id
 
   # 100 IPs will be allocated from any of `subnet_with_total_ip_count` defined blocks
   total_allocated_ip_count = 100
@@ -281,12 +281,12 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
 ## Example Usage (Automatic IP allocation per subnet)
 
 ```hcl
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org      = "my-org"
-  owner_id = data.vcd_org_vdc.vdc1.id
+  owner_id = data.vcloud_org_vdc.vdc1.id
   name     = "nsxt-edge"
 
-  external_network_id = data.vcd_external_network_v2.ext-net-nsxt.id
+  external_network_id = data.vcloud_external_network_v2.ext-net-nsxt.id
 
   subnet_with_ip_count {
     gateway            = "77.77.77.1"
@@ -311,8 +311,8 @@ The following arguments are supported:
 * `vdc` - (Optional) **Deprecated** in favor of `owner_id`. The name of VDC that owns the edge
   gateway. Can be inherited from `provider` configuration if not defined here.
 * `owner_id` - (Optional, *v3.6+*,*VCD 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
-  [vcd_vdc_group](/providers/vmware/vcd/latest/docs/data-sources/vdc_group) or
-  [vcd_org_vdc](/providers/vmware/vcd/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
+  [vcloud_vdc_group](/providers/vmware/vcd/latest/docs/data-sources/vdc_group) or
+  [vcloud_org_vdc](/providers/vmware/vcd/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
   name.
 
 ~> Only one of `vdc` or `owner_id` can be specified. `owner_id` takes precedence over `vdc`
@@ -329,7 +329,7 @@ definition at provider level.
 
 * `name` - (Required) A unique name for the edge gateway.
 * `description` - (Optional) A unique name for the edge gateway.
-* `external_network_id` - (Required) An external network ID. **Note:** Data source [vcd_external_network_v2](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+* `external_network_id` - (Required) An external network ID. **Note:** Data source [vcloud_external_network_v2](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
 can be used to lookup ID by name.
 * `edge_cluster_id` - (Optional) Specific Edge Cluster ID if required
 * `dedicate_external_network` - (Optional) Dedicating the external network will enable Route Advertisement for this Edge Gateway. Default `false`.
@@ -464,17 +464,17 @@ The path for this resource is made of `org-name.vdc-name.nsxt-edge-name` or
 gateway that was **not** created using Terraform:
 
 ```hcl
-data "vcd_org_vdc" "vdc-1" {
+data "vcloud_org_vdc" "vdc-1" {
   name = "vdc-name"
 }
 
-resource "vcd_nsxt_edgegateway" "nsxt-edge" {
+resource "vcloud_nsxt_edgegateway" "nsxt-edge" {
   org         = "my-org"
-  owner_id    = data.vcd_org_vdc.vdc-1.id
+  owner_id    = data.vcloud_org_vdc.vdc-1.id
   name        = "nsxt-edge"
   description = "Description"
 
-  external_network_id = data.vcd_external_network_v2.nsxt-ext-net.id
+  external_network_id = data.vcloud_external_network_v2.nsxt-ext-net.id
 
   subnet {
     gateway       = "10.10.10.1"
@@ -491,11 +491,11 @@ resource "vcd_nsxt_edgegateway" "nsxt-edge" {
 You can import such resource into terraform state using the command below:
 
 ```
-terraform import vcd_nsxt_edgegateway.nsxt-edge my-org.nsxt-vdc.nsxt-edge
+terraform import vcloud_nsxt_edgegateway.nsxt-edge my-org.nsxt-vdc.nsxt-edge
 ```
 
 * **Note 1**: the separator can be changed using `Provider.import_separator` or variable `VCLOUD_IMPORT_SEPARATOR`
-* **Note 2**: it is possible to list all available NSX-T edge gateways using data source [vcd_resource_list](/providers/vmware/vcd/latest/docs/data-sources/resource_list#vcd_nsxt_edgegateway)
+* **Note 2**: it is possible to list all available NSX-T edge gateways using data source [vcloud_resource_list](/providers/vmware/vcd/latest/docs/data-sources/resource_list#vcloud_nsxt_edgegateway)
 
 [docs-import]:https://www.terraform.io/docs/import/
 

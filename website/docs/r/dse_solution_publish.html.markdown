@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_dse_solution_publish"
+page_title: "VMware Cloud Director: vcloud_dse_solution_publish"
 sidebar_current: "docs-vcd-resource-dse-solution-publish"
 description: |-
   Provides a resource to manage Data Solution Extension (DSE) publishing settings.
@@ -17,17 +17,17 @@ Provides a resource to manage Data Solution Extension (DSE) publishing settings.
 ## Example Usage
 
 ```hcl
-resource "vcd_dse_solution_publish" "mongodb-community" {
-  data_solution_id = data.vcd_dse_registry_configuration.mongodb-community.id
+resource "vcloud_dse_solution_publish" "mongodb-community" {
+  data_solution_id = data.vcloud_dse_registry_configuration.mongodb-community.id
 
-  org_id = data.vcd_org.tenant-org.id
+  org_id = data.vcloud_org.tenant-org.id
 }
 
-data "vcd_dse_registry_configuration" "mongodb-community" {
+data "vcloud_dse_registry_configuration" "mongodb-community" {
   name = "MongoDB Community"
 }
 
-data "vcd_org" "tenant-org" {
+data "vcloud_org" "tenant-org" {
   name = "tenant_org"
 }
 ```
@@ -35,20 +35,20 @@ data "vcd_org" "tenant-org" {
 ## Example Usage (Confluent Platform with Licensing)
 
 ```hcl
-resource "vcd_dse_solution_publish" "confluent-platform" {
-  data_solution_id = data.vcd_dse_registry_configuration.confluent-platform.id
+resource "vcloud_dse_solution_publish" "confluent-platform" {
+  data_solution_id = data.vcloud_dse_registry_configuration.confluent-platform.id
 
   confluent_license_type = "With License"
   confluent_license_key  = "XXXXXXXXXX"
 
-  org_id = data.vcd_org.tenant-org.id
+  org_id = data.vcloud_org.tenant-org.id
 }
 
-data "vcd_dse_registry_configuration" "confluent-platform" {
+data "vcloud_dse_registry_configuration" "confluent-platform" {
   name = "Confluent Platform"
 }
 
-data "vcd_org" "tenant-org" {
+data "vcloud_org" "tenant-org" {
   name = "tenant_org"
 }
 ```
@@ -84,7 +84,7 @@ via supplying its name and tenant. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_dse_solution_publish.imported "MongoDB Community".tenant_org
+terraform import vcloud_dse_solution_publish.imported "MongoDB Community".tenant_org
 ```
 
 The above would import the `MongoDB Community` Data Solution publishing configuration for

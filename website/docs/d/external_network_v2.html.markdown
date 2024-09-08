@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_external_network_v2"
+page_title: "VMware Cloud Director: vcloud_external_network_v2"
 sidebar_current: "docs-vcd-data-source-external-network-v2"
 description: |-
   Provides a VMware Cloud Director External Network data source (version 2). New version of this data source
@@ -22,7 +22,7 @@ Supported in provider *v3.0+*.
 ## Example Usage
 
 ```hcl
-data "vcd_external_network_v2" "ext_net" {
+data "vcloud_external_network_v2" "ext_net" {
   name = "my-nsxt-net"
 }
 ```
@@ -35,5 +35,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All properties defined in [vcd_external_network_v2](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
+All properties defined in [vcloud_external_network_v2](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
 resource are available.

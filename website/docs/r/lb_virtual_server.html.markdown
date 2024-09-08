@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_virtual_server"
+page_title: "VMware Cloud Director: vcloud_lb_virtual_server"
 sidebar_current: "docs-vcd-resource-lb-virtual-server"
 description: |-
   Provides an NSX edge gateway load balancer virtual server resource.
@@ -23,7 +23,7 @@ Supported in provider *v2.4+*
 ## Example Usage 1 (HTTP virtual server)
 
 ```hcl
-resource "vcd_lb_virtual_server" "http" {
+resource "vcloud_lb_virtual_server" "http" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -33,9 +33,9 @@ resource "vcd_lb_virtual_server" "http" {
   protocol   = "http"    # Must be the same as specified in application profile
   port       = 80
 
-  app_profile_id = vcd_lb_app_profile.http.id
-  server_pool_id = vcd_lb_server_pool.web-servers.id
-  app_rule_ids   = [vcd_lb_app_rule.redirect.id, vcd_lb_app_rule.language.id]
+  app_profile_id = vcloud_lb_app_profile.http.id
+  server_pool_id = vcloud_lb_server_pool.web-servers.id
+  app_rule_ids   = [vcloud_lb_app_rule.redirect.id, vcloud_lb_app_rule.language.id]
 }
 ```
 
@@ -57,28 +57,28 @@ variable "protocol" {
   default = "http"
 }
 
-data "vcd_edgegateway" "mygw" {
+data "vcloud_edgegateway" "mygw" {
   org  = var.org
   vdc  = var.vdc
   name = var.edge_gateway.my-edge-gw
 }
 
-resource "vcd_lb_virtual_server" "http" {
+resource "vcloud_lb_virtual_server" "http" {
   org          = var.org
   vdc          = var.vdc
   edge_gateway = var.edge_gateway
 
   name       = "my-virtual-server"
-  ip_address = data.vcd_edgegateway.mygw.default_external_network_ip
+  ip_address = data.vcloud_edgegateway.mygw.default_external_network_ip
   protocol   = var.protocol
   port       = 8888
 
-  app_profile_id = vcd_lb_app_profile.http.id
-  server_pool_id = vcd_lb_server_pool.web-servers.id
-  app_rule_ids   = [vcd_lb_app_rule.redirect.id]
+  app_profile_id = vcloud_lb_app_profile.http.id
+  server_pool_id = vcloud_lb_server_pool.web-servers.id
+  app_rule_ids   = [vcloud_lb_app_rule.redirect.id]
 }
 
-resource "vcd_lb_service_monitor" "monitor" {
+resource "vcloud_lb_service_monitor" "monitor" {
   org          = var.org
   vdc          = var.vdc
   edge_gateway = var.edge_gateway
@@ -97,7 +97,7 @@ resource "vcd_lb_service_monitor" "monitor" {
   }
 }
 
-resource "vcd_lb_server_pool" "web-servers" {
+resource "vcloud_lb_server_pool" "web-servers" {
   org          = var.org
   vdc          = var.vdc
   edge_gateway = var.edge_gateway
@@ -108,7 +108,7 @@ resource "vcd_lb_server_pool" "web-servers" {
   algorithm_parameters = "headerName=host"
   enable_transparency  = true
 
-  monitor_id = vcd_lb_service_monitor.monitor.id
+  monitor_id = vcloud_lb_service_monitor.monitor.id
 
   member {
     condition       = "enabled"
@@ -133,7 +133,7 @@ resource "vcd_lb_server_pool" "web-servers" {
   }
 }
 
-resource "vcd_lb_app_profile" "http" {
+resource "vcloud_lb_app_profile" "http" {
   org          = var.org
   vdc          = var.vdc
   edge_gateway = var.edge_gateway
@@ -142,7 +142,7 @@ resource "vcd_lb_app_profile" "http" {
   type = var.protocol
 }
 
-resource "vcd_lb_app_rule" "redirect" {
+resource "vcloud_lb_app_rule" "redirect" {
   org          = var.org
   vdc          = var.vdc
   edge_gateway = var.edge_gateway
@@ -194,7 +194,7 @@ via supplying the full dot separated path for load balancer virtual server. An e
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_virtual_server.imported my-org.my-org-vdc.my-edge-gw.my-lb-virtual-server
+terraform import vcloud_lb_virtual_server.imported my-org.my-org-vdc.my-edge-gw.my-lb-virtual-server
 ```
 
 The above would import the virtual server named `my-lb-virtual-server` that is defined on edge gateway

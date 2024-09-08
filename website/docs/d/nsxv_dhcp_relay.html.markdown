@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_dhcp_relay"
+page_title: "VMware Cloud Director: vcloud_nsxv_dhcp_relay"
 sidebar_current: "docs-vcd-datasource-nsxv-dhcp-relay"
 description: |-
   Provides an NSX edge gateway DHCP relay configuration data source.
@@ -21,7 +21,7 @@ Supported in provider *v2.6+*
 ## Example Usage 1
 
 ```hcl
-data "vcd_nsxv_dhcp_relay" "relay_config" {
+data "vcloud_nsxv_dhcp_relay" "relay_config" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -40,5 +40,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcd_nsxv_dhcp_relay`](/providers/vmware/vcd/latest/docs/resources/nsxv_dhcp_relay)
+All the attributes defined in [`vcloud_nsxv_dhcp_relay`](/providers/vmware/vcd/latest/docs/resources/nsxv_dhcp_relay)
 resource are available.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_distributed_firewall"
+page_title: "VMware Cloud Director: vcloud_nsxt_distributed_firewall"
 sidebar_current: "docs-vcd-resource-nsxt-distributed-firewall"
 description: |-
   The Distributed Firewall allows user to segment organization virtual data center entities, such as
@@ -13,28 +13,28 @@ The Distributed Firewall allows user to segment organization virtual data center
 virtual machines, based on virtual machine names and attributes. 
 
 !> There is a different resource
-[`vcd_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
+[`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
 that can manage firewall rules one by one. **Note.** One should use **only one of**
-`vcd_nsxt_distributed_firewall` or `vcd_nsxt_distributed_firewall_rule` as using both will result in
+`vcloud_nsxt_distributed_firewall` or `vcloud_nsxt_distributed_firewall_rule` as using both will result in
 unexpected firewall configuration.
 
 ## Example Usage
 
 ```hcl
-data "vcd_vdc_group" "existing" {
+data "vcloud_vdc_group" "existing" {
   org  = "my-org" # Optional, can be inherited from Provider configuration
   name = "main-vdc-group"
 }
 
-data "vcd_nsxt_network_context_profile" "cp1" {
-  context_id = vcd_vdc_group.test1.id
+data "vcloud_nsxt_network_context_profile" "cp1" {
+  context_id = vcloud_vdc_group.test1.id
   name       = "CTRXICA"
   scope      = "SYSTEM"
 }
 
-resource "vcd_nsxt_distributed_firewall" "t1" {
+resource "vcloud_nsxt_distributed_firewall" "t1" {
   org          = "my-org" # Optional, can be inherited from Provider configuration
-  vdc_group_id = vcd_vdc_group.existing.id
+  vdc_group_id = vcloud_vdc_group.existing.id
 
   rule {
     name        = "rule1"
@@ -43,9 +43,9 @@ resource "vcd_nsxt_distributed_firewall" "t1" {
     # 'comment' field is only supported in VCD 10.3.2+
     comment = "My first rule to allow everything"
 
-    source_ids             = [data.vcd_nsxt_ip_set.set1.id, data.vcd_nsxt_ip_set.set2.id]
+    source_ids             = [data.vcloud_nsxt_ip_set.set1.id, data.vcloud_nsxt_ip_set.set2.id]
     source_groups_excluded = true # Negates value of 'source_id' (VCD 10.3.2+)
-    app_port_profile_ids   = [data.vcd_nsxt_app_port_profile.WINS.id, data.vcd_nsxt_app_port_profile.FTP.id]
+    app_port_profile_ids   = [data.vcloud_nsxt_app_port_profile.WINS.id, data.vcloud_nsxt_app_port_profile.FTP.id]
   }
 
   rule {
@@ -55,7 +55,7 @@ resource "vcd_nsxt_distributed_firewall" "t1" {
     logging   = true
     direction = "IN_OUT"
 
-    network_context_profile_ids = [vcd_nsxt_network_context_profile.cp1.id]
+    network_context_profile_ids = [vcloud_nsxt_network_context_profile.cp1.id]
   }
 
   rule {
@@ -92,7 +92,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful
   when connected as sysadmin working across different organisations.
 * `vdc_group_id` - (Required) The ID of VDC Group to manage Distributed Firewall in. Can be looked
-  up using `vcd_vdc_group` resource or data source.
+  up using `vcloud_vdc_group` resource or data source.
 * `rule` - (Required) One or more blocks with [Firewall Rule](#firewall-rule) definitions. **Order**
   defines firewall rule precedence
 
@@ -118,7 +118,7 @@ Leaving it empty matches `Any` (all)
 groups`). Leaving it empty matches `Any` (all)
 * `app_port_profile_ids` - (Optional) An optional set of Application Port Profiles.
 * `network_context_profile_ids` - (Optional) An optional set of Network Context Profiles. Can be
-  looked up using `vcd_nsxt_network_context_profile` data source.
+  looked up using `vcloud_nsxt_network_context_profile` data source.
 * `source_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `source_ids` for the rule to
   match everything except specified IDs.
 * `destination_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `destination_ids` for
@@ -135,7 +135,7 @@ the full dot separated path for your VDC Group Name. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_distributed_firewall.imported my-org-name.my-vdc-group-name
+terraform import vcloud_nsxt_distributed_firewall.imported my-org-name.my-vdc-group-name
 ```
 
 The above would import all firewall rules defined on VDC Group `my-vdc-group-name` which is

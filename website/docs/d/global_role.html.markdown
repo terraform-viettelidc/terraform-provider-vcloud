@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_global_role"
+page_title: "VMware Cloud Director: vcloud_global_role"
 sidebar_current: "docs-vcd-data-source-global-role"
 description: |-
  Provides a VMware Cloud Director global role data source . This can be used to read global roles.
@@ -15,7 +15,7 @@ Supported in provider *v3.3+*
 ## Example Usage
 
 ```hcl
-data "vcd_global_role" "vapp-author" {
+data "vcloud_global_role" "vapp-author" {
   name = "vApp Author"
 }
 ```

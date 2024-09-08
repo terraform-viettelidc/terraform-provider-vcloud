@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_multisite_site_data"
+page_title: "VMware Cloud Director: vcloud_multisite_site_data"
 sidebar_current: "docs-vcd-data-source-multisite-site-data"
 description: |-
   Provides a data source to read a VMware Cloud Director Site association data to be used for association with another site.
@@ -19,7 +19,7 @@ Note: there is only one site available for each VCD. No ID or name is necessary 
 ~> Note: this data source requires System Administrator privileges
 
 ```hcl
-data "vcd_multisite_site_data" "current_site" {
+data "vcloud_multisite_site_data" "current_site" {
   download_to_file = "filename.xml"
 }
 ```

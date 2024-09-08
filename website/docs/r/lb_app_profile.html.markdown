@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_app_profile"
+page_title: "VMware Cloud Director: vcloud_lb_app_profile"
 sidebar_current: "docs-vcd-resource-lb-app-profile"
 description: |-
   Provides an NSX edge gateway load balancer application profile resource.
@@ -31,7 +31,7 @@ Supported in provider *v2.4+*
 ## Example Usage 1 (TCP Application Profile)
 
 ```hcl
-resource "vcd_lb_app_profile" "tcp" {
+resource "vcloud_lb_app_profile" "tcp" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -44,7 +44,7 @@ resource "vcd_lb_app_profile" "tcp" {
 ## Example Usage 2 (HTTP Cookie based Application Profile)
 
 ```hcl
-resource "vcd_lb_app_profile" "http" {
+resource "vcloud_lb_app_profile" "http" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -109,7 +109,7 @@ below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_lb_app_profile.imported my-org.my-org-vdc.my-edge-gw.my-lb-app-profile
+terraform import vcloud_lb_app_profile.imported my-org.my-org-vdc.my-edge-gw.my-lb-app-profile
 ```
 
 The above would import the application profile named `my-lb-app-profile` that is defined on edge

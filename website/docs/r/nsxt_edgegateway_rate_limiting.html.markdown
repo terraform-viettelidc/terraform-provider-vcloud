@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_edgegateway_rate_limiting"
+page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_rate_limiting"
 sidebar_current: "docs-vcd-resource-nsxt-edge-rate-limiting"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway Rate Limiting (QoS) configuration.
@@ -15,33 +15,33 @@ Provides a resource to manage NSX-T Edge Gateway Rate Limiting (QoS) configurati
 ## Example Usage
 
 ```hcl
-data "vcd_nsxt_manager" "nsxt" {
+data "vcloud_nsxt_manager" "nsxt" {
   name = "nsxManager1"
 }
 
-data "vcd_nsxt_edgegateway_qos_profile" "qos-1" {
-  nsxt_manager_id = data.vcd_nsxt_manager.nsxt.id
+data "vcloud_nsxt_edgegateway_qos_profile" "qos-1" {
+  nsxt_manager_id = data.vcloud_nsxt_manager.nsxt.id
   name            = "qos-profile-1"
 }
 
-data "vcd_org_vdc" "v1" {
+data "vcloud_org_vdc" "v1" {
   org  = "datacloud"
   name = "nsxt-vdc-datacloud"
 }
 
-data "vcd_nsxt_edgegateway" "testing-in-vdc" {
+data "vcloud_nsxt_edgegateway" "testing-in-vdc" {
   org      = "datacloud"
-  owner_id = data.vcd_org_vdc.v1.id
+  owner_id = data.vcloud_org_vdc.v1.id
 
   name = "nsxt-gw-datacloud"
 }
 
-resource "vcd_nsxt_edgegateway_rate_limiting" "testing-in-vdc" {
+resource "vcloud_nsxt_edgegateway_rate_limiting" "testing-in-vdc" {
   org             = "datacloud"
-  edge_gateway_id = data.vcd_nsxt_edgegateway.testing-in-vdc.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.testing-in-vdc.id
 
-  ingress_profile_id = data.vcd_nsxt_edgegateway_qos_profile.qos-1.id
-  egress_profile_id  = data.vcd_nsxt_edgegateway_qos_profile.qos-1.id
+  ingress_profile_id = data.vcloud_nsxt_edgegateway_qos_profile.qos-1.id
+  egress_profile_id  = data.vcloud_nsxt_edgegateway_qos_profile.qos-1.id
 }
 ```
 
@@ -57,7 +57,7 @@ The following arguments are supported:
   means `unlimited`.
 
 -> Ingress and Egress profile IDs can be looked up using
-  [`vcd_nsxt_edgegateway_qos_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_qos_profile)
+  [`vcloud_nsxt_edgegateway_qos_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_qos_profile)
   data source. 
 
 ## Importing
@@ -71,7 +71,7 @@ resource via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_edgegateway_rate_limiting.imported my-org.nsxt-vdc.nsxt-edge
+terraform import vcloud_nsxt_edgegateway_rate_limiting.imported my-org.nsxt-vdc.nsxt-edge
 ```
 
 The above would import the `nsxt-edge` Edge Gateway Rate Limiting configuration for this particular

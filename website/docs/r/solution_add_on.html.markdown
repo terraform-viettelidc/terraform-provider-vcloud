@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_add_on"
+page_title: "VMware Cloud Director: vcloud_solution_add_on"
 sidebar_current: "docs-vcd-resource-solution-add-on"
 description: |-
   Provides a resource to manage Solution Add-Ons in Cloud Director. A Solution Add-On is the
@@ -27,11 +27,11 @@ users, roles, runtime defined entities, and more.
 ## Example Usage (Uploading an image and creating a Solution Add-On entry)
 
 ```hcl
-data "vcd_solution_landing_zone" "slz" {}
+data "vcloud_solution_landing_zone" "slz" {}
 
-resource "vcd_catalog_media" "dse14" {
+resource "vcloud_catalog_media" "dse14" {
   org        = "solution_org"
-  catalog_id = tolist(data.vcd_solution_landing_zone.slz.catalog)[0].id
+  catalog_id = tolist(data.vcloud_solution_landing_zone.slz.catalog)[0].id
 
   name              = basename("/Users/demo/Downloads/vmware-vcd-ds-1.4.0-23376809.iso")
   description       = "new os versions"
@@ -40,8 +40,8 @@ resource "vcd_catalog_media" "dse14" {
   upload_piece_size = 10
 }
 
-resource "vcd_solution_add_on" "dse14" {
-  catalog_item_id        = data.vcd_catalog_media.dse14.catalog_item_id
+resource "vcloud_solution_add_on" "dse14" {
+  catalog_item_id        = data.vcloud_catalog_media.dse14.catalog_item_id
   add_on_path            = "/Users/demo/Downloads/vmware-vcd-ds-1.4.0-23376809.iso"
   auto_trust_certificate = true
 }
@@ -50,18 +50,18 @@ resource "vcd_solution_add_on" "dse14" {
 
 ## Example usage (Using already uploaded image)
 ```hcl
-data "vcd_solution_landing_zone" "slz" {}
+data "vcloud_solution_landing_zone" "slz" {}
 
-data "vcd_catalog_media" "dse14" {
+data "vcloud_catalog_media" "dse14" {
   org        = "solution_org"
-  catalog_id = tolist(data.vcd_solution_landing_zone.slz.catalog)[0].id
+  catalog_id = tolist(data.vcloud_solution_landing_zone.slz.catalog)[0].id
 
   name = basename("/Users/demo/Downloads/vmware-vcd-ds-1.4.0-23376809.iso")
 }
 
-resource "vcd_solution_add_on" "dse14" {
+resource "vcloud_solution_add_on" "dse14" {
   org                    = "solution_org"
-  catalog_item_id        = data.vcd_catalog_media.dse14.catalog_item_id
+  catalog_item_id        = data.vcloud_catalog_media.dse14.catalog_item_id
   add_on_path            = "/Users/demo/Downloads/vmware-vcd-ds-1.4.0-23376809.iso"
   auto_trust_certificate = true
 }
@@ -72,7 +72,7 @@ resource "vcd_solution_add_on" "dse14" {
 The following arguments are supported:
 
 * `catalog_item_id` - (Required) The catalog item ID of Solution Add-On. It can be uploaded using
-  [`vcd_catalog_media`](/providers/vmware/vcd/latest/docs/resources/catalog_media)
+  [`vcloud_catalog_media`](/providers/vmware/vcd/latest/docs/resources/catalog_media)
 * `add_on_path` - (Required) Local filesystem path of Solution Add-On. The Add-On image is required
 locally as some of the metadata must be extracted for creating the Solution Add-On entry in Cloud
 Director.
@@ -87,7 +87,7 @@ The following attributes are exported on this resource:
 
 * `name` - reports the name of Solution Add-On as defined in the system. This name can be also used
   in data source
-  [`vcd_solution_add_on`](/providers/vmware/vcd/latest/docs/data-sources/solution_add_on)
+  [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/data-sources/solution_add_on)
 * `state` - reports the state of parent [Runtime Defined
   Entity](/providers/vmware/vcd/latest/docs/resources/rde)
 
@@ -101,10 +101,10 @@ supplying path for it. It can be imported either by ID or by Name. This might no
 lookup therefore there is a helper for listing available items:
 
 ```
-terraform import vcd_solution_add_on.dse14 list@
-vcd_solution_add_on.dse14: Importing from ID "list@"...
-data.vcd_solution_add_on.dse14: Reading...
-data.vcd_solution_add_on.dse14: Read complete after 1s
+terraform import vcloud_solution_add_on.dse14 list@
+vcloud_solution_add_on.dse14: Importing from ID "list@"...
+data.vcloud_solution_add_on.dse14: Reading...
+data.vcloud_solution_add_on.dse14: Read complete after 1s
 ╷
 │ Error: resource was not imported! 
 │ No    ID                                                                              Name                            Status  Extension Name  Version
@@ -119,13 +119,13 @@ data.vcd_solution_add_on.dse14: Read complete after 1s
 An import then can be done either by ID
 
 ```
-terraform import vcd_solution_add_on.dse14 urn:vcloud:entity:vmware:solutions_add_on:45ce689b-acf7-458f-85af-953871aa1f2e
+terraform import vcloud_solution_add_on.dse14 urn:vcloud:entity:vmware:solutions_add_on:45ce689b-acf7-458f-85af-953871aa1f2e
 ```
 
 Or by Name
 
 ```
-terraform import vcd_solution_add_on.dse14 vmware.ds-1.4.0-23376809
+terraform import vcloud_solution_add_on.dse14 vmware.ds-1.4.0-23376809
 ```
 
 [docs-import]: https://www.terraform.io/docs/import/

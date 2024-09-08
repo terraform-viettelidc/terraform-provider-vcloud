@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_service_account"
+page_title: "VMware Cloud Director: vcloud_service_account"
 sidebar_current: "docs-vcd-resource-service-account"
 description: |-
   Provides a resource to manage Service Accounts. Service Accounts can have defined roles
@@ -20,15 +20,15 @@ Supported in provider *v3.10+* and VCD 10.4+.
 ## Example Usage 
 
 ```hcl
-data "vcd_role" "vapp_author" {
+data "vcloud_role" "vapp_author" {
   org  = "my-org"
   name = "vApp Author"
 }
 
-resource "vcd_service_account" "example_service" {
+resource "vcloud_service_account" "example_service" {
   org  = "my-org"
   name = "example"
-  role = data.vcd_role.vapp_author.id
+  role = data.vcloud_role.vapp_author.id
 
   software_id      = "12345678-1234-1234-1234-1234567890ab"
   software_version = "1.0.0"
@@ -69,7 +69,7 @@ An existing service account can be [imported][docs-import] into this resource vi
 the full dot separated path. An example is below:
 
 ```
-terraform import vcd_service_account.imported my-org.my-service-account 
+terraform import vcloud_service_account.imported my-org.my-service-account 
 ```
 
 [service-accounts]: https://blogs.vmware.com/cloudprovider/2022/07/cloud-director-service-accounts.html

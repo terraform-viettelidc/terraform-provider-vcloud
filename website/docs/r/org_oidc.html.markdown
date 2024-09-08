@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_oidc"
+page_title: "VMware Cloud Director: vcloud_org_oidc"
 sidebar_current: "docs-vcd-resource-org-oidc"
 description: |-
   Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in VMware Cloud Director.
@@ -17,12 +17,12 @@ Supported in provider *v3.13+*
 The well-known configuration endpoint retrieves all the OpenID Connect settings values:
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-resource "vcd_org_oidc" "oidc" {
-  org_id                 = data.vcd_org.my_org.id
+resource "vcloud_org_oidc" "oidc" {
+  org_id                 = data.vcloud_org.my_org.id
   enabled                = true
   prefer_id_token        = false
   client_id              = "clientId"
@@ -35,12 +35,12 @@ resource "vcd_org_oidc" "oidc" {
 Users can override any value retrieved by the well-known configuration:
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-resource "vcd_org_oidc" "oidc" {
-  org_id                 = data.vcd_org.my_org.id
+resource "vcloud_org_oidc" "oidc" {
+  org_id                 = data.vcloud_org.my_org.id
   enabled                = true
   prefer_id_token        = false
   client_id              = "clientId"
@@ -58,12 +58,12 @@ Once the OIDC settings are created, if users want to restore an overridden value
 well-known configuration endpoint, they must perform an update in code to set the previous value explicitly:
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-resource "vcd_org_oidc" "oidc" {
-  org_id                 = data.vcd_org.my_org.id
+resource "vcloud_org_oidc" "oidc" {
+  org_id                 = data.vcloud_org.my_org.id
   enabled                = true
   prefer_id_token        = false
   client_id              = "clientId"
@@ -82,12 +82,12 @@ to be restored during updates.
 ## Example Usage without Well-known Configuration Endpoint
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-resource "vcd_org_oidc" "oidc" {
-  org_id                      = data.vcd_org.my_org.id
+resource "vcloud_org_oidc" "oidc" {
+  org_id                      = data.vcloud_org.my_org.id
   enabled                     = true
   prefer_id_token             = false
   client_id                   = "clientId"
@@ -119,7 +119,7 @@ resource "vcd_org_oidc" "oidc" {
 The following arguments are supported:
 
 * `org_id` - (Required) ID of the Organization that will have the OpenID Connect settings configured. There must be only one
-  resource `vcd_org_oidc` per `org_id`, as there is only one OpenID configuration per Organization
+  resource `vcloud_org_oidc` per `org_id`, as there is only one OpenID configuration per Organization
 * `client_id` - (Required) Client ID to use with the OIDC provider
 * `client_secret` - (Required) Client Secret to use with the OIDC provider
 * `enabled` - (Required) Either `true` or `false`, specifies whether the OIDC authentication is enabled for the given organization
@@ -191,21 +191,21 @@ at the top of the VCD hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing OIDC configuration that was **not** created using Terraform:
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-resource "vcd_org_oidc" "my_org_oidc" {
-  org_id = data.vcd_org.my_org.id
+resource "vcloud_org_oidc" "my_org_oidc" {
+  org_id = data.vcloud_org.my_org.id
 }
 ```
 
 You can import such OIDC configuration into terraform state using one of the following commands
 
 ```
-terraform import vcd_org_oidc.my_org_oidc organization_name
+terraform import vcloud_org_oidc.my_org_oidc organization_name
 # OR
-terraform import vcd_org_oidc.my_org_oidc organization_id
+terraform import vcloud_org_oidc.my_org_oidc organization_id
 ```
 
 After that, you must expand the configuration file before you can either update or delete the OIDC configuration. Running `terraform plan`

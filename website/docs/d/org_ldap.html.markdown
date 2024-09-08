@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_ldap"
+page_title: "VMware Cloud Director: vcloud_org_ldap"
 sidebar_current: "docs-vcd-data-source-org-ldap"
 description: |-
   Provides a data source to read LDAP configuration for an organization.
@@ -15,12 +15,12 @@ Provides a data source to read LDAP configuration for an organization.
 ## Example Usage
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-data "vcd_org_ldap" "first" {
-  org_id = data.vcd_org.my-org.id
+data "vcloud_org_ldap" "first" {
+  org_id = data.vcloud_org.my-org.id
 }
 ```
 
@@ -33,4 +33,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_org_ldap`](/providers/vmware/vcd/latest/docs/resources/org_ldap) resource are available.
+[`vcloud_org_ldap`](/providers/vmware/vcd/latest/docs/resources/org_ldap) resource are available.

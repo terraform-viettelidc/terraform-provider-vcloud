@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vdc_group"
+page_title: "VMware Cloud Director: vcloud_vdc_group"
 sidebar_current: "docs-vcd-data-source-vdc-group"
 description: |-
   Provides a data source to read VDC groups.
@@ -16,7 +16,7 @@ Provides a data source to read NSX-T VDC group and reference in other resources.
 ## Example Usage
 
 ```hcl
-data "vcd_vdc_group" "startVdc" {
+data "vcloud_vdc_group" "startVdc" {
   org  = "myOrg"
   name = "myVDC"
 }
@@ -34,4 +34,4 @@ Either `name` or `id` must be used. If both are missing, an error arises.
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcd_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group) resource are available.
+[`vcloud_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group) resource are available.

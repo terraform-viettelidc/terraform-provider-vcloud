@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_snat"
+page_title: "VMware Cloud Director: vcloud_nsxv_snat"
 sidebar_current: "docs-vcd-resource-nsxv-snat"
 description: |-
   Provides a VMware Cloud Director SNAT resource for advanced edge gateways (NSX-V). This
@@ -17,7 +17,7 @@ can be used to create, modify, and delete source NATs to allow vApps to send ext
 ## Example Usage
 
 ```hcl
-resource "vcd_nsxv_snat" "web" {
+resource "vcloud_nsxv_snat" "web" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -72,7 +72,7 @@ via supplying the full dot separated path for SNAT rule. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxv_dnat.imported my-org.my-org-vdc.my-edge-gw.my-snat-rule-id
+terraform import vcloud_nsxv_dnat.imported my-org.my-org-vdc.my-edge-gw.my-snat-rule-id
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

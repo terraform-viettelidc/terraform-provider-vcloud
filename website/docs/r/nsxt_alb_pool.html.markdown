@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_pool"
+page_title: "VMware Cloud Director: vcloud_nsxt_alb_pool"
 sidebar_current: "docs-vcd-resource-nsxt-alb-pool"
 description: |-
   Provides a resource to manage ALB Pools for particular NSX-T Edge Gateway. Pools maintain the list of servers
@@ -19,11 +19,11 @@ only one virtual service at a time.
 ## Example Usage 1 (tiny example with defaults and single pool member)
 
 ```hcl
-resource "vcd_nsxt_alb_pool" "first-pool" {
+resource "vcloud_nsxt_alb_pool" "first-pool" {
   org = "sample"
 
   name            = "tiny-pool"
-  edge_gateway_id = vcd_nsxt_alb_settings.test.edge_gateway_id
+  edge_gateway_id = vcloud_nsxt_alb_settings.test.edge_gateway_id
 
   member {
     ip_address = "192.168.1.1"
@@ -34,11 +34,11 @@ resource "vcd_nsxt_alb_pool" "first-pool" {
 ## Example Usage 2 (more complex example with health monitors and persistence profile)
 
 ```hcl
-resource "vcd_nsxt_alb_pool" "first-pool" {
+resource "vcloud_nsxt_alb_pool" "first-pool" {
   org = "sample"
 
   name            = "configured-pool"
-  edge_gateway_id = vcd_nsxt_alb_settings.test.edge_gateway_id
+  edge_gateway_id = vcloud_nsxt_alb_settings.test.edge_gateway_id
 
   algorithm                  = "LEAST_LOAD"
   default_port               = 9000
@@ -70,17 +70,17 @@ resource "vcd_nsxt_alb_pool" "first-pool" {
 ## Example Usage 3 (Using CA certificates)
 
 ```hcl
-data "vcd_library_certificate" "sample-cert" {
+data "vcloud_library_certificate" "sample-cert" {
   alias = "Sample-cert-1"
 }
 
-resource "vcd_nsxt_alb_pool" "sample-pool" {
+resource "vcloud_nsxt_alb_pool" "sample-pool" {
   org = "sample"
 
   name            = "sample-cert-pool"
-  edge_gateway_id = vcd_nsxt_alb_settings.test.edge_gateway_id
+  edge_gateway_id = vcloud_nsxt_alb_settings.test.edge_gateway_id
 
-  ca_certificate_ids = [data.vcd_library_certificate.sample-cert.id]
+  ca_certificate_ids = [data.vcloud_library_certificate.sample-cert.id]
   cn_check_enabled   = true
   domain_names       = ["domain1", "domain2"]
 }
@@ -96,7 +96,7 @@ The following arguments are supported:
 * `description` - (Optional) An optional description ALB Pool
 * `enabled` - (Optional) Boolean value if ALB Pool should be enabled (default `true`)
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
 * `algorithm` - (Optional) Optional algorithm for choosing pool members (default `LEAST_CONNECTIONS`). Other options
   contain `ROUND_ROBIN`, `CONSISTENT_HASH` (uses Source IP Address hash), `FASTEST_RESPONSE`, `LEAST_LOAD`,
   `FEWEST_SERVERS`, `RANDOM`, `FEWEST_TASKS`, `CORE_AFFINITY`
@@ -109,7 +109,7 @@ The following arguments are supported:
 * `ssl_enabled` (Optional; *v3.11+*) Enables SSL - Will be turned on automatically when CA certificates are used
 * `ca_certificate_ids` - (Optional) A set of CA Certificates to be used when validating certificates presented by the
   pool members. Can be looked up using
-  [vcd_library_certificate](/providers/vmware/vcd/latest/docs/data-sources/library_certificate) data source
+  [vcloud_library_certificate](/providers/vmware/vcd/latest/docs/data-sources/library_certificate) data source
 * `cn_check_enabled` - (Optional) Specifies whether to check the common name of the certificate presented by the pool
   member
 * `domain_names` - (Optional) A set of domain names which will be used to verify the common names or subject alternative
@@ -118,7 +118,7 @@ The following arguments are supported:
 * `member` - (Optional) A block to define pool members. Multiple can be used. See
   [Member](#member-block) and example for usage details. **Note** only one of `member`,
   `member_group_id` can be specified.
-* `member_group_id` - (Optional; *v3.9+*, *VCD 10.4.1+*) A reference to NSX-T IP Set (`vcd_nsxt_ip_set`).
+* `member_group_id` - (Optional; *v3.9+*, *VCD 10.4.1+*) A reference to NSX-T IP Set (`vcloud_nsxt_ip_set`).
   **Note** only one of `member`, `member_group_id` can be specified.
 * `persistence_profile` - (Optional) Persistence profile will ensure that the same user sticks to the same server for a
   desired duration of time. If the persistence profile is unmanaged by Cloud Director, updates that leave the values
@@ -195,8 +195,8 @@ via supplying path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_pool.imported my-org.my-org-vdc-org-vdc-group-name.my-edge-gateway.my-alb-pool
+terraform import vcloud_nsxt_alb_pool.imported my-org.my-org-vdc-org-vdc-group-name.my-edge-gateway.my-alb-pool
 ```
 
-The above would import the `vcd_nsxt_alb_pool` ALB Pool that is defined in VDC or VDC
+The above would import the `vcloud_nsxt_alb_pool` ALB Pool that is defined in VDC or VDC
 Group`my-org-vdc-org-vdc-group-name` of Org `my-org` for NSX-T Edge Gateway `my-edge-gateway`

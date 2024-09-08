@@ -9,7 +9,7 @@ description: |-
 # Container Service Extension v4.1 Kubernetes clusters management
 
 ~> **This guide is DEPRECATED since v3.12+**. You should use the resource
-[`vcd_cse_kubernetes_cluster`](/providers/vmware/vcd/latest/docs/resources/cse_kubernetes_cluster)
+[`vcloud_cse_kubernetes_cluster`](/providers/vmware/vcd/latest/docs/resources/cse_kubernetes_cluster)
 to provision and manage Kubernetes clusters in a VCD appliance where Container Service Extension is installed
 and running.
 
@@ -18,7 +18,7 @@ and running.
 This guide explains how to create, update and delete **Tanzu Kubernetes Grid multicloud (TKGm)** clusters in a VCD appliance with Container Service Extension v4.1
 installed, using Terraform.
 
-We will use the Runtime Defined Entity (RDE) resource [`vcd_rde`][rde] for this purpose.
+We will use the Runtime Defined Entity (RDE) resource [`vcloud_rde`][rde] for this purpose.
 
 ~> This section assumes that the CSE installation was done following the [CSE v4.1 installation guide][cse_install_guide].
 That is, CSE Server should be up and running and all elements must be working.
@@ -38,7 +38,7 @@ In order to complete the steps described in this guide, please be aware:
 -> Please have a look at a working example of a TKGm cluster [here][cluster]. It is encouraged to read the following
 section to understand how it works.
 
-To be able to create a TKGm cluster, one needs to prepare a [`vcd_rde`][rde] resource. In the [proposed example][cluster],
+To be able to create a TKGm cluster, one needs to prepare a [`vcloud_rde`][rde] resource. In the [proposed example][cluster],
 this RDE is named `k8s_cluster_instance`. The important arguments to take into account are:
 
 * **`resolve` must be always `false`**, because the CSE Server is responsible for performing the RDE resolution when the
@@ -47,18 +47,18 @@ this RDE is named `k8s_cluster_instance`. The important arguments to take into a
   wants to execute a Terraform destroy without the RDE being resolved, the operation will fail. Being `true` assures that Terraform
   can perform a Terraform destroy in every case. See ["Deleting a Kubernetes cluster"](#deleting-a-kubernetes-cluster) section for more info.
 
-The [`vcd_rde`][rde] argument `input_entity` is taking the output of the Terraform built-in function `templatefile`, that references
+The [`vcloud_rde`][rde] argument `input_entity` is taking the output of the Terraform built-in function `templatefile`, that references
 a JSON template that is located at [here][tkgmcluster_template]. This function will set the correct values to the following
 placeholders that can be found in that file:
 
-* `vcd_url`: The VCD URL, the same that was used during CSE installation.
+* `vcloud_url`: The VCD URL, the same that was used during CSE installation.
 * `name`: This will be the TKGm cluster name. It must contain only lowercase alphanumeric characters or '-',
   start with an alphabetic character, end with an alphanumeric, and contain at most 31 characters.
 * `org`: The Organization in which the TKGm clusters will be created. In this guide it was created as `tenant_org` and named
   "Tenant Organization" during CSE installation phase.
 * `vdc`: The VDC in which the TKGm clusters will be created. In this guide it was created as `tenant_vdc` and named
   "Tenant VDC" during CSE installation phase.
-* `api_token`: The API token that corresponds to the user that will create the cluster. This is created with a [`vcd_api_token`][api_token] resource.
+* `api_token`: The API token that corresponds to the user that will create the cluster. This is created with a [`vcloud_api_token`][api_token] resource.
   One can customise the path to the JSON file where the API token is stored using `cluster_author_token_file` variable.
 * `capi_yaml`: This must be set with a valid CAPVCD YAML, that is explained below.
 * `delete`: This is used to delete a cluster. See ["Deleting a Kubernetes cluster"](#deleting-a-kubernetes-cluster) section for more info.
@@ -79,7 +79,7 @@ If this is not needed, please remove the whole `defaultStorageClassOptions` bloc
 To create a valid input for the `capi_yaml` placeholder, a [CAPVCD][capvcd] YAML is required, which describes the TKGm cluster to be
 created. In order to craft it, we need to follow these steps:
 
-* First, we need to download a YAML template from the [CAPVCD repository][capvcd_templates].
+* First, we need to download a YAML template from the [CAPVCD repository][capvcloud_templates].
   We should choose the template that matches the TKGm OVA. For example, if we uploaded the `ubuntu-2004-kube-v1.25.7+vmware.2-tkg.1-8a74b9f12e488c54605b3537acb683bc.ova`
   and we want to use it, the template that we need to obtain corresponds to v1.25.7, that is `cluster-template-v1.25.7.yaml`.
 
@@ -235,7 +235,7 @@ It must be encoded in Base64.
 * `SERVICE_CIDR`: The CIDR used for Service networking, for example `"100.64.0.0/13"`.
 
 There are some extra variables that are obtained from the `VCDKEConfig` RDE that was created during CSE installation.
-In the [proposed example][cluster] they are read with a `vcd_rde` data source:
+In the [proposed example][cluster] they are read with a `vcloud_rde` data source:
 
 * `NODE_STARTUP_TIMEOUT`: A node will be considered unhealthy and remediated if joining the cluster takes longer than this timeout (seconds, defaults to 900 in the sample configuration).
 * `NODE_NOT_READY_TIMEOUT`: A newly joined node will be considered unhealthy and remediated if it cannot host workloads for longer than this timeout (seconds, defaults to 300 in the sample configuration).
@@ -273,7 +273,7 @@ we need to monitor the RDE `computed_entity` value to see the status of the clus
 
 ```hcl
 locals {
-  k8s_cluster_computed = jsondecode(vcd_rde.k8s_cluster_instance.computed_entity)
+  k8s_cluster_computed = jsondecode(vcloud_rde.k8s_cluster_instance.computed_entity)
   has_status           = lookup(local.k8s_cluster_computed, "status", null) != null
 }
 
@@ -290,17 +290,17 @@ output "computed_k8s_cluster_events" {
 ```
 
 When the status displayed by `computed_k8s_cluster_status` is `provisioned`, it will mean that the TKGm cluster is successfully provisioned and
-the Kubeconfig is available and ready to use. It can now be retrieved it with the `vcd_rde_behavior_invocation` data source by adding
+the Kubeconfig is available and ready to use. It can now be retrieved it with the `vcloud_rde_behavior_invocation` data source by adding
 the following snippet to the existing configuration:
 
 ```hcl
-data "vcd_rde_behavior_invocation" "get_kubeconfig" {
-  rde_id      = vcd_rde.k8s_cluster_instance.id
+data "vcloud_rde_behavior_invocation" "get_kubeconfig" {
+  rde_id      = vcloud_rde.k8s_cluster_instance.id
   behavior_id = "urn:vcloud:behavior-interface:getFullEntity:cse:capvcd:1.0.0"
 }
 
 output "kubeconfig" {
-  value = jsondecode(data.vcd_rde_behavior_invocation.get_kubeconfig.result)["entity"]["status"]["capvcd"]["private"]["kubeConfig"]
+  value = jsondecode(data.vcloud_rde_behavior_invocation.get_kubeconfig.result)["entity"]["status"]["capvcd"]["private"]["kubeConfig"]
 }
 ```
 
@@ -309,7 +309,7 @@ Then, running `terraform output -no-color -raw kubeconfig > kubeconfig.yaml` sho
 ## Updating a Kubernetes cluster
 
 We can perform a Terraform update to resize a TKGm cluster, for example. In order to do that, we must take into account how the
-[`vcd_rde`][rde] resource works. We should read [its documentation][rde_input_vs_computed] to better understand how updates work
+[`vcloud_rde`][rde] resource works. We should read [its documentation][rde_input_vs_computed] to better understand how updates work
 in this specific case.
 
 ~> Do **NOT** use the initial `input_entity` contents to perform an update, as the CSE Server puts vital information in
@@ -321,7 +321,7 @@ the `computed_entity` attribute. You can leverage this output for that purpose:
 
 ```hcl
 output "computed_k8s_cluster" {
-  value = vcd_rde.k8s_cluster_instance.computed_entity # References the created cluster
+  value = vcloud_rde.k8s_cluster_instance.computed_entity # References the created cluster
 }
 ```
 
@@ -372,10 +372,10 @@ Upgradeable items:
 
 ## Upgrade a cluster to CSE v4.1
 
-To upgrade a cluster from CSE v4.0 to v4.1, first of all you need to change the RDE Type that the TKGm cluster `vcd_rde` uses:
+To upgrade a cluster from CSE v4.0 to v4.1, first of all you need to change the RDE Type that the TKGm cluster `vcloud_rde` uses:
 
 ```
-rde_type_id = data.vcd_rde_type.capvcdcluster_type_v1_2_0.id # This must reference the CAPVCD RDE Type v1.2.0
+rde_type_id = data.vcloud_rde_type.capvcdcluster_type_v1_2_0.id # This must reference the CAPVCD RDE Type v1.2.0
 ```
 
 Then, before updating, please revisit the ["Creating a Kubernetes cluster"](#creating-a-kubernetes-cluster) and
@@ -386,7 +386,7 @@ and requirements of v4.1 that need to be included in the CAPVCD YAML:
 * Adding the needed `preKubeadmCommands` sections to the cluster template YAML.
 * Updating to a supported TKGm OVA (see the table above with the supported versions).
 
-With the new CAPVCD YAML, you need to get the actual cluster state from the `vcd_rde` `computed_entity` attribute and
+With the new CAPVCD YAML, you need to get the actual cluster state from the `vcloud_rde` `computed_entity` attribute and
 create a new value for the input `entity` argument. Follow the steps mentioned in ["Updating a Kubernetes cluster"](#updating-a-kubernetes-cluster).
 
 ## Deleting a Kubernetes cluster
@@ -395,7 +395,7 @@ create a new value for the input `entity` argument. Follow the steps mentioned i
 when the TKGm cluster is created, such as vApps, networks, virtual services, etc. Please follow the procedure described in
 this section to destroy a cluster entirely.
 
-To delete an existing TKGm cluster, one needs to mark it for deletion in the `vcd_rde` resource. In the [example configuration][cluster],
+To delete an existing TKGm cluster, one needs to mark it for deletion in the `vcloud_rde` resource. In the [example configuration][cluster],
 there are two keys `delete` and `force_delete` that correspond to the CAPVCD [RDE Type][rde_type] schema fields `markForDelete`
 and `forceDelete` respectively.
 
@@ -406,12 +406,12 @@ and `forceDelete` respectively.
 Follow the instructions described in ["Updating a Kubernetes cluster"](#updating-a-kubernetes-cluster) to learn how to perform
 the update of these two properties.
 
-Once updated, one can monitor the `vcd_rde` resource to check the deletion process. Eventually, the RDE won't exist anymore in VCD and Terraform will
+Once updated, one can monitor the `vcloud_rde` resource to check the deletion process. Eventually, the RDE won't exist anymore in VCD and Terraform will
 ask for creation again. It can be now removed from the HCL configuration.
 
 [api_token]: /providers/vmware/vcd/latest/docs/resources/api_token
 [capvcd]: https://github.com/vmware/cluster-api-provider-cloud-director
-[capvcd_templates]: https://github.com/vmware/cluster-api-provider-cloud-director/tree/main/templates
+[capvcloud_templates]: https://github.com/vmware/cluster-api-provider-cloud-director/tree/main/templates
 [cluster]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/cluster
 [cse_install_guide]: /providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install
 [cse_docs]: https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/index.html

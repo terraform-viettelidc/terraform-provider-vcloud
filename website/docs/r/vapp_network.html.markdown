@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vapp_network"
+page_title: "VMware Cloud Director: vcloud_vapp_network"
 sidebar_current: "docs-vcd-resource-vapp-network"
 description: |-
  Allows to provision a vApp network and optionally connect it to an existing Org VDC network.
@@ -15,7 +15,7 @@ Supported in provider *v2.1+*
 ## Example Usage (IPv4)
 
 ```hcl
-resource "vcd_vapp_network" "vappNet" {
+resource "vcloud_vapp_network" "vappNet" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -50,7 +50,7 @@ resource "vcd_vapp_network" "vappNet" {
 ## Example Usage (IPv6)
 
 ```hcl
-resource "vcd_vapp_network" "vappNet_ipv6" {
+resource "vcloud_vapp_network" "vappNet_ipv6" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -143,7 +143,7 @@ via supplying the full dot separated path for vApp Network. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_vapp_network.imported org-name.vdc-name.vapp-name.network-name
+terraform import vcloud_vapp_network.imported org-name.vdc-name.vapp-name.network-name
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

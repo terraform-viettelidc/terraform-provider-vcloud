@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_dse_registry_configuration"
+page_title: "VMware Cloud Director: vcloud_dse_registry_configuration"
 sidebar_current: "docs-vcd-resource-dse-registry-configuration"
 description: |-
   Provides a resource to manage Data Solution Extension (DSE) registry configuration.
@@ -46,32 +46,32 @@ Additionally, `VCD Data Solutions` provide [Container Registry Configuration ](#
 ## Example Usage (Configure chart repository)
 
 ```hcl
-resource "vcd_dse_registry_configuration" "mongodb-community" {
+resource "vcloud_dse_registry_configuration" "mongodb-community" {
   name             = "MongoDB Community"
   chart_repository = "https://mongodb.github.io/helm-charts"
   version          = "0.9.0"
   package_name     = "community-operator"
 
-  depends_on = [vcd_solution_add_on_instance_publish.public]
+  depends_on = [vcloud_solution_add_on_instance_publish.public]
 }
 ```
 
 ## Example Usage (Configure package repository)
 
 ```hcl
-resource "vcd_dse_registry_configuration" "mysql" {
+resource "vcloud_dse_registry_configuration" "mysql" {
   name               = "VMware SQL with MySQL"
   package_repository = "registry.tanzu.vmware.com/packages-for-vmware-tanzu-data-services/tds-packages:1.13.0"
   version            = "1.10.1"
 
-  depends_on = [vcd_solution_add_on_instance_publish.public]
+  depends_on = [vcloud_solution_add_on_instance_publish.public]
 }
 ```
 
 ## Example Usage (Configure container registries)
 
 ```hcl
-resource "vcd_dse_registry_configuration" "dso" {
+resource "vcloud_dse_registry_configuration" "dso" {
   name = "VCD Data Solutions"
 
   # Using default versions for packages
@@ -91,7 +91,7 @@ resource "vcd_dse_registry_configuration" "dso" {
     password    = "pass2"
   }
 
-  depends_on = [vcd_solution_add_on_instance_publish.public]
+  depends_on = [vcloud_solution_add_on_instance_publish.public]
 }
 ```
 
@@ -146,7 +146,7 @@ via supplying its name. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_dse_registry_configuration.imported "VCD Data Solutions"
+terraform import vcloud_dse_registry_configuration.imported "VCD Data Solutions"
 ```
 
 The above would import the `VCD Data Solutions` Data Solution registry configuration.

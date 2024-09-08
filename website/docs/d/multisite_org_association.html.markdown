@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_multisite_org_association"
+page_title: "VMware Cloud Director: vcloud_multisite_org_association"
 sidebar_current: "docs-vcd-data-source-multisite-org-association"
 description: |-
   Provides a data source to read a VMware Cloud Director Org associated with the current Org.
@@ -17,12 +17,12 @@ Supported in provider *v3.13+*
 Retrieving an Org association using the associated Org ID.
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-data "vcd_multisite_org_association" "org1-org2" {
-  org_id            = data.vcd_org.my-org.id
+data "vcloud_multisite_org_association" "org1-org2" {
+  org_id            = data.vcloud_org.my-org.id
   associated_org_id = "urn:vcloud:org:3901d87d-1596-4a5a-a74b-57a7313737cf"
 }
 ```
@@ -32,12 +32,12 @@ data "vcd_multisite_org_association" "org1-org2" {
 Retrieving an Org association using the association data file.
 
 ```hcl
-data "vcd_org" "my-org" {
+data "vcloud_org" "my-org" {
   name = "my-org"
 }
 
-data "vcd_multisite_org_association" "org1-org2" {
-  org_id                = data.vcd_org.my-org.id
+data "vcloud_multisite_org_association" "org1-org2" {
+  org_id                = data.vcloud_org.my-org.id
   association_data_file = "remote-org.xml"
 }
 ```

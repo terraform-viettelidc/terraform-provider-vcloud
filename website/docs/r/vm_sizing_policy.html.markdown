@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_vm_sizing_policy"
+page_title: "VMware Cloud Director: vcloud_vm_sizing_policy"
 sidebar_current: "docs-vcd-resource-vm-sizing-policy"
 description: |-
   Provides a VMware Cloud Director VM sizing policy resource. This can be
@@ -22,7 +22,7 @@ CPU and memory properties of a VM sizing policy can't be updated in-place, so up
 ## Example Usage
 
 ```hcl
-resource "vcd_vm_sizing_policy" "minSize" {
+resource "vcloud_vm_sizing_policy" "minSize" {
   name        = "min-size"
   description = "smallest size"
 
@@ -88,11 +88,11 @@ via supplying the full dot separated path to VM sizing policy. An example is
 below:
 
 ```
-terraform import vcd_vm_sizing_policy.my-policy policy_name
+terraform import vcloud_vm_sizing_policy.my-policy policy_name
 ```
 or using IDs:
 ```
-terraform import vcd_vm_sizing_policy.my-policy policy_id
+terraform import vcloud_vm_sizing_policy.my-policy policy_id
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
@@ -104,12 +104,12 @@ at this stage will show the difference between the minimal configuration file an
 
 ### Listing VM sizing policies
 
-If you want to list IDs there is a special command **`terraform import vcd_vm_sizing_policy.imported list@`**. 
+If you want to list IDs there is a special command **`terraform import vcloud_vm_sizing_policy.imported list@`**. 
 The output for this command should look similar to the one below:
 
 ```
-terraform import vcd_vm_sizing_policy.imported list@
-vcd_vm_sizing_policy.import: Importing from ID "list@"...
+terraform import vcloud_vm_sizing_policy.imported list@
+vcloud_vm_sizing_policy.import: Importing from ID "list@"...
 Retrieving all VM sizing policies
 No	ID									Name	
 --	--									----	
@@ -121,5 +121,5 @@ No	ID									Name
 Now to import VM sizing policy with ID urn:vcloud:vdcComputePolicy:446d623e-1eec-4c8c-8a14-2f7e6086546b one could supply this command:
 
 ```shell
-$ terraform import vcd_vm_sizing_policy.imported urn:vcloud:vdcComputePolicy:446d623e-1eec-4c8c-8a14-2f7e6086546b
+$ terraform import vcloud_vm_sizing_policy.imported urn:vcloud:vdcComputePolicy:446d623e-1eec-4c8c-8a14-2f7e6086546b
 ```

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_vdc_template"
+page_title: "VMware Cloud Director: vcloud_org_vdc_template"
 sidebar_current: "docs-vcd-data-source-org-vdc-template"
 description: |-
   Provides a data source to read Organization VDC Templates from VMware Cloud Director.
@@ -18,7 +18,7 @@ Supported in provider *v3.13+*
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc_template" "template" {
+data "vcloud_org_vdc_template" "template" {
   name = "myTemplate"
 }
 ```
@@ -33,5 +33,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the arguments from [the `vcd_org_vdc_template` resource](/providers/vmware/vcd/latest/docs/resources/org_vdc_template) are available as read-only.
+All the arguments from [the `vcloud_org_vdc_template` resource](/providers/vmware/vcd/latest/docs/resources/org_vdc_template) are available as read-only.
 If you use this data source as a tenant, the attribute `readable_by_org_ids` must not be used (it will be always empty).

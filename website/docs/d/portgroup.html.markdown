@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_portgroup"
+page_title: "VMware Cloud Director: vcloud_portgroup"
 sidebar_current: "docs-vcd-data-source-portgroup"
 description: |-
   Provides a data source for available vCenter Port Groups.
@@ -16,7 +16,7 @@ Supported in provider *v3.0+*
 ## Example Usage for vSwitch Port Group
 
 ```hcl
-data "vcd_portgroup" "first-pg-vswitch" {
+data "vcloud_portgroup" "first-pg-vswitch" {
   name = "pg-name"
   type = "NETWORK"
 }
@@ -25,7 +25,7 @@ data "vcd_portgroup" "first-pg-vswitch" {
 ## Example Usage for Distributed Port Group
 
 ```hcl
-data "vcd_portgroup" "first-pg-dvswitch" {
+data "vcloud_portgroup" "first-pg-dvswitch" {
   name = "pg-name"
   type = "DV_PORTGROUP"
 }

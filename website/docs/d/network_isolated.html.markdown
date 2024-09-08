@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_network_isolated"
+page_title: "VMware Cloud Director: vcloud_network_isolated"
 sidebar_current: "docs-vcd-data-source-network-isolated"
 description: |-
   Provides a VMware Cloud Director Org VDC isolated Network. This can be used to reference internal networks for vApps to connect.
@@ -14,13 +14,13 @@ internal networks for vApps to connect. This network is not attached to external
 Supported in provider *v2.5+*
 
 ~> **Note:** This data source supports only NSX-V backed Org VDC networks.
-Please use newer [`vcd_network_isolated_v2`](/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
+Please use newer [`vcloud_network_isolated_v2`](/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
 data source which is compatible with NSX-T.
 
 ## Example Usage
 
 ```hcl
-data "vcd_network_isolated" "net" {
+data "vcloud_network_isolated" "net" {
   org = "my-org" # Optional
   vdc = "my-vdc" # Optional
 
@@ -28,27 +28,27 @@ data "vcd_network_isolated" "net" {
 }
 
 output "gateway" {
-  value = data.vcd_network_isolated.net.gateway
+  value = data.vcloud_network_isolated.net.gateway
 }
 
 output "dns1" {
-  value = data.vcd_network_isolated.net.dns1
+  value = data.vcloud_network_isolated.net.dns1
 }
 
 output "dhcp_start_address" {
-  value = tolist(data.vcd_network_isolated.net.dhcp_pool)[0].start_address
+  value = tolist(data.vcloud_network_isolated.net.dhcp_pool)[0].start_address
 }
 
 output "dhcp_end_address" {
-  value = tolist(data.vcd_network_isolated.net.dhcp_pool)[0].end_address
+  value = tolist(data.vcloud_network_isolated.net.dhcp_pool)[0].end_address
 }
 
 output "static_ip_start_address" {
-  value = tolist(data.vcd_network_isolated.net.static_ip_pool)[0].start_address
+  value = tolist(data.vcloud_network_isolated.net.static_ip_pool)[0].start_address
 }
 
 output "static_ip_end_address" {
-  value = tolist(data.vcd_network_isolated.net.static_ip_pool)[0].end_address
+  value = tolist(data.vcloud_network_isolated.net.static_ip_pool)[0].end_address
 }
 
 ```

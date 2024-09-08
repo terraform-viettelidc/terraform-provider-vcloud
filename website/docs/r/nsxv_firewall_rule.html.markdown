@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxv_firewall_rule"
+page_title: "VMware Cloud Director: vcloud_nsxv_firewall_rule"
 sidebar_current: "docs-vcd-resource-nsxv-firewall-rule"
 description: |-
   Provides a VMware Cloud Director firewall rule resource for advanced edge gateways (NSX-V). This can be
@@ -17,23 +17,23 @@ used to create, modify, and delete firewall rules.
 ## Example Usage 1 (Minimal input with dynamic edge gateway IP)
 
 ```hcl
-data "vcd_edgegateway" "mygw" {
+data "vcloud_edgegateway" "mygw" {
   org  = "my-org"
   vdc  = "my-vdc"
   name = "my-edge-gateway-name"
 }
 
-resource "vcd_nsxv_firewall_rule" "my-rule-1" {
+resource "vcloud_nsxv_firewall_rule" "my-rule-1" {
   org          = "my-org"
   vdc          = "my-vdc"
   edge_gateway = "my-edge-gateway"
 
   source {
-    ip_sets = [vcd_ipset.test-ipset2.name]
+    ip_sets = [vcloud_ipset.test-ipset2.name]
   }
 
   destination {
-    ip_addresses = ["${data.vcd_edgegateway.mygw.default_external_network_ip}"]
+    ip_addresses = ["${data.vcloud_edgegateway.mygw.default_external_network_ip}"]
   }
 
   service {
@@ -46,7 +46,7 @@ resource "vcd_nsxv_firewall_rule" "my-rule-1" {
 ## Example Usage 2 (Multiple services)
 
 ```hcl
-resource "vcd_nsxv_firewall_rule" "my-rule-1" {
+resource "vcloud_nsxv_firewall_rule" "my-rule-1" {
   org          = "my-org"
   vdc          = "my-vdc"
   edge_gateway = "my-edge-gateway"
@@ -74,7 +74,7 @@ resource "vcd_nsxv_firewall_rule" "my-rule-1" {
 ## Example Usage 3 (Use exclusion in source)
 
 ```hcl
-resource "vcd_nsxv_firewall_rule" "my-rule-1" {
+resource "vcloud_nsxv_firewall_rule" "my-rule-1" {
   org          = "my-org"
   vdc          = "my-vdc"
   edge_gateway = "my-edge-gateway"
@@ -97,7 +97,7 @@ resource "vcd_nsxv_firewall_rule" "my-rule-1" {
 ## Example Usage 4 (Deny rule using exclusion and priority set using above_rule_id)
 
 ```hcl
-resource "vcd_nsxv_firewall_rule" "my-rule-1" {
+resource "vcloud_nsxv_firewall_rule" "my-rule-1" {
   org          = "my-org"
   vdc          = "my-vdc"
   edge_gateway = "my-edge-gateway"
@@ -119,14 +119,14 @@ resource "vcd_nsxv_firewall_rule" "my-rule-1" {
   }
 }
 
-resource "vcd_nsxv_firewall_rule" "my-rule-2" {
+resource "vcloud_nsxv_firewall_rule" "my-rule-2" {
   org          = "my-org"
   vdc          = "my-vdc"
   edge_gateway = "my-edge-gateway"
 
   # This attribute allows to ensure rule is inserted above the referred one
   # in rule processing engine
-  above_rule_id = vcd_nsxv_firewall_rule.my-rule-1.id
+  above_rule_id = vcloud_nsxv_firewall_rule.my-rule-1.id
   name          = "my-friendly-name"
 
   source {
@@ -181,9 +181,9 @@ selected, the rule applies to traffic you specified. Default `false`. This
 * `ip_addresses` - (Optional) A set of IP addresses, CIDRs or ranges. A keyword `any` is also
 accepted as a parameter.
 * `gateway_interfaces` - (Optional) A set of with either three keywords `vse` (UI names it as `any`), `internal`, `external` or an org network name. It automatically looks up vNic in the backend.
-* `vm_ids` - (Optional) A set of `.id` fields of `vcd_vapp_vm` resources.
+* `vm_ids` - (Optional) A set of `.id` fields of `vcloud_vapp_vm` resources.
 * `org_networks` - (Optional) A set of org network names.
-* `ip_sets` - (Optional) A set of existing IP set names (either created manually or configured using `vcd_nsxv_ip_set` resource)
+* `ip_sets` - (Optional) A set of existing IP set names (either created manually or configured using `vcloud_nsxv_ip_set` resource)
 
 
 <a id="service"></a>
@@ -222,7 +222,7 @@ import.
 ### Import by real firewall rule ID
 
 ```
-terraform import vcd_nsxv_firewall_rule.imported my-org-name.my-org-vdc-name.my-edge-gw-name.my-firewall-rule-id
+terraform import vcloud_nsxv_firewall_rule.imported my-org-name.my-org-vdc-name.my-edge-gw-name.my-firewall-rule-id
 ```
 
 The above would import the application rule named `my-firewall-rule-id` that is defined on edge
@@ -233,7 +233,7 @@ gateway `my-edge-gw-name` which is configured in organization named `my-org-name
 ### Import by firewall rule number as shown in the UI ("No." field)
 
 ```
-terraform import vcd_nsxv_firewall_rule.imported my-org-name.my-org-vdc-name.my-edge-gw-name.ui-no.3
+terraform import vcloud_nsxv_firewall_rule.imported my-org-name.my-org-vdc-name.my-edge-gw-name.ui-no.3
 ```
 
 **Pay attention** to the specific format of firewall rule number `ui-no.3`. The `ui-no.` flags that
@@ -242,13 +242,13 @@ import must be performed by UI number of firewall rule rather than real ID.
 ### Listing real firewall rule IDs and their numbers
 
 If you want to list the real IDs and firewall rule numbers there is a
-special command **`terraform import vcd_nsxv_firewall_rule.imported list@my-org-name.my-org-vdc-name.my-edge-gw-name`**
+special command **`terraform import vcloud_nsxv_firewall_rule.imported list@my-org-name.my-org-vdc-name.my-edge-gw-name`**
 where `my-org-name` is the organization used, `my-org-vdc-name` is vDC name and `my-edge-gw-name`
 is edge gateway name. The output for this command should look similar to below one:
 
 ```shell
-$ terraform import vcd_nsxv_firewall_rule.import list@my-org-name.my-org-vdc-name.my-edge-gw-name
-vcd_nsxv_firewall_rule.import: Importing from ID "list@my-org-name.my-org-vdc-name.my-edge-gw-name"...
+$ terraform import vcloud_nsxv_firewall_rule.import list@my-org-name.my-org-vdc-name.my-edge-gw-name
+vcloud_nsxv_firewall_rule.import: Importing from ID "list@my-org-name.my-org-vdc-name.my-edge-gw-name"...
 Retrieving all firewall rules
 UI No   ID      Name                                    Action  Type
 -----   --      ----                                    ------  ----
@@ -258,17 +258,17 @@ UI No   ID      Name                                    Action  Type
 4       132588  default rule for ingress traffic        deny    default_policy
 
 Error: Resource was not imported! Please use the above ID to format the command as:
-terraform import vcd_nsxv_firewall_rule.resource-name org-name.vdc-name.edge-gw-name.firewall-rule-id
+terraform import vcloud_nsxv_firewall_rule.resource-name org-name.vdc-name.edge-gw-name.firewall-rule-id
 ```
 
 Now to import rule with UI ID 2 (real ID 132730) one could supply this command:
 
 ```shell
-$ terraform import vcd_nsxv_firewall_rule.import my-org-name.my-org-vdc-name.my-edge-gw-name.132730
-vcd_nsxv_firewall_rule.import: Importing from ID "my-org-name.my-org-vdc-name.my-edge-gw-name.132730"...
-vcd_nsxv_firewall_rule.import: Import prepared!
-  Prepared vcd_nsxv_firewall_rule for import
-vcd_nsxv_firewall_rule.import: Refreshing state... [id=132730]
+$ terraform import vcloud_nsxv_firewall_rule.import my-org-name.my-org-vdc-name.my-edge-gw-name.132730
+vcloud_nsxv_firewall_rule.import: Importing from ID "my-org-name.my-org-vdc-name.my-edge-gw-name.132730"...
+vcloud_nsxv_firewall_rule.import: Import prepared!
+  Prepared vcloud_nsxv_firewall_rule for import
+vcloud_nsxv_firewall_rule.import: Refreshing state... [id=132730]
 
 Import successful!
 

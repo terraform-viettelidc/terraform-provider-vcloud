@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_solution_add_on_instance"
+page_title: "VMware Cloud Director: vcloud_solution_add_on_instance"
 sidebar_current: "docs-vcd-resource-solution-add-on-instance"
 description: |-
   Provides a resource to manage Solution Add-On Instances in Cloud Director. A Solution Add-On Instance
@@ -18,8 +18,8 @@ Provides a resource to manage Solution Add-Ons Instances in Cloud Director.
 ## Example Usage (Uploading an image and create a Solution Add-On entry)
 
 ```hcl
-resource "vcd_solution_add_on_instance" "dse14" {
-  add_on_id                     = vcd_solution_add_on.dse14.id
+resource "vcloud_solution_add_on_instance" "dse14" {
+  add_on_id                     = vcloud_solution_add_on.dse14.id
   accept_eula                   = true
   name                          = "MyDseInstance"
   validate_only_required_inputs = true
@@ -33,12 +33,12 @@ resource "vcd_solution_add_on_instance" "dse14" {
   }
 }
 
-resource "vcd_solution_add_on" "dse14" {
-  catalog_item_id   = data.vcd_catalog_media.dse14.catalog_item_id
+resource "vcloud_solution_add_on" "dse14" {
+  catalog_item_id   = data.vcloud_catalog_media.dse14.catalog_item_id
   addon_path        = "vmware-vcd-ds-1.4.0-23376809.iso"
   trust_certificate = true
 
-  depends_on = [vcd_solution_landing_zone.slz]
+  depends_on = [vcloud_solution_landing_zone.slz]
 }
 ```
 
@@ -48,7 +48,7 @@ resource "vcd_solution_add_on" "dse14" {
 The following arguments are supported:
 
 * `add_on_id` - (Required) Existing Solution Add-On ID
-  [`vcd_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
+  [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
 * `accept_eula` - (Required) Solution Add-On Instance cannot be create if EULA is not accepted.
   Supplying a `false` value will print EULA.
 * `name` - (Required) Name of Solution Add-On Instance
@@ -83,7 +83,7 @@ via supplying path for it.
 
 
 ```
-terraform import vcd_solution_add_on_instance.dse14 MyDseInstance
+terraform import vcloud_solution_add_on_instance.dse14 MyDseInstance
 ```
 
 [docs-import]: https://www.terraform.io/docs/import/

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_alb_edgegateway_service_engine_group"
+page_title: "VMware Cloud Director: vcloud_nsxt_alb_edgegateway_service_engine_group"
 sidebar_current: "docs-vcd-resource-nsxt-alb-edge-service-engine-group"
 description: |-
   Provides a resource to manage ALB Service Engine Group assignment to Edge Gateway.
@@ -17,20 +17,20 @@ Provides a resource to manage ALB Service Engine Group assignment to NSX-T Edge 
 ## Example Usage (Enabling ALB on NSX-T Edge Gateway)
 
 ```hcl
-data "vcd_nsxt_edgegateway" "existing" {
+data "vcloud_nsxt_edgegateway" "existing" {
   org = "my-org"
   vdc = "nsxt-vdc"
 
   name = "nsxt-gw"
 }
 
-data "vcd_nsxt_alb_service_engine_group" "first" {
+data "vcloud_nsxt_alb_service_engine_group" "first" {
   name = "first-se"
 }
 
-resource "vcd_nsxt_alb_edgegateway_service_engine_group" "first" {
-  edge_gateway_id         = data.vcd_nsxt_edgegateway.existing.id
-  service_engine_group_id = data.vcd_nsxt_alb_service_engine_group.first.id
+resource "vcloud_nsxt_alb_edgegateway_service_engine_group" "first" {
+  edge_gateway_id         = data.vcloud_nsxt_edgegateway.existing.id
+  service_engine_group_id = data.vcloud_nsxt_alb_service_engine_group.first.id
 
   max_virtual_services      = 100
   reserved_virtual_services = 30
@@ -44,9 +44,9 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to which the edge gateway belongs. Optional if defined at provider level.
 * `edge_gateway_id` - (Required) An ID of NSX-T Edge Gateway. Can be looked up using
-  [vcd_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source.
+  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source.
 * `service_engine_group_id` - (Required) An ID of NSX-T Service Engine Group. Can be looked up using
-  [vcd_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_service_engine_group) data
+  [vcloud_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_service_engine_group) data
   source.
 * `max_virtual_services` - (Optional) Maximum amount of Virtual Services to run on this Service Engine Group. **Only for
   Shared Service Engine Groups**.
@@ -69,7 +69,7 @@ path for it. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_nsxt_alb_settings.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway-name.service-engine-group-name
+terraform import vcloud_nsxt_alb_settings.imported my-org.my-org-vdc-org-vdc-group-name.my-nsxt-edge-gateway-name.service-engine-group-name
 ```
 
 The above would import the NSX-T Edge Gateway ALB Service Engine Group assignment configuration for

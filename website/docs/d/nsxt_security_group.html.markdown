@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_security_group"
+page_title: "VMware Cloud Director: vcloud_nsxt_security_group"
 sidebar_current: "docs-vcd-data-source-nsxt-security-group"
 description: |-
   Provides a data source to access NSX-T Security Group configuration. Security Groups are groups of
@@ -20,15 +20,15 @@ reduce the total number of distributed firewall rules to be created.
 
 ```hcl
 
-data "vcd_nsxt_edgegateway" "main" {
+data "vcloud_nsxt_edgegateway" "main" {
   org  = "my-org" # Optional
   name = "main-edge"
 }
 
-data "vcd_nsxt_security_group" "group1" {
+data "vcloud_nsxt_security_group" "group1" {
   org = "my-org" # Optional
 
-  edge_gateway_id = data.vcd_nsxt_edgegateway.main.id
+  edge_gateway_id = data.vcloud_nsxt_edgegateway.main.id
 
   name = "test-security-group-changed"
 }
@@ -49,4 +49,4 @@ The following arguments are supported:
 * `owner_id` - Parent VDC or VDC Group ID.
  
 All the arguments and attributes defined in
-[`vcd_nsxt_security_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_security_group) resource are available.
+[`vcloud_nsxt_security_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_security_group) resource are available.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_lb_server_pool"
+page_title: "VMware Cloud Director: vcloud_lb_server_pool"
 sidebar_current: "docs-vcd-data-source-lb-server-pool"
 description: |-
   Provides an NSX edge gateway load balancer server pool data source.
@@ -19,7 +19,7 @@ Supported in provider *v2.4+*
 ## Example Usage
 
 ```hcl
-data "vcd_lb_server_pool" "sp-ds" {
+data "vcloud_lb_server_pool" "sp-ds" {
   org          = "my-org"
   vdc          = "my-org-vdc"
   edge_gateway = "my-edge-gw"
@@ -39,4 +39,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in `vcd_lb_server_pool` resource are available.
+All the attributes defined in `vcloud_lb_server_pool` resource are available.

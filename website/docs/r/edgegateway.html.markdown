@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_edgegateway"
+page_title: "VMware Cloud Director: vcloud_edgegateway"
 sidebar_current: "docs-vcd-resource-edgegateway"
 description: |-
   Provides a VMware Cloud Director NSX-V edge gateway. This can be used to create and delete edge gateways connected to one or more external networks.
@@ -20,7 +20,7 @@ and then provide `org` and `vdc` arguments for edge gateway to work.
 ## Example Usage
 
 ```hcl
-resource "vcd_edgegateway" "egw" {
+resource "vcloud_edgegateway" "egw" {
   org = "my-org"
   vdc = "my-vdc"
 
@@ -40,11 +40,11 @@ resource "vcd_edgegateway" "egw" {
   }
 }
 
-resource "vcd_network_routed" "rnet1" {
+resource "vcloud_network_routed" "rnet1" {
   name         = "rnet1"
   org          = "my-org"
   vdc          = "my-vdc"
-  edge_gateway = vcd_edgegateway.egw.name
+  edge_gateway = vcloud_edgegateway.egw.name
   gateway      = "192.168.2.1"
 
   static_ip_pool {
@@ -58,7 +58,7 @@ resource "vcd_network_routed" "rnet1" {
 ## Example Usage (multiple External Networks, Subnets and IP pool sub-allocation)
 
 ```hcl
-resource "vcd_edgegateway" "egw" {
+resource "vcloud_edgegateway" "egw" {
   org = "my-org"
   vdc = "my-vdc"
 
@@ -200,7 +200,7 @@ The path for this resource is made of org-name.vdc-name.edge-name
 For example, using this structure, representing an edge gateway that was **not** created using Terraform:
 
 ```hcl
-resource "vcd_edgegateway" "tf-edgegateway" {
+resource "vcloud_edgegateway" "tf-edgegateway" {
   name          = "my-edge-gw"
   org           = "my-org"
   vdc           = "my-vdc"
@@ -222,9 +222,9 @@ resource "vcd_edgegateway" "tf-edgegateway" {
 You can import such resource into terraform state using one of the commands below
 
 ```
-terraform import vcd_edgegateway.tf-egw my-org.my-vdc.my-edge-gw
+terraform import vcloud_edgegateway.tf-egw my-org.my-vdc.my-edge-gw
 
-terraform import vcd_edgegateway.tf-egw my-org.my-vdc.63ed92de-4001-450c-879f-deadbeef0123
+terraform import vcloud_edgegateway.tf-egw my-org.my-vdc.63ed92de-4001-450c-879f-deadbeef0123
 ```
 
 * **Note 1**: the separator can be changed using `Provider.import_separator` or variable `VCLOUD_IMPORT_SEPARATOR`

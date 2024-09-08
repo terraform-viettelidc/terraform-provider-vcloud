@@ -40,23 +40,23 @@ among each other, unless they establish their own associations.
 In this example, we will see the steps to associate `site1` with `site2`, assuming that the two sites are administered by
 different persons.
 
-1. _Site1_ admin produces the data using `vcd_multisite_site_data`, resulting in `site1.xml`.
-2. _Site2_ admin produces the data using `vcd_multisite_site_data`, resulting in `site2.xml`.
+1. _Site1_ admin produces the data using `vcloud_multisite_site_data`, resulting in `site1.xml`.
+2. _Site2_ admin produces the data using `vcloud_multisite_site_data`, resulting in `site2.xml`.
 3. _Site1_ admin transfers `site1.xml` to _Site2_ admin.
 4. _Site2_ admin transfers `site2.xml` to _Site1_ admin.
-5. _Site1_ admin runs resource `vcd_multisite_site_association` using `site2.xml` as input.
-6. _Site2_ admin runs resource `vcd_multisite_site_association` using `site1.xml` as input.
+5. _Site1_ admin runs resource `vcloud_multisite_site_association` using `site2.xml` as input.
+6. _Site2_ admin runs resource `vcloud_multisite_site_association` using `site1.xml` as input.
 
 ## Workflow single-admin for a site association
 
 In this example, we will see the steps to associate `site1` with `site2`, assuming that the two sites are administered by
 the same person.
 
-1. Common admin produces the data using `vcd_multisite_site_data`, resulting in `site1.xml`.
-2. Common admin produces the data using `vcd_multisite_site_data`, resulting in `site2.xml`.
+1. Common admin produces the data using `vcloud_multisite_site_data`, resulting in `site1.xml`.
+2. Common admin produces the data using `vcloud_multisite_site_data`, resulting in `site2.xml`.
 3. `site1.xml` and `site2.xml` are converted to Terraform `local_file` data sources.
-4. Common admin runs resource `vcd_multisite_site_association` using `site2.xml` `local_file` data source as input.
-5. Common admin runs resource `vcd_multisite_site_association` using `site1.xml` `local_file` data source as input.
+4. Common admin runs resource `vcloud_multisite_site_association` using `site2.xml` `local_file` data source as input.
+5. Common admin runs resource `vcloud_multisite_site_association` using `site1.xml` `local_file` data source as input.
 
 See a full example for this workflow at [examples/site-all-at-once][site-all-at-once]
 
@@ -65,22 +65,22 @@ See a full example for this workflow at [examples/site-all-at-once][site-all-at-
 In this example, we will see the steps to associate `org1` with `org2`, assuming that the two organizations are administered by
 different persons.
 
-1. _Org1_ admin produces the data using `vcd_multisite_org_data`, resulting in `org1.xml`.
-2. _Org2_ admin produces the data using `vcd_multisite_org_data`, resulting in `org2.xml`.
+1. _Org1_ admin produces the data using `vcloud_multisite_org_data`, resulting in `org1.xml`.
+2. _Org2_ admin produces the data using `vcloud_multisite_org_data`, resulting in `org2.xml`.
 3. _Org1_ admin transfers `org1.xml` to _Org2_ admin.
 4. _Org2_ admin transfers `org2.xml` to _Org1_ admin.
-5. _Org1_ admin runs resource `vcd_multisite_org_association` using `org2.xml` as input.
-6. _Org2_ admin runs resource `vcd_multisite_org_association` using `org1.xml` as input.
+5. _Org1_ admin runs resource `vcloud_multisite_org_association` using `org2.xml` as input.
+6. _Org2_ admin runs resource `vcloud_multisite_org_association` using `org1.xml` as input.
 
 ## Workflow single-admin for an organization association
 
 In this example, we will see the steps to associate `org1` with `org2`, assuming that the two sites are administered by
 the same person (the system administrator).
 
-1. Common admin produces the data using `vcd_multisite_org_data`.
-2. Common admin produces the data using `vcd_multisite_org_data`.
-3. Common admin runs resource `vcd_multisite_org_association` using the field `association_data` from data source `vcd_multisite_site_data.org2` as input.
-4. Common admin runs resource `vcd_multisite_org_association` using the field `association_data` from data source `vcd_multisite_site_data.org2` as input.
+1. Common admin produces the data using `vcloud_multisite_org_data`.
+2. Common admin produces the data using `vcloud_multisite_org_data`.
+3. Common admin runs resource `vcloud_multisite_org_association` using the field `association_data` from data source `vcloud_multisite_site_data.org2` as input.
+4. Common admin runs resource `vcloud_multisite_org_association` using the field `association_data` from data source `vcloud_multisite_site_data.org2` as input.
 
 See a full example for this workflow at [examples/org-all-at-once][org-all-at-once]
 
@@ -89,10 +89,10 @@ See a full example for this workflow at [examples/org-all-at-once][org-all-at-on
 ### Data collection for a Site
 
 Each VCD has only one site. No names or ID are needed to identify it. The data source that performs the data collection
-is `vcd_multisite_site_data`:
+is `vcloud_multisite_site_data`:
 
 ```hcl
-data "vcd_multisite_site_data" "site1" {
+data "vcloud_multisite_site_data" "site1" {
   download_to_file = "site1.xml"
 }
 ```
@@ -104,12 +104,12 @@ Even if `download_to_file` is not specified, the data is still available in the 
 Each organization can have only one data collection entity. The only identification needed is the organization ID.
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-data "vcd_multisite_org_data" "org1" {
-  org_id           = data.vcd_org.my_org.id
+data "vcloud_multisite_org_data" "org1" {
+  org_id           = data.vcloud_org.my_org.id
   download_to_file = "org1.xml"
 }
 ```
@@ -128,7 +128,7 @@ Using the XML file (`site2.xml`) received from the other administrator, you can 
 
 ```hcl
 # As administrator of site1
-resource "vcd_multisite_site_association" "site1-site2" {
+resource "vcloud_multisite_site_association" "site1-site2" {
   association_data_file   = "site2.xml"
   connection_timeout_mins = 2
 }
@@ -142,7 +142,7 @@ For the association to be completed, the other administrator must perform the sa
 
 ```hcl
 # As administrator of site2
-resource "vcd_multisite_site_association" "site2-site1" {
+resource "vcloud_multisite_site_association" "site2-site1" {
   association_data_file   = "site1.xml"
   connection_timeout_mins = 2
 }
@@ -158,7 +158,7 @@ Using the XML file (`org2.xml`) received from the other administrator, you can r
 
 ```hcl
 # As administrator of org1
-resource "vcd_multisite_org_association" "org1-org2" {
+resource "vcloud_multisite_org_association" "org1-org2" {
   association_data_file   = "org2.xml"
   connection_timeout_mins = 2
 }
@@ -172,7 +172,7 @@ For the association to be completed, the other administrator must perform the sa
 
 ```hcl
 # As administrator of org2
-resource "vcd_multisite_org_association" "org2-org1" {
+resource "vcloud_multisite_org_association" "org2-org1" {
   association_data_file   = "org1.xml"
   connection_timeout_mins = 2
 }
@@ -180,8 +180,8 @@ resource "vcd_multisite_org_association" "org2-org1" {
 
 ### Checking the association completion
 
-When both sides of the association operation have been performed (in both `vcd_multisite_site_association` or 
-`vcd_multisite_org_association`), you can run `terraform apply` once more. This _update_ operation will use the
+When both sides of the association operation have been performed (in both `vcloud_multisite_site_association` or 
+`vcloud_multisite_org_association`), you can run `terraform apply` once more. This _update_ operation will use the
 field `connection_timeout_mins` to check the association status. 
 The expression `connection_timeout_mins = 2` means "check for up to
 two minutes whether the status of the connection is `ACTIVE`". If the association reaches the desired status within the
@@ -200,16 +200,16 @@ Note about `connection_timeout_mins`:
 
 You can use one of the two methods below:
 
-1. Run data source `vcd_resource_list` with `resource_type = "vcd_multisite_site_association"`
-2. Run data source `vcd_multisite_site`: it will show the number and the name of site associations.
+1. Run data source `vcloud_resource_list` with `resource_type = "vcloud_multisite_site_association"`
+2. Run data source `vcloud_multisite_site`: it will show the number and the name of site associations.
 
 ```hcl
-data "vcd_multisite_site" "sites" {
+data "vcloud_multisite_site" "sites" {
 }
 
-data "vcd_resource_list" "sites" {
+data "vcloud_resource_list" "sites" {
   name          = "sites"
-  resource_type = "vcd_multisite_site_association"
+  resource_type = "vcloud_multisite_site_association"
 }
 ```
 
@@ -217,38 +217,38 @@ data "vcd_resource_list" "sites" {
 
 You can use one of the two methods below:
 
-1. Run data source `vcd_resource_list` with `resource_type = "vcd_multisite_org_association"`
-2. Run data source `vcd_multisite_org_data`: it will show the number and the name of org associations.
+1. Run data source `vcloud_resource_list` with `resource_type = "vcloud_multisite_org_association"`
+2. Run data source `vcloud_multisite_org_data`: it will show the number and the name of org associations.
 
 ```hcl
-data "vcd_org" "my_org" {
+data "vcloud_org" "my_org" {
   name = "my-org"
 }
 
-data "vcd_multisite_org_data" "orgs" {
-  org_id = data.vcd_org.my_org.id
+data "vcloud_multisite_org_data" "orgs" {
+  org_id = data.vcloud_org.my_org.id
 }
 
-data "vcd_resource_list" "orgs" {
+data "vcloud_resource_list" "orgs" {
   name          = "orgs"
-  resource_type = "vcd_multisite_org_association"
+  resource_type = "vcloud_multisite_org_association"
 }
 ```
 
 ### Using site and organization association data sources
 
-To read an association data source (`vcd_multisite_site_association` or `vcd_multisite_org_association`) you need to
+To read an association data source (`vcloud_multisite_site_association` or `vcloud_multisite_org_association`) you need to
 provide the ID of the remote entity (`associated_site_id` or `associated_org_id`). This information is usually found in
 the association data file used to create the association (e.g. `site2.xml`).  To make the data source retrieval easier,
 you can either supply the associated entity ID, or the XML file used to create the association.
 In the examples below, the two data sources are equivalent:
 
 ```hcl
-data "vcd_multisite_site_association" "site1-site2a" {
+data "vcloud_multisite_site_association" "site1-site2a" {
   associated_site_id = "urn:vcloud:site:deadbeef-fcf3-414a-be95-a3e26cf1296b"
 }
 
-data "vcd_multisite_site_association" "site1-site2b" {
+data "vcloud_multisite_site_association" "site1-site2b" {
   association_data_file = "site2.xml"
 }
 ```

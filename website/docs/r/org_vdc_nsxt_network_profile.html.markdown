@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_vdc_nsxt_network_profile
+page_title: "VMware Cloud Director: vcloud_org_vdc_nsxt_network_profile
 sidebar_current: "docs-vcd-resource-vcd-org-vdc-nsxt-network-profile"
 description: |-
   Provides a resource to manage NSX-T Org VDC Network Profile.
@@ -18,24 +18,24 @@ configuration)
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "nsxt" {
+data "vcloud_org_vdc" "nsxt" {
   org  = "my-org"
   name = "my-vdc"
 }
 
-data "vcd_nsxt_edge_cluster" "first" {
+data "vcloud_nsxt_edge_cluster" "first" {
   org    = "my-org"
-  vdc_id = data.vcd_org_vdc.nsxt.id
+  vdc_id = data.vcloud_org_vdc.nsxt.id
   name   = "my-edge-cluster"
 }
 
-resource "vcd_org_vdc_nsxt_network_profile" "nsxt" {
+resource "vcloud_org_vdc_nsxt_network_profile" "nsxt" {
   org = "my-org"
   vdc = "my-vdc"
 
-  edge_cluster_id                                   = data.vcd_nsxt_edge_cluster.first.id
-  vdc_networks_default_segment_profile_template_id  = vcd_nsxt_segment_profile_template.complete.id
-  vapp_networks_default_segment_profile_template_id = vcd_nsxt_segment_profile_template.complete.id
+  edge_cluster_id                                   = data.vcloud_nsxt_edge_cluster.first.id
+  vdc_networks_default_segment_profile_template_id  = vcloud_nsxt_segment_profile_template.complete.id
+  vapp_networks_default_segment_profile_template_id = vcloud_nsxt_segment_profile_template.complete.id
 }
 ```
 
@@ -60,7 +60,7 @@ An existing an organization VDC NSX-T Network Profile configuration can be [impo
 this resource via supplying the full dot separated path to VDC. An example is below:
 
 ```
-terraform import vcd_org_vdc_nsxt_network_profile.my-cfg my-org.my-vdc
+terraform import vcloud_org_vdc_nsxt_network_profile.my-cfg my-org.my-vdc
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

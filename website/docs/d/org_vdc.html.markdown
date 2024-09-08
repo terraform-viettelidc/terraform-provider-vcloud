@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_org_vdc"
+page_title: "VMware Cloud Director: vcloud_org_vdc"
 sidebar_current: "docs-vcd-data-source-org-vdc"
 description: |-
   Provides an organization VDC data source.
@@ -18,13 +18,13 @@ Supported in provider *v2.5+*
 ## Example Usage
 
 ```hcl
-data "vcd_org_vdc" "my-org-vdc" {
+data "vcloud_org_vdc" "my-org-vdc" {
   org  = "my-org"
   name = "my-vdc"
 }
 
 output "provider_vdc" {
-  value = data.vcd_org_vdc.my-org-vdc.provider_vdc_name
+  value = data.vcloud_org_vdc.my-org-vdc.provider_vdc_name
 }
 
 ```

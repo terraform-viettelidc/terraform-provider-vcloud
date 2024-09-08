@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_nsxt_segment_profile_template"
+page_title: "VMware Cloud Director: vcloud_nsxt_segment_profile_template"
 sidebar_current: "docs-vcd-data-source-nsxt-segment-profile-template"
 description: |-
   Provides a data source to read NSX-T Segment Profile Templates.
@@ -15,7 +15,7 @@ Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T. Requires System Admin
 ## Example Usage (Complete example with all Segment Profiles)
 
 ```hcl
-data "vcd_nsxt_segment_profile_template" "complete" {
+data "vcloud_nsxt_segment_profile_template" "complete" {
   name = "my-segment-profile-template-name"
 }
 ```
@@ -28,5 +28,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All properties defined in [vcd_nsxt_segment_profile_template](/providers/vmware/vcd/latest/docs/resources/nsxt_segment_profile_template)
+All properties defined in [vcloud_nsxt_segment_profile_template](/providers/vmware/vcd/latest/docs/resources/nsxt_segment_profile_template)
 resource are available.

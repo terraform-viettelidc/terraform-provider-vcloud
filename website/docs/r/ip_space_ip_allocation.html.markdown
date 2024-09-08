@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcd_ip_space_ip_allocation"
+page_title: "VMware Cloud Director: vcloud_ip_space_ip_allocation"
 sidebar_current: "docs-vcd-resource-ip-space-ip-allocation"
 description: |-
   Provides a resource to manage IP Allocations within IP Spaces. It supports both - Floating IPs 
@@ -16,23 +16,23 @@ from IP Ranges) and IP Prefix (subnet) allocations with manual and automatic res
 ## Example Usage (Floating IP Usage for NAT rule)
 
 ```hcl
-resource "vcd_ip_space_ip_allocation" "public-floating-ip" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+resource "vcloud_ip_space_ip_allocation" "public-floating-ip" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
   type        = "FLOATING_IP"
 
-  depends_on = [vcd_nsxt_edgegateway.ip-space]
+  depends_on = [vcloud_nsxt_edgegateway.ip-space]
 }
 
-resource "vcd_nsxt_nat_rule" "dnat-floating-ip" {
+resource "vcloud_nsxt_nat_rule" "dnat-floating-ip" {
   org             = "v42"
-  edge_gateway_id = vcd_nsxt_edgegateway.ip-space.id
+  edge_gateway_id = vcloud_nsxt_edgegateway.ip-space.id
 
   name      = "IP Space integration"
   rule_type = "DNAT"
 
   # Using Floating IP From IP Space
-  external_address = vcd_ip_space_ip_allocation.public-floating-ip.ip_address
+  external_address = vcloud_ip_space_ip_allocation.public-floating-ip.ip_address
   internal_address = "77.77.77.1"
   logging          = true
 }
@@ -41,39 +41,39 @@ resource "vcd_nsxt_nat_rule" "dnat-floating-ip" {
 ## Example Usage (Manual Floating IP reservation)
 
 ```hcl
-resource "vcd_ip_space_ip_allocation" "public-floating-ip-manual" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+resource "vcloud_ip_space_ip_allocation" "public-floating-ip-manual" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
   type        = "FLOATING_IP"
   usage_state = "USED_MANUAL"
   description = "manually used floating IP"
 
-  depends_on = [vcd_nsxt_edgegateway.ip-space]
+  depends_on = [vcloud_nsxt_edgegateway.ip-space]
 }
 ```
 
 ## Example Usage (IP Prefix)
 
 ```hcl
-resource "vcd_ip_space_ip_allocation" "public-ip-prefix" {
-  org_id        = data.vcd_org.org1.id
-  ip_space_id   = vcd_ip_space.space1.id
+resource "vcloud_ip_space_ip_allocation" "public-ip-prefix" {
+  org_id        = data.vcloud_org.org1.id
+  ip_space_id   = vcloud_ip_space.space1.id
   type          = "IP_PREFIX"
   prefix_length = 29
 
-  depends_on = [vcd_nsxt_edgegateway.ip-space]
+  depends_on = [vcloud_nsxt_edgegateway.ip-space]
 }
 
-resource "vcd_network_routed_v2" "using-public-prefix" {
+resource "vcloud_network_routed_v2" "using-public-prefix" {
   org             = "v42"
   name            = "ip-space-backed-external-network"
-  edge_gateway_id = vcd_nsxt_edgegateway.ip-space.id
-  gateway         = cidrhost(vcd_ip_space_ip_allocation.public-ip-prefix.ip_address, 1)
-  prefix_length   = split("/", vcd_ip_space_ip_allocation.public-ip-prefix.ip_address)[1]
+  edge_gateway_id = vcloud_nsxt_edgegateway.ip-space.id
+  gateway         = cidrhost(vcloud_ip_space_ip_allocation.public-ip-prefix.ip_address, 1)
+  prefix_length   = split("/", vcloud_ip_space_ip_allocation.public-ip-prefix.ip_address)[1]
 
   static_ip_pool {
-    start_address = cidrhost(vcd_ip_space_ip_allocation.public-ip-prefix.ip_address, 2)
-    end_address   = cidrhost(vcd_ip_space_ip_allocation.public-ip-prefix.ip_address, 4)
+    start_address = cidrhost(vcloud_ip_space_ip_allocation.public-ip-prefix.ip_address, 2)
+    end_address   = cidrhost(vcloud_ip_space_ip_allocation.public-ip-prefix.ip_address, 4)
   }
 }
 ```
@@ -81,37 +81,37 @@ resource "vcd_network_routed_v2" "using-public-prefix" {
 ## Example Usage (Manual IP Prefix)
 
 ```hcl
-resource "vcd_ip_space_ip_allocation" "public-ip-prefix-manual" {
-  org_id        = data.vcd_org.org1.id
-  ip_space_id   = vcd_ip_space.space1.id
+resource "vcloud_ip_space_ip_allocation" "public-ip-prefix-manual" {
+  org_id        = data.vcloud_org.org1.id
+  ip_space_id   = vcloud_ip_space.space1.id
   type          = "IP_PREFIX"
   prefix_length = 30
   usage_state   = "USED_MANUAL"
   description   = "manually used IP Prefix"
 
-  depends_on = [vcd_nsxt_edgegateway.ip-space]
+  depends_on = [vcloud_nsxt_edgegateway.ip-space]
 }
 ```
 
 ## Example Usage (Specifying explicit value on VCD 10.4.2+)
 
 ```hcl
-resource "vcd_ip_space_ip_allocation" "public-floating-ip-2" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+resource "vcloud_ip_space_ip_allocation" "public-floating-ip-2" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
   type        = "FLOATING_IP"
   value       = "11.11.11.102"
 
-  depends_on = [vcd_nsxt_edgegateway.ip-space]
+  depends_on = [vcloud_nsxt_edgegateway.ip-space]
 }
 
-resource "vcd_ip_space_ip_allocation" "public-ip-prefix" {
-  org_id      = data.vcd_org.org1.id
-  ip_space_id = vcd_ip_space.space1.id
+resource "vcloud_ip_space_ip_allocation" "public-ip-prefix" {
+  org_id      = data.vcloud_org.org1.id
+  ip_space_id = vcloud_ip_space.space1.id
   type        = "IP_PREFIX"
   value       = "10.10.10.96/29"
 
-  depends_on = [vcd_nsxt_edgegateway.ip-space]
+  depends_on = [vcloud_nsxt_edgegateway.ip-space]
 }
 ```
 
@@ -134,8 +134,8 @@ The following arguments are supported:
 * `description` - (Optional) Can only be set when `usage_state=USED_MANUAL`
 
 ~> IP Allocation resources can be created only if there is a NSX-T Edge Gateway
-(`vcd_nsxt_edgegateway`) that is backed by the Provider Gateway (`vcd_external_network_v2`) with IP
-Space Uplinks (`vcd_ip_space_uplink`). Attempting to allocate IP Addresses before having an
+(`vcloud_nsxt_edgegateway`) that is backed by the Provider Gateway (`vcloud_external_network_v2`) with IP
+Space Uplinks (`vcloud_ip_space_uplink`). Attempting to allocate IP Addresses before having an
 Edge Gateway withing VDC will return errors of type `This operation is denied`.
 
 ## Attribute Reference
@@ -160,13 +160,13 @@ is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcd_ip_space_ip_allocation.ip org-name.ip-space-name.ip-allocation-type.ip-allocation-ip
+terraform import vcloud_ip_space_ip_allocation.ip org-name.ip-space-name.ip-allocation-type.ip-allocation-ip
 ```
 
 e.g.
 
 ```
-terraform import vcd_ip_space_ip_allocation.ip my-org.my-ip-space.FLOATING_IP.10.10.10.1
+terraform import vcloud_ip_space_ip_allocation.ip my-org.my-ip-space.FLOATING_IP.10.10.10.1
 ```
 
 `ip-allocation-type` reflects the value of field `type` and must be one of its values (`FLOATING_IP`

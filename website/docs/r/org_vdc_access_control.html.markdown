@@ -20,28 +20,28 @@ Supported in provider *v3.7+*
 
 ### Example Usage 1 (Giving VDC read only access to a couple of users)
 ```hcl
-data "vcd_org_user" "my-user" {
+data "vcloud_org_user" "my-user" {
   org  = "my-org" # Optional
   name = "my-user"
 }
 
-data "vcd_org_user" "my-user2" {
+data "vcloud_org_user" "my-user2" {
   org  = "my-org" # Optional
   name = "my-user2"
 }
 
-resource "vcd_org_vdc_access_control" "my_access_control" {
+resource "vcloud_org_vdc_access_control" "my_access_control" {
   org                  = "my-org" # Optional
   vdc                  = "my-vdc" # Optional
   shared_with_everyone = false
 
   shared_with {
-    user_id      = data.vcd_org_user.my-user.id
+    user_id      = data.vcloud_org_user.my-user.id
     access_level = "ReadOnly"
   }
 
   shared_with {
-    user_id      = data.vcd_org_user.my-user2.id
+    user_id      = data.vcloud_org_user.my-user2.id
     access_level = "ReadOnly"
   }
 }
@@ -49,7 +49,7 @@ resource "vcd_org_vdc_access_control" "my_access_control" {
 
 ### Example Usage 2 (Giving VDC read only access to everybody)
 ```hcl
-resource "vcd_org_vdc_access_control" "my_access_control" {
+resource "vcloud_org_vdc_access_control" "my_access_control" {
   org                   = "my-org" # Optional
   vdc                   = "my-vdc" # Optional
   shared_with_everyone  = true
@@ -59,7 +59,7 @@ resource "vcd_org_vdc_access_control" "my_access_control" {
 
 ### Example Usage 3 (Creating a VDC and setting VDC read only access to everybody)
 ```hcl
-resource "vcd_org_vdc" "my_vdc" {
+resource "vcloud_org_vdc" "my_vdc" {
   name = "my-vdc" # Optional
   org  = "my-org" # Optional
 
@@ -95,7 +95,7 @@ resource "vcd_org_vdc" "my_vdc" {
   include_vm_memory_overhead = false
 }
 
-resource "vcd_org_vdc_access_control" "my_access_control" {
+resource "vcloud_org_vdc_access_control" "my_access_control" {
   org                   = "my-org" # Optional
   vdc                   = "my-vdc" # Optional
   shared_with_everyone  = true
@@ -137,7 +137,7 @@ The path for this resource is made of org-name.vdc-name
 An example is below:
 
 ```
-terraform import vcd_org_vdc_access_control.my_access_control my-org.my-vdc
+terraform import vcloud_org_vdc_access_control.my_access_control my-org.my-vdc
 ```
 
 NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
