@@ -115,7 +115,7 @@ or using IDs:
 terraform import vcd_vapp_firewall_rules.my-rules my-org.my-vdc.vapp-id.network-id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -92,7 +92,7 @@ or using IDs:
 terraform import vcd_vapp_static_routing.my-rules my-org.my-vdc.vapp_id.network_id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

@@ -100,7 +100,7 @@ For example, you can import the "Customize Portal" UI Plugin into Terraform stat
 terraform import vcd_ui_plugin.my_plugin VMware."Customize Portal".3.1.4
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

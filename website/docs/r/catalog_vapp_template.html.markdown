@@ -226,7 +226,7 @@ terraform import vcd_catalog_vapp_template.my-vapp-template my-org.my-vdc.my-vap
 ```
 
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

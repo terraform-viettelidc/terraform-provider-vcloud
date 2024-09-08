@@ -210,7 +210,7 @@ An existing firewall rule can be [imported][docs-import] into this resource
 via supplying the full dot separated path for firewall rule. There are a few ways as per examples
 below.
 
-NOTE: The default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: The default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]: https://www.terraform.io/docs/import/
 

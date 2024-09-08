@@ -50,7 +50,7 @@ An example is below:
 terraform import vcd_security_tag.my-tag my-org.my-security-tag-name
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 
 [docs-import]:https://www.terraform.io/docs/import/

@@ -93,7 +93,7 @@ You can import such RDE Interface into Terraform state using this command
 terraform import vcd_rde_interface.outer_interface vmware.k8s.1.0.0.createKubeConfig
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

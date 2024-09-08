@@ -65,7 +65,7 @@ via supplying the full dot separated path for vApp Org Network. An example is be
 terraform import vcd_vapp_org_network.imported org-name.vdc-name.vapp-name.org-network-name
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 The above command would import the vApp Org Network named `org-network-name` that is defined on vApp 
 `vapp-name` which is configured in organization named `my-org` and VDC named `my-org-vdc`.

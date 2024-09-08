@@ -149,4 +149,4 @@ this resource via supplying the full dot separated path for Org VDC Network. An 
 terraform import vcd_nsxt_network_segment_profile.my-profile org-name.vdc-org-vdc-group-name.org_network_name
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR

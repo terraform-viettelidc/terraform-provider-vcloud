@@ -177,7 +177,7 @@ You can import such Runtime Defined Entity Type into Terraform state using this 
 terraform import vcd_rde_type.outer_rde_type bigcorp.tech.4.5.6
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

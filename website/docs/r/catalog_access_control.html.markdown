@@ -147,7 +147,7 @@ terraform import vcd_catalog_access_control.my-ac my-org.catalog-name
 terraform will import the structure using either the catalog name or its ID.
 
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 

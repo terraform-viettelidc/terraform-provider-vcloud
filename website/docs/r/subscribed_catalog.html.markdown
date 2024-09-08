@@ -126,7 +126,7 @@ terraform import vcd_subscribed_catalog.my-catalog my-org.my-catalog-name
 terraform import vcd_subscribed_catalog.my-catalog my-org.my-catalog-id
 ```
 
-NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCD_IMPORT_SEPARATOR
+NOTE: the default separator (.) can be changed using Provider.import_separator or variable VCLOUD_IMPORT_SEPARATOR
 
 [docs-import]:https://www.terraform.io/docs/import/
 
