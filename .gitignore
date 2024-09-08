@@ -25,12 +25,12 @@ website/node_modules
 *.test
 *.iml
 
-vcd/vcd_test_config*.json
-vcd/go-vcloud-director.log
+vcloud/vcd_test_config*.json
+vcloud/go-vcloud-director.log
 vcd/test-artifacts
 website/vendor
-vcd/org_user_pwd.txt
-vcd/vcd_test_pass_list*.txt
+vcloud/org_user_pwd.txt
+vcloud/vcd_test_pass_list*.txt
 tmp/
 examples/**/terraform.tfvars
 examples/**/.terraform*
@@ -40,8 +40,8 @@ examples/**/.terraform*
 !command/test-fixtures/**/.terraform/
 vcd/*-tests-end-in-node-*-*.txt
 vcd/*-tests-planned-in-node-*-*.txt
-vcd/*-tests-processed-in-node-*-*.txt
-vcd/*-tests-retrieved-in-node-*-*.txt
+vcloud/*-tests-processed-in-node-*-*.txt
+vcloud/*-tests-retrieved-in-node-*-*.txt
 vcd/*-out-*.txt
 
 # Go workspace
