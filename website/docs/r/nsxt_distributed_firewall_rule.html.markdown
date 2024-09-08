@@ -17,7 +17,7 @@ API provides no direct endpoint to create a single rule. To overcome this,
 and this call is serialized to avoid data conflicts.
 
 !> There is a different resource
-[`vcloud_nsxt_distributed_firewall`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
+[`vcloud_nsxt_distributed_firewall`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_distributed_firewall)
 that can manage all firewall rules in one resource. One should use **only one of**
 `vcloud_nsxt_distributed_firewall` or `vcloud_nsxt_distributed_firewall_rule` as using both will result in
 unexpected firewall configuration.
@@ -74,9 +74,9 @@ The following arguments are supported:
   created at the bottom of the list
 
 -> When activating Distributed Firewall with resource
-[`vcloud_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group), there is a default firewall
+[`vcloud_vdc_group`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vdc_group), there is a default firewall
 rule created which can make inconvenient to use this resource. For that reason, resource
-[`vcloud_vdc_group`](/providers/vmware/vcd/latest/docs/resources/vdc_group) has a parameter
+[`vcloud_vdc_group`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vdc_group) has a parameter
 `remove_default_firewall_rule` which can remove default firewall rule.
 
 * `vdc_group_id` - (Required) The ID of VDC Group to manage Distributed Firewall in. Can be looked

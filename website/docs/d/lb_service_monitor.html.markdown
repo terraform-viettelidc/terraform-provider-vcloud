@@ -11,9 +11,9 @@ description: |-
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Service Monitor data source. A service monitor 
 defines health check parameters for a particular type of network traffic. It can be associated with
 a pool. Pool members are monitored according to the service monitor parameters. See example usage of
-this data source in [server pool resource page](/providers/vmware/vcd/latest/docs/resources/lb_server_pool).
+this data source in [server pool resource page](/providers/terraform-viettelidc/vcloud/latest/docs/resources/lb_server_pool).
 
-~> **Note:** See additional support notes in [service monitor resource page](/providers/vmware/vcd/latest/docs/resources/lb_service_monitor).
+~> **Note:** See additional support notes in [service monitor resource page](/providers/terraform-viettelidc/vcloud/latest/docs/resources/lb_service_monitor).
 
 Supported in provider *v2.4+*
 

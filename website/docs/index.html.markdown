@@ -505,7 +505,7 @@ resource "vcloud_org" "my_org" {
 }
 ```
 
-Note that this argument **does not affect metadata of the [data source filters](/providers/vmware/vcd/latest/docs/guides/data_source_filters)**.
+Note that this argument **does not affect metadata of the [data source filters](/providers/terraform-viettelidc/vcloud/latest/docs/guides/data_source_filters)**.
 
 ## Connection Cache (*2.0+*)
 
@@ -514,7 +514,7 @@ multiple connections. There is a cache engine, disabled by default, which can be
 environment variable. When enabled, the provider will not reconnect, but reuse an active connection for up to 20 
 minutes, and then connect again.
 
-[service-account]: /providers/vmware/vcd/latest/docs/resources/service_account
+[service-account]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/service_account
 [service-account-script]: https://github.com/vmware/terraform-provider-vcd/blob/main/scripts/create_service_account.sh
-[api-token]: /providers/vmware/vcd/latest/docs/resource/api_token
+[api-token]: /providers/terraform-viettelidc/vcloud/latest/docs/resource/api_token
 

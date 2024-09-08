@@ -34,4 +34,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_nsxv_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxv_ip_set) resource are available.
+All the attributes defined in [`vcloud_nsxv_ip_set`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxv_ip_set) resource are available.

@@ -10,7 +10,7 @@ description: |-
 # vcd\_rde\_type\_behavior
 
 Provides the capability of reading RDE Type Behaviors in Viettel IDC Cloud, which override an existing [RDE Interface
-Behavior](/providers/vmware/vcd/latest/docs/data-sources/rde_interface_behavior).
+Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/rde_interface_behavior).
 
 Supported in provider *v3.10+*. Requires System Administrator privileges.
 
@@ -48,10 +48,10 @@ output "execution_id" {
 
 The following arguments are supported:
 
-* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/vmware/vcd/latest/docs/data-sources/rde_type) that owns the Behavior override
-* `rde_interface_behavior_id` - (Required) The ID of the original [RDE Interface Behavior](/providers/vmware/vcd/latest/docs/data-sources/rde_interface_behavior)
+* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/rde_type) that owns the Behavior override
+* `rde_interface_behavior_id` - (Required) The ID of the original [RDE Interface Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/rde_interface_behavior)
 
 ## Attribute Reference
 
 All the supported attributes are defined in the
-[RDE Type Behavior resource](/providers/vmware/vcd/latest/docs/resources/rde_type_behavior#argument-reference).
+[RDE Type Behavior resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior#argument-reference).

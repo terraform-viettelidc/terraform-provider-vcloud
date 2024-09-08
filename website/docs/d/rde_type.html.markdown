@@ -41,4 +41,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the supported attributes are defined in the
-[Runtime Defined Entity Type resource](/providers/vmware/vcd/latest/docs/resources/rde_type#argument-reference).
+[Runtime Defined Entity Type resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type#argument-reference).

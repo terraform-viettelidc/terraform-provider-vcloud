@@ -41,5 +41,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_alb_service_engine_group`](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
+[`vcloud_nsxt_alb_service_engine_group`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_service_engine_group)
 resource are available.

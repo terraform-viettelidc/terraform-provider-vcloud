@@ -14,7 +14,7 @@ internal networks for vApps to connect. This network is not attached to external
 Supported in provider *v2.5+*
 
 ~> **Note:** This data source supports only NSX-V backed Org VDC networks.
-Please use newer [`vcloud_network_isolated_v2`](/providers/vmware/vcd/latest/docs/data-sources/network_isolated_v2)
+Please use newer [`vcloud_network_isolated_v2`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/network_isolated_v2)
 data source which is compatible with NSX-T.
 
 ## Example Usage
@@ -64,7 +64,7 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All attributes defined in [isolated network resource](/providers/vmware/vcd/latest/docs/resources/network_isolated#attribute-reference) are supported.
+All attributes defined in [isolated network resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/network_isolated#attribute-reference) are supported.
 
 ## Filter arguments
 
@@ -74,4 +74,4 @@ All attributes defined in [isolated network resource](/providers/vmware/vcd/late
 * `ip` - (Optional) matches the IP of the resource using a regular expression.
 * `metadata` - (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/terraform-viettelidc/vcloud/latest/docs/guides/data_source_filters) for details and examples.

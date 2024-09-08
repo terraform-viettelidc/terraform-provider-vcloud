@@ -74,4 +74,4 @@ terraform import vcloud_service_account.imported my-org.my-service-account
 
 [service-accounts]: https://blogs.vmware.com/cloudprovider/2022/07/cloud-director-service-accounts.html
 [docs-import]: https://www.terraform.io/docs/import/
-[provider-service-account-token-file]: /providers/vmware/vcd/latest/docs#service_account_token_file
+[provider-service-account-token-file]: /providers/terraform-viettelidc/vcloud/latest/docs#service_account_token_file

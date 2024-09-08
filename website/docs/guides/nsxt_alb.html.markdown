@@ -40,26 +40,26 @@ A Service Engine Group has a unique set of compute characteristics that are defi
 The following list of resources and matching data sources exists to perform ALB infrastructure
 setup for providers:
 
-* [vcloud_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller)
-* [vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
-* [vcloud_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group)
+* [vcloud_nsxt_alb_controller](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_controller)
+* [vcloud_nsxt_alb_cloud](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_cloud)
+* [vcloud_nsxt_alb_service_engine_group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_service_engine_group)
 
 Additionally, there is a data source only to help lookup ALB Importable Clouds helping to populate 
-[vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud):
+[vcloud_nsxt_alb_cloud](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_cloud):
 
-* [vcloud_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)
+* [vcloud_nsxt_alb_importable_cloud](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_alb_importable_cloud)
 
 Above resources and data sources cover infrastructure setup for providers. The next two resources 
 still *require provider rights*, but help to enable ALB for tenants on particular NSX-T Edge Gateway:
 
-* [vcloud_nsxt_alb_settings](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_settings)
-* [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
+* [vcloud_nsxt_alb_settings](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_settings)
+* [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
 
 
 Finally, the remaining two resources help tenants to manage their ALB configurations:
 
-* [vcloud_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
-* [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service)
+* [vcloud_nsxt_alb_pool](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_pool)
+* [vcloud_nsxt_alb_virtual_service](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_virtual_service)
 
 -> Examples below demonstrate a working setup, but do not cover all capabilities. More information about capabilities of
 each resource are outlined in their own documentation pages.
@@ -71,13 +71,13 @@ each resource are outlined in their own documentation pages.
 The following snippet will do the following:
 
 * Register ALB Controller using
-  [vcloud_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller) resource
+  [vcloud_nsxt_alb_controller](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_controller) resource
 * Look up available Clouds to import using
-  [vcloud_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud) data source
-* Define ALB Cloud in VCLOUD using [vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
+  [vcloud_nsxt_alb_importable_cloud](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_alb_importable_cloud) data source
+* Define ALB Cloud in VCLOUD using [vcloud_nsxt_alb_cloud](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_cloud)
   resource
 * Define a Service Engine Group
-  [vcloud_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group) which
+  [vcloud_nsxt_alb_service_engine_group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_service_engine_group) which
   can later be assigned to tenant Edge Gateways
 
 
@@ -175,14 +175,14 @@ This part demonstrates how Tenant can handle Pools and Virtual Services once pro
 their part to enable ALB on NSX-T Edge Gateways. It will:
 
 * Look up existing NSX-T Edge Gateway using
-  [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway) data source
+  [vcloud_nsxt_edgegateway](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway) data source
 * Look up Service Engine Groups that are available for this NSX-T Edge Gateway using
-  [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
+  [vcloud_nsxt_alb_edgegateway_service_engine_group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_edgegateway_service_engine_group)
   data source
-* Set up an ALB Pool with 3 members using [vcloud_nsxt_alb_pool](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_pool)
+* Set up an ALB Pool with 3 members using [vcloud_nsxt_alb_pool](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_pool)
   resource
 * Expose a Virtual Service using
-  [vcloud_nsxt_alb_virtual_service](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_virtual_service) resource which
+  [vcloud_nsxt_alb_virtual_service](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_virtual_service) resource which
   combines all the data
 
 ```hcl

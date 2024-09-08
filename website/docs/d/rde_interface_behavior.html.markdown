@@ -45,4 +45,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the supported attributes are defined in the
-[RDE Interface Behavior resource](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior#argument-reference).
+[RDE Interface Behavior resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior#argument-reference).

@@ -27,5 +27,5 @@ No arguments are required because this is a global configuration for VCD
 ## Attribute Reference
 
 All the attributes defined in
-[`vcloud_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
+[`vcloud_solution_landing_zone`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_landing_zone)
 resource are available.

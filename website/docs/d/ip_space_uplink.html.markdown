@@ -29,4 +29,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_ip_space_uplink`](/providers/vmware/vcd/latest/docs/resources/ip_space_uplink) resource are available.
+[`vcloud_ip_space_uplink`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space_uplink) resource are available.

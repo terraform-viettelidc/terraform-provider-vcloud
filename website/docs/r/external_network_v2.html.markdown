@@ -18,7 +18,7 @@ backed ones.
 Provider Gateways**
 
 This resource supports **IP Spaces** - read [IP Spaces guide
-page](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/ip_spaces) for more
+page](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/ip_spaces) for more
 information.
 
 ## Example Usage (NSX-T Tier 0 Router backed External Network backed by IP Spaces)
@@ -259,15 +259,15 @@ The following arguments are supported:
 <a id="vspherenetwork"></a>
 ## vSphere Network
 
-* `vcenter_id` - (Required) vCenter ID. Can be looked up using [`vcloud_vcenter`](/providers/vmware/vcd/latest/docs/data-sources/vcenter) data source.
-* `portgroup_id` - (Required) vSphere portgroup ID. Can be looked up using  [`vcloud_portgroup`](/providers/vmware/vcd/latest/docs/data-sources/portgroup) data source.
+* `vcenter_id` - (Required) vCenter ID. Can be looked up using [`vcloud_vcenter`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/vcenter) data source.
+* `portgroup_id` - (Required) vSphere portgroup ID. Can be looked up using  [`vcloud_portgroup`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/portgroup) data source.
 
 <a id="nsxtnetwork"></a>
 ## NSX-T Network
 
-* `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcloud_nsxt_manager`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_manager) data source.
+* `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcloud_nsxt_manager`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_manager) data source.
 * `nsxt_tier0_router_id` - (Optional) NSX-T Tier-0 router ID. Can be looked up using
-  [`vcloud_nsxt_tier0_router`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_tier0_router) data source.
+  [`vcloud_nsxt_tier0_router`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_tier0_router) data source.
 * `nsxt_segment_name` - (Optional; *v3.4+*; *VCD 10.3+*) Existing NSX-T segment name.
 
 ## Importing
@@ -298,4 +298,4 @@ NOTE: the default separator (.) can be changed using Provider.import_separator o
 While the above structure is the minimum needed to get an import, it is not sufficient to run `terraform plan`,
 as it lacks several mandatory fields. To use the imported resource, you will need to add the missing properties
 using the data in `terraform.tfstate` as a reference. If the resource does not need modifications, consider using
-an [external network data source](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2) instead. 
+an [external network data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/external_network_v2) instead. 

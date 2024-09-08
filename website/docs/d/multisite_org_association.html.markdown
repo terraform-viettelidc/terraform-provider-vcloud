@@ -59,5 +59,5 @@ data "vcloud_multisite_org_association" "org1-org2" {
 
 ## More information
 
-See [Site and Org association](/providers/vmware/vcd/latest/docs/guides/site_org_association) for a broader description
+See [Site and Org association](/providers/terraform-viettelidc/vcloud/latest/docs/guides/site_org_association) for a broader description
 of association workflows.

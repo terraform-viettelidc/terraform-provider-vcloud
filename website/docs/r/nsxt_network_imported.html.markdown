@@ -15,7 +15,7 @@ Supported in provider *v3.2+* for NSX-T VDCs only.
 -> Starting with **v3.6.0** Terraform provider VCD supports NSX-T VDC Groups and `vdc` fields (in
 resource and inherited from provider configuration) are deprecated. New field `owner_id` supports
 IDs of both VDC and VDC Groups. More about VDC Group support in a [VDC Groups
-guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
+guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/vdc_groups).
 
 -> This is **not Terraform imported** resource, but a special **Imported** type of **Org VDC
 network** in NSX-T VDC. Read more about Imported Network in [official VCD

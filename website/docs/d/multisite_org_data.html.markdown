@@ -42,5 +42,5 @@ data "vcloud_multisite_org_data" "current_org" {
 
 ## More information
 
-See [Site and Org association](/providers/vmware/vcd/latest/docs/guides/site_org_association) for a broader description
+See [Site and Org association](/providers/terraform-viettelidc/vcloud/latest/docs/guides/site_org_association) for a broader description
 of association workflows.

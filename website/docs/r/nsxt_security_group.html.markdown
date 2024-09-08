@@ -19,7 +19,7 @@ number of distributed firewall rules to be created.
 -> Starting with **v3.6.0** `vcloud_nsxt_security_group` added support for VDC Groups.
 The `vdc` field (in resource or inherited from provider configuration) is deprecated, as `vcloud_nsxt_security_group` will
 inherit the VDC Group or VDC membership from a parent Edge Gateway specified in the `edge_gateway_id` field.
-More about VDC Group support in a [VDC Groups guide](/providers/vmware/vcd/latest/docs/guides/vdc_groups).
+More about VDC Group support in a [VDC Groups guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/vdc_groups).
 
 ## Example Usage 1 (Security Group with member networks)
 

@@ -39,29 +39,29 @@ Data Solution Extension configuration resources with their respective data sourc
 
 ### Solution Landing Zone and Add-On resources
 
-* [`vcloud_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
-* [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
-* [`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+* [`vcloud_solution_landing_zone`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_landing_zone)
+* [`vcloud_solution_add_on`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on)
+* [`vcloud_solution_add_on_instance`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on_instance)
 
 ### Data Solution Extension resources
 
-* [`vcloud_dse_registry_configuration`](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration)
-* [`vcloud_dse_solution_publish`](/providers/vmware/vcd/latest/docs/resources/dse_solution_publish)
+* [`vcloud_dse_registry_configuration`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/dse_registry_configuration)
+* [`vcloud_dse_solution_publish`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/dse_solution_publish)
 
 ### Rights management resources
 
 Additionally, after deploying a Solution Add-On, one can leverage resources and data sources for role
 management to provision access to new Add-On features:
 
-* [`vcloud_rights_bundle`](/providers/vmware/vcd/latest/docs/resources/rights_bundle)
-* [`vcloud_global_role`](/providers/vmware/vcd/latest/docs/resources/global_role)
+* [`vcloud_rights_bundle`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rights_bundle)
+* [`vcloud_global_role`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/global_role)
 
-[Read more about role and rights management.](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/roles_management)
+[Read more about role and rights management.](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management)
 
 ## Solution Landing Zone configuration (Step 1)
 
 The first step for deploying a Solution Add-On is to have a configured Solution Landing Zone and
-[`vcloud_solution_landing_zone`](/providers/vmware/vcd/latest/docs/resources/solution_landing_zone)
+[`vcloud_solution_landing_zone`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_landing_zone)
 does that. It requires specifying an Organization, Catalog, VDC, Routed Org VDC network and both -
 Storage and Compute policies. There can be only *one Solution Landing Zone per VCD*.
 
@@ -131,7 +131,7 @@ the catalog defined in Solution Landing Zones.
 
 Each Solution Add-On image file contains a certificate that must be trusted so that a Solution
 Add-On can be used. To do that automatically, one can leverage `auto_trust_certificate` within
-[`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on) resource.
+[`vcloud_solution_add_on`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on) resource.
 
 ```hcl
 resource "vcloud_catalog_media" "dse14" {
@@ -183,7 +183,7 @@ Each Solution Add-On comes with its own input values used for instantiation and 
 renders these values as an input form. It is not that trivial to provide such option for CLI
 applications, like Terraform. Terraform provider VCLOUD attempts to present as much convenience as
 possible by providing dynamic input validation in
-[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on_instance)
 resource.
 
 It works by reading the provided input schema of a Solution Add-On and dynamically validating
@@ -193,11 +193,11 @@ fields (example below).
 
 In the printed error message, each field has an `IsDelete` flag which defines whether it should be
 specified in `input` or `delete_input` value in
-[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on_instance)
 resource.
 
 All fields also have a `Required` flag which hints if they are mandatory or not. By default,
-[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on_instance)
 resource requires providing all `input` and `delete_input` values. If one doesn't want to specify
 some of the non-mandatory fields, it is possible to disable validation for the non required fields by
 setting `validate_only_required_inputs = true`.
@@ -250,7 +250,7 @@ be managed.
 Once DSE is deployed, the first step for a provider is to configure registry information for each
 Data Solution. Below is a minimized example that takes default registry values that come with Data
 Solution itself, but [resource
-docs](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration) have examples how to
+docs](/providers/terraform-viettelidc/vcloud/latest/docs/resources/dse_registry_configuration) have examples how to
 set up custom values.
 
 The last step of Data Solution configuration is publishing it to a given tenant.
@@ -281,7 +281,7 @@ by a Solution Add-On, one should have those new rights. This functionality has b
 Terraform provider VCD, but this is just a tiny example on how one can combine multiples rights
 bundles to create a new role and user.
 
-Read more about [roles and rights in a designated guide page](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/roles_management).
+Read more about [roles and rights in a designated guide page](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management).
 
 ```hcl
 data "vcloud_rights_bundle" "dse-rb" {
@@ -321,6 +321,6 @@ created user and find Data Solution *"MongoDB Community"* available.
 
 * [Deployment HCL example in Terraform provider VCD
   repository](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/data-solution-extension/)
-* [Roles and Rights guide for Terraform provider VCD](https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/roles_management)
+* [Roles and Rights guide for Terraform provider VCD](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management)
 * [Official Solution Add-On documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.5/VMware-Cloud-Director-Service-Provider-Admin-Guide/GUID-4F12C8F7-7CD3-44E8-9711-A5F43F8DCEB5.html)
 * [Data Solution Extension documentation](https://www.vmware.com/products/cloud-director/data-solutions.html)

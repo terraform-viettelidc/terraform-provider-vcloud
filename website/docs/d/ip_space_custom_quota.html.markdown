@@ -29,5 +29,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_ip_space_custom_quota`](/providers/vmware/vcd/latest/docs/resources/ip_space_custom_quota)
+[`vcloud_ip_space_custom_quota`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space_custom_quota)
 resource are available.

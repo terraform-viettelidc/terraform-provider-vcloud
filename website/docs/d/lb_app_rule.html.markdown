@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud Edge Gateway Load Balancer Application Rule data so
 rule allows to directly manipulate and manage IP application traffic with load balancer.
 
 ~> **Note:** See additional support notes in [application rule resource page]
-(/providers/vmware/vcd/latest/docs/resources/lb_app_rule).
+(/providers/terraform-viettelidc/vcloud/latest/docs/resources/lb_app_rule).
 
 Supported in provider *v2.4+*
 

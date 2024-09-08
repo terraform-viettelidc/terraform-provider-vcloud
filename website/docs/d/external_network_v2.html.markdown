@@ -35,5 +35,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All properties defined in [vcloud_external_network_v2](/providers/vmware/vcd/latest/docs/resources/external_network_v2)
+All properties defined in [vcloud_external_network_v2](/providers/terraform-viettelidc/vcloud/latest/docs/resources/external_network_v2)
 resource are available.

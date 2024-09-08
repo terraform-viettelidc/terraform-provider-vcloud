@@ -43,5 +43,5 @@ The following arguments are supported:
   source if user has insufficient rights.
 
 All other attributes are defined in [organization VDC
-resource](/providers/vmware/vcd/latest/docs/resources/org_vdc#attribute-reference) are supported.
+resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc#attribute-reference) are supported.
 

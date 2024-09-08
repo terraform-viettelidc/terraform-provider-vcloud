@@ -49,8 +49,8 @@ The following arguments are supported:
 * `vdc` - (Optional)  **Deprecated** - please use `owner_id` field. The name of VDC that owns the
   NSX-T Edge Gateway. Optional if defined at provider level.
 * `owner_id` - (Optional, *v3.6+*,*VCD 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
-  [vcloud_vdc_group](/providers/vmware/vcd/latest/docs/data-sources/vdc_group) or
-  [vcloud_org_vdc](/providers/vmware/vcd/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
+  [vcloud_vdc_group](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/vdc_group) or
+  [vcloud_org_vdc](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
   name.
 
 ~> Only one of `vdc` or `owner_id` can be specified. `owner_id` takes precedence over `vdc`
@@ -65,5 +65,5 @@ definition at provider level.
 
 ## Attribute reference
 
-All properties defined in [vcloud_nsxt_edgegateway](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway)
+All properties defined in [vcloud_nsxt_edgegateway](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway)
 resource are available.

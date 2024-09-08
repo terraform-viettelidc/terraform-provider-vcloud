@@ -87,14 +87,14 @@ The following arguments are supported:
 * `tenant_description` - (Optional) Description of the Organization VDC Template, as seen by the allowed tenants
 * `provider_vdc` - (Required) A block that defines a candidate location for the instantiated VDCs. There must be **at least one**, which has the following properties:
   * `id` - (Required) ID of the Provider VDC, can be obtained with
-  [`vcloud_provider_vdc` data source](/providers/vmware/vcd/latest/docs/data-sources/provider_vdc)
+  [`vcloud_provider_vdc` data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/provider_vdc)
   * `external_network_id` - (Required) ID of the Provider Gateway to use, can be obtained with
-  [`vcloud_external_network_v2` data source](/providers/vmware/vcd/latest/docs/data-sources/external_network_v2)
+  [`vcloud_external_network_v2` data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/external_network_v2)
   * `gateway_edge_cluster_id` - (Optional) ID of the Edge Cluster that the VDCs instantiated from this template will use with the Edge Gateway.
-  Can be obtained with [`vcloud_nsxt_edge_cluster` data source](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster).
+  Can be obtained with [`vcloud_nsxt_edge_cluster` data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edge_cluster).
   If set, a `edge_gateway` block **must** be present in the VDC Template configuration (see below).
   * `services_edge_cluster_id` - (Optional) ID of the Edge Cluster that the VDCs instantiated from this template will use for services.
-  Can be obtained with [`vcloud_nsxt_edge_cluster` data source](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edge_cluster)
+  Can be obtained with [`vcloud_nsxt_edge_cluster` data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edge_cluster)
 * `allocation_model` - (Required) Allocation model that the VDCs instantiated from this template will use.
   Must be one of: `AllocationVApp`, `AllocationPool`, `ReservationPool` or  `Flex`
 * `compute_configuration`: The compute configuration for the VDCs instantiated from this template:
@@ -128,7 +128,7 @@ The following arguments are supported:
 * `vm_quota` - (Optional) Quota for the VMs of the instantiated VDCs. 0 means unlimited. Defaults to 0
 * `provisioned_network_quota` - (Optional) Quota for the provisioned networks of the instantiated VDCs. Defaults to 1000
 * `readable_by_org_ids` - (Optional) A set of Organization IDs that will be able to view and read this VDC template, they can be obtained with
-  [`vcloud_org` data source](/providers/vmware/vcd/latest/docs/data-sources/org)
+  [`vcloud_org` data source](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/org)
 
 ## Importing
 

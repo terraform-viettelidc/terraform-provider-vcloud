@@ -53,7 +53,7 @@ resource "vcloud_rde_type" "my_rde_type" {
 
 ## Example Usage with Interface Behaviors
 
-~> Be aware that [RDE Interface Behaviors](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior) need to be created
+~> Be aware that [RDE Interface Behaviors](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior) need to be created
 **before** the Interface is used by any RDE Type, so you'll need to use `depends_on` in this case.
 
 ```hcl
@@ -131,15 +131,15 @@ The following arguments are supported:
 * `version` - (Required) The version of the Runtime Defined Entity Type. Must follow [semantic versioning](https://semver.org/) syntax.
 * `name` - (Required) The name of the Runtime Defined Entity Type.
 * `description` - (Optional) The description of the Runtime Defined Entity Type.
-* `interface_ids` - (Optional) The set of [Defined Interfaces](/providers/vmware/vcd/latest/docs/resources/rde_interface) that this Runtime Defined Entity Type will use.
+* `interface_ids` - (Optional) The set of [Defined Interfaces](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface) that this Runtime Defined Entity Type will use.
 * `schema` - (Optional) A string that specifies a valid JSON schema. It can be retrieved with Terraform functions such as `file`, `templatefile`, etc. Either `schema` or `schema_url` is required.
 * `schema_url` - (Optional) The URL that points to a valid JSON schema. Either `schema` or `schema_url` is required.
   If `schema_url` is used, the downloaded schema will be computed in the `schema` attribute.
   The referenced JSON schema will be downloaded on every read operation, and it will break Terraform operations if these contents are no longer present on the remote site.
   If you can't guarantee this, it is safer to use `schema`.
 * `external_id` - (Optional) An external entity's ID that this Runtime Defined Entity Type may apply to.
-* `hook` - (Optional; *v3.11+*) Each block maps a lifecycle event of [RDEs](/providers/vmware/vcd/latest/docs/resources/rde)  
-  to existing [Behaviors](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior), that will be
+* `hook` - (Optional; *v3.11+*) Each block maps a lifecycle event of [RDEs](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde)  
+  to existing [Behaviors](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_interface_behavior), that will be
   automatically invoked when the corresponding event is triggered. These blocks have the following properties:
   * `event`: Event that will invoke the Behavior, one of `PostCreate`, `PostUpdate`, `PreDelete`, `PostDelete`.
   * `behavior_id`: Existing Behavior that will be automatically invoked when any RDE of this RDE Type triggers the event.

@@ -11,7 +11,7 @@ description: |-
 The Distributed Firewall data source reads all defined rules for a particular VDC Group.
 
 -> There is a different data source
-[`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_distributed_firewall_rule)
+[`vcloud_nsxt_distributed_firewall_rule`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_distributed_firewall_rule)
 resource are available that can fetch a single firewall rule by name.
 
 ## Example Usage
@@ -39,5 +39,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_distributed_firewall`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall)
+[`vcloud_nsxt_distributed_firewall`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_distributed_firewall)
 resource are available.

@@ -43,4 +43,4 @@ names should be unique so that they can be distinguished.
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_nat_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_nat_rule) resource are available.
+[`vcloud_nsxt_nat_rule`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_nat_rule) resource are available.

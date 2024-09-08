@@ -34,9 +34,9 @@ The following arguments are supported:
 * `vdc` - (Optional) The name of VDC to use, optional if defined at provider level.
 * `edge_gateway` - (Required) The name of the edge gateway on which to apply the DNAT rule.
 * `rule_id` - (Required) ID of firewall rule (not UI number). See more information about firewall
-rule ID in `vcloud_nsxv_firewall_rule` [import section](/providers/vmware/vcd/latest/docs/resources/nsxv_firewall_rule#listing-real-firewall-rule-ids).
+rule ID in `vcloud_nsxv_firewall_rule` [import section](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxv_firewall_rule#listing-real-firewall-rule-ids).
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_nsxv_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxv_firewall_rule)
+All the attributes defined in [`vcloud_nsxv_firewall_rule`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxv_firewall_rule)
 resource are available.

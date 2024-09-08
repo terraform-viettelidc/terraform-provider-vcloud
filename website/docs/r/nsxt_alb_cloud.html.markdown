@@ -17,7 +17,7 @@ consists of an NSX-T Manager and an NSX-T Data Center transport zone.
 ~> Only `System Administrator` can create this resource.
 
 ~> VCD 10.3.0 has a caching bug which prevents listing importable clouds immediately (retrieved using
-[`vcloud_nsxt_alb_importable_cloud`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
+[`vcloud_nsxt_alb_importable_cloud`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_alb_importable_cloud)) after ALB
 Controller is created. This data should be available 15 minutes after the Controller is created.
 
 

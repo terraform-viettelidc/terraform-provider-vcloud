@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_org\_vdc\_template\_instance
 
-Provides a resource to instantiate VDCs from a [VDC Template](/providers/vmware/vcd/latest/docs/resources/org_vdc_template) in Viettel IDC Cloud.
+Provides a resource to instantiate VDCs from a [VDC Template](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc_template) in Viettel IDC Cloud.
 Supported in provider *v3.13+*
 
 ## Example Usage
@@ -111,7 +111,7 @@ When configuring the `vcloud_org_vdc_template_instance`, one must set the requir
 
 * When set to `true`, removing this resource will attempt to delete the VDC that it instantiated.
 
-  The flags `delete_force` and `delete_recursive` should be considered in this scenario, as they behave the same way as in [`vcloud_org_vdc`](/providers/vmware/vcd/latest/docs/resources/org_vdc).
+  The flags `delete_force` and `delete_recursive` should be considered in this scenario, as they behave the same way as in [`vcloud_org_vdc`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc).
 
 * When set to `false`, removing this resource will leave the instantiated VDC behind. This is useful when the VDC is being managed
 by Terraform after importing it to a `vcloud_org_vdc` (see section below), therefore this resource is not needed anymore.
@@ -121,7 +121,7 @@ save the changes in these flags.
 
 ## How to manage the VDC instantiated from a VDC Template using Terraform
 
-If users want to modify the new instantiated VDC, they can [import](/providers/vmware/vcd/latest/docs/guides/importing_resources#semi-automated-import-terraform-v15) it.
+If users want to modify the new instantiated VDC, they can [import](/providers/terraform-viettelidc/vcloud/latest/docs/guides/importing_resources#semi-automated-import-terraform-v15) it.
 In the same `.tf` file (once the VDC has been instantiated), or in a new one, we can place the following snippet: 
 
 ```hcl

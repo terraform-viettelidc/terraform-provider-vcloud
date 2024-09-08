@@ -30,5 +30,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_solution_add_on_instance_publish`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance_publish) resource are
+[`vcloud_solution_add_on_instance_publish`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on_instance_publish) resource are
 available.

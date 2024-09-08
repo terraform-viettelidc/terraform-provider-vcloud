@@ -70,7 +70,7 @@ The following arguments are supported:
 * `snat_rule_ip_address` - (Optional, VCD 10.5.0+) This argument only applies if the Edge Gateway 
   is connected to a Provider Gateway using IP Spaces. If specified, VCD will 
   conveniently manage the SNAT rule with the specified IP address for the DNS forwarder.
-  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/vmware/vcd/latest/docs/resources/ip_space_ip_allocation) 
+  The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space_ip_allocation) 
   If not specified, the IP address will be computed and chosen by VCD.
 * `default_forwarder_zone` - (Required) The default forwarder zone to use if 
   there’s no matching domain in the conditional forwarder zones. See [`default_forwarder_zone`](#default-forwarder-zone)
@@ -134,4 +134,4 @@ The above would import the `dns-imported` Edge Gateway DNS forwarder configurati
 Edge Gateway.
 
 [docs-import]: https://www.terraform.io/docs/import/
-[importing-resources]:https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/guides/importing_resources
+[importing-resources]:https://registry.terraform.io/providers/terraform-viettelidc/vcloud/3.10.0/docs/guides/importing_resources

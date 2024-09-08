@@ -33,5 +33,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the arguments from [the `vcloud_org_vdc_template` resource](/providers/vmware/vcd/latest/docs/resources/org_vdc_template) are available as read-only.
+All the arguments from [the `vcloud_org_vdc_template` resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc_template) are available as read-only.
 If you use this data source as a tenant, the attribute `readable_by_org_ids` must not be used (it will be always empty).

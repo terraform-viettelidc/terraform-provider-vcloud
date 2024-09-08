@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud Edge Gateway Load Balancer Server Pool data source.
 a group of backend servers (defined as pool members), manages load balancer distribution methods, and has a service 
 monitor attached to it for health check parameters.
 
-~> **Note:** See additional support notes in [server pool resource page](/providers/vmware/vcd/latest/docs/resources/lb_server_pool).
+~> **Note:** See additional support notes in [server pool resource page](/providers/terraform-viettelidc/vcloud/latest/docs/resources/lb_server_pool).
 
 Supported in provider *v2.4+*
 

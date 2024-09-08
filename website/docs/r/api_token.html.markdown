@@ -49,4 +49,4 @@ terraform import vcloud_api_token.example_token example_token
 
 [api-tokens]: https://blogs.vmware.com/cloudprovider/2022/03/cloud-director-api-token.html
 [docs-import]: https://www.terraform.io/docs/import/
-[provider-api-token-file]: /providers/vmware/vcd/latest/docs#api_token_file
+[provider-api-token-file]: /providers/terraform-viettelidc/vcloud/latest/docs#api_token_file

@@ -83,7 +83,7 @@ resource "vcloud_network_pool" "npool" {
 
 ## Example Usage 4 Retrieving backing elements
 
-The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/vmware/vcd/latest/docs/data_sources/resource_list), as in the example below
+The elements needed as backing for a network pool can be retrieved using [`vcloud_resource_list`](/providers/terraform-viettelidc/vcloud/latest/docs/data_sources/resource_list), as in the example below
 
 ```hcl
 data "vcloud_nsxt_manager" "mgr" {
@@ -236,4 +236,4 @@ After that, we can expand the configuration file and either update or delete the
 at this stage will show the difference between the minimal configuration file and the network pool's stored properties.
 
 [docs-import]:https://www.terraform.io/docs/import/
-[importing-resources]:https://registry.terraform.io/providers/vmware/vcd/3.10.0/docs/guides/importing_resources
+[importing-resources]:https://registry.terraform.io/providers/terraform-viettelidc/vcloud/3.10.0/docs/guides/importing_resources

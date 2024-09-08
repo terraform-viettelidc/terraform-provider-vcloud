@@ -72,7 +72,7 @@ resource "vcloud_solution_add_on" "dse14" {
 The following arguments are supported:
 
 * `catalog_item_id` - (Required) The catalog item ID of Solution Add-On. It can be uploaded using
-  [`vcloud_catalog_media`](/providers/vmware/vcd/latest/docs/resources/catalog_media)
+  [`vcloud_catalog_media`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_media)
 * `add_on_path` - (Required) Local filesystem path of Solution Add-On. The Add-On image is required
 locally as some of the metadata must be extracted for creating the Solution Add-On entry in Cloud
 Director.
@@ -87,9 +87,9 @@ The following attributes are exported on this resource:
 
 * `name` - reports the name of Solution Add-On as defined in the system. This name can be also used
   in data source
-  [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/data-sources/solution_add_on)
+  [`vcloud_solution_add_on`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/solution_add_on)
 * `state` - reports the state of parent [Runtime Defined
-  Entity](/providers/vmware/vcd/latest/docs/resources/rde)
+  Entity](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde)
 
 ## Importing
 

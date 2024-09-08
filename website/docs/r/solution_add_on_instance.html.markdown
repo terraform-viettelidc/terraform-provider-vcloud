@@ -48,7 +48,7 @@ resource "vcloud_solution_add_on" "dse14" {
 The following arguments are supported:
 
 * `add_on_id` - (Required) Existing Solution Add-On ID
-  [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
+  [`vcloud_solution_add_on`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on)
 * `accept_eula` - (Required) Solution Add-On Instance cannot be create if EULA is not accepted.
   Supplying a `false` value will print EULA.
 * `name` - (Required) Name of Solution Add-On Instance
@@ -71,7 +71,7 @@ operation
 The following attributes are exported on this resource:
 
 * `rde_state` - reports the state of parent [Runtime Defined
-  Entity](/providers/vmware/vcd/latest/docs/resources/rde)
+  Entity](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde)
 
 ## Importing
 

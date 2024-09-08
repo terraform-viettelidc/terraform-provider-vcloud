@@ -46,4 +46,4 @@ in favor of `edge_gateway_id` field.
 * `owner_id` - Parent VDC or VDC Group ID.
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_ip_set`](/providers/vmware/vcd/latest/docs/resources/nsxt_ip_set) resource are available.
+[`vcloud_nsxt_ip_set`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_ip_set) resource are available.

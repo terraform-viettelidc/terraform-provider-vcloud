@@ -9,7 +9,7 @@ description: |-
 # Container Service Extension v4.1 Kubernetes clusters management
 
 ~> **This guide is DEPRECATED since v3.12+**. You should use the resource
-[`vcloud_cse_kubernetes_cluster`](/providers/vmware/vcd/latest/docs/resources/cse_kubernetes_cluster)
+[`vcloud_cse_kubernetes_cluster`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/cse_kubernetes_cluster)
 to provision and manage Kubernetes clusters in a VCLOUD appliance where Container Service Extension is installed
 and running.
 
@@ -409,13 +409,13 @@ the update of these two properties.
 Once updated, one can monitor the `vcloud_rde` resource to check the deletion process. Eventually, the RDE won't exist anymore in VCLOUD and Terraform will
 ask for creation again. It can be now removed from the HCL configuration.
 
-[api_token]: /providers/vmware/vcd/latest/docs/resources/api_token
+[api_token]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/api_token
 [capvcd]: https://github.com/vmware/cluster-api-provider-cloud-director
 [capvcloud_templates]: https://github.com/vmware/cluster-api-provider-cloud-director/tree/main/templates
 [cluster]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/cluster
-[cse_install_guide]: /providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install
+[cse_install_guide]: /providers/terraform-viettelidc/vcloud/latest/docs/guides/container_service_extension_4_x_install
 [cse_docs]: https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/index.html
-[rde]: /providers/vmware/vcd/latest/docs/resources/rde
-[rde_input_vs_computed]: /providers/vmware/vcd/latest/docs/resources/rde#input-entity-vs-computed-entity
-[rde_type]: /providers/vmware/vcd/latest/docs/resources/rde_type
+[rde]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/rde
+[rde_input_vs_computed]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/rde#input-entity-vs-computed-entity
+[rde_type]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type
 [tkgmcluster_template]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/entities/tkgmcluster.json.template

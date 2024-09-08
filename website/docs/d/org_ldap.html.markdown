@@ -33,4 +33,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_org_ldap`](/providers/vmware/vcd/latest/docs/resources/org_ldap) resource are available.
+[`vcloud_org_ldap`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_ldap) resource are available.

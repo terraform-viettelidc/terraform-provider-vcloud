@@ -93,7 +93,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to use, optional if defined at 
   provider level. Useful when connected as sysadmin working across different organisations
 * `edge_gateway_id` - (Required) The ID of the Edge Gateway (NSX-T only). 
-  Can be looked up using [`vcloud_nsxt_edgegateway`](/providers/vmware/vcd/latest/docs/data-sources/nsxt_edgegateway) data source
+  Can be looked up using [`vcloud_nsxt_edgegateway`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_edgegateway) data source
 * `name` - (Required) The name of the tunnel.
 * `description` - (Optional) The description of the tunnel.
 * `session_mode` - (Required) Mode of the tunnel session (SERVER or CLIENT).
@@ -129,7 +129,7 @@ corresponds to the device on the remote site terminating the VPN tunnel.
 ## Stretched network
 
 * `network_id` - (Required) Network ID of a routed network on the Edge Gateway. 
-  Can be looked up using [`vcloud_network_routed_v2`](/providers/vmware/vcd/latest/docs/data-sources/network_routed_v2) 
+  Can be looked up using [`vcloud_network_routed_v2`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/network_routed_v2) 
   datasource.
 * `tunnel_id` - (Optional) Tunnel ID of the network on the tunnel. Required for 
   `CLIENT` mode sessions, computed for `SERVER` mode sessions.

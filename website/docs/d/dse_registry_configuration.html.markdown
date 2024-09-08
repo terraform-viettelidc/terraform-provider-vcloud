@@ -31,4 +31,4 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_dse_registry_configuration`](/providers/vmware/vcd/latest/docs/resources/dse_registry_configuration) resource are available.
+[`vcloud_dse_registry_configuration`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/dse_registry_configuration) resource are available.

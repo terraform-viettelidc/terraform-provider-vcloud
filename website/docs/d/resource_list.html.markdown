@@ -421,4 +421,4 @@ The following arguments are supported:
 
 * `list` - (Computed) The list of requested resources in the chosen format.
 
-[Import-resources]:https://registry.terraform.io/providers/vmware/vcd/latest/docs/guides/importing_resources
+[Import-resources]:https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/importing_resources

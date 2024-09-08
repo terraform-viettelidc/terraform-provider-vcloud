@@ -76,7 +76,7 @@ To find the ID of the associated site it might be necessary to inspect the XML f
 
 ## More information
 
-See [Site and Org association](/providers/vmware/vcd/latest/docs/guides/site_org_association) for a broader description
+See [Site and Org association](/providers/terraform-viettelidc/vcloud/latest/docs/guides/site_org_association) for a broader description
 of association workflows.
 
 [docs-import]: https://www.terraform.io/docs/import/

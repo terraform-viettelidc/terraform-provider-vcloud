@@ -47,5 +47,5 @@ make the filtering more precise by supplying `network_cidr` in addition to `name
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_nsxt_edgegateway_static_route`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_static_route)
+[`vcloud_nsxt_edgegateway_static_route`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway_static_route)
 resource are available.

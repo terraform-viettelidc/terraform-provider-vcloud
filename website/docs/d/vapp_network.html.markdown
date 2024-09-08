@@ -41,5 +41,5 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All attributes defined in [`vcloud_vapp_network`](/providers/vmware/vcd/latest/docs/resources/vapp_network#attribute-reference) are supported.
+All attributes defined in [`vcloud_vapp_network`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network#attribute-reference) are supported.
 

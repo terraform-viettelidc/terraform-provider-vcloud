@@ -38,5 +38,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_nsxt_network_dhcp`](/providers/vmware/vcd/latest/docs/resources/nsxt_network_dhcp)
+All the attributes defined in [`vcloud_nsxt_network_dhcp`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_network_dhcp)
 resource are available.

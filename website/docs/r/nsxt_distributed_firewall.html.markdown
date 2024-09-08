@@ -13,7 +13,7 @@ The Distributed Firewall allows user to segment organization virtual data center
 virtual machines, based on virtual machine names and attributes. 
 
 !> There is a different resource
-[`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
+[`vcloud_nsxt_distributed_firewall_rule`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_distributed_firewall_rule)
 that can manage firewall rules one by one. **Note.** One should use **only one of**
 `vcloud_nsxt_distributed_firewall` or `vcloud_nsxt_distributed_firewall_rule` as using both will result in
 unexpected firewall configuration.

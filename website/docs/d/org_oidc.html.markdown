@@ -32,4 +32,4 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the arguments and attributes from [the `vcloud_org_oidc` resource](/providers/vmware/vcd/latest/docs/resources/org_oidc) are available as read-only.
+All the arguments and attributes from [the `vcloud_org_oidc` resource](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_oidc) are available as read-only.

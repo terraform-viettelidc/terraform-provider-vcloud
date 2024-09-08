@@ -26,5 +26,5 @@ data "vcloud_solution_add_on_instance" "dse14" {
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
+[`vcloud_solution_add_on_instance`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on_instance)
 resource are available.

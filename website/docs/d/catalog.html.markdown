@@ -87,5 +87,5 @@ The `metadata_entry` (*v3.8+*) is a set of metadata entries that have the follow
   are set, it retrieves the oldest item.
 * `metadata` (Optional) One or more parameters that will match metadata contents.
 
-See [Filters reference](/providers/vmware/vcd/latest/docs/guides/data_source_filters) for details and examples.
+See [Filters reference](/providers/terraform-viettelidc/vcloud/latest/docs/guides/data_source_filters) for details and examples.
 

@@ -78,5 +78,5 @@ The following arguments are supported:
 
 ## Attributes reference
 
-This data source provides all attributes available for [`vcloud_vapp_vm`](/providers/vmware/vcd/latest/docs/data-sources/vapp_vm).
+This data source provides all attributes available for [`vcloud_vapp_vm`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/vapp_vm).
 

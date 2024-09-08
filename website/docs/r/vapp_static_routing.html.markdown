@@ -9,7 +9,7 @@ description: |-
 # vcd\_vapp\_static\_routing
 
 Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create,
-modify, and delete static routing rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
+modify, and delete static routing rules in a [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).
 
 ~> **Note:** Resource used for vApp network, not vApp Org network.
 
@@ -61,8 +61,8 @@ The following arguments are supported:
 
 * `org` - (Optional) The name of organization to use, optional if defined at provider level. Useful when connected as sysadmin working across different organisations.
 * `vdc` - (Optional) The name of VDC to use, optional if defined at provider level.
-* `vapp_id` - (Required) The identifier of [vApp](/providers/vmware/vcd/latest/docs/resources/vapp).
-* `network_id` - (Required) The identifier of [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
+* `vapp_id` - (Required) The identifier of [vApp](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp).
+* `network_id` - (Required) The identifier of [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).
 * `enabled` - (Optional) Enable or disable static Routing. Default is `true`.
 * `rule` - (Optional) Configures a static routing rule; see [Rules](#rules) below for details.
 

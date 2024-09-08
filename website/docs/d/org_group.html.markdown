@@ -35,4 +35,4 @@ The following arguments are supported:
 
 ## Attribute reference
 
-All attributes defined in [org_group](/providers/vmware/vcd/latest/docs/resources/org_group#attribute-reference) are supported.
+All attributes defined in [org_group](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_group#attribute-reference) are supported.

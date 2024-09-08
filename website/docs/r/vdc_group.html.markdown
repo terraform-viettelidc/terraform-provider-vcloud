@@ -49,7 +49,7 @@ The following arguments are supported:
 * `remove_default_firewall_rule` - (Optional, *3.10+*) Marks whether default firewall rule should be
   removed after activating. Both `dfw_enabled` and `default_policy_status` must be true. **Note.**
   This is mainly useful when using
-  [`vcloud_nsxt_distributed_firewall_rule`](/providers/vmware/vcd/latest/docs/resources/nsxt_distributed_firewall_rule)
+  [`vcloud_nsxt_distributed_firewall_rule`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_distributed_firewall_rule)
   resource as it cannot remove the default rule.
 * `force_delete` - (Optional, *3.11+*) When `true`, will request VCD to force VDC Group deletion. It
   should clean up child components. Default `false` (VCD may fail removing VDC Group if there are

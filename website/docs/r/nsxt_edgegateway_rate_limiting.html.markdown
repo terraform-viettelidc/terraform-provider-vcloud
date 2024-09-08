@@ -57,7 +57,7 @@ The following arguments are supported:
   means `unlimited`.
 
 -> Ingress and Egress profile IDs can be looked up using
-  [`vcloud_nsxt_edgegateway_qos_profile`](/providers/vmware/vcd/latest/docs/resources/nsxt_edgegateway_qos_profile)
+  [`vcloud_nsxt_edgegateway_qos_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_edgegateway_qos_profile)
   data source. 
 
 ## Importing

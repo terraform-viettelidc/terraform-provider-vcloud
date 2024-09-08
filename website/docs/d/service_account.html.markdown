@@ -31,5 +31,5 @@ The following arguments are supported:
 
 ## Attribute Reference
 
-All the attributes defined in [`vcloud_service_account`](/providers/vmware/vcd/latest/docs/resources/service_account)
+All the attributes defined in [`vcloud_service_account`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/service_account)
 resource except `file_name` and `allow_token_file` are available.

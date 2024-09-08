@@ -35,12 +35,12 @@ data "vcloud_solution_add_on" "dse14" {
 The following arguments are supported:
 
 * `name` - (Required) Solution Add-On name, e.g. `vmware.ds-1.4.0-23376809`. Solution Add-On
-  resource [`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on)
+  resource [`vcloud_solution_add_on`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on)
   `import` with `list@` capability can help listing available names.
 
 
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_solution_add_on`](/providers/vmware/vcd/latest/docs/resources/solution_add_on) resource are
+[`vcloud_solution_add_on`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_add_on) resource are
 available.

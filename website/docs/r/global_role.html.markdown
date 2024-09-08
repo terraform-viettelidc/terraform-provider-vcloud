@@ -79,5 +79,5 @@ at this stage will show the difference between the minimal configuration file an
 
 ## More information
 
-See [Roles management](/providers/vmware/vcd/latest/docs/guides/roles_management) for a broader description of how global roles and
+See [Roles management](/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management) for a broader description of how global roles and
 rights work together.

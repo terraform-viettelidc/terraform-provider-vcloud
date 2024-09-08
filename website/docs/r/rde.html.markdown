@@ -10,7 +10,7 @@ description: |-
 
 Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 
--> VCD allows to have multiple RDEs of the same [RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) with
+-> VCD allows to have multiple RDEs of the same [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) with
 the same name, meaning that they would be only distinguishable by their ID. This could lead to potential issues when fetching
 a unique RDE with the data source, so take this trait into account when creating them.
 
@@ -118,8 +118,8 @@ resource "vcloud_rde" "my-rde" {
 
 The following arguments are supported:
 
-* `org` - (Optional) Name of the [Organization](/providers/vmware/vcd/latest/docs/resources/org) that will own the RDE, optional if defined at provider level.
-* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/vmware/vcd/latest/docs/data-sources/rde_type) to instantiate. It only supports
+* `org` - (Optional) Name of the [Organization](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org) that will own the RDE, optional if defined at provider level.
+* `rde_type_id` - (Required) The ID of the [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/rde_type) to instantiate. It only supports
   updating to a **newer/lower** `version` of the **same** RDE Type.
 * `name` - (Required) The name of the Runtime Defined Entity. It can be non-unique.
 * `resolve` - (Required) If `true`, the Runtime Defined Entity will be resolved by this provider. If `false`, it won't be
@@ -140,10 +140,10 @@ The following attributes are supported:
 * `computed_entity` - The real state of this RDE in VCD. See [Input entity vs Computed entity](#input-entity-vs-computed-entity) below for details.
 * `entity_in_sync` - It's `true` when `computed_entity` is equal to either `input_entity` or the contents of `input_entity_url`,
   meaning that the computed RDE retrieved from VCD is synchronized with the input RDE.
-* `owner_user_id` - The ID of the [Organization user](/providers/vmware/vcd/latest/docs/resources/org_user) that owns this Runtime Defined Entity.
-* `org_id` - The ID of the [Organization](/providers/vmware/vcd/latest/docs/resources/org) to which the Runtime Defined Entity belongs.
+* `owner_user_id` - The ID of the [Organization user](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_user) that owns this Runtime Defined Entity.
+* `org_id` - The ID of the [Organization](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org) to which the Runtime Defined Entity belongs.
 * `state` - Specifies whether the entity is correctly resolved or not. When created it will be in `PRE_CREATED` state.
-  If the entity is correctly validated against its [RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) schema, the state will be `RESOLVED`,
+  If the entity is correctly validated against its [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) schema, the state will be `RESOLVED`,
   otherwise it will be `RESOLUTION_ERROR`.
 
 <a id="input-entity-vs-computed-entity"></a>
@@ -177,7 +177,7 @@ of `computed_entity` and `input_entity` to avoid overriding the whole entity by 
 ## RDE resolution
 
 When a RDE is created, its `state` will be `PRE_CREATED`, which means that the entity JSON was not validated against the
-[RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) schema. After resolution, `state` should be either `RESOLVED`
+[RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) schema. After resolution, `state` should be either `RESOLVED`
 or `RESOLUTION_ERROR` if the input JSON doesn't match the schema.
 
 The RDE must be eventually resolved to be used or deleted, and this operation can be done either by Terraform with

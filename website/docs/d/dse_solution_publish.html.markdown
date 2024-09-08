@@ -35,5 +35,5 @@ The following arguments are supported:
 ## Attribute Reference
 
 All the arguments and attributes defined in
-[`vcloud_dse_solution_publish`](/providers/vmware/vcd/latest/docs/resources/dse_solution_publish)
+[`vcloud_dse_solution_publish`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/dse_solution_publish)
 resource are available.
