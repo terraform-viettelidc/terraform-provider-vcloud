@@ -412,10 +412,10 @@ ask for creation again. It can be now removed from the HCL configuration.
 [api_token]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/api_token
 [capvcd]: https://github.com/vmware/cluster-api-provider-cloud-director
 [capvcloud_templates]: https://github.com/vmware/cluster-api-provider-cloud-director/tree/main/templates
-[cluster]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/cluster
+[cluster]: https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.1/cluster
 [cse_install_guide]: /providers/terraform-viettelidc/vcloud/latest/docs/guides/container_service_extension_4_x_install
 [cse_docs]: https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/index.html
 [rde]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/rde
 [rde_input_vs_computed]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/rde#input-entity-vs-computed-entity
 [rde_type]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type
-[tkgmcluster_template]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.1/entities/tkgmcluster.json.template
+[tkgmcluster_template]: https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.1/entities/tkgmcluster.json.template

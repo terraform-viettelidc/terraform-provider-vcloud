@@ -85,5 +85,5 @@ The following arguments are supported:
 
 There is no importing for this resource, as it should be used only on creation. A vApp can be imported using `vcloud_vapp`.
 See [Importing resources](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/3.10.0/docs/guides/importing_resources) for
-the theory and some [examples](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/importing/vapp-vm) in
+the theory and some [examples](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/importing/vapp-vm) in
 `terraform-provider-vcd` repository.

@@ -11,7 +11,7 @@ description: |-
 The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 
 Use the navigation to the left to read about the available resources. Please refer to
-[CHANGELOG.md](https://github.com/vmware/terraform-provider-vcd/blob/main/CHANGELOG.md)
+[CHANGELOG.md](https://github.com/terraform-viettelidc/terraform-provider-vcloud/blob/main/CHANGELOG.md)
 to track feature additions.
 
 ~> **NOTE:** The Viettel IDC Cloud Provider documentation pages include *v2.x+* or *v3.x+* labels in resource and/or field
@@ -515,6 +515,6 @@ environment variable. When enabled, the provider will not reconnect, but reuse a
 minutes, and then connect again.
 
 [service-account]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/service_account
-[service-account-script]: https://github.com/vmware/terraform-provider-vcd/blob/main/scripts/create_service_account.sh
+[service-account-script]: https://github.com/terraform-viettelidc/terraform-provider-vcloud/blob/main/scripts/create_service_account.sh
 [api-token]: /providers/terraform-viettelidc/vcloud/latest/docs/resource/api_token
 

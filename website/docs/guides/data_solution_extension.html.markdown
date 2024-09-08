@@ -23,7 +23,7 @@ The Solution Add-Ons come packed as `.iso` files and Terraform Provider for VCLO
 leveraging them to configure Solution Add-Ons within VCD.
 
 *Note:* For a more hands-on experience, one can check [DSE deployment
-examples](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/data-solution-extension/).
+examples](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/data-solution-extension/).
 
 ## Data Solution Extension (DSE)
 
@@ -320,7 +320,7 @@ created user and find Data Solution *"MongoDB Community"* available.
 ## References
 
 * [Deployment HCL example in Terraform provider VCD
-  repository](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/data-solution-extension/)
+  repository](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/data-solution-extension/)
 * [Roles and Rights guide for Terraform provider VCD](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management)
 * [Official Solution Add-On documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.5/VMware-Cloud-Director-Service-Provider-Admin-Guide/GUID-4F12C8F7-7CD3-44E8-9711-A5F43F8DCEB5.html)
 * [Data Solution Extension documentation](https://www.vmware.com/products/cloud-director/data-solutions.html)

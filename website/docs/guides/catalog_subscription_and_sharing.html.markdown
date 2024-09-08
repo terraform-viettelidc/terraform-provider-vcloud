@@ -227,7 +227,7 @@ Thus, we have two ways of operating:
   will happen every time the resource is read, which may introduce some delays in the operations if you were expecting
   `terraform refresh` to be quick. Despite the possible side effects, this is the recommended way.
 
-In the [examples directory](https://github.com/vmware/terraform-provider-vcd/examples/subscribed_catalog) we can see a full
+In the [examples directory](https://github.com/terraform-viettelidc/terraform-provider-vcloud/examples/subscribed_catalog) we can see a full
 example of a published and a subscribed catalog.
 
 ### Synchronisation fine tuning

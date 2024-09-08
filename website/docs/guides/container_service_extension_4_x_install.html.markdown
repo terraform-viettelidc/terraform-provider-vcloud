@@ -30,7 +30,7 @@ In order to complete the steps described in this guide, please be aware:
 
 ## Installation process
 
--> To install CSE 4.2, this guide will make use of the example Terraform configuration located [here](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/install).
+-> To install CSE 4.2, this guide will make use of the example Terraform configuration located [here](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/install).
 You can check it, customise it to your needs and apply. However, reading this guide first is recommended to understand what it does and how to use it.
 
 The installation process is split in two independent steps that must be run one after the other:
@@ -77,7 +77,7 @@ To customise it, the [step 1 configuration][step1] asks for the following variab
 
 * `vcdkeconfig_template_filepath` references a local file that defines the `VCDKEConfig` [RDE][rde] contents.
   It should be a JSON file with template variables that Terraform can interpret, like
-  [the RDE template file for CSE 4.2](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/entities/vcdkeconfig.json.template)
+  [the RDE template file for CSE 4.2](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/entities/vcdkeconfig.json.template)
   used in the step 1 configuration, that can be rendered correctly with the Terraform built-in function `templatefile`.
   (Note: In `terraform.tfvars.example` the path for the CSE 4.2 RDE contents is already provided).
 * `capvcloud_version`: The version for CAPVCD. Must be **"1.2.0"** for CSE 4.2.0, or **"1.3.0"** for CSE 4.2.1.
@@ -576,8 +576,8 @@ Once all clusters are removed in the background by CSE Server, you may destroy t
 [role]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/role
 [routed_network]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/network_routed_v2
 [sizing]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/vm_sizing_policy
-[step1]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/install/step1
-[step2]: https://github.com/vmware/terraform-provider-vcd/tree/main/examples/container-service-extension/v4.2/install/step2
+[step1]: https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/install/step1
+[step2]: https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/container-service-extension/v4.2/install/step2
 [tkgm_docs]: https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/index.html
 [user]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/org_user
 [ui_plugin]: /providers/terraform-viettelidc/vcloud/latest/docs/resources/ui_plugin
