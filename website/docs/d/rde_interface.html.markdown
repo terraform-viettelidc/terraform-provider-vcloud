@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_interface"
+page_title: "Viettel IDC Cloud: vcloud_rde_interface"
 sidebar_current: "docs-vcd-data-source-rde-interface"
 description: |-
-   Provides the capability of fetching an existing Runtime Defined Entity Interface from VMware Cloud Director.
+   Provides the capability of fetching an existing Runtime Defined Entity Interface from Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_interface
 
-Provides the capability of fetching an existing Runtime Defined Entity Interface from VMware Cloud Director.
+Provides the capability of fetching an existing Runtime Defined Entity Interface from Viettel IDC Cloud.
 
 Supported in provider *v3.9+*
 

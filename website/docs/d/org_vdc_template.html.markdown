@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc_template"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc_template"
 sidebar_current: "docs-vcd-data-source-org-vdc-template"
 description: |-
-  Provides a data source to read Organization VDC Templates from VMware Cloud Director.
+  Provides a data source to read Organization VDC Templates from Viettel IDC Cloud.
 ---
 
 # vcd\_org\_vdc\_template
 
-Provides a data source to read Organization VDC Templates from VMware Cloud Director.
+Provides a data source to read Organization VDC Templates from Viettel IDC Cloud.
 Can be used by System Administrators or tenants, only if the template is published in that tenant.
 
 Supported in provider *v3.13+*

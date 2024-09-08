@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_resource_list"
+page_title: "Viettel IDC Cloud: vcloud_resource_list"
 sidebar_current: "docs-vcd-datasource-resource-list"
 description: |-
   Provides lists of VCD resources
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_resource_list
 
-Provides a VMware Cloud Director generic data source. It provides a list of existing resources in various formats.
+Provides a Viettel IDC Cloud generic data source. It provides a list of existing resources in various formats.
 Some of these lists are only informative (i.e. users will look at them to get general information about the existing
 resources) and some are usable directly from Terraform, where the list can be re-used to create data sources, and the
 data sources in turn can help generate more resources. 

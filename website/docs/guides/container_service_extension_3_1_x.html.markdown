@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Container Service Extension v3.1.x"
+page_title: "Viettel IDC Cloud: Container Service Extension v3.1.x"
 sidebar_current: "docs-vcd-guides-cse-3-1-x"
 description: |-
-  Provides guidance on configuring VCD to be able to install Container Service Extension v3.1.x.
+  Provides guidance on configuring VCLOUD to be able to install Container Service Extension v3.1.x.
 ---
 
 # Container Service Extension v3.1.x
@@ -13,8 +13,8 @@ description: |-
 
 ## About
 
-This guide describes the required steps to configure VCD to install the Container Service Extension (CSE) v3.1.x, that
-will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on VCD using the UI. For that purpose, after completing the steps described below you
+This guide describes the required steps to configure VCLOUD to install the Container Service Extension (CSE) v3.1.x, that
+will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on VCLOUD using the UI. For that purpose, after completing the steps described below you
 will need also to **publish the Container UI Plugin** to the desired tenants and **run the CSE server** in your infrastructure.
 
 To know more about CSE v3.1.x, you can explore [the official website](https://vmware.github.io/container-service-extension/).
@@ -23,7 +23,7 @@ To know more about CSE v3.1.x, you can explore [the official website](https://vm
 
 In order to complete the steps described in this guide, please be aware:
 
-* CSE v3.1.x is supported from VCD v10.3.1 or above, make sure your VCD appliance matches the criteria.
+* CSE v3.1.x is supported from VCLOUD v10.3.1 or above, make sure your VCLOUD appliance matches the criteria.
 * Terraform provider needs to be v3.8.0 or above.
 * All CSE elements use NSX-T backed resources, NSX-V **is not** is supported.
 * Some steps require the usage of `cse` extension for `vcd` CLI. Make sure you have them installed and working.
@@ -34,7 +34,7 @@ In order to complete the steps described in this guide, please be aware:
 
 -> You can find examples of a fully automated CSE installation in the [Examples](#examples) section below.
 
-To start installing CSE v3.1.x in a VCD appliance, you must use **v3.7.0 or above** of the VCD Terraform Provider:
+To start installing CSE v3.1.x in a VCLOUD appliance, you must use **v3.7.0 or above** of the VCLOUD Terraform Provider:
 
 ```hcl
 provider "vcd" {
@@ -126,7 +126,7 @@ data "vcloud_nsxt_manager" "main" {
 }
 
 data "vcloud_nsxt_tier0_router" "router" {
-  name            = "VCD T0 edgeCluster"
+  name            = "VCLOUD T0 edgeCluster"
   nsxt_manager_id = data.vcloud_nsxt_manager.main.id
 }
 
@@ -244,7 +244,7 @@ where the full ALB setup is provided.
 ### Step 4: Create a Service Account
 
 It is **recommended** using a user with CSE Service Role for CSE server management.
-The role comes with all the VCD rights that CSE needs to function:
+The role comes with all the VCLOUD rights that CSE needs to function:
 
 ```hcl
 resource "vcloud_role" "cse-service-role" {
@@ -675,13 +675,13 @@ resource "vcloud_rights_bundle" "published-cse-rights-bundle" {
 ### Final step
 
 After applying all the above resources successfully, make sure you publish the **Container UI Plugin** to the desired tenants.
-To do this, login in VCD as System administrator, click on "More" in the top bar, then "Customize Portal".
+To do this, login in VCLOUD as System administrator, click on "More" in the top bar, then "Customize Portal".
 You will see a list of plugins, you need to publish **Container UI Plugin** to the target tenant.
 
 Finally, **run the CSE server** in your infrastructure, by executing `cse run -c config.yaml`. Take into account that server
 will start running indefinitely, so plan to execute this command in a dedicated place.
 
-The `cse run` command should fetch all resources and OVAs and allow the tenant users to provision Kubernetes clusters in VCD web UI.
+The `cse run` command should fetch all resources and OVAs and allow the tenant users to provision Kubernetes clusters in VCLOUD web UI.
 If they have the required rights from the role created in previous step, they should now be able to see the "Kubernetes Container Clusters"
 option in the "More" option in the top bar.
 

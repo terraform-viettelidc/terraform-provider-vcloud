@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_oidc"
+page_title: "Viettel IDC Cloud: vcloud_org_oidc"
 sidebar_current: "docs-vcd-data-source-org-oidc"
 description: |-
-  Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in VMware Cloud Director.
+  Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 ---
 
 # vcd\_org\_oidc
 
-Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in VMware Cloud Director.
+Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 
 Supported in provider *v3.13+*.
 

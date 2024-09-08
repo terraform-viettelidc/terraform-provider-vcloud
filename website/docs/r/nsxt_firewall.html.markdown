@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_firewall"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_firewall"
 sidebar_current: "docs-vcd-data-source-nsxt-firewall"
 description: |-
   Provides a resource to manage NSX-T Firewall. Firewalls allow user to control the incoming and 

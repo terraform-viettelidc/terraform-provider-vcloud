@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_multisite_site_association"
+page_title: "Viettel IDC Cloud: vcloud_multisite_site_association"
 sidebar_current: "docs-vcd-resource-multisite-site-association"
 description: |-
-  Provides a resource to create, read, and modify a VMware Cloud Director site association with the current site.
+  Provides a resource to create, read, and modify a Viettel IDC Cloud site association with the current site.
 ---
 
 # vcd\_multisite\_site\_association
 
-Provides a resource to create, read, and modify a VMware Cloud Director site association.
+Provides a resource to create, read, and modify a Viettel IDC Cloud site association.
 
 ~> Note: this resource requires System Administrator privileges
 

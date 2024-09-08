@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_multisite_site"
+page_title: "Viettel IDC Cloud: vcloud_multisite_site"
 sidebar_current: "docs-vcd-data-source-multisite-site"
 description: |-
-  Provides a data source to read a VMware Cloud Director Site in the context of multi-site operations.
+  Provides a data source to read a Viettel IDC Cloud Site in the context of multi-site operations.
 ---
 
 # vcd\_multisite\_site
 
-Provides a data source to read a VMware Cloud Director Site in the context of multi-site operatioos
+Provides a data source to read a Viettel IDC Cloud Site in the context of multi-site operatioos
 
 Supported in provider *v3.13+*
 

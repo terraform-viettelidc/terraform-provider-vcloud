@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_cse_kubernetes_cluster"
+page_title: "Viettel IDC Cloud: vcloud_cse_kubernetes_cluster"
 sidebar_current: "docs-vcd-resource-cse-kubernetes-cluster"
 description: |-
-  Provides a resource to manage Kubernetes clusters in VMware Cloud Director with Container Service Extension installed and running.
+  Provides a resource to manage Kubernetes clusters in Viettel IDC Cloud with Container Service Extension installed and running.
 ---
 
 # vcd\_cse\_kubernetes\_cluster
 
-Provides a resource to manage Kubernetes clusters in VMware Cloud Director with Container Service Extension (CSE) installed and running.
+Provides a resource to manage Kubernetes clusters in Viettel IDC Cloud with Container Service Extension (CSE) installed and running.
 
 Supported in provider *v3.12+*
 
@@ -19,7 +19,7 @@ Supports the following **Container Service Extension** versions:
 * [4.2.0](https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/4.2/rn/vmware-cloud-director-container-service-extension-42-release-notes/index.html)
 * [4.2.1](https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/4.2.1/rn/vmware-cloud-director-container-service-extension-421-release-notes/index.html)
 
--> To install CSE in VMware Cloud Director, please follow [this guide](/providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install)
+-> To install CSE in Viettel IDC Cloud, please follow [this guide](/providers/vmware/vcd/latest/docs/guides/container_service_extension_4_x_install)
 
 ## Example Usage
 

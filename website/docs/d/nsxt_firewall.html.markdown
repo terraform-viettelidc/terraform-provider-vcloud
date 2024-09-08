@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_firewall"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_firewall"
 sidebar_current: "docs-vcd-resource-nsxt-firewall"
 description: |-
   Provides a data source to read NSX-T Firewall configuration of an Edge Gateway. Firewalls allow 

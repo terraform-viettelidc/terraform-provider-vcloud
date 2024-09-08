@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_right"
+page_title: "Viettel IDC Cloud: vcloud_right"
 sidebar_current: "docs-vcd-data-source-right"
 description: |-
- Provides a VMware Cloud Director Organization Right data source. This can be used to read existing rights
+ Provides a Viettel IDC Cloud Organization Right data source. This can be used to read existing rights
 ---
 
 # vcd\_right

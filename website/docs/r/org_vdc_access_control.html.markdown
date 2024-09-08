@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: org_vdc_access_control"
+page_title: "Viettel IDC Cloud: org_vdc_access_control"
 sidebar_current: "docs-vcd-resource-org-vdc-access-control"
 description: |-
-Provides a VMware Cloud Director Org VDC access control resource. This can be
+Provides a Viettel IDC Cloud Org VDC access control resource. This can be
 used to share VDC across users or groups.
 ---
 
 # vcd\_org\_vdc\_access\_control
 
-Provides a VMware Cloud Director Org VDC access control resource. This can be
+Provides a Viettel IDC Cloud Org VDC access control resource. This can be
 used to share VDC across users and/or groups.
 
 Supported in provider *v3.7+*

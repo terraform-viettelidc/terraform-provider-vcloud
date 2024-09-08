@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ui_plugin"
+page_title: "Viettel IDC Cloud: vcloud_ui_plugin"
 sidebar_current: "docs-vcd-resource-ui-plugin"
 description: |-
-  Provides a VMware Cloud Director UI Plugin resource. This can be used to manage UI Plugins.
+  Provides a Viettel IDC Cloud UI Plugin resource. This can be used to manage UI Plugins.
 ---
 
 # vcd\_ui\_plugin
 
-Provides a VMware Cloud Director UI Plugin resource. This can be used to manage UI Plugins in VCD, for example to add a new
+Provides a Viettel IDC Cloud UI Plugin resource. This can be used to manage UI Plugins in VCD, for example to add a new
 plugin from a local ZIP file, to publish/unpublish a UI Plugin to different Organizations, etc.
 
 -> Managing UI Plugins requires System Administrator privileges.

@@ -1,17 +1,17 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Container Service Extension 4.2 installation"
+page_title: "Viettel IDC Cloud: Container Service Extension 4.2 installation"
 sidebar_current: "docs-vcd-guides-cse-4-x-install"
 description: |-
-  Provides guidance on configuring VCD to be able to install and use Container Service Extension 4.2
+  Provides guidance on configuring VCLOUD to be able to install and use Container Service Extension 4.2
 ---
 
 # Container Service Extension 4.2 installation
 
 ## About
 
-This guide describes the required steps to configure VCD to install the Container Service Extension (CSE) 4.2, that
-will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on VCD using Terraform or the UI.
+This guide describes the required steps to configure VCLOUD to install the Container Service Extension (CSE) 4.2, that
+will allow tenant users to deploy **Tanzu Kubernetes Grid Multi-cloud (TKGm)** clusters on VCLOUD using Terraform or the UI.
 
 To know more about CSE [4.2](https://docs.vmware.com/en/VMware-Cloud-Director-Container-Service-Extension/4.2/rn/vmware-cloud-director-container-service-extension-42-release-notes/index.html),
 you can visit [the documentation][cse_docs].
@@ -22,8 +22,8 @@ you can visit [the documentation][cse_docs].
 
 In order to complete the steps described in this guide, please be aware:
 
-* CSE 4.2 is supported from VCD v10.4.2 or above, as specified in the [Product Interoperability Matrix][product_matrix].
-  Please check that the target VCD appliance matches the criteria.
+* CSE 4.2 is supported from VCLOUD v10.4.2 or above, as specified in the [Product Interoperability Matrix][product_matrix].
+  Please check that the target VCLOUD appliance matches the criteria.
 * Terraform provider needs to be v3.12.0 or above.
 * Both CSE Server and the Bootstrap clusters require outbound Internet connectivity.
 * CSE 4.2 makes use of [ALB](/providers/vmware/vcd/latest/docs/guides/nsxt_alb) capabilities.
@@ -99,7 +99,7 @@ To customise it, the [step 1 configuration][step1] asks for the following variab
 * `node_unknown_timeout`: A healthy node will be considered unhealthy and remediated if it is unreachable for longer than this timeout (seconds, defaults to 300 in the step 1 configuration).
 * `max_unhealthy_node_percentage`: Remediation will be suspended when the number of unhealthy nodes exceeds this percentage.
   (100% means that unhealthy nodes will always be remediated, while 0% means that unhealthy nodes will never be remediated). Defaults to 100 in the step 1 configuration.
-* `container_registry_url`: URL from where TKG clusters will fetch container images, useful for VCD appliances that are completely isolated from Internet. Defaults to "projects.registry.vmware.com" in the step 1 configuration.
+* `container_registry_url`: URL from where TKG clusters will fetch container images, useful for VCLOUD appliances that are completely isolated from Internet. Defaults to "projects.registry.vmware.com" in the step 1 configuration.
 * `bootstrap_vm_certificates`: Certificate(s) to allow the ephemeral VM (created during cluster creation) to authenticate with.
   For instance, when pulling images from a container registry. Optional in the step 1 configuration.
 * `k8s_cluster_certificates`: Certificate(s) to allow clusters to authenticate with.
@@ -242,7 +242,7 @@ In order to create all the items listed above, the [step 2 configuration][step2]
     ["10.20.30.180", "10.20.30.182"], # A range of three IPs ending in 180,181,182
   ]
   ```
-* `alb_controller_url`: URL of an existing ALB controller that will be created in VCD side. See the [ALB guide][alb] for more info.
+* `alb_controller_url`: URL of an existing ALB controller that will be created in VCLOUD side. See the [ALB guide][alb] for more info.
 * `alb_controller_username`: Username to access the ALB controller. See the [ALB guide][alb] for more info.
 * `alb_controller_password`: Password of the username used to access the ALB controller. See the [ALB guide][alb] for more info.
 * `alb_importable_cloud_name`: Name of the existing ALB Cloud defined in the ALB controller that will be imported to create an ALB Cloud in VCD. See the [ALB guide][alb] for more info.
@@ -341,7 +341,7 @@ The most common issues are:
   * Verify your Internet connectivity is not having any issues.
   * OVAs are quite big, you could tune `upload_piece_size` to speed up the upload process.
   * If upload fails, or you need to re-upload it, you can do a `terraform apply -replace=vcloud_catalog_vapp_template.cse_ova`.
-  * Verify that there's not a huge latency between your VCD and the place where Terraform configuration is run.
+  * Verify that there's not a huge latency between your VCLOUD and the place where Terraform configuration is run.
 
 * Cluster creation is failing:
   * Please visit the [CSE documentation][cse_docs] to learn how to monitor the logs and troubleshoot possible problems.
@@ -372,7 +372,7 @@ resource "vcloud_rde_type" "capvcdcluster_type_v130" {
 ### Upgrade the VCDKEConfig RDE (CSE Server configuration)
 
 With the new [RDE Types][rde_type] in place, you need to perform an upgrade of the existing `VCDKEConfig` [RDE][rde], which
-stores the CSE Server configuration. By using the v3.12.0 of the VCD Terraform Provider, you can do this update without forcing
+stores the CSE Server configuration. By using the v3.12.0 of the VCLOUD Terraform Provider, you can do this update without forcing
 a replacement:
 
 ```hcl

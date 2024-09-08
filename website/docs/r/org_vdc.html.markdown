@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc"
 sidebar_current: "docs-vcd-resource-org-vdc"
 description: |-
-  Provides a VMware Cloud Director Organization VDC resource. This can be used to create and delete an Organization VDC.
+  Provides a Viettel IDC Cloud Organization VDC resource. This can be used to create and delete an Organization VDC.
 ---
 
 # vcd\_org\_vdc
 
-Provides a VMware Cloud Director Organization VDC resource. This can be used to create and delete an Organization VDC.
+Provides a Viettel IDC Cloud Organization VDC resource. This can be used to create and delete an Organization VDC.
 Requires system administrator privileges.
 
 -> **Note:** This resource supports NSX-T and NSX-V based Org VDCs by providing relevant

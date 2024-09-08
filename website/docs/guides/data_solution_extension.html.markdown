@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Data Solution Extension guide"
+page_title: "Viettel IDC Cloud: Data Solution Extension guide"
 sidebar_current: "docs-vcd-guides-data-solution-extension"
 description: |-
  Provides guidance to Cloud Director Solution Landing Zone, Solution Add-On and Data Solution
@@ -19,7 +19,7 @@ Add-Ons and Data Solution Extension (DSE) Add-On.
 Solution Add-Ons extend Cloud Director offering with value-added functionalities. One can manage
 multiple Solution Add-Ons within a Cloud Director Solution Landing Zone.
 
-The Solution Add-Ons come packed as `.iso` files and Terraform Provider for VCD v3.13+ is capable of
+The Solution Add-Ons come packed as `.iso` files and Terraform Provider for VCLOUD v3.13+ is capable of
 leveraging them to configure Solution Add-Ons within VCD.
 
 *Note:* For a more hands-on experience, one can check [DSE deployment
@@ -28,13 +28,13 @@ examples](https://github.com/vmware/terraform-provider-vcd/tree/main/examples/da
 ## Data Solution Extension (DSE)
 
 Data Solution Extension is one of the Solution Add-Ons available for VCD. It provides capability to
-extend VCD and deliver a portfolio of on-demand caching, messaging and database software.
+extend VCLOUD and deliver a portfolio of on-demand caching, messaging and database software.
 
-Terraform provider VCD v3.13 added initial support for configuring DSE and publishing it to tenants.
+Terraform provider VCLOUD v3.13 added initial support for configuring DSE and publishing it to tenants.
 
 ## Terraform resources and data sources
 
-Terraform provider VCD v3.13 adds support for Solution Landing Zone, Solution Add-On management and
+Terraform provider VCLOUD v3.13 adds support for Solution Landing Zone, Solution Add-On management and
 Data Solution Extension configuration resources with their respective data sources.
 
 ### Solution Landing Zone and Add-On resources
@@ -181,7 +181,7 @@ resource "vcloud_solution_add_on_instance" "dse14" {
 
 Each Solution Add-On comes with its own input values used for instantiation and removal. UI
 renders these values as an input form. It is not that trivial to provide such option for CLI
-applications, like Terraform. Terraform provider VCD attempts to present as much convenience as
+applications, like Terraform. Terraform provider VCLOUD attempts to present as much convenience as
 possible by providing dynamic input validation in
 [`vcloud_solution_add_on_instance`](/providers/vmware/vcd/latest/docs/resources/solution_add_on_instance)
 resource.
@@ -242,7 +242,7 @@ resource "vcloud_solution_add_on_instance_publish" "public" {
 }
 ```
 
-~> Clients must logout and login back to VCD so that newly published Solution Add-On can
+~> Clients must logout and login back to VCLOUD so that newly published Solution Add-On can
 be managed.
 
 ## Configuring Data Solution Extension (DSE) and publishing Data Solutions (Step 5)
@@ -257,7 +257,7 @@ The last step of Data Solution configuration is publishing it to a given tenant.
 
 ```hcl
 resource "vcloud_dse_registry_configuration" "dso" {
-  name               = "VCD Data Solutions"
+  name               = "VCLOUD Data Solutions"
   use_default_values = true
 }
 

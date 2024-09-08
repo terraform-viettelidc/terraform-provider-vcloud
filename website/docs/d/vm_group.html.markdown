@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_group"
+page_title: "Viettel IDC Cloud: vcloud_vm_group"
 sidebar_current: "docs-vcd-data-source-vm-group"
 description: |-
-  Provides a VMware Cloud Director VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
+  Provides a Viettel IDC Cloud VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
 ---
 
 # vcd\_vm\_group
 
-Provides a VMware Cloud Director VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
+Provides a Viettel IDC Cloud VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
 
 Supported in provider *v3.8+*
 

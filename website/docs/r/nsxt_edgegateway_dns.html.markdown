@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_dns"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dns"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-dns"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway DNS configuration.

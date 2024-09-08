@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vcenter"
+page_title: "Viettel IDC Cloud: vcloud_vcenter"
 sidebar_current: "docs-vcd-data-source-vcenter"
 description: |-
   Provides a data source for vCenter server attached to VCD.

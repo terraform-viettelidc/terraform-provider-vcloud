@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_dns"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dns"
 sidebar_current: "docs-vcd-data-source-nsxt-edgegateway-dns"
 description: |-
   Provides a data source to read NSX-T Edge Gateway DNS forwarder configuration.

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_ldap"
+page_title: "Viettel IDC Cloud: vcloud_org_ldap"
 sidebar_current: "docs-vcd-resource-org-ldap"
 description: |-
-  Provides a VMware Cloud Director Organization LDAP resource. This can be used to create, delete, and update LDAP configuration for an organization .
+  Provides a Viettel IDC Cloud Organization LDAP resource. This can be used to create, delete, and update LDAP configuration for an organization .
 ---
 
 # vcd\_org\_ldap
 
-Provides a VMware Cloud Director Org LDAP resource. This can be used to create, update, and delete LDAP configuration for an organization.
+Provides a Viettel IDC Cloud Org LDAP resource. This can be used to create, update, and delete LDAP configuration for an organization.
 
 Supported in provider *v3.8+*
 

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_catalog_media"
+page_title: "Viettel IDC Cloud: vcloud_catalog_media"
 sidebar_current: "docs-vcd-data-source-catalog-media"
 description: |-
   Provides a catalog media data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_catalog\_media
 
-Provides a VMware Cloud Director Catalog media data source. A Catalog media can be used to reference a catalog media and use its 
+Provides a Viettel IDC Cloud Catalog media data source. A Catalog media can be used to reference a catalog media and use its 
 data within other resources or data sources.
 
 Supported in provider *v2.5+*

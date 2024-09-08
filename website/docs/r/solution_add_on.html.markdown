@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_solution_add_on"
+page_title: "Viettel IDC Cloud: vcloud_solution_add_on"
 sidebar_current: "docs-vcd-resource-solution-add-on"
 description: |-
   Provides a resource to manage Solution Add-Ons in Cloud Director. A Solution Add-On is the

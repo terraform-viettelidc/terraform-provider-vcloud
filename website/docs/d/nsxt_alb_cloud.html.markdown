@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_cloud"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_cloud"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-cloud"
 description: |-
   Provides a data source to read ALB Clouds for Providers. An NSX-T Cloud is a service provider-level construct

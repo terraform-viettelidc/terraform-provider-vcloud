@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_resource_schema"
+page_title: "Viettel IDC Cloud: vcloud_resource_schema"
 sidebar_current: "docs-vcd-datasource-resource-schema"
 description: |-
   Provides information about a vCD resource structure
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_resource_schema
 
-Provides a VMware Cloud Director generic structure data source. It shows the structure of any VCD resource.
+Provides a Viettel IDC Cloud generic structure data source. It shows the structure of any VCD resource.
 
 Supported in provider *v3.1+*
 

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_configuration"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_configuration"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-configuration"
 description: |-
   Provides a resource to manage BGP configuration on NSX-T Edge Gateway that has a dedicated Tier-0 
@@ -74,7 +74,7 @@ The following arguments are supported:
 * `stale_route_timer` - (Optional) - Maximum time (in seconds) before stale routes are removed when
   BGP restarts. **Read only** for VRF backed Edge Gateways
 
-More information about settings can be found in VMware Cloud Director [BGP Configuration
+More information about settings can be found in Viettel IDC Cloud [BGP Configuration
 documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-EB585DDC-9F1C-4971-A4AD-44C239E6E822.html)
 
 ## Importing

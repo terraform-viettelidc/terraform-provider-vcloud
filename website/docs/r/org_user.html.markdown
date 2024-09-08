@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_user"
+page_title: "Viettel IDC Cloud: vcloud_org_user"
 sidebar_current: "docs-vcd-resource-org-user"
 description: |-
-  Provides a VMware Cloud Director Organization user. This can be used to create, update, and delete users.
+  Provides a Viettel IDC Cloud Organization user. This can be used to create, update, and delete users.
 ---
 
 # vcd\_org\_user
 
-Provides a VMware Cloud Director Org User. This can be used to create, update, and delete users, including system and org administrators.
+Provides a Viettel IDC Cloud Org User. This can be used to create, update, and delete users, including system and org administrators.
 
 If we have the right permissions, we can create both organization and System users: to do so, we indicate "System" as organization name.
 

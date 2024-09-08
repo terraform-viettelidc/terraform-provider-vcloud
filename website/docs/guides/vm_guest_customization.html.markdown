@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: VM Guest Customization"
+page_title: "Viettel IDC Cloud: VM Guest Customization"
 sidebar_current: "docs-vcd-guides-vm-guest-customization"
 description: |-
   Provides guidance on VM Guest Customization.
@@ -75,7 +75,7 @@ hash generator) and set hostname to `core1` in guest. Store these contents in `i
     }
 }
 ```
-To supply it to Guest VM using Terraform provider VCD one must read contents and encode it.
+To supply it to Guest VM using Terraform provider VCLOUD one must read contents and encode it.
 
 ```hcl
 resource "vcloud_vm" "customized" {

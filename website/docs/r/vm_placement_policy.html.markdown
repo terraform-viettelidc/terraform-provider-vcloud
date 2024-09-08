@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_placement_policy"
+page_title: "Viettel IDC Cloud: vcloud_vm_placement_policy"
 sidebar_current: "docs-vcd-resource-vm-placement-policy"
 description: |-
-  Provides a VMware Cloud Director VM Placement Policy resource. This can be
+  Provides a Viettel IDC Cloud VM Placement Policy resource. This can be
   used to create, modify, and delete VM Placement Policies.
 ---
 
 # vcd\_vm\_placement\_policy
 
-Provides a VMware Cloud Director VM Placement Policy resource. This can be used to create, modify, and delete VM Placement Policy.
+Provides a Viettel IDC Cloud VM Placement Policy resource. This can be used to create, modify, and delete VM Placement Policy.
 
 Supported in provider *v3.8+* and requires VCD 10.2+
 

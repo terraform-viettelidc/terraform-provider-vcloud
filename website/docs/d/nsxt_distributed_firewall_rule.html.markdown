@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_distributed_firewall_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_distributed_firewall_rule"
 sidebar_current: "docs-vcd-data-source-nsxt-distributed-firewall-rule"
 description: |-
   The Distributed Firewall data source reads a single rule for a particular VDC Group.

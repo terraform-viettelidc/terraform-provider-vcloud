@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_external_network"
+page_title: "Viettel IDC Cloud: vcloud_external_network"
 sidebar_current: "docs-vcd-data-source-external-network"
 description: |-
   Provides an external network data source.
@@ -8,7 +8,7 @@ description: |-
 
 # external\_network
 
-Provides a VMware Cloud Director external network data source. This can be used to reference external networks and their properties.
+Provides a Viettel IDC Cloud external network data source. This can be used to reference external networks and their properties.
 
 Supported in provider *v2.5+*
 

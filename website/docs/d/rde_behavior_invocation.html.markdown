@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_behavior_invocation"
+page_title: "Viettel IDC Cloud: vcloud_rde_behavior_invocation"
 sidebar_current: "docs-vcd-data-source-rde-behavior-invocation"
 description: |-
-   Provides the capability of invoking an existing Runtime Defined Entity Behavior in VMware Cloud Director.
+   Provides the capability of invoking an existing Runtime Defined Entity Behavior in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_behavior\_invocation
@@ -11,7 +11,7 @@ description: |-
 ~> This feature is **experimental** and may change in future
 
 Provides the capability of invoking an existing [RDE Interface Behavior](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior)
-or [RDE Type Behavior](/providers/vmware/vcd/latest/docs/resources/rde_type_behavior) in VMware Cloud Director.
+or [RDE Type Behavior](/providers/vmware/vcd/latest/docs/resources/rde_type_behavior) in Viettel IDC Cloud.
 
 Supported in provider *v3.11+*
 

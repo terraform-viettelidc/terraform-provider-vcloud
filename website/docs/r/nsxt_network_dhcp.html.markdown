@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_network_dhcp"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp"
 sidebar_current: "docs-vcd-resource-nsxt-network-dhcp"
 description: |-
   Provides a resource to manage DHCP pools for NSX-T Org VDC networks.

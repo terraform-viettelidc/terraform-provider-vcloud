@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_network_direct"
+page_title: "Viettel IDC Cloud: vcloud_network_direct"
 sidebar_current: "docs-vcd-resource-network-direct"
 description: |-
-  Provides a VMware Cloud Director Org VDC Network attached to an external one. This can be used to create, modify, and delete internal networks for vApps to connect.
+  Provides a Viettel IDC Cloud Org VDC Network attached to an external one. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
 # vcd\_network\_direct
 
-Provides a VMware Cloud Director Org VDC Network directly connected to an external network. This can be used to create,
+Provides a Viettel IDC Cloud Org VDC Network directly connected to an external network. This can be used to create,
 modify, and delete internal networks for vApps to connect.
 
 Supported in provider *v2.0+*

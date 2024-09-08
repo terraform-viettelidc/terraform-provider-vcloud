@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_network_imported"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_imported"
 sidebar_current: "docs-vcd-resource-nsxt-network-imported"
 description: |-
-  Provides a VMware Cloud Director Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
+  Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 ---
 
 # vcd\_nsxt\_network\_imported
 
-Provides a VMware Cloud Director Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
+Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 

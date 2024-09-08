@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_service_account"
+page_title: "Viettel IDC Cloud: vcloud_service_account"
 sidebar_current: "docs-vcd-resource-service-account"
 description: |-
   Provides a resource to manage Service Accounts. Service Accounts can have defined roles

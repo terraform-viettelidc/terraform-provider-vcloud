@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm"
+page_title: "Viettel IDC Cloud: vcloud_vm"
 sidebar_current: "docs-vcd-resource-vm"
 description: |-
-  Provides a VMware Cloud Director standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
+  Provides a Viettel IDC Cloud standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
 ---
 
 # vcd\_vm
 
-Provides a VMware Cloud Director standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
+Provides a Viettel IDC Cloud standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
 
 Supported in provider *v3.2+*
 

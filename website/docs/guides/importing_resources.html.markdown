@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Importing resources"
+page_title: "Viettel IDC Cloud: Importing resources"
 sidebar_current: "docs-vcd-guides-importing-resources"
 description: |-
  Provides guidance to VMware Cloud resources importing

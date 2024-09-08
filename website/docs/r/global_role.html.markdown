@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_global_role"
+page_title: "Viettel IDC Cloud: vcloud_global_role"
 sidebar_current: "docs-vcd-resource-global-role"
 description: |-
- Provides a VMware Cloud Director global role. This can be used to create, modify, and delete global roles.
+ Provides a Viettel IDC Cloud global role. This can be used to create, modify, and delete global roles.
 ---
 
 # vcd\_global\_role
 
-Provides a VMware Cloud Director global role. This can be used to create, modify, and delete global roles.
+Provides a Viettel IDC Cloud global role. This can be used to create, modify, and delete global roles.
 
 Supported in provider *v3.3+*
 

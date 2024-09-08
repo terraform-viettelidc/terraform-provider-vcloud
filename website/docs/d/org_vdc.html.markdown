@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc"
 sidebar_current: "docs-vcd-data-source-org-vdc"
 description: |-
   Provides an organization VDC data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_org\_vdc
 
-Provides a VMware Cloud Director Organization VDC data source. An Organization VDC can be used to
+Provides a Viettel IDC Cloud Organization VDC data source. An Organization VDC can be used to
 reference a VDC and use its data within other resources or data sources.
 
 -> **Note:** This resource supports NSX-T and NSX-V based Org VDCs

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Avi Load Balancer"
+page_title: "Viettel IDC Cloud: Avi Load Balancer"
 sidebar_current: "docs-vcd-guides-nsxt-alb"
 description: |-
   Provides guidance to VMware Avi Load Balancer
@@ -10,7 +10,7 @@ description: |-
 
 ## About
 
-Starting with version 10.2, VMware Cloud Director provides load balancing services by leveraging the capabilities of
+Starting with version 10.2, Viettel IDC Cloud provides load balancing services by leveraging the capabilities of
 VMware Avi Load Balancer. _System administrators_ can enable and configure access to load balancing services
 for VDCs backed by NSX-T.
 
@@ -18,8 +18,8 @@ Load balancing services are associated with NSX-T Edge Gateways, which can be sc
 backed by NSX-T VDC or to a VDC Group with NSX-T Data Center network provider type.
 
 To use the virtual infrastructure provided by Avi Load Balancer, register your NSX-T Cloud instances with
-VMware Cloud Director. Controllers serve as a central control plane for load balancing services. After registering
-controllers, one can manage them directly from VMware Cloud Director.
+Viettel IDC Cloud. Controllers serve as a central control plane for load balancing services. After registering
+controllers, one can manage them directly from Viettel IDC Cloud.
 
 The load balancing compute infrastructure provided by Avi Load Balancer is organized into Service Engine
 Groups. Multiple Service Engine Groups can be assigned to a single NSX-T Edge Gateway.
@@ -28,10 +28,10 @@ A Service Engine Group has a unique set of compute characteristics that are defi
 
 ## Requirements
 
-* Avi Load Balancer is supported starting VCD versions *10.2+*.
+* Avi Load Balancer is supported starting VCLOUD versions *10.2+*.
 * Avi Load Balancer configured with NSX-T, see [Avi Integration with NSX-T](https://avinetworks.com/docs/20.1/avi-nsx-t-integration/).
-* Provider operations supported in Terraform provider VCD *v3.4+*. 
-* Tenant operations supported in Terraform provider VCD *3.5+*. 
+* Provider operations supported in Terraform provider VCLOUD *v3.4+*. 
+* Tenant operations supported in Terraform provider VCLOUD *3.5+*. 
 
 -> In this document, when we mention **tenants**, the term can be substituted with **organizations**.
 
@@ -74,7 +74,7 @@ The following snippet will do the following:
   [vcloud_nsxt_alb_controller](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_controller) resource
 * Look up available Clouds to import using
   [vcloud_nsxt_alb_importable_cloud](/providers/vmware/vcd/latest/docs/data-sources/nsxt_alb_importable_cloud) data source
-* Define ALB Cloud in VCD using [vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
+* Define ALB Cloud in VCLOUD using [vcloud_nsxt_alb_cloud](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_cloud)
   resource
 * Define a Service Engine Group
   [vcloud_nsxt_alb_service_engine_group](/providers/vmware/vcd/latest/docs/resources/nsxt_alb_service_engine_group) which
@@ -251,8 +251,8 @@ resource "vcloud_nsxt_alb_virtual_service" "test" {
 
 ## References
 
-* [VMware Cloud Director Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-1D3014BC-4792-40E8-99E1-A8F0FFC691FE.html)
-* [VMware Cloud Director Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-789FCC6A-EE14-4CAA-AB91-08841513B328.html)
+* [Viettel IDC Cloud Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-1D3014BC-4792-40E8-99E1-A8F0FFC691FE.html)
+* [Viettel IDC Cloud Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-789FCC6A-EE14-4CAA-AB91-08841513B328.html)
 * [VMware blog post introducing ALB](https://blogs.vmware.com/cloudprovider/2020/11/embrace-next-gen-networking-security-with-nsx-t-and-vmware-cloud-director-10-2.html)
 * [Feature Fridays video - Avi Load balancer](https://blogs.vmware.com/cloudprovider/2020/10/feature-fridays-episode-19-nsx-t-advanced-load-balancer.html)
 * [Avi Integration with NSX-T](https://avinetworks.com/docs/20.1/avi-nsx-t-integration/)

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_distributed_firewall_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_distributed_firewall_rule"
 sidebar_current: "docs-vcd-resource-nsxt-distributed-firewall-rule"
 description: |-
   The Distributed Firewall rule allows user to segment organization network entities by creating firewall rules.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_nat_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_nat_rule"
 sidebar_current: "docs-vcd-data-source-nsxt-nat-rule"
 description: |-
   Provides a data source to read NSX-T NAT rules. Source NAT (SNAT) rules change the source IP 

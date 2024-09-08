@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_segment_security_profile"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_security_profile"
 sidebar_current: "docs-vcd-data-source-nsxt-segment-security-profile"
 description: |-
-  Provides a VMware Cloud Director NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
+  Provides a Viettel IDC Cloud NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
 ---
 
 # vcd\_nsxt\_segment\_security\_profile
 
-Provides a VMware Cloud Director NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
+Provides a Viettel IDC Cloud NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
 
 Supported in provider *v3.11+*.
 

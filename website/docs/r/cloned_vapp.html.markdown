@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_cloned_vapp"
+page_title: "Viettel IDC Cloud: vcloud_cloned_vapp"
 sidebar_current: "docs-vcd-resource-cloned-vapp"
 description: |-
-  Provides a VMware Cloud Director Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
+  Provides a Viettel IDC Cloud Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
 ---
 
 # vcd\_cloned\_vapp
 
-Provides a VMware Cloud Director Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
+Provides a Viettel IDC Cloud Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
 This resource should be used only on creation, although deletion also works. The result of using this resource is a
 regular vApp ([`vcloud_vapp`](/providers/vmware/vcd/latest/docs/resources/vapp)), with all its contents derived by either a vApp template or another vApp.
 As of this first implementation, no configuration is available: the vApp is simply cloned from the source vApp template

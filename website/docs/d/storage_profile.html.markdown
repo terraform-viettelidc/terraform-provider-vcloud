@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_storage_profile"
+page_title: "Viettel IDC Cloud: vcloud_storage_profile"
 sidebar_current: "docs-vcd-data-source-storage-profile"
 description: |-
   Provides a data source for VDC storage profile.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_rate_limiting"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_rate_limiting"
 sidebar_current: "docs-vcd-data-source-nsxt-edge-rate-limiting"
 description: |-
   Provides a data source to read NSX-T Edge Gateway Rate Limiting (QoS) configuration.

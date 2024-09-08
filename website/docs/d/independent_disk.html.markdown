@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_independent_disk"
+page_title: "Viettel IDC Cloud: vcloud_independent_disk"
 sidebar_current: "docs-vcd-data-source-independent-disk"
 description: |-
   Provides a independent disk data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_independent\_disk
 
-Provides a VMware Cloud Director Independent disk data source. An independent disk data source can be used to reference an independent disk and use its 
+Provides a Viettel IDC Cloud Independent disk data source. An independent disk data source can be used to reference an independent disk and use its 
 data within other resources or data sources.
 
 Supported in provider *v2.5+*

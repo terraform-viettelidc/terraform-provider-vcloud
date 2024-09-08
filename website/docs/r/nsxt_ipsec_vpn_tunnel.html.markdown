@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_ipsec_vpn_tunnel"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_ipsec_vpn_tunnel"
 sidebar_current: "docs-vcd-resource-nsxt-ipsec-vpn-tunnel"
 description: |-
   Provides a resource to manage NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data

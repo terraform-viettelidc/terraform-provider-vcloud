@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp"
+page_title: "Viettel IDC Cloud: vcloud_vapp"
 sidebar_current: "docs-vcd-datasource-vapp"
 description: |-
-  Provides a VMware Cloud Director vApp data source. This can be used to reference vApps.
+  Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 ---
 
 # vcd\_vapp
 
-Provides a VMware Cloud Director vApp data source. This can be used to reference vApps.
+Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 
 Supported in provider *v2.5+*
 

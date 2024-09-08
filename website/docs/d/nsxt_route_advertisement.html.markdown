@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_route_advertisement"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_route_advertisement"
 sidebar_current: "docs-vcd-datasource-nsxt_route_advertisement"
 description: |-
-Provides a VMware Cloud Director data source for reading route advertisement in an NSX-T Edge Gateway.
+Provides a Viettel IDC Cloud data source for reading route advertisement in an NSX-T Edge Gateway.
 ---
 
 # vcd\_nsxt\_route\_advertisement
 
-Provides a VMware Cloud Director data source for reading route advertisement in an NSX-T Edge Gateway.
+Provides a Viettel IDC Cloud data source for reading route advertisement in an NSX-T Edge Gateway.
 
 ## Example Usage (Reading route advertisement from NSX-T Edge Gateway)
 

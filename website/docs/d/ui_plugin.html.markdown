@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ui_plugin"
+page_title: "Viettel IDC Cloud: vcloud_ui_plugin"
 sidebar_current: "docs-vcd-datasource-ui-plugin"
 description: |-
-  Provides a VMware Cloud Director UI Plugin data source. This can be used to fetch and read an existing UI Plugin.
+  Provides a Viettel IDC Cloud UI Plugin data source. This can be used to fetch and read an existing UI Plugin.
 ---
 
 # vcd\_ui\_plugin
 
-Provides a VMware Cloud Director UI Plugin data source. This can be used to fetch and read an existing UI Plugin.
+Provides a Viettel IDC Cloud UI Plugin data source. This can be used to fetch and read an existing UI Plugin.
 
 -> Reading UI Plugins requires System Administrator privileges.
 

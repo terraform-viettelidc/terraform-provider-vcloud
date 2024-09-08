@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_dse_registry_configuration"
+page_title: "Viettel IDC Cloud: vcloud_dse_registry_configuration"
 sidebar_current: "docs-vcd-data-source-dse-registry-configuration"
 description: |-
   Provides a data source to read Data Solution Extension (DSE) registry configuration.

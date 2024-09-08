@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: security_tag"
+page_title: "Viettel IDC Cloud: security_tag"
 sidebar_current: "docs-vcd-resource-security-tag"
 description: |-
-Provides a VMware Cloud Director Security Tag resource. This can be
+Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.
 ---
 
 # vcd\_security\_tag
 
-Provides a VMware Cloud Director Security Tag resource. This can be
+Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.
 
 Supported in provider *v3.7+* and requires VCD 10.3.0+

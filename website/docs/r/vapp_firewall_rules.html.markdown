@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp_firewall_rules"
+page_title: "Viettel IDC Cloud: vcloud_vapp_firewall_rules"
 sidebar_current: "docs-vcd-resource-vapp-firewall-rules"
 description: |-
-  Provides a VMware Cloud Director vApp Firewall resource. This can be used to create, modify, and delete firewall settings and rules.
+  Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create, modify, and delete firewall settings and rules.
 ---
 
 # vcd\_vapp\_firewall\_rules
 
-Provides a VMware Cloud Director vApp Firewall resource. This can be used to create,
+Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create,
 modify, and delete firewall settings and rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
 Firewall rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcd/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcd/r/vapp_org_network) which are fenced. 
 

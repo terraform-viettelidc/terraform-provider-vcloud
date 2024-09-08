@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_service_engine_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_service_engine_group"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-service-engine-group"
 description: |-
   Provides a data source to read ALB Service Engine Groups. A Service Engine Group is an isolation domain that also

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_network_dhcp_binding"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_dhcp_binding"
 sidebar_current: "docs-vcd-datasource-nsxt-network-dhcp-binding"
 description: |-
   Provides a data source to read NSX-T Org VDC network DHCP bindings.

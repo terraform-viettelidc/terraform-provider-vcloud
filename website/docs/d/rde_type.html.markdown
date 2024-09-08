@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_type"
+page_title: "Viettel IDC Cloud: vcloud_rde_type"
 sidebar_current: "docs-vcd-data-source-rde-type"
 description: |-
-   Provides the capability of fetching an existing Runtime Defined Entity Type from VMware Cloud Director.
+   Provides the capability of fetching an existing Runtime Defined Entity Type from Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_type
 
-Provides the capability of fetching an existing Runtime Defined Entity Type from VMware Cloud Director.
+Provides the capability of fetching an existing Runtime Defined Entity Type from Viettel IDC Cloud.
 
 Supported in provider *v3.9+*
 

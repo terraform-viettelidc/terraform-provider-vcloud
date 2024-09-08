@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edge_cluster"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edge_cluster"
 sidebar_current: "docs-vcd-data-source-nsxt-edge-cluster"
 description: |-
   Provides a data source for available NSX-T Edge Clusters.
@@ -12,7 +12,7 @@ Provides a data source for available NSX-T Edge Clusters.
 
 Supported in provider *v3.1+*
 
--> **Note:** This data source uses new VMware Cloud Director
+-> **Note:** This data source uses new Viettel IDC Cloud
 [OpenAPI](https://code.vmware.com/docs/11982/getting-started-with-vmware-cloud-director-openapi) and
 requires at least VCD *10.1.1+* and NSX-T *3.0+*.
 

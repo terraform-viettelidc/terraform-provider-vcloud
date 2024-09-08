@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_nat_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_nat_rule"
 sidebar_current: "docs-vcd-resource-nsxt-nat-rule"
 description: |-
   Provides a resource to manage NSX-T NAT rules. To change the source IP address from a private to a
@@ -16,7 +16,7 @@ Provides a resource to manage NSX-T NAT rules. To change the source IP address f
 public IP address, you create a source NAT (SNAT) rule. To change the destination IP address from 
 a public to a private IP address, you create a destination NAT (DNAT) rule.
 
--> When you configure a SNAT or a DNAT rule on an Edge Gateway in the VMware Cloud Director
+-> When you configure a SNAT or a DNAT rule on an Edge Gateway in the Viettel IDC Cloud
 environment, you always configure the rule from the perspective of your organization VDC.
 
 ## Example Usage 1 (SNAT rule translates to primary Edge Gateway IP for traffic going from 11.11.11.0/24 to 8.8.8.8)

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Catalog Subscription and Sharing"
+page_title: "Viettel IDC Cloud: Catalog Subscription and Sharing"
 sidebar_current: "docs-vcd-guides-catalog-subscription-and-sharing"
 description: |-
  Provides guidance to VMware Cloud catalog publishing, subscribing, and sharing
@@ -14,7 +14,7 @@ Supported in provider *v3.8+*.
 
 ## Overview
 
-This document explains some common scenarios in VMware Cloud Director catalog usage, with special emphasis on catalog sharing and subscribing.
+This document explains some common scenarios in Viettel IDC Cloud catalog usage, with special emphasis on catalog sharing and subscribing.
 
 ## Glossary
 
@@ -144,7 +144,7 @@ however, that the publishing entity â€“either a provider or a designated tenantâ
 * publishing a catalog at creation may force subscribers to run synchronisation operations more often.
 
 Owners of a published catalog have no direct visibility over the subscribers. They only advertise the subscription URL
-and pass along the optional password. The recipients can be in the same VCD or in a different one.
+and pass along the optional password. The recipients can be in the same VCLOUD or in a different one.
 
 ## Subscribing operations
 

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Roles Management"
+page_title: "Viettel IDC Cloud: Roles Management"
 sidebar_current: "docs-vcd-guides-roles"
 description: |-
  Provides guidance to VMware Cloud roles management
@@ -273,7 +273,7 @@ resource "vcloud_rights_bundle" "new-rb" {
 }
 ```
 
-Using the data source will free you from the need of listing all the rights contained in the bundle (113 in VCD 10.2).
+Using the data source will free you from the need of listing all the rights contained in the bundle (113 in VCLOUD 10.2).
 It will also make the script work across different versions, where the list of rights may differ. If you were interested
 in changing the rights themselves, you could add an `output` block for the data source, copy the rights to the resource
 definition, and then remove or add what you need.
@@ -440,4 +440,4 @@ resource "vcloud_global_role" "super-vapp-user" {
 ## References
 
 * [Managing Rights and Roles](https://docs.vmware.com/en/VMware-Cloud-Director/10.2/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-816FBBBC-2CDA-4B1D-9B1A-C22BC31B46F2.html)
-* [VMware Cloud Director – Simple Rights Management with Bundles](https://blogs.vmware.com/cloudprovider/2019/12/effective-rights-bundles.html)
+* [Viettel IDC Cloud – Simple Rights Management with Bundles](https://blogs.vmware.com/cloudprovider/2019/12/effective-rights-bundles.html)

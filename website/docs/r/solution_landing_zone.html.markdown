@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_solution_landing_zone"
+page_title: "Viettel IDC Cloud: vcloud_solution_landing_zone"
 sidebar_current: "docs-vcd-resource-solution-landing-zone"
 description: |-
   Provides a resource to configure VCD Solution Add-on Landing Zone

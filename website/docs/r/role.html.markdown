@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_role"
+page_title: "Viettel IDC Cloud: vcloud_role"
 sidebar_current: "docs-vcd-resource-role"
 description: |-
- Provides a VMware Cloud Director role. This can be used to create, modify, and delete roles.
+ Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 ---
 
 # vcd\_role
 
-Provides a VMware Cloud Director role. This can be used to create, modify, and delete roles.
+Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 
 Supported in provider *v3.3+*
 

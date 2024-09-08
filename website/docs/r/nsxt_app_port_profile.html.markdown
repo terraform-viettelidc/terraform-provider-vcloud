@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_app_port_profile"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_app_port_profile"
 sidebar_current: "docs-vcd-resource-nsxt-app-port-profile"
 description: |-
   Provides a resource to manage NSX-T Application Port Profiles. Application Port Profiles include a

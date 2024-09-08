@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_api_token"
+page_title: "Viettel IDC Cloud: vcloud_api_token"
 sidebar_current: "docs-vcd-resource-api-token"
 description: |-
   Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCD. 

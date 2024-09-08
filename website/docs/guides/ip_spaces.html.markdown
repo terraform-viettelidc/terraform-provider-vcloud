@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: IP Spaces"
+page_title: "Viettel IDC Cloud: IP Spaces"
 sidebar_current: "docs-vcd-guides-ip-spaces"
 description: |-
-  Provides guidance to IP Spaces in VCD 10.4.1+
+  Provides guidance to IP Spaces in VCLOUD 10.4.1+
 ---
 
 # IP Spaces
 
-Starting with **VMware Cloud Director 10.4.1** and **Terraform Provider for VCD 3.10**, you can use
+Starting with **Viettel IDC Cloud 10.4.1** and **Terraform Provider for VCLOUD 3.10**, you can use
 IP Spaces to manage your IP address allocation needs. IP Spaces provide structured approach to
 allocating *public* and *private* IP addresses by preventing the use of overlapping IP addresses
 across organizations and organization VDCs.
@@ -45,7 +45,7 @@ There are three types of IP spaces that you can create.
 ## List of resources with IP Space support
 
 The following resources for IP Space management are available with Terraform Provider for
-VCD starting with version 3.10:
+VCLOUD starting with version 3.10:
 
 * [`vcloud_ip_space`](/providers/vmware/vcd/latest/docs/resources/ip_space) - provides IP Space and
   default quota definition capability
@@ -68,7 +68,7 @@ VCD starting with version 3.10:
   that has IP Space Uplinks)
 
 
--> There are new rights for IP Space management starting with VCD 10.4.1. Some of them are [listed
+-> There are new rights for IP Space management starting with VCLOUD 10.4.1. Some of them are [listed
 in the
 prerequisites](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-575513A8-9ADE-4A3D-92AB-CB0917FF8316.html)
 for IP Space management in Organizations.
@@ -343,7 +343,7 @@ resource "vcloud_network_routed_v2" "using-public-prefix" {
 
 ## References
 
-* [VMware Cloud Director Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-46772618-7991-4928-A77B-BC774C45EA33.html)
-* [VMware Cloud Director Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB230D89-ACBC-4345-A11A-D099D359ED1B.html)
+* [Viettel IDC Cloud Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-46772618-7991-4928-A77B-BC774C45EA33.html)
+* [Viettel IDC Cloud Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB230D89-ACBC-4345-A11A-D099D359ED1B.html)
 * [IP Space Uplinks for Provider Gateways](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-0D40BD21-CAAA-4FD3-B6ED-78BA8FE2DEF1.html)
 * [IP Space management for Orgs](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-575513A8-9ADE-4A3D-92AB-CB0917FF8316.html)

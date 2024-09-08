@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_edgegateway_service_engine_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_edgegateway_service_engine_group"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-edgegateway-service-engine-group"
 description: |-
   Provides a datasource to read ALB Service Engine Group assignment to NSX-T Edge Gateway.

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp_network"
+page_title: "Viettel IDC Cloud: vcloud_vapp_network"
 sidebar_current: "docs-vcd-datasource-vapp-network"
 description: |-
-  Provides a VMware Cloud Director vApp network data source. This can be used to access a vApp network.
+  Provides a Viettel IDC Cloud vApp network data source. This can be used to access a vApp network.
 ---
 
 # vcd\_vapp\_network
 
-Provides a VMware Cloud Director vApp network data source. This can be used to access a vApp network.
+Provides a Viettel IDC Cloud vApp network data source. This can be used to access a vApp network.
 
 Supported in provider *v2.7+*
 

@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_vgpu_policy"
+page_title: "Viettel IDC Cloud: vcloud_vm_vgpu_policy"
 sidebar_current: "docs-vcd-data-source-vm-vgpu-policy"
 description: |-
-  Provides a data source to read vGPU policies in VMware Cloud Director.
+  Provides a data source to read vGPU policies in Viettel IDC Cloud.
 ---
 
 # vcd\_vm\_vgpu\_policy
 
 Experimental in provider *3.11*.
 
-Provides a data source to read vGPU policies in VMware Cloud Director.
+Provides a data source to read vGPU policies in Viettel IDC Cloud.
 
 ## Example Usage
 

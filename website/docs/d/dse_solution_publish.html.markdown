@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_dse_solution_publish"
+page_title: "Viettel IDC Cloud: vcloud_dse_solution_publish"
 sidebar_current: "docs-vcd-data-source-dse-solution-publish"
 description: |-
   Provides a data source to read Data Solution publishing settings for a particular tenant.

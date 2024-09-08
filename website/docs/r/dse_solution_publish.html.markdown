@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_dse_solution_publish"
+page_title: "Viettel IDC Cloud: vcloud_dse_solution_publish"
 sidebar_current: "docs-vcd-resource-dse-solution-publish"
 description: |-
   Provides a resource to manage Data Solution Extension (DSE) publishing settings.

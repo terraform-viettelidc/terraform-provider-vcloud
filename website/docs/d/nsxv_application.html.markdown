@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxv_application"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_application"
 sidebar_current: "docs-vcd-data-source-nsxv-application"
 description: |-
-  Provides a VMware Cloud Director data source for reading NSX-V distributed firewall applications
+  Provides a Viettel IDC Cloud data source for reading NSX-V distributed firewall applications
 ---
 
 # vcd\_nsxv\_application
 
-Provides a VMware Cloud Director data source for reading NSX-V distributed firewall applications.
+Provides a Viettel IDC Cloud data source for reading NSX-V distributed firewall applications.
 
 Supported in provider *v3.9+*
 

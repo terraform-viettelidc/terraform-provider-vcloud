@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_solution_add_on_instance_publish"
+page_title: "Viettel IDC Cloud: vcloud_solution_add_on_instance_publish"
 sidebar_current: "docs-vcd-data-source-solution-add-on-instance-publish"
 description: |-
   Provides a data source to read publishing configuration of Solution Add-On Instances in Cloud Director.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_provider_vdc"
+page_title: "Viettel IDC Cloud: vcloud_provider_vdc"
 sidebar_current: "docs-vcd-data-source-provider-vdc"
 description: |-
   Provides a Provider VDC data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_provider\_vdc
 
-Gives a VMware Cloud Director Provider VDC data source. This data source can be used to reference a Provider VDC and use its 
+Gives a Viettel IDC Cloud Provider VDC data source. This data source can be used to reference a Provider VDC and use its 
 data within other resources or data sources.
 
 Supported in provider *v3.8+*

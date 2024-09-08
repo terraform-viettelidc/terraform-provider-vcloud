@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_saml_metadata"
+page_title: "Viettel IDC Cloud: vcloud_org_saml_metadata"
 sidebar_current: "docs-vcd-data-source-org-saml_metadata"
 description: |-
   Provides a data source to read SAML metadata for an organization.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ip_space_uplink"
+page_title: "Viettel IDC Cloud: vcloud_ip_space_uplink"
 sidebar_current: "docs-vcd-datasource-ip-space-uplink"
 description: |-
   Provides a data source to read IP Space Uplinks in External Networks (Provider Gateways).

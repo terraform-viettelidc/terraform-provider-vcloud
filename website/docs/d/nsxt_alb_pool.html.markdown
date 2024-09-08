@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_pool"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_pool"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-pool"
 description: |-
   Provides a data source to read ALB Pools for particular NSX-T Edge Gateway. Pools maintain the list of servers

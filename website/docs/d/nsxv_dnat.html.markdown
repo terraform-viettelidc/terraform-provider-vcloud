@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxv_dnat"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_dnat"
 sidebar_current: "docs-vcd-data-source-nsxv-dnat"
 description: |-
-  Provides a VMware Cloud Director DNAT data source for advanced edge gateways (NSX-V). This can be used to read
+  Provides a Viettel IDC Cloud DNAT data source for advanced edge gateways (NSX-V). This can be used to read
   existing rule by ID and use its attributes in other resources.
 ---
 
 # vcd\_nsxv\_dnat
 
-Provides a VMware Cloud Director DNAT data source for advanced edge gateways (NSX-V). This can be used to
+Provides a Viettel IDC Cloud DNAT data source for advanced edge gateways (NSX-V). This can be used to
 read existing rule by ID and use its attributes in other resources.
 
 ~> **Note:** This data source requires advanced edge gateway.

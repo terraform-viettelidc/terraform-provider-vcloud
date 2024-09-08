@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_vgpu_policy"
+page_title: "Viettel IDC Cloud: vcloud_vm_vgpu_policy"
 sidebar_current: "docs-vcd-resource-vm-vgpu-policy"
 description: |-
-  Provides a resource to manage vGPU policies for virtual machines in VMware Cloud Director.
+  Provides a resource to manage vGPU policies for virtual machines in Viettel IDC Cloud.
 ---
 
 # vcd\_vm\_vgpu\_policy
@@ -12,7 +12,7 @@ Experimental in provider *3.11*.
 
 -> **Note:** This resource requires system administrator privileges.
 
-Provides a resource to manage vGPU policies for virtual machines in VMware Cloud Director.
+Provides a resource to manage vGPU policies for virtual machines in Viettel IDC Cloud.
 
 ## Example Usage
 

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_catalog_access_control"
+page_title: "Viettel IDC Cloud: vcloud_catalog_access_control"
 sidebar_current: "docs-vcd-resource-catalog-access-control"
 description: |-
-  Provides a VMware Cloud Director Access Control structure for a Catalog.
+  Provides a Viettel IDC Cloud Access Control structure for a Catalog.
 ---
 
 # vcd\_catalog\_access\_control
 
-Provides a VMware Cloud Director Access Control structure for a Catalog. This can be used to create, update, and delete access control structures for a Catalog.
+Provides a Viettel IDC Cloud Access Control structure for a Catalog. This can be used to create, update, and delete access control structures for a Catalog.
 
 ~> **Warning:** The access control info is tied to a Catalog. Thus, there could be only one instance per catalog. Using a different
 definition for the same Catalog ID will result in a previous instance to be overwritten.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ip_space"
+page_title: "Viettel IDC Cloud: vcloud_ip_space"
 sidebar_current: "docs-vcd-data-source-ip-space"
 description: |-
   Provides a data source to read IP Spaces. IP Spaces provide 

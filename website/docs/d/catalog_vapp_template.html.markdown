@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_catalog_vapp_template"
+page_title: "Viettel IDC Cloud: vcloud_catalog_vapp_template"
 sidebar_current: "docs-vcd-data-source-catalog-vapp_template"
 description: |-
   Provides a vApp Template data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_catalog\_vapp\_template
 
-Provides a VMware Cloud Director vApp Template data source. A vApp Template can be used to reference an already existing
+Provides a Viettel IDC Cloud vApp Template data source. A vApp Template can be used to reference an already existing
 vApp Template in VCD and use its data within other resources or data sources.
 
 Supported in provider *v3.8+*

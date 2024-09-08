@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_lb_app_profile"
+page_title: "Viettel IDC Cloud: vcloud_lb_app_profile"
 sidebar_current: "docs-vcd-resource-lb-app-profile"
 description: |-
   Provides an NSX edge gateway load balancer application profile resource.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_lb\_app\_profile
 
-Provides a VMware Cloud Director Edge Gateway Load Balancer Application Profile resource. An application
+Provides a Viettel IDC Cloud Edge Gateway Load Balancer Application Profile resource. An application
 profile defines the behavior of the load balancer for a particular type of network traffic. After
 configuring a profile, you associate it with a virtual server. The virtual server then processes
 traffic according to the values specified in the profile.
@@ -21,9 +21,9 @@ certificates.
 gateway (edge gateway must be advanced).
 This depends on NSX version to work properly. Please refer to [VMware Product Interoperability
 Matrices](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&29=&93=) 
-to check supported VMware Cloud Director and NSX for vSphere configurations.
+to check supported Viettel IDC Cloud and NSX for vSphere configurations.
 
-~> **Note:** The VMware Cloud Director API for NSX supports a subset of the operations and objects defined
+~> **Note:** The Viettel IDC Cloud API for NSX supports a subset of the operations and objects defined
 in the NSX vSphere API Guide. The API supports NSX 6.2, 6.3, and 6.4.
 
 Supported in provider *v2.4+*

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm"
+page_title: "Viettel IDC Cloud: vcloud_vm"
 sidebar_current: "docs-vcd-datasource-vm"
 description: |-
-  Provides a VMware Cloud Director VM data source. This can be used to access standalone VMs.
+  Provides a Viettel IDC Cloud VM data source. This can be used to access standalone VMs.
 ---
 
 # vcd\_vm
 
-Provides a VMware Cloud Director standalone VM data source. This can be used to access standalone VMs.
+Provides a Viettel IDC Cloud standalone VM data source. This can be used to access standalone VMs.
 
 Supported in provider *v3.2+*
 

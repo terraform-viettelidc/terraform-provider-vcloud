@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp_network"
+page_title: "Viettel IDC Cloud: vcloud_vapp_network"
 sidebar_current: "docs-vcd-resource-vapp-network"
 description: |-
  Allows to provision a vApp network and optionally connect it to an existing Org VDC network.

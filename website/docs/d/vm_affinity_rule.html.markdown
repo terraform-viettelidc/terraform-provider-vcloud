@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_affinity_rule"
+page_title: "Viettel IDC Cloud: vcloud_vm_affinity_rule"
 sidebar_current: "docs-vcd-datasource-vm-affinity-rule"
 description: |-
-  Provides a VMware Cloud Director VM affinity rule data source. This can be
+  Provides a Viettel IDC Cloud VM affinity rule data source. This can be
   used to read VM affinity and anti-affinity rules.
 ---
 
 # vcd\_vm\_affinity\_rule
 
-Provides a VMware Cloud Director VM affinity rule data source. This can be
+Provides a Viettel IDC Cloud VM affinity rule data source. This can be
 used to read VM affinity and anti-affinity rules.
 
 Supported in provider *v2.9+*

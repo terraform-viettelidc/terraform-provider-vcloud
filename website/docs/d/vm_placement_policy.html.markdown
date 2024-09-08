@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_placement_policy"
+page_title: "Viettel IDC Cloud: vcloud_vm_placement_policy"
 sidebar_current: "docs-vcd-data-source-vm-placement-policy"
 description: |-
-  Provides a VMware Cloud Director VM Placement Policy data source. This can be
+  Provides a Viettel IDC Cloud VM Placement Policy data source. This can be
   used to read a VM placement policy.
 ---
 
 # vcd\_vm\_placement\_policy
 
-Provides a VMware Cloud Director VM Placement Policy data source. This can be used to read a VM Placement Policy.
+Provides a Viettel IDC Cloud VM Placement Policy data source. This can be used to read a VM Placement Policy.
 
 Supported in provider *v3.8+* and requires VCD 10.2+
 

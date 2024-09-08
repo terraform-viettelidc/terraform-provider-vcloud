@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_type"
+page_title: "Viettel IDC Cloud: vcloud_rde_type"
 sidebar_current: "docs-vcd-resource-rde-type"
 description: |-
-   Provides the capability of creating, updating, and deleting Runtime Defined Entity types in VMware Cloud Director.
+   Provides the capability of creating, updating, and deleting Runtime Defined Entity types in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_type
 
-Provides the capability of creating, updating, and deleting Runtime Defined Entity types in VMware Cloud Director.
+Provides the capability of creating, updating, and deleting Runtime Defined Entity types in Viettel IDC Cloud.
 Requires system administrator privileges.
 
 Supported in provider *v3.9+*

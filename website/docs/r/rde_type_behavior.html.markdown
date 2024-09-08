@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_type_behavior"
+page_title: "Viettel IDC Cloud: vcloud_rde_type_behavior"
 sidebar_current: "docs-vcd-resource-rde-type-behavior"
 description: |-
-   Provides the capability of managing RDE Type Behaviors in VMware Cloud Director.
+   Provides the capability of managing RDE Type Behaviors in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_type\_behavior
 
-Provides the capability of managing RDE Type Behaviors in VMware Cloud Director, which override an existing [RDE Interface
+Provides the capability of managing RDE Type Behaviors in Viettel IDC Cloud, which override an existing [RDE Interface
 Behavior](/providers/vmware/vcd/latest/docs/resources/rde_interface_behavior).
 
 Supported in provider *v3.10+*. Requires System administrator privileges.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_neighbor"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_neighbor"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-bgp-neighbor"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway BGP Neighbors and their configuration.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_dhcp_forwarding"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcp_forwarding"
 sidebar_current: "docs-vcd-data-source-nsxt-edge-dhcp-forwarding"
 description: |-
   Provides a data source to manage NSX-T Edge Gateway DHCP forwarding configuration.

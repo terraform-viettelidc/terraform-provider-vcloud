@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_ip_set"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_ip_set"
 sidebar_current: "docs-vcd-resource-nsxt-ip-set"
 description: |-
   Provides a resource to manage NSX-T IP Set. IP Sets are groups of objects to which the firewall rules apply. Combining

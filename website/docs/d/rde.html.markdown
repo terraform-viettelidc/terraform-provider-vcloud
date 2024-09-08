@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde"
+page_title: "Viettel IDC Cloud: vcloud_rde"
 sidebar_current: "docs-vcd-data-source-rde"
 description: |-
-   Provides the capability of reading an existing Runtime Defined Entity in VMware Cloud Director.
+   Provides the capability of reading an existing Runtime Defined Entity in Viettel IDC Cloud.
 ---
 
 # vcd\_rde
 
-Provides the capability of reading an existing Runtime Defined Entity in VMware Cloud Director.
+Provides the capability of reading an existing Runtime Defined Entity in Viettel IDC Cloud.
 
 -> VCD allows to have multiple RDEs of the same [RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) with
 the same name, meaning that the data source will not be able to fetch a RDE in this situation, as this data source

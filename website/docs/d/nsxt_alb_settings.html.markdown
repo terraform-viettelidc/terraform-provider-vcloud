@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_settings"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_settings"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-settings"
 description: |-
   Provides a data source to read ALB General Settings for particular NSX-T Edge Gateway.

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_configuration"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_configuration"
 sidebar_current: "docs-vcd-data-source-nsxt-edgegateway-bgp-configuration"
 description: |-
   Provides a data source to read BGP configuration on NSX-T Edge Gateway that has a dedicated Tier-0 

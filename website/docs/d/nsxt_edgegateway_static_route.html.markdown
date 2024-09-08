@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_static_route"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_static_route"
 sidebar_current: "docs-vcd-data-source-nsxt-edgegateway-static-route"
 description: |-
   Provides a data source to read NSX-T Edge Gateway Static Routes.

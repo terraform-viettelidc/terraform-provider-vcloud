@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_dhcpv6"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_dhcpv6"
 sidebar_current: "docs-vcd-resource-nsxt-edge-dhcpv6"
 description: |-
   Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.

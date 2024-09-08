@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_oidc"
+page_title: "Viettel IDC Cloud: vcloud_org_oidc"
 sidebar_current: "docs-vcd-resource-org-oidc"
 description: |-
-  Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in VMware Cloud Director.
+  Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in Viettel IDC Cloud.
 ---
 
 # vcd\_org\_oidc
 
-Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in VMware Cloud Director.
+Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in Viettel IDC Cloud.
 
 Supported in provider *v3.13+*
 
@@ -141,7 +141,7 @@ The following arguments are supported:
   This allows users to override the configuration given by `wellknown_endpoint`
 * `prefer_id_token` - (Optional; VCD 10.4.1+) If you want to combine claims from `userinfo_endpoint` and the ID Token, set this to `true`.
   The identity providers do not provide all the required claims set in `userinfo_endpoint`. By setting this argument to `true`,
-  VMware Cloud Director can fetch and consume claims from both sources
+  Viettel IDC Cloud can fetch and consume claims from both sources
 * `max_clock_skew_seconds` - (Optional) The maximum clock skew is the maximum allowable time difference between the client and server.
   This time compensates for any small-time differences in the timestamps when verifying tokens. The **default** value is `60` seconds
 * `scopes` - (Optional) A set of scopes to use with the OIDC provider. They are used to authorize access to user details,

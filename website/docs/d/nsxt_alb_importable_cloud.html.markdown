@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_importable_cloud"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_importable_cloud"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-importable-cloud"
 description: |-
   Provides a data source to reference existing ALB Importable Clouds. An NSX-T Importable Cloud is a reference to a

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc_nsxt_network_profile"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc_nsxt_network_profile"
 sidebar_current: "docs-vcd-datasource-nsxt-network-segment-profile"
 description: |-
   Provides a data source to read Segment Profile configuration for NSX-T Org VDC networks.

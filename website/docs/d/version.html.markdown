@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_version"
+page_title: "Viettel IDC Cloud: vcloud_version"
 sidebar_current: "docs-vcd-data-source-version"
 description: |-
   Provides a VCD version data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_version
 
-Provides a VMware Cloud Director version data source to fetch the VCD version, the maximum supported API version and
+Provides a Viettel IDC Cloud version data source to fetch the VCD version, the maximum supported API version and
 perform some optional checks with version constraints.
 
 Supported in provider *v3.12+*. Requires System Administrator privileges.

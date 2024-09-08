@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ip_space_uplink"
+page_title: "Viettel IDC Cloud: vcloud_ip_space_uplink"
 sidebar_current: "docs-vcd-resource-ip-space-uplink"
 description: |-
   Provides a resource to manage IP Space Uplinks in External Networks (Provider Gateways).

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_network_imported"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_imported"
 sidebar_current: "docs-vcd-data-source-nsxt-network-imported"
 description: |-
-  Provides a VMware Cloud Director Org VDC NSX-T Imported Network data source to read data or reference existing network.
+  Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 ---
 
 # vcd\_nsxt\_network\_imported
 
-Provides a VMware Cloud Director Org VDC NSX-T Imported Network data source to read data or reference existing network.
+Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 

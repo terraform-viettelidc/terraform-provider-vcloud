@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_virtual_service"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_virtual_service"
 sidebar_current: "docs-vcd-datasource-nsxt-alb-virtual-service"
 description: |-
   Provides a data source to read ALB Virtual services for particular NSX-T Edge Gateway. A virtual service

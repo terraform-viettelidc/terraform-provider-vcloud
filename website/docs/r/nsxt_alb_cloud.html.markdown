@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_cloud"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_cloud"
 sidebar_current: "docs-vcd-resource-nsxt-alb-cloud"
 description: |-
   Provides a resource to manage ALB Clouds for Providers. An NSX-T Cloud is a service provider-level construct that

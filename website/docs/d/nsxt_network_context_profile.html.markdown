@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_network_context_profile"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_network_context_profile"
 sidebar_current: "docs-vcd-data-source-nsxt-network-context-profile"
 description: |-
   Provides a data source for NSX-T Network Context Profile lookup to later be used in Distributed

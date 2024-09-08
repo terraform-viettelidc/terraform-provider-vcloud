@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_inserted_media"
+page_title: "Viettel IDC Cloud: vcloud_inserted_media"
 sidebar_current: "docs-vcd-inserted-media"
 description: |-
-  Provides a VMware Cloud Director resource for inserting or ejecting media (ISO) file for the VM. Create this resource for inserting the media, and destroy it for ejecting.
+  Provides a Viettel IDC Cloud resource for inserting or ejecting media (ISO) file for the VM. Create this resource for inserting the media, and destroy it for ejecting.
 ---
 
 # vcd\_inserted\_media
 
-Provides a VMware Cloud Director resource for inserting or ejecting media (ISO) file for the VM. Create this resource for inserting the media, and destroy it for ejecting.
+Provides a Viettel IDC Cloud resource for inserting or ejecting media (ISO) file for the VM. Create this resource for inserting the media, and destroy it for ejecting.
 
 Supported in provider *v2.0+*
 

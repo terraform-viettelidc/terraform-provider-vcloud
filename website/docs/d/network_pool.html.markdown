@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_network_pool"
+page_title: "Viettel IDC Cloud: vcloud_network_pool"
 sidebar_current: "docs-vcd-data-source-network-pool"
 description: |-
   Provides a data source for a network pool attached to a VCD.

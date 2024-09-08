@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc_nsxt_network_profile
+page_title: "Viettel IDC Cloud: vcloud_org_vdc_nsxt_network_profile
 sidebar_current: "docs-vcd-resource-vcd-org-vdc-nsxt-network-profile"
 description: |-
   Provides a resource to manage NSX-T Org VDC Network Profile.

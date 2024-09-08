@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_segment_profile_template"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_segment_profile_template"
 sidebar_current: "docs-vcd-data-source-nsxt-segment-profile-template"
 description: |-
   Provides a data source to read NSX-T Segment Profile Templates.

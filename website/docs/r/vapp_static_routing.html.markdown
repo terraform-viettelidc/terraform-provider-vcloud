@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp_static_routing"
+page_title: "Viettel IDC Cloud: vcloud_vapp_static_routing"
 sidebar_current: "docs-vcd-resource-vapp-static-routing"
 description: |-
-  Provides a VMware Cloud Director vApp static routing resource. This can be used to create, modify, and delete static routing rules.
+  Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create, modify, and delete static routing rules.
 ---
 
 # vcd\_vapp\_static\_routing
 
-Provides a VMware Cloud Director vApp static routing resource. This can be used to create,
+Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create,
 modify, and delete static routing rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
 
 ~> **Note:** Resource used for vApp network, not vApp Org network.

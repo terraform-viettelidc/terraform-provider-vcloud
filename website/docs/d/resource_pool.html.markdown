@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_resource_pool"
+page_title: "Viettel IDC Cloud: vcloud_resource_pool"
 sidebar_current: "docs-vcd-data-source-resource-pool"
 description: |-
   Provides a data source for a resource pool attached to a vCenter.

@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_network_routed_v2"
+page_title: "Viettel IDC Cloud: vcloud_network_routed_v2"
 sidebar_current: "docs-vcd-resource-network-routed-v2"
 description: |-
-  Provides a VMware Cloud Director Org VDC routed Network. This can be used to create, modify, and
+  Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and
   delete routed VDC networks (backed by NSX-T or NSX-V).
 ---
 
 # vcd\_network\_routed\_v2
 
-Provides a VMware Cloud Director Org VDC routed Network. This can be used to create, modify, and
+Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and
 delete routed VDC networks (backed by NSX-T or NSX-V).
 
 Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.

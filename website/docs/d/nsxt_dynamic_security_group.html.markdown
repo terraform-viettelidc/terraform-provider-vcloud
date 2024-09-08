@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_dynamic_security_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_dynamic_security_group"
 sidebar_current: "docs-vcd-data-source-nsxt-dynamic-security-group"
 description: |-
   Provides a data source to read NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual

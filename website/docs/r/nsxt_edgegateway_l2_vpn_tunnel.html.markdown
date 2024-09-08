@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_l2_vpn_tunnel"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_l2_vpn_tunnel"
 sidebar_current: "docs-vcd-resource-nsxt-edgegateway-l2-vpn-tunnel"
 description: |-
   Provides a resource to manage NSX-T Edge Gateway L2 VPN Tunnel sessions and their configurations.

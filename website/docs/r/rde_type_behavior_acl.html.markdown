@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_type_behavior_acl"
+page_title: "Viettel IDC Cloud: vcloud_rde_type_behavior_acl"
 sidebar_current: "docs-vcd-resource-rde-type-behavior-acl"
 description: |-
-   Provides the capability of managing RDE Type Behavior Access Levels in VMware Cloud Director.
+   Provides the capability of managing RDE Type Behavior Access Levels in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_type\_behavior\_acl
 
 Provides the capability of managing [RDE Type Behavior](/providers/vmware/vcd/latest/docs/resources/rde_type_behavior) Access Levels
-in VMware Cloud Director.
+in Viettel IDC Cloud.
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
 

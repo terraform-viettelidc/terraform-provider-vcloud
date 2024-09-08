@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc_template"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc_template"
 sidebar_current: "docs-vcd-resource-org-vdc-template"
 description: |-
-  Provides a resource to create Organization VDC Templates in VMware Cloud Director. This can be used to create, delete, and update a Organization VDC Template.
+  Provides a resource to create Organization VDC Templates in Viettel IDC Cloud. This can be used to create, delete, and update a Organization VDC Template.
 ---
 
 # vcd\_org\_vdc\_template
 
-Provides a resource to create Organization VDC Templates in VMware Cloud Director. This can be used to create, delete, and update a Organization VDC Template.
+Provides a resource to create Organization VDC Templates in Viettel IDC Cloud. This can be used to create, delete, and update a Organization VDC Template.
 Requires system administrator privileges.
 
 ~> Only supports NSX-T network provider

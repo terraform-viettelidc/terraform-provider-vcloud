@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_controller"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_controller"
 sidebar_current: "docs-vcd-resource-nsxt-alb-controller"
 description: |-
-  Provides a resource to manage ALB Controller for Providers. It helps to integrate VMware Cloud Director with Avi Load Balancer deployment. Controller instances are registered with VMware Cloud Director instance. Controller
+  Provides a resource to manage ALB Controller for Providers. It helps to integrate Viettel IDC Cloud with Avi Load Balancer deployment. Controller instances are registered with Viettel IDC Cloud instance. Controller
   instances serve as a central control plane for the load-balancing services provided by Avi Load Balancer.
 ---
 
@@ -11,8 +11,8 @@ description: |-
 
 Supported in provider *v3.4+* and VCD 10.2+ with NSX-T and ALB.
 
-Provides a resource to manage ALB Controller for Providers. It helps to integrate VMware Cloud Director with Avi 
-Load Balancer deployment. Controller instances are registered with VMware Cloud Director instance. Controller
+Provides a resource to manage ALB Controller for Providers. It helps to integrate Viettel IDC Cloud with Avi 
+Load Balancer deployment. Controller instances are registered with Viettel IDC Cloud instance. Controller
 instances serve as a central control plane for the load-balancing services provided by Avi Load Balancer.
 
 ~> Only `System Administrator` can create this resource.

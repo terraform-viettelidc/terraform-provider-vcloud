@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ip_space"
+page_title: "Viettel IDC Cloud: vcloud_ip_space"
 sidebar_current: "docs-vcd-resource-ip-space"
 description: |-
   Provides a resource to manage IP Spaces for IP address management needs. IP Spaces provide 

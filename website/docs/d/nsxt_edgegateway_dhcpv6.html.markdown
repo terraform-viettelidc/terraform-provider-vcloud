@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_alb_settings"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_alb_settings"
 sidebar_current: "docs-vcd-data-source-nsxt-edge-dhcpv6"
 description: |-
   Provides a data source to read DHCPv6 configuration for NSX-T Edge Gateways.

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_multisite_org_association"
+page_title: "Viettel IDC Cloud: vcloud_multisite_org_association"
 sidebar_current: "docs-vcd-resource-multisite-org-association"
 description: |-
-  Provides a resource to create, read, and modify a VMware Cloud Director org association with the current org.
+  Provides a resource to create, read, and modify a Viettel IDC Cloud org association with the current org.
 ---
 
 # vcd\_multisite\_org\_association
 
-Provides a resource to create, read, and modify a VMware Cloud Director org association.
+Provides a resource to create, read, and modify a Viettel IDC Cloud org association.
 
 
 Supported in provider *v3.13+*

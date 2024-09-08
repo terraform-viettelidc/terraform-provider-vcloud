@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_library_certificate"
+page_title: "Viettel IDC Cloud: vcloud_library_certificate"
 sidebar_current: "docs-vcd-data-source-certificate-library"
 description: |-
   Provides a data source to read certificate in System or Org library.

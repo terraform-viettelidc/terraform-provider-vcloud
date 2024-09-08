@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde"
+page_title: "Viettel IDC Cloud: vcloud_rde"
 sidebar_current: "docs-vcd-resource-rde"
 description: |-
-   Provides the capability of creating, updating, and deleting Runtime Defined Entities in VMware Cloud Director.
+   Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 ---
 
 # vcd\_rde
 
-Provides the capability of creating, updating, and deleting Runtime Defined Entities in VMware Cloud Director.
+Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 
 -> VCD allows to have multiple RDEs of the same [RDE Type](/providers/vmware/vcd/latest/docs/resources/rde_type) with
 the same name, meaning that they would be only distinguishable by their ID. This could lead to potential issues when fetching

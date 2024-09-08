@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_network_routed"
+page_title: "Viettel IDC Cloud: vcloud_network_routed"
 sidebar_current: "docs-vcd-resource-network-routed"
 description: |-
-  Provides a VMware Cloud Director Org VDC routed Network. This can be used to create, modify, and delete internal networks for vApps to connect.
+  Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
 # vcd\_network\_routed
 
-Provides a VMware Cloud Director Org VDC routed Network. This can be used to create,
+Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create,
 modify, and delete internal networks for vApps to connect.
 
 Supported in provider *v2.0+*

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rights_bundle"
+page_title: "Viettel IDC Cloud: vcloud_rights_bundle"
 sidebar_current: "docs-vcd-resource-rights-bundle"
 description: |-
- Provides a VMware Cloud Director rights bundle. This can be used to create, modify, and delete rights bundles.
+ Provides a Viettel IDC Cloud rights bundle. This can be used to create, modify, and delete rights bundles.
 ---
 
 # vcd\_rights\_bundle
 
-Provides a VMware Cloud Director rights bundle. This can be used to create, modify, and delete rights bundles.
+Provides a Viettel IDC Cloud rights bundle. This can be used to create, modify, and delete rights bundles.
 
 Supported in provider *v3.3+*
 

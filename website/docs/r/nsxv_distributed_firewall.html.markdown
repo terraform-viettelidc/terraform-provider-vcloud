@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxv_distributed_firewall"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_distributed_firewall"
 sidebar_current: "docs-vcd-resource-nsxv-distributed-firewall"
 description: |-
   The NSX-V Distributed Firewall allows user to segment organization virtual data center entities, such as

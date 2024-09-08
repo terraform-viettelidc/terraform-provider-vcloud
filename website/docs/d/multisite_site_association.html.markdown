@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_multisite_site_association"
+page_title: "Viettel IDC Cloud: vcloud_multisite_site_association"
 sidebar_current: "docs-vcd-data-source-multisite-site-association"
 description: |-
-  Provides a data source to read a VMware Cloud Director site association with the current site.
+  Provides a data source to read a Viettel IDC Cloud site association with the current site.
 ---
 
 # vcd\_multisite\_site\_association
 
-Provides a data source to read a VMware Cloud Director site association information.
+Provides a data source to read a Viettel IDC Cloud site association information.
 
 ~> Note: this data source requires System Administrator privileges
 

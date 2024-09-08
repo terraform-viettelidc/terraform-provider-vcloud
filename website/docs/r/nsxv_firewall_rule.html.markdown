@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxv_firewall_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_firewall_rule"
 sidebar_current: "docs-vcd-resource-nsxv-firewall-rule"
 description: |-
-  Provides a VMware Cloud Director firewall rule resource for advanced edge gateways (NSX-V). This can be
+  Provides a Viettel IDC Cloud firewall rule resource for advanced edge gateways (NSX-V). This can be
   used to create, modify, and delete firewall rules.
 ---
 
 # vcd\_nsxv\_firewall\_rule
 
-Provides a VMware Cloud Director firewall rule resource for advanced edge gateways (NSX-V). This can be
+Provides a Viettel IDC Cloud firewall rule resource for advanced edge gateways (NSX-V). This can be
 used to create, modify, and delete firewall rules.
 
 ~> **Note:** This resource requires advanced edge gateway (NSX-V).

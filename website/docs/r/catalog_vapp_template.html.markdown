@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_catalog_vapp_template"
+page_title: "Viettel IDC Cloud: vcloud_catalog_vapp_template"
 sidebar_current: "docs-vcd-resource-catalog-vapp_template"
 description: |-
-  Provides a VMware Cloud Director vApp Template resource. This can be used to upload and delete OVA files inside a catalog.
+  Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload and delete OVA files inside a catalog.
 ---
 
 # vcd\_catalog\_vapp\_template
 
-Provides a VMware Cloud Director vApp Template resource. This can be used to upload OVA to catalog and delete it.
+Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload OVA to catalog and delete it.
 
 Supported in provider *v3.8+*
 

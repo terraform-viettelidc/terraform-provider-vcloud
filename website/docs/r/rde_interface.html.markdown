@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_interface"
+page_title: "Viettel IDC Cloud: vcloud_rde_interface"
 sidebar_current: "docs-vcd-resource-rde-interface"
 description: |-
-   Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in VMware Cloud Director.
+   Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_interface
 
-Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in VMware Cloud Director.
+Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 
 A Runtime Defined Entity Interface is specified unequivocally by 3 elements: `vendor`, `nss` and `version`. This
 3-tuple must be unique. See the examples section for more details.

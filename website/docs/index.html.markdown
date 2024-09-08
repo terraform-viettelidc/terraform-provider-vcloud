@@ -1,20 +1,20 @@
 ---
 layout: "vcd"
-page_title: "Provider: VMware Cloud Director"
+page_title: "Provider: Viettel IDC Cloud"
 sidebar_current: "docs-vcd-index"
 description: |-
-  The VMware Cloud Director provider is used to interact with the resources supported by VMware Cloud Director. The provider needs to be configured with the proper credentials before it can be used.
+  The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 ---
 
-# VMware Cloud Director Provider 3.13
+# Viettel IDC Cloud Provider 3.13
 
-The VMware Cloud Director provider is used to interact with the resources supported by VMware Cloud Director. The provider needs to be configured with the proper credentials before it can be used.
+The Viettel IDC Cloud provider is used to interact with the resources supported by Viettel IDC Cloud. The provider needs to be configured with the proper credentials before it can be used.
 
 Use the navigation to the left to read about the available resources. Please refer to
 [CHANGELOG.md](https://github.com/vmware/terraform-provider-vcd/blob/main/CHANGELOG.md)
 to track feature additions.
 
-~> **NOTE:** The VMware Cloud Director Provider documentation pages include *v2.x+* or *v3.x+* labels in resource and/or field
+~> **NOTE:** The Viettel IDC Cloud Provider documentation pages include *v2.x+* or *v3.x+* labels in resource and/or field
 descriptions. These labels are designed to show at which provider version a certain feature was introduced.
 When upgrading the provider please check for such labels for the resources you are using.
 
@@ -33,7 +33,7 @@ Also Cloud Director Service (CDS) is supported.
 The most common - tenant - use case when you set user to organization administrator and when all resources are in a single organization. 
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user                 = var.vcloud_user
   password             = var.vcloud_pass
@@ -56,7 +56,7 @@ resource "vcloud_network_routed" "net" {
 When you want to manage resources across different organizations from a single configuration.
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user                 = "administrator"
   password             = var.vcloud_pass
@@ -89,7 +89,7 @@ resource "vcloud_network_routed" "net2" {
 When you want to manage resources across different organizations but set a default one. 
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user                 = "administrator"
   password             = var.vcloud_pass
@@ -293,7 +293,7 @@ Using a token produced by an org admin to run a task that requires a system admi
 Take special attention to `user`, `use_saml_adfs` and `saml_rpt_id` fields.
 
 ```hcl
-# Configure the VMware Cloud Director Provider
+# Configure the Viettel IDC Cloud Provider
 provider "vcd" {
   user      = "test@contoso.com"
   password  = var.vcloud_pass
@@ -311,7 +311,7 @@ provider "vcd" {
 
 ## Argument Reference
 
-The following arguments are used to configure the VMware Cloud Director Provider:
+The following arguments are used to configure the Viettel IDC Cloud Provider:
 
 * `user` - (Required) This is the username for Cloud Director API operations. Can also be specified
   with the `VCLOUD_USER` environment variable. *v2.0+* `user` may be "administrator" (set `org` or

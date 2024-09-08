@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vgpu_profile"
+page_title: "Viettel IDC Cloud: vcloud_vgpu_profile"
 sidebar_current: "docs-vcd-datasource-vgpu-policy"
 description: |-
-  Provides a datasource to read vGPU profiles in VMware Cloud Director.
+  Provides a datasource to read vGPU profiles in Viettel IDC Cloud.
 ---
 
 # vcd\_vm\_vgpu\_profile
@@ -12,7 +12,7 @@ Supported in provider *3.11* and VCD *10.4.0+*.
 
 -> **Note:** This data source requires system administrator privileges.
 
-Provides a datasource to read vGPU profiles in VMware Cloud Director.
+Provides a datasource to read vGPU profiles in Viettel IDC Cloud.
 
 ## Example Usage
 

@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxv_firewall_rule"
+page_title: "Viettel IDC Cloud: vcloud_nsxv_firewall_rule"
 sidebar_current: "docs-vcd-data-source-nsxv-firewall-rule"
 description: |-
-  Provides a VMware Cloud Director firewall rule data source for advanced edge gateways (NSX-V). This can
+  Provides a Viettel IDC Cloud firewall rule data source for advanced edge gateways (NSX-V). This can
   be used to read existing rules by ID and use its attributes in other resources.
 ---
 
 # vcd\_nsxv\_firewall\_rule
 
-Provides a VMware Cloud Director firewall rule data source for advanced edge gateways (NSX-V). This can be
+Provides a Viettel IDC Cloud firewall rule data source for advanced edge gateways (NSX-V). This can be
 used to read existing rules by ID and use its attributes in other resources.
 
 ~> **Note:** This data source requires advanced edge gateway.

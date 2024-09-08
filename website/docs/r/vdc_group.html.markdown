@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vdc_group"
+page_title: "Viettel IDC Cloud: vcloud_vdc_group"
 sidebar_current: "docs-vcd-resource-vdc-group"
 description: |-
   Provides a VDC group resource.

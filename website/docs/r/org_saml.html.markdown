@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_saml"
+page_title: "Viettel IDC Cloud: vcloud_org_saml"
 sidebar_current: "docs-vcd-resource-org-saml"
 description: |-
-  Provides a VMware Cloud Director Organization SAML resource. This can be used to create, delete, and update SAML configuration for an organization.
+  Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, delete, and update SAML configuration for an organization.
 ---
 
 # vcd\_org\_saml
 
-Provides a VMware Cloud Director Organization SAML resource. This can be used to create, update, and delete SAML configuration for an organization.
+Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, update, and delete SAML configuration for an organization.
 
 Supported in provider *v3.10+*
 

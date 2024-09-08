@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_org_vdc_template_instance"
+page_title: "Viettel IDC Cloud: vcloud_org_vdc_template_instance"
 sidebar_current: "docs-vcd-resource-org-vdc-template-instance"
 description: |-
-  Provides a resource to instantiate VDCs from a VDC Template in VMware Cloud Director.
+  Provides a resource to instantiate VDCs from a VDC Template in Viettel IDC Cloud.
 ---
 
 # vcd\_org\_vdc\_template\_instance
 
-Provides a resource to instantiate VDCs from a [VDC Template](/providers/vmware/vcd/latest/docs/resources/org_vdc_template) in VMware Cloud Director.
+Provides a resource to instantiate VDCs from a [VDC Template](/providers/vmware/vcd/latest/docs/resources/org_vdc_template) in Viettel IDC Cloud.
 Supported in provider *v3.13+*
 
 ## Example Usage

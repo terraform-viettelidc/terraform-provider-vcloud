@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp_vm"
+page_title: "Viettel IDC Cloud: vcloud_vapp_vm"
 sidebar_current: "docs-vcd-resource-vapp-vm"
 description: |-
-  Provides a VMware Cloud Director VM resource. This can be used to create, modify, and delete VMs within a vApp.
+  Provides a Viettel IDC Cloud VM resource. This can be used to create, modify, and delete VMs within a vApp.
 ---
 
 # vcd\_vapp\_vm
 
-Provides a VMware Cloud Director VM resource. This can be used to create,
+Provides a Viettel IDC Cloud VM resource. This can be used to create,
 modify, and delete VMs within a vApp.
 
 ## Example Usage
@@ -663,13 +663,13 @@ Allows to specify the boot options of a VM.
 
 When you customize your guest OS you can set up a virtual machine with the operating system that you want.
 
-VMware Cloud Director can customize the network settings of the guest operating system of a virtual machine created from a
+Viettel IDC Cloud can customize the network settings of the guest operating system of a virtual machine created from a
 vApp template. When you customize your guest operating system, you can create and deploy multiple unique virtual
 machines based on the same vApp template without machine name or network conflicts.
 
 When you configure a vApp template with the prerequisites for guest customization and add a virtual machine to a vApp
-based on that template, VMware Cloud Director creates a package with guest customization tools. When you deploy and power on
-the virtual machine for the first time, VMware Cloud Director copies the package, runs the tools, and deletes the package from
+based on that template, Viettel IDC Cloud creates a package with guest customization tools. When you deploy and power on
+the virtual machine for the first time, Viettel IDC Cloud copies the package, runs the tools, and deletes the package from
 the virtual machine.
 
 ~> **Note:** The settings below work so that all values are inherited from template and only the specified fields are

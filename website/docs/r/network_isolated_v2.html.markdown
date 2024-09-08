@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_network_isolated_v2"
+page_title: "Viettel IDC Cloud: vcloud_network_isolated_v2"
 sidebar_current: "docs-vcd-resource-network-isolated-v2"
 description: |-
-  Provides a VMware Cloud Director Org VDC isolated Network. This can be used to create, modify, and
+  Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
   delete isolated VDC networks (backed by NSX-T or NSX-V).
 ---
 
 # vcd\_network\_isolated\_v2
 
-Provides a VMware Cloud Director Org VDC isolated Network. This can be used to create, modify, and
+Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
 delete isolated VDC networks (backed by NSX-T or NSX-V).
 
 Supported in provider *v3.2+* for both NSX-T and NSX-V VDCs.

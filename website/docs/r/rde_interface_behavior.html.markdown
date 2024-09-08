@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_rde_interface_behavior"
+page_title: "Viettel IDC Cloud: vcloud_rde_interface_behavior"
 sidebar_current: "docs-vcd-resource-rde-interface-behavior"
 description: |-
-   Provides the capability of managing RDE Interface Behaviors in VMware Cloud Director.
+   Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 ---
 
 # vcd\_rde\_interface\_behavior
 
-Provides the capability of managing RDE Interface Behaviors in VMware Cloud Director.
+Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 
 Supported in provider *v3.10+*. Requires System administrator privileges.
 

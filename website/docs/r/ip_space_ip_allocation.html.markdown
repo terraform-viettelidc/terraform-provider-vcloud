@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_ip_space_ip_allocation"
+page_title: "Viettel IDC Cloud: vcloud_ip_space_ip_allocation"
 sidebar_current: "docs-vcd-resource-ip-space-ip-allocation"
 description: |-
   Provides a resource to manage IP Allocations within IP Spaces. It supports both - Floating IPs 

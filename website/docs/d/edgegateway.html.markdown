@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_edgegateway"
+page_title: "Viettel IDC Cloud: vcloud_edgegateway"
 sidebar_current: "docs-vcd-data-source-edgegateway"
 description: |-
   Provides an NSX-V edge gateway data source.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_edgegateway
 
-Provides a VMware Cloud Director NSX-V edge gateway data source, directly connected to one or more external networks. This can be used to reference
+Provides a Viettel IDC Cloud NSX-V edge gateway data source, directly connected to one or more external networks. This can be used to reference
 edge gateways for Org VDC networks to connect.
 
 Supported in provider *v2.5+*

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_service_account"
+page_title: "Viettel IDC Cloud: vcloud_service_account"
 sidebar_current: "docs-vcd-datasource-service-account"
 description: |-
   Provides a data source to read VCD Service Accounts.

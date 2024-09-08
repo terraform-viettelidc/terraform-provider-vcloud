@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_external_network_v2"
+page_title: "Viettel IDC Cloud: vcloud_external_network_v2"
 sidebar_current: "docs-vcd-resource-external-network-v2"
 description: |-
-  Provides a VMware Cloud Director External Network resource (version 2). New version of this resource
+  Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource
   uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
   backed ones.
 ---
 
 # vcd\_external\_network\_v2
 
-Provides a VMware Cloud Director External Network resource (version 2). New version of this resource 
+Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource 
 uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
 backed ones.
 

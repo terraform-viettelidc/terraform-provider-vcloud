@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_catalog_item"
+page_title: "Viettel IDC Cloud: vcloud_catalog_item"
 sidebar_current: "docs-vcd-resource-catalog-item"
 description: |-
-  Provides a VMware Cloud Director catalog item resource. This can be used to upload and delete OVA file inside a catalog.
+  Provides a Viettel IDC Cloud catalog item resource. This can be used to upload and delete OVA file inside a catalog.
 ---
 
 # vcd\_catalog\_item
 
 -> If you only need vApp Template features, you may use [`vcloud_catalog_vapp_template`](/providers/vmware/vcd/latest/docs/resources/catalog_vapp_template) instead.
 
-Provides a VMware Cloud Director catalog item resource. This can be used to upload OVA to catalog and delete it.
+Provides a Viettel IDC Cloud catalog item resource. This can be used to upload OVA to catalog and delete it.
 
 Supported in provider *v2.0+*
 

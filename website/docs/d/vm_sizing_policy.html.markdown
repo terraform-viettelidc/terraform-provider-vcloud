@@ -1,15 +1,15 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vm_sizing_policy"
+page_title: "Viettel IDC Cloud: vcloud_vm_sizing_policy"
 sidebar_current: "docs-vcd-datasource-vm-sizing-policy"
 description: |-
-  Provides a VMware Cloud Director VM sizing policy data source. This can be
+  Provides a Viettel IDC Cloud VM sizing policy data source. This can be
   used to read VM sizing policy.
 ---
 
 # vcd\_vm\_sizing\_policy
 
-Provides a VMware Cloud Director VM sizing policy data source. This can be
+Provides a Viettel IDC Cloud VM sizing policy data source. This can be
 used to read VM sizing policy.
 
 Supported in provider *v3.0+* and requires VCD 10.0+

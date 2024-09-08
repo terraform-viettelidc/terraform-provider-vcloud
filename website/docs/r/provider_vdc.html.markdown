@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_provider_vdc"
+page_title: "Viettel IDC Cloud: vcloud_provider_vdc"
 sidebar_current: "docs-vcd-resource-provider-vdc"
 description: |-
   Provides a Provider VDC resource.
@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_provider\_vdc
 
-Provides a VMware Cloud Director Provider VDC resource. This resource can be used to create, modify, and delete a Provider VDC and use its 
+Provides a Viettel IDC Cloud Provider VDC resource. This resource can be used to create, modify, and delete a Provider VDC and use its 
 data within other resources or data sources.
 
 Supported in provider *v3.10+*

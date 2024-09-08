@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_security_group"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_security_group"
 sidebar_current: "docs-vcd-data-source-nsxt-security-group"
 description: |-
   Provides a data source to access NSX-T Security Group configuration. Security Groups are groups of

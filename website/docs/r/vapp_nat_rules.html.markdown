@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_vapp_nat_rules"
+page_title: "Viettel IDC Cloud: vcloud_vapp_nat_rules"
 sidebar_current: "docs-vcd-resource-vapp-nat-rules"
 description: |-
-  Provides a VMware Cloud Director vApp NAT resource. This can be used to create, modify, and delete NAT rules.
+  Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create, modify, and delete NAT rules.
 ---
 
 # vcd\_vapp\_nat\_rules
 
-Provides a VMware Cloud Director vApp NAT resource. This can be used to create,
+Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create,
 modify, and delete NAT rules in a [vApp network](/providers/vmware/vcd/latest/docs/resources/vapp_network).
 NAT rules can be applied to [vApp networks connected to Org network](/providers/vmware/vcd/latest/docs/resources/vapp_network) or [vApp org networks](/docs/providers/vcd/r/vapp_org_network) which are fenced.
 

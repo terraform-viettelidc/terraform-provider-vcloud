@@ -1,9 +1,9 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: Site and Org Association"
+page_title: "Viettel IDC Cloud: Site and Org Association"
 sidebar_current: "docs-vcd-guides-associations"
 description: |-
- Provides guidance to VMware Cloud Director Site and Org Associations
+ Provides guidance to Viettel IDC Cloud Site and Org Associations
 ---
 
 # Site and Org association
@@ -19,12 +19,12 @@ Association between sites and between organizations follows the same pattern:
 3. **Association creation** Each administrator takes the received file and establishes an association.
 4. When both sides have completed the above three steps, the association is complete.
 
-VMware Cloud Director provider v3.13+ supplies data sources and resources to run operation 1 (data collection) and 3 
+Viettel IDC Cloud provider v3.13+ supplies data sources and resources to run operation 1 (data collection) and 3 
 (association creation). The file exchange is not an operation directly supported by the provider, although in some
 scenarios, when the same user has access to both sites or both organizations, all operations can run through Terraform
 resources.
-The Org association can be established between organizations in the same VCD or in a different one. When the associated
-organization is remote (belongs to a different VCD), we need to establish an association between the two VCD (sites)
+The Org association can be established between organizations in the same VCLOUD or in a different one. When the associated
+organization is remote (belongs to a different VCD), we need to establish an association between the two VCLOUD (sites)
 before we can associate the organizations.
 
 ## Associations are binary
@@ -88,7 +88,7 @@ See a full example for this workflow at [examples/org-all-at-once][org-all-at-on
 
 ### Data collection for a Site
 
-Each VCD has only one site. No names or ID are needed to identify it. The data source that performs the data collection
+Each VCLOUD has only one site. No names or ID are needed to identify it. The data source that performs the data collection
 is `vcloud_multisite_site_data`:
 
 ```hcl

@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_route_advertisement"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_route_advertisement"
 sidebar_current: "docs-vcd-resource-nsxt_route_advertisement"
 description: |-
-Provides a VMware Cloud Director resource for setting route advertisement in an NSX-T Edge Gateway.
+Provides a Viettel IDC Cloud resource for setting route advertisement in an NSX-T Edge Gateway.
 ---
 
 # vcd\_nsxt\_route\_advertisement
 
-Provides a VMware Cloud Director resource for setting route advertisement in an NSX-T Edge Gateway.
+Provides a Viettel IDC Cloud resource for setting route advertisement in an NSX-T Edge Gateway.
 
 ~> **Note:** This resource requires an NSX-T Edge Gateway. Also, for this resource to work appropriately, the option "Dedicate Tier-0 Gateway" must be enabled. Otherwise, route advertisement creation will fail.  
 Take into account that if the NSX-T Edge Gateway is created from Terraform using `vcloud_nsxt_edgegateway` resource, the option `dedicate_external_network` must be enabled **on Edge Gateway** so that it is a "Dedicated Tier-0 Gateway".

@@ -1,6 +1,6 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_nsxt_edgegateway_bgp_ip_prefix_list"
+page_title: "Viettel IDC Cloud: vcloud_nsxt_edgegateway_bgp_ip_prefix_list"
 sidebar_current: "docs-vcd-datasource-nsxt-edgegateway-bgp-ip-prefix-list"
 description: |-
   Provides a data source to manage NSX-T Edge Gateway BGP IP Prefix Lists. IP prefix lists can

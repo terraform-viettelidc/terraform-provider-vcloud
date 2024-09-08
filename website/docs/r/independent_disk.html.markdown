@@ -1,14 +1,14 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: vcloud_independent_disk"
+page_title: "Viettel IDC Cloud: vcloud_independent_disk"
 sidebar_current: "docs-vcd-independent-disk"
 description: |-
-  Provides a VMware Cloud Director independent disk resource. This can be used to create and delete independent disks.
+  Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 ---
 
 # vcd\_independent\_disk
 
-Provides a VMware Cloud Director independent disk resource. This can be used to create and delete independent disks.
+Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 The resource is capable of updating independent disks attached to a VM. Update detaches the disks temporarily and attaches back after changes are done.
 
 ## Example Usage

@@ -1,16 +1,16 @@
 ---
 layout: "vcd"
-page_title: "VMware Cloud Director: VDC Groups"
+page_title: "Viettel IDC Cloud: VDC Groups"
 sidebar_current: "docs-vcd-guides-vdc-groups"
 description: |-
   Provides guidance to VDC Group support
 ---
 
-# VDC Groups in VMware Cloud Director 10.2+
+# VDC Groups in Viettel IDC Cloud 10.2+
 
 ## About 
 
-Starting with version 10.2, VMware Cloud Director supports data center group networking backed by
+Starting with version 10.2, Viettel IDC Cloud supports data center group networking backed by
 NSX-T Data Center.
 
 To create a network across multiple organization VDCs, you first group the VDCs and then create a
@@ -40,17 +40,17 @@ external network.
 
 VDC Group support requires:
 
-* Terraform Provider VCD 3.6+
-* VMware Cloud Director 10.2+
+* Terraform Provider VCLOUD 3.6+
+* Viettel IDC Cloud 10.2+
 
 -> For changed fields (these are usually `vdc` and `owner_id`) the previous behavior is deprecated,
 but still supported. To use VDC Groups though, one needs to migrate to new configuration, which
 shouldn't require rebuilding infrastructure.
 
-## Terraform Provider VCD support 
+## Terraform Provider VCLOUD support 
 
-This document describes features that were introduced in Terraform Provider VCD 3.6.0+ for VDC Group
-support. Earlier versions of Terraform Provider VCD do not support VDC Groups.
+This document describes features that were introduced in Terraform Provider VCLOUD 3.6.0+ for VDC Group
+support. Earlier versions of Terraform Provider VCLOUD do not support VDC Groups.
 
 Major new approach for VDC Group support is the use of new field `owner_id` (except for routed
 network, which inherits parent VDC/VDC Group from Edge Gateway) field instead of `vdc`. `owner_id`
@@ -99,7 +99,7 @@ New fields for handling both VDCs and VDC Groups:
 
 #### Resource vcloud_network_routed_v2
 
-Terraform Provider VCD 3.6.0 changes behavior of `vcloud_network_routed_v2` resource. It __does not
+Terraform Provider VCLOUD 3.6.0 changes behavior of `vcloud_network_routed_v2` resource. It __does not
 require__ to specify `vdc` or `owner_id` fields. Instead, it inherits VDC or VDC Group membership
 directly from parent Edge Gateway (specified in `edge_gateway_id`). The reason for this is that
 routed Org VDC networks travel to and from VDC Groups with parent Edge Gateway and this does not
@@ -305,5 +305,5 @@ resource "vcloud_nsxt_distributed_firewall" "t1" {
 ```
 ## References
 
-* [VMware Cloud Director Documentation about VDC
+* [Viettel IDC Cloud Documentation about VDC
   Groups](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-E8A8CD70-31AD-4592-B520-34E3B7DC4E6E.html)
