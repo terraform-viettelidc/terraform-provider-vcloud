@@ -14,7 +14,7 @@ Provides a data source to read IP Spaces. IP Spaces provide structured approach 
 and private IP addresses by preventing the use of overlapping IP addresses across organizations and
 organization VDCs.
 
-IP Spaces require VCD 10.4.1+ with NSX-T.
+IP Spaces require VCLOUD 10.4.1+ with NSX-T.
 
 ## Example Usage (Private IP Space within an Org)
 

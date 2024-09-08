@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_nat\_rule
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to read NSX-T NAT rules. Source NAT (SNAT) rules change the source IP 
 address from a private to a public IP address. Destination NAT (DNAT) rules change the destination

@@ -4,18 +4,18 @@ page_title: "Viettel IDC Cloud: vcloud_service_account"
 sidebar_current: "docs-vcd-resource-service-account"
 description: |-
   Provides a resource to manage Service Accounts. Service Accounts can have defined roles
-  and act just like a VCD user. Service Accounts, when activated, provide one-time use
-  access tokens for authentication to the VCD API, during which a new access token is generated.
+  and act just like a VCLOUD user. Service Accounts, when activated, provide one-time use
+  access tokens for authentication to the VCLOUD API, during which a new access token is generated.
 ---
 
 # vcd\_service\_account 
 
 Provides a resource to manage Service Accounts. Service Accounts can have defined roles
-and act just like a VCD user. Service Accounts, when activated, provide one-time use
-access tokens for authentication to the VCD API, during which a new access token is generated.
+and act just like a VCLOUD user. Service Accounts, when activated, provide one-time use
+access tokens for authentication to the VCLOUD API, during which a new access token is generated.
 Explained in more detail [here][service-accounts]
 
-Supported in provider *v3.10+* and VCD 10.4+.
+Supported in provider *v3.10+* and VCLOUD 10.4+.
 
 ## Example Usage 
 

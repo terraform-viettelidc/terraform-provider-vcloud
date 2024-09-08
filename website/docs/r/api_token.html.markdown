@@ -12,7 +12,7 @@ description: |-
 Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCD. 
 They are user-based and have the same role as the user. Explained in more detail [here][api-tokens].
 
-Supported in provider *v3.10+* and VCD 10.3.1+.
+Supported in provider *v3.10+* and VCLOUD 10.3.1+.
 
 ## Example usage
 

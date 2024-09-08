@@ -23,10 +23,10 @@ data "vcloud_rde_interface" "my_interface" {
 }
 
 resource "vcloud_rde_type" "my_rde_type" {
-  vendor        = "vmware"
+  vendor        = "vcloud"
   nss           = "vcd"
   version       = "4.5.6"
-  name          = "My VMware RDE Type"
+  name          = "My vCloudRDE Type"
   interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema        = file("${path.module}/schemas/my-type-schema.json")
 }
@@ -42,10 +42,10 @@ data "vcloud_rde_interface" "my_interface" {
 }
 
 resource "vcloud_rde_type" "my_rde_type" {
-  vendor        = "vmware"
+  vendor        = "vcloud"
   nss           = "vcd"
   version       = "4.5.6"
-  name          = "My VMware RDE Type"
+  name          = "My vCloudRDE Type"
   interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema_url    = "https://just.an-example.com/schemas/my-type-schema.json"
 }
@@ -74,10 +74,10 @@ resource "vcloud_rde_interface_behavior" "my_behavior" {
 }
 
 resource "vcloud_rde_type" "my_rde_type" {
-  vendor        = "vmware"
+  vendor        = "vcloud"
   nss           = "vcd"
   version       = "4.5.6"
-  name          = "My VMware RDE Type"
+  name          = "My vCloudRDE Type"
   interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema_url    = "https://just.an-example.com/schemas/my-type-schema.json"
 
@@ -105,10 +105,10 @@ resource "vcloud_rde_interface_behavior" "my_behavior" {
 }
 
 resource "vcloud_rde_type" "my_rde_type" {
-  vendor        = "vmware"
+  vendor        = "vcloud"
   nss           = "vcd"
   version       = "4.5.6"
-  name          = "My VMware RDE Type"
+  name          = "My vCloudRDE Type"
   interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema_url    = "https://just.an-example.com/schemas/my-type-schema.json"
 

@@ -10,7 +10,7 @@ description: |-
 
 Provides a resource to manage NSX-T Org VDC Network Profile.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and VCLOUD 10.4.0+ with NSX-T.
 
 -> This resource is a "singleton" per VDC as it modifies VDC property (network profile
 configuration)

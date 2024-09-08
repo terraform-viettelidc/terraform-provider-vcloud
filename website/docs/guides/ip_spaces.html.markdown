@@ -341,9 +341,13 @@ resource "vcloud_network_routed_v2" "using-public-prefix" {
 ```
 
 
-## References
+[//]: # (## References)
 
-* [Viettel IDC Cloud Documentation for Providers](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-46772618-7991-4928-A77B-BC774C45EA33.html)
-* [Viettel IDC Cloud Documentation for Tenants](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB230D89-ACBC-4345-A11A-D099D359ED1B.html)
-* [IP Space Uplinks for Provider Gateways](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-0D40BD21-CAAA-4FD3-B6ED-78BA8FE2DEF1.html)
-* [IP Space management for Orgs](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-575513A8-9ADE-4A3D-92AB-CB0917FF8316.html)
+[//]: # ()
+[//]: # (* [Viettel IDC Cloud Documentation for Providers]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-46772618-7991-4928-A77B-BC774C45EA33.html&#41;)
+
+[//]: # (* [Viettel IDC Cloud Documentation for Tenants]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB230D89-ACBC-4345-A11A-D099D359ED1B.html&#41;)
+
+[//]: # (* [IP Space Uplinks for Provider Gateways]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-0D40BD21-CAAA-4FD3-B6ED-78BA8FE2DEF1.html&#41;)
+
+[//]: # (* [IP Space management for Orgs]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-575513A8-9ADE-4A3D-92AB-CB0917FF8316.html&#41;)

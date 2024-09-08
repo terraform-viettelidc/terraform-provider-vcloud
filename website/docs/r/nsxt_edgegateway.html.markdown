@@ -310,7 +310,7 @@ The following arguments are supported:
 * `org` - (Optional) The name of organization to which the VDC belongs. Optional if defined at provider level.
 * `vdc` - (Optional) **Deprecated** in favor of `owner_id`. The name of VDC that owns the edge
   gateway. Can be inherited from `provider` configuration if not defined here.
-* `owner_id` - (Optional, *v3.6+*,*VCD 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
+* `owner_id` - (Optional, *v3.6+*,*VCLOUD 10.2+*) The ID of VDC or VDC Group. **Note:** Data sources
   [vcloud_vdc_group](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/vdc_group) or
   [vcloud_org_vdc](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/org_vdc) can be used to lookup IDs by
   name.
@@ -322,7 +322,7 @@ definition at provider level.
   (random member of VDC Group or specified in `starting_vdc_id`). Main use case of `starting_vdc_id`
   is to pick egress traffic origin for multi datacenter VDC Groups.
 
-* `starting_vdc_id` - (Optional, *v3.6+*,*VCD 10.2+*)  If `owner_id` is a VDC Group, by default Edge
+* `starting_vdc_id` - (Optional, *v3.6+*,*VCLOUD 10.2+*)  If `owner_id` is a VDC Group, by default Edge
   Gateway will be created in random member VDC and moved to destination VDC Group. This field allows
   to specify initial VDC for Edge Gateway (this can define Egress location of traffic in the VDC
   Group) **Note:** It can only be used when `owner_id` is a VDC Group. 
@@ -348,7 +348,7 @@ can be used to lookup ID by name.
 * `total_allocated_ip_count` - (Optional, *v3.9+*) Required with `subnet_with_total_ip_count`. It is
   **read-only** attribute with other other allocation models `subnet` and `subnet_with_ip_count`.
   **Note**. It sets or reports IP count *only for NSX-T Tier 0 backed external network Uplink*.
-* `external_network` - (Optional, *VCD 10.4.1+*, *v3.11+*) attaches NSX-T Segment backed External
+* `external_network` - (Optional, *VCLOUD 10.4.1+*, *v3.11+*) attaches NSX-T Segment backed External
   Networks with a given [configuration block](#edgegateway-subnet-external-network). It *does not
   support IP Spaces*.
 * `ip_count_read_limit` - (Optional, *v3.13+*) Sets a limit of IPs to count for

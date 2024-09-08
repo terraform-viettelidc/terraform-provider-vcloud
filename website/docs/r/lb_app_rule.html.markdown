@@ -13,7 +13,7 @@ allows to directly manipulate and manage IP application traffic with load balanc
 
 ~> **Note:** To make load balancing work one must ensure that load balancing is enabled on edge
 gateway (edge gateway must be advanced).
-This depends on NSX version to work properly. Please refer to [VMware Product Interoperability
+This depends on NSX version to work properly. Please refer to [VCloud Product Interoperability
 Matrices](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&29=&93=) 
 to check supported Viettel IDC Cloud and NSX for vSphere configurations.
 

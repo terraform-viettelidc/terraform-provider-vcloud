@@ -11,7 +11,7 @@ description: |-
 
 # vcd\_nsxt\_alb\_service\_engine\_group
 
-Supported in provider *v3.4+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.4+* and VCLOUD 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Service Engine Groups. A Service Engine Group is an isolation domain that also
 defines shared service engine properties, such as size, network access, and failover. Resources in a service engine
@@ -78,7 +78,7 @@ The following arguments are supported:
   ensure up-to-date information is read. Default is **false**.
 * `supported_feature_set` - (Optional; *v3.7+*) Feature set of this ALB Service Engine Group (`STANDARD` or `PREMIUM`)
 
-~> The attribute `supported_feature_set` must not be used in VCD versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_controller).
+~> The attribute `supported_feature_set` must not be used in VCLOUD versions lower than 10.4. Starting with 10.4, it replaces `license_type` field in [nsxt_alb_controller](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_controller).
 
 ## Attribute Reference
 

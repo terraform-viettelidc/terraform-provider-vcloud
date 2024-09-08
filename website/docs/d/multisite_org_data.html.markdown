@@ -30,7 +30,7 @@ data "vcloud_multisite_org_data" "current_org" {
 
 * `org_id` - (Required) The ID of the organization for which we need to collect the data.
 * `download_to_file` - (Optional) Name of the file that will contain the data needed to associate this Org to another one, 
-  either on the same VCD or in a different one.
+  either on the same VCLOUD or in a different one.
   Contains the same data returned in `association_data`.
 
 ## Attribute Reference

@@ -10,7 +10,7 @@ description: |-
 
 Provides a resource to manage Global Default NSX-T Segment Profile Templates.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T. Requires System Administrator privileges.
+Supported in provider *v3.11+* and VCLOUD 10.4.0+ with NSX-T. Requires System Administrator privileges.
 
 ## Example Usage
 
@@ -20,7 +20,7 @@ resource "vcloud_nsxt_global_default_segment_profile_template" "singleton" {
 ```
 ## Argument Reference
 
-No arguments are required because this is a global VCD configuration
+No arguments are required because this is a global VCLOUD configuration
 
 ## Attribute Reference
 

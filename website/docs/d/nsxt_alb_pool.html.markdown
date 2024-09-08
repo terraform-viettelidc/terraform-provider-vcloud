@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_alb\_pool
 
-Supported in provider *v3.5+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 
 Provides a data source to read ALB Pools for particular NSX-T Edge Gateway. Pools maintain the list of servers
 assigned to them and perform health monitoring, load balancing, persistence. A pool may only be used or referenced by

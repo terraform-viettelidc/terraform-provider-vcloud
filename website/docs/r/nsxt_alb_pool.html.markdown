@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_alb\_pool
 
-Supported in provider *v3.5+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 
 Provides a resource to manage ALB Pools for particular NSX-T Edge Gateway. Pools maintain the list of servers
 assigned to them and perform health monitoring, load balancing, persistence. A pool may only be used or referenced by
@@ -118,7 +118,7 @@ The following arguments are supported:
 * `member` - (Optional) A block to define pool members. Multiple can be used. See
   [Member](#member-block) and example for usage details. **Note** only one of `member`,
   `member_group_id` can be specified.
-* `member_group_id` - (Optional; *v3.9+*, *VCD 10.4.1+*) A reference to NSX-T IP Set (`vcloud_nsxt_ip_set`).
+* `member_group_id` - (Optional; *v3.9+*, *VCLOUD 10.4.1+*) A reference to NSX-T IP Set (`vcloud_nsxt_ip_set`).
   **Note** only one of `member`, `member_group_id` can be specified.
 * `persistence_profile` - (Optional) Persistence profile will ensure that the same user sticks to the same server for a
   desired duration of time. If the persistence profile is unmanaged by Cloud Director, updates that leave the values

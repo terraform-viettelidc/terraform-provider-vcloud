@@ -3,7 +3,7 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: Roles Management"
 sidebar_current: "docs-vcd-guides-roles"
 description: |-
- Provides guidance to VMware Cloud roles management
+ Provides guidance to Viettel IDC Cloud roles management
 ---
 
 # Roles Management
@@ -437,7 +437,9 @@ resource "vcloud_global_role" "super-vapp-user" {
 ```
 
 
-## References
+[//]: # (## References)
 
-* [Managing Rights and Roles](https://docs.vmware.com/en/VMware-Cloud-Director/10.2/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-816FBBBC-2CDA-4B1D-9B1A-C22BC31B46F2.html)
-* [Viettel IDC Cloud – Simple Rights Management with Bundles](https://blogs.vmware.com/cloudprovider/2019/12/effective-rights-bundles.html)
+[//]: # ()
+[//]: # (* [Managing Rights and Roles]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.2/VMware-Cloud-Director-Service-Provider-Admin-Portal-Guide/GUID-816FBBBC-2CDA-4B1D-9B1A-C22BC31B46F2.html&#41;)
+
+[//]: # (* [Viettel IDC Cloud – Simple Rights Management with Bundles]&#40;https://blogs.vmware.com/cloudprovider/2019/12/effective-rights-bundles.html&#41;)

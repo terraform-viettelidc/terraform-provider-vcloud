@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_nsxt\_edgegateway\_rate\_limiting
 
-Supported in provider *v3.9+* and VCD 10.3.2+ with NSX-T.
+Supported in provider *v3.9+* and VCLOUD 10.3.2+ with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway Rate Limiting (QoS) configuration.
 

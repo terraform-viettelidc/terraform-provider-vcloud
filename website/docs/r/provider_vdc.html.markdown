@@ -140,7 +140,7 @@ The `metadata_entry` is a set of metadata entries that have the following struct
 configuration. [More information.][docs-import]
 
 An existing provider VDC configuration can be [imported][docs-import] into this resource via supplying the path for the provider VDC.
-Since the provider VDC is at the top of the VCD hierarchy, the path corresponds to the provider VDC name.
+Since the provider VDC is at the top of the VCLOUD hierarchy, the path corresponds to the provider VDC name.
 For example, using the structure in [example usage](#example-usage-1), representing an existing provider VDC configuration
 that was **not** created using Terraform:
 

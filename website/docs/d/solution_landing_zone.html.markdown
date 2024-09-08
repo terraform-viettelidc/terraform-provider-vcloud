@@ -3,14 +3,14 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: vcloud_solution_landing_zone"
 sidebar_current: "docs-vcd-data-source-solution-landing-zone"
 description: |-
-  Provides a data source to read VCD Solution Add-on Landing Zone.
+  Provides a data source to read VCLOUD Solution Add-on Landing Zone.
 ---
 
 # vcd\_solution\_landing\_zone
 
-Supported in provider *v3.13+* and VCD 10.4.1+.
+Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 
-Provides a data source to read VCD Solution Add-on Landing Zone.
+Provides a data source to read VCLOUD Solution Add-on Landing Zone.
 
 ~> Only `System Administrator` can read this configuration.
 

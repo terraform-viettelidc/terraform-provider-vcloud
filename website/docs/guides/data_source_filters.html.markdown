@@ -246,7 +246,7 @@ data "vcloud_catalog_item" "unknown" {
 ```
 
 Will search a catalog item using SYSTEM metadata. In this example, it was a vApp that was converted to a template, and
-got system metadata from vCD.
+got system metadata from vCloud.
 
 ## Example filter 8
 

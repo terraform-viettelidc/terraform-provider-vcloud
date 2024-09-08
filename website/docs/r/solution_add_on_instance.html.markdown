@@ -9,7 +9,7 @@ description: |-
 
 # vcd\_solution\_add\_on\_instance
 
-Supported in provider *v3.13+* and VCD 10.4.1+.
+Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 
 Provides a resource to manage Solution Add-Ons Instances in Cloud Director. 
 

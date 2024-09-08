@@ -10,7 +10,7 @@ description: |-
 
 Provides a data source to read Segment Profile configuration for NSX-T Org VDC networks.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and VCLOUD 10.4.0+ with NSX-T.
 
 ## Example Usage
 

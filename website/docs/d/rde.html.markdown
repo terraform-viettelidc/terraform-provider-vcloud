@@ -10,7 +10,7 @@ description: |-
 
 Provides the capability of reading an existing Runtime Defined Entity in Viettel IDC Cloud.
 
--> VCD allows to have multiple RDEs of the same [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) with
+-> VCLOUD allows to have multiple RDEs of the same [RDE Type](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type) with
 the same name, meaning that the data source will not be able to fetch a RDE in this situation, as this data source
 can only retrieve **unique RDEs**.
 

@@ -363,7 +363,7 @@ data "vcloud_provider_vdc" "myPvdc" {
 }
 
 data "vcloud_vm_placement_policy" "placementPolicy" {
-  name            = "vmware"
+  name            = "vcloud"
   provider_vdc_id = data.vcloud_provider_vdc.myPvdc.id
 }
 
@@ -390,7 +390,7 @@ data "vcloud_provider_vdc" "myPvdc" {
 }
 
 data "vcloud_vm_placement_policy" "placementPolicy" {
-  name            = "vmware"
+  name            = "vcloud"
   provider_vdc_id = data.vcloud_provider_vdc.myPvdc.id
 }
 
@@ -536,14 +536,14 @@ example for usage details.
   Tools are not present on the VM.
 * `os_type` - (Optional; *v2.9+*) Operating System type. Possible values can be found in [Os Types](#os-types). Required when creating empty VM.
 * `hardware_version` - (Optional; *v2.9+*) Virtual Hardware Version (e.g.`vmx-14`, `vmx-13`, `vmx-12`, etc.). Required when creating empty VM.
-* `firmware` - (Optional; v3.11+, VCD 10.4.1+) Specify boot firmware of the VM. Can be `efi` or `bios`. If unset, defaults to `bios`. Changing the value requires the VM to power off.
+* `firmware` - (Optional; v3.11+, VCLOUD 10.4.1+) Specify boot firmware of the VM. Can be `efi` or `bios`. If unset, defaults to `bios`. Changing the value requires the VM to power off.
 * `boot_options` - (Optional; v3.11+) A block to define boot options of the VM. See [Boot Options](#boot-options)
 * `boot_image_id` - (Optional; *v3.8+*) Media URN to mount as boot image. You can fetch it using a [`vcloud_catalog_media`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/catalog_media) data source.
   Image is mounted only during VM creation. On update if value is changed to empty it will eject the mounted media. If you want to mount an image later, please use [vcloud_inserted_media](/providers/terraform-viettelidc/vcloud/latest/docs/resources/inserted_media). 
 * `cpu_hot_add_enabled` - (Optional; *v3.0+*) True if the virtual machine supports addition of virtual CPUs while powered on. Default is `false`.
 * `memory_hot_add_enabled` - (Optional; *v3.0+*) True if the virtual machine supports addition of memory while powered on. Default is `false`.
 * `prevent_update_power_off` - (Optional; *v3.0+*) True if the update of resource should fail when virtual machine power off needed. Default is `false`.
-* `sizing_policy_id` (Optional; *v3.0+*, *vCD 10.0+*) VM sizing policy ID. To be used, it needs to be assigned to [Org VDC](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc)
+* `sizing_policy_id` (Optional; *v3.0+*, *vCloud 10.0+*) VM sizing policy ID. To be used, it needs to be assigned to [Org VDC](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc)
   using `vcloud_org_vdc.vm_sizing_policy_ids` (and `vcloud_org_vdc.default_compute_policy_id` to make it default).
   In this case, if the sizing policy is not set, it will pick the VDC default on creation. It must be set explicitly
   if one wants to update it to another policy (the VM requires at least one Compute Policy), and needs to be set to `""` to be removed.
@@ -567,9 +567,9 @@ example for usage details.
 * `vm_type` - (*3.2+*) Type of the VM (either `vcloud_vapp_vm` or `vcloud_vm`).
 * `status` - (*v3.8+*) The vApp status as a numeric code.
 * `status_text` - (*v3.8+*) The vApp status as text.
-* `inherited_metadata` - (*v3.11+*; *VCD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCD (10.5.1+) and provides
+* `inherited_metadata` - (*v3.11+*; *VCLOUD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCLOUD (10.5.1+) and provides
   details on the origin of the VM (e.g. `vm.origin.id`, `vm.origin.name`, `vm.origin.type`).
-* `extra_config` - (*v3.13.+*) The VM extra configuration. See [Extra Configuration](#extra-configuration) for more detail. *Not populated on VCD 10.4.0*.
+* `extra_config` - (*v3.13.+*) The VM extra configuration. See [Extra Configuration](#extra-configuration) for more detail. *Not populated on VCLOUD 10.4.0*.
 * `imported` - (*v3.13.+*) A true/false value telling whether the resource was imported.
 
 <a id="disk"></a>
@@ -589,7 +589,7 @@ example for usage details.
 * `adapter_type` - (Optional, Computed) Adapter type (names are case insensitive). Some known adapter types - `VMXNET3`,
     `E1000`, `E1000E`, `SRIOVETHERNETCARD`, `VMXNET2`, `PCNet32`.
 
-    **Note:** Adapter type change for existing NIC will return an error during `apply` operation because vCD does not
+    **Note:** Adapter type change for existing NIC will return an error during `apply` operation because vCloud does not
     support changing adapter type for existing resource.
 
     **Note:** Adapter with type `SRIOVETHERNETCARD` **must** be connected to a **direct** vApp
@@ -616,9 +616,9 @@ example for usage details.
   variable interpolation. Field `ip` will be populated with an assigned IP from static pool after run.
   
   * `ip_allocation_mode=DHCP` - **`ip`** value must be omitted or empty string "". Field `ip` is not
-    guaranteed to be populated after run due to the VM lacking VMware tools or not working properly
+    guaranteed to be populated after run due to the VM lacking vCloudtools or not working properly
     with DHCP. Because of this `ip` may also appear after multiple `terraform refresh` operations
-    when is reported back to vCD. **Note.**
+    when is reported back to vCloud. **Note.**
     [`network_dhcp_wait_seconds`](#network_dhcp_wait_seconds) parameter can help to ensure IP is
     reported on first run.
 
@@ -638,7 +638,7 @@ Changes are ignored on update. This part isn't reread on refresh. To manage inte
 
 * `bus_type` - (Required) The type of disk controller. Possible values: `ide`, `parallel`( LSI Logic Parallel SCSI),
   `sas`(LSI Logic SAS (SCSI)), `paravirtual`(Paravirtual (SCSI)), `sata`, `nvme`. **Note** `nvme` requires *v3.5.0+* and
-  VCD *10.2.1+*
+  VCLOUD *10.2.1+*
 * `size_in_mb` - (Required) The size of the disk in MB. 
 * `bus_number` - (Required) The number of the SCSI or IDE controller itself.
 * `unit_number` - (Required) The device number on the SCSI or IDE controller of the disk.
@@ -650,13 +650,13 @@ Changes are ignored on update. This part isn't reread on refresh. To manage inte
 
 Allows to specify the boot options of a VM.
 
-* `efi_secure_boot` - (Optional, VCD 10.4.1+) Enable EFI Secure Boot on subsequent boots, requires `firmware` to be set to `efi`.
+* `efi_secure_boot` - (Optional, VCLOUD 10.4.1+) Enable EFI Secure Boot on subsequent boots, requires `firmware` to be set to `efi`.
 * `enter_bios_setup_on_next_boot` - (Optional) Enter BIOS setup on the next boot of the VM. After a VM is booted, the value is set back to false in VCD, because of that, 
   Terraform will return an inconsistent plan and try to set this field back to `true`. **NOTE:** If there are any [cold changes](#hot-and-cold-update) on update that cause the VM to power-cycle with this field set to `true`,
   the VM will boot straight into BIOS. For reducing side effects, one should set this field to `true` and `power_on` to `false`, then switch `power_on` to `true`.
 * `boot_delay` - (Optional) Delay between the power-on and boot of the VM in milliseconds.
-* `boot_retry_enabled` - (Optional, VCD 10.4.1+) If set to `true`, will attempt to reboot the VM after a failed boot.
-* `boot_retry_delay` - (Optional, VCD 10.4.1+) Delay before the VM is rebooted after a failed boot. Has no effect if `boot_retry_enabled` is set to `false`
+* `boot_retry_enabled` - (Optional, VCLOUD 10.4.1+) If set to `true`, will attempt to reboot the VM after a failed boot.
+* `boot_retry_delay` - (Optional, VCLOUD 10.4.1+) Delay before the VM is rebooted after a failed boot. Has no effect if `boot_retry_enabled` is set to `false`
 
 <a id="customization-block"></a>
 ## Customization
@@ -851,8 +851,8 @@ resource "vcloud_vapp_vm" "web2" {
   - `debian5Guest` - Debian GNU/Linux 5 (32-bit)
   - `debian4_64Guest` - Debian GNU/Linux 4 (64-bit)
   - `debian4Guest` - Debian GNU/Linux 4 (32-bit)
-  - `crxPod1Guest` - VMware CRX Pod 1 (64-bit)
-  - `vmwarePhoton64Guest` - VMware Photon OS (64-bit)
+  - `crxPod1Guest` - vCloudCRX Pod 1 (64-bit)
+  - `vmwarePhoton64Guest` - vCloudPhoton OS (64-bit)
   - `opensuse64Guest` - SUSE openSUSE (64-bit)
   - `opensuseGuest` - SUSE openSUSE (32-bit)
   - `fedora64Guest` - Red Hat Fedora (64-bit)
@@ -920,10 +920,10 @@ resource "vcloud_vapp_vm" "web2" {
   - `darwin10Guest` - Apple Mac OS X 10.6 (32-bit)
   - `darwin64Guest` - Apple Mac OS X 10.5 (64-bit)
   - `darwinGuest` - Apple Mac OS X 10.5 (32-bit)
-  - `vmkernel65Guest` - VMware ESXi 6.x
-  - `vmkernel6Guest` - VMware ESXi 6.0
-  - `vmkernel5Guest` - VMware ESXi 5.x
-  - `vmkernelGuest` - VMware ESX 4.x
+  - `vmkernel65Guest` - vCloudESXi 6.x
+  - `vmkernel6Guest` - vCloudESXi 6.0
+  - `vmkernel5Guest` - vCloudESXi 5.x
+  - `vmkernelGuest` - vCloudESX 4.x
   - `eComStation2Guest` - Serenity Systems eComStation 2
   - `eComStationGuest` - Serenity Systems eComStation 1
   - `unixWare7Guest` - SCO UnixWare 7
@@ -974,7 +974,7 @@ These fields can be updated when VM is **powered on**:
 Notes about **removing** `network`:
 
 * Guest OS must support hot NIC removal for NICs to be removed using network definition. If Guest OS doesn't support it - `power_on=false` can be used to power off the VM before removing NICs.
-* VCD 10.1 has a bug and all NIC removals will be performed in cold manner.
+* VCLOUD 10.1 has a bug and all NIC removals will be performed in cold manner.
 
 ## Extra Configuration
 
@@ -986,7 +986,7 @@ more blocks with the following fields:
   the value to an empty string will remove the item.
 
 ~> We should only insert or modify the fields we want to handle, without touching the ones already present in the VM.
-   VCD uses the extra-config items for its own purposes, and modifying them could lead to destabilising side effects.
+   VCLOUD uses the extra-config items for its own purposes, and modifying them could lead to destabilising side effects.
 
 Notes:
 

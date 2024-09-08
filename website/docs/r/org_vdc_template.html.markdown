@@ -121,7 +121,7 @@ The following arguments are supported:
   * `routed_network_name` - (Required) Name of the routed network to create with the Edge Gateway
   * `routed_network_description` - (Optional) Description of the routed network to create with the Edge Gateway
   * `routed_network_gateway_cidr` - (Required) CIDR of the Edge Gateway for the created routed network
-  * `static_ip_pool` - (Required) **One block** with a single IP range (this is a constraint due to a bug in VCD 10.5+) that has two properties: `start_address`, the start address of the IP range;
+  * `static_ip_pool` - (Required) **One block** with a single IP range (this is a constraint due to a bug in VCLOUD 10.5+) that has two properties: `start_address`, the start address of the IP range;
     `end_address`, the end address of the IP range
 * `network_pool_id` - (Optional) If set, specifies the Network pool for the instantiated VDCs. Otherwise, it is automatically chosen
 * `nic_quota` - (Optional) Quota for the NICs of the instantiated VDCs. Defaults to 100

@@ -317,10 +317,15 @@ resource "vcloud_org_user" "my-org-admin" {
 After executing this last step - one should be able to login to tenant Organization with newly
 created user and find Data Solution *"MongoDB Community"* available.
 
-## References
+[//]: # (## References)
 
-* [Deployment HCL example in Terraform provider VCD
-  repository](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/data-solution-extension/)
-* [Roles and Rights guide for Terraform provider VCD](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management)
-* [Official Solution Add-On documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.5/VMware-Cloud-Director-Service-Provider-Admin-Guide/GUID-4F12C8F7-7CD3-44E8-9711-A5F43F8DCEB5.html)
-* [Data Solution Extension documentation](https://www.vmware.com/products/cloud-director/data-solutions.html)
+[//]: # ()
+[//]: # (* [Deployment HCL example in Terraform provider VCD)
+
+[//]: # (  repository]&#40;https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/data-solution-extension/&#41;)
+
+[//]: # (* [Roles and Rights guide for Terraform provider VCD]&#40;https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management&#41;)
+
+[//]: # (* [Official Solution Add-On documentation]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.5/VMware-Cloud-Director-Service-Provider-Admin-Guide/GUID-4F12C8F7-7CD3-44E8-9711-A5F43F8DCEB5.html&#41;)
+
+[//]: # (* [Data Solution Extension documentation]&#40;https://www.vmware.com/products/cloud-director/data-solutions.html&#41;)

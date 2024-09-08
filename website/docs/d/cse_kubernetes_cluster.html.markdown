@@ -35,7 +35,7 @@ data "vcloud_cse_kubernetes_cluster" "my_cluster" {
 ## Example Usage with Name
 
 Sometimes using the cluster ID is not convenient, so this data source allows using the cluster name.
-As VCD allows to have multiple clusters with the same name, this option must be used with caution as it will fail
+As VCLOUD allows to have multiple clusters with the same name, this option must be used with caution as it will fail
 if there is more than one Kubernetes cluster with the same name in the same Organization:
 
 ```hcl

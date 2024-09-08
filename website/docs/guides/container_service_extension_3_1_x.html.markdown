@@ -403,7 +403,7 @@ resource "vcloud_catalog" "cat-cse" {
 }
 ```
 
-Then you can upload TKGm OVAs to this catalog. These can be downloaded from **VMware Customer Connect**.
+Then you can upload TKGm OVAs to this catalog. These can be downloaded from **VCloud Customer Connect**.
 To upload them, use the [Catalog Item](/providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_item) resource with
 `metadata_entry`.
 
@@ -476,9 +476,9 @@ resource "vcloud_catalog_item" "tkgm_ova" {
 Notice that all the metadata entries from the set of `metadata_entry` are required for CSE to fetch the OVA file:
 * `kind`: Needs to be set to `TKGm` in all cases, as *Native* is not supported yet.
 * `kubernetes`: Same as above.
-* `kubernetes_version`: When the OVA is downloaded from VMware Customer Connect, the version appears as part of the file name.
-* `name`: OVA full file name. VMware Customer Connect should provide already the downloaded OVA with a proper canonical name.
-* `os`: When the OVA is downloaded from VMware Customer Connect, the OS appears as part of the file name.
+* `kubernetes_version`: When the OVA is downloaded from VCloud Customer Connect, the version appears as part of the file name.
+* `name`: OVA full file name. VCloud Customer Connect should provide already the downloaded OVA with a proper canonical name.
+* `os`: When the OVA is downloaded from VCloud Customer Connect, the OS appears as part of the file name.
 * `revision`: Needs to be always `1`. This information is internally used by CSE.
 
 Alternatively, you can upload the OVA file using `cse` CLI. This command line tool is explained in the next step.

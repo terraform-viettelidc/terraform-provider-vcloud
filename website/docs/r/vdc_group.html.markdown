@@ -7,7 +7,7 @@ description: |-
 ---
 
 # vcd\_vdc\_group
-Supported in provider *v3.5+* and VCD 10.2+.
+Supported in provider *v3.5+* and VCLOUD 10.2+.
 
 Provides a resource to manage NSX-T VDC groups.
 
@@ -51,8 +51,8 @@ The following arguments are supported:
   This is mainly useful when using
   [`vcloud_nsxt_distributed_firewall_rule`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_distributed_firewall_rule)
   resource as it cannot remove the default rule.
-* `force_delete` - (Optional, *3.11+*) When `true`, will request VCD to force VDC Group deletion. It
-  should clean up child components. Default `false` (VCD may fail removing VDC Group if there are
+* `force_delete` - (Optional, *3.11+*) When `true`, will request VCLOUD to force VDC Group deletion. It
+  should clean up child components. Default `false` (VCLOUD may fail removing VDC Group if there are
   child components remaining). **Note:** when setting it to `true` for existing resource, it will
   cause a plan change (update), but this will not alter the resource in any way.
 
@@ -81,7 +81,7 @@ The following attributes are exported on this resource:
 * `org_id` - Organization ID.
 * `org_name` - Organization name.
 * `status` - "The status that the VDC can be in e.g. 'SAVING', 'SAVED', 'CONFIGURING', 'REALIZED', 'REALIZATION_FAILED', 'DELETING', 'DELETE_FAILED', 'OBJECT_NOT_FOUND', 'UNCONFIGURED')."
-* `is_remote_org` - Specifies whether the VDC is local to this VCD site.
+* `is_remote_org` - Specifies whether the VDC is local to this VCLOUD site.
 * `network_provider_scope` - Specifies the network provider scope of the VDC.
 * `fault_domain_tag` - Represents the fault domain of a given organization VDC.
 

@@ -152,7 +152,7 @@ The `custom_settings` section contains the configuration for the LDAP server
 configuration. [More information.][docs-import]
 
 An existing LDAP configuration for an Org can be [imported][docs-import] into this resource via supplying the path for an Org. Since the Org is
-at the top of the vCD hierarchy, the path corresponds to the Org name.
+at the top of the vCloud hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing LDAP configuration that was **not** created using Terraform:
 
 ```hcl

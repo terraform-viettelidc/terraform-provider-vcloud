@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_nsxt\_edgegateway\_l2\_vpn\_tunnel
 
-Supported in provider *v3.11+* and VCD *10.4+* with NSX-T.
+Supported in provider *v3.11+* and VCLOUD *10.4+* with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway L2 VPN Tunnel sessions and their configurations.
 

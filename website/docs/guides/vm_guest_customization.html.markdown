@@ -11,7 +11,7 @@ description: |-
 
 Guest Customization allows users to supply custom configuration for new VMs which is inevitable in
 cloud environments. Unfortunately there is no single mechanism for this task and one must pick one of
-many available - [`VMware Guest
+many available - [`VCloud Guest
 Customization`](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-BB682E4D-DCD7-4936-A665-0B0FBD6F0EB5.html),
 [`cloud-init`](https://cloud-init.io/), [`Ignition`](https://coreos.github.io/ignition/),
 [`Talos`](https://www.talos.dev/docs/v0.13/virtualized-platforms/vmware/#update-settings-for-the-worker-nodes),

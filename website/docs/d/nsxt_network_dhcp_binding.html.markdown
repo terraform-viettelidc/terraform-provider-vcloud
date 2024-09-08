@@ -10,7 +10,7 @@ description: |-
 
 Provides a data source to read NSX-T Org VDC network DHCP bindings.
 
--> This data source requires VCD 10.3.1+
+-> This data source requires VCLOUD 10.3.1+
 
 ## Example Usage
 

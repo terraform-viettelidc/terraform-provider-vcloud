@@ -79,7 +79,7 @@ The following arguments are supported:
   seconds before IP address is reported for NICs with `ip_allocation_mode=DHCP` setting. It
   constantly checks if IP is reported so the time given is a maximum. VM must be powered on and 
   __at least one__ of the following __must be true__:
- * VM has guest tools. It waits for IP address to be reported in vCD UI. This is a slower option, but
+ * VM has guest tools. It waits for IP address to be reported in vCloud UI. This is a slower option, but
   does not require for the VM to use Edge Gateways DHCP service.
  * VM DHCP interface is connected to routed Org network and is using Edge Gateways DHCP service (not
   relayed). It works by querying DHCP leases on edge gateway. In general it is quicker than waiting
@@ -114,12 +114,12 @@ The following arguments are supported:
 * `internal_disk` - (*v2.7+*) A block providing internal disk of VM details
 * `os_type` - (*v2.9+*) Operating System type.
 * `hardware_version` - (*v2.9+*) Virtual Hardware Version (e.g.`vmx-14`, `vmx-13`, `vmx-12`, etc.).
-* `sizing_policy_id` - (*v3.0+*, *vCD 10.0+*) VM sizing policy ID.
+* `sizing_policy_id` - (*v3.0+*, *vCloud 10.0+*) VM sizing policy ID.
 * `placement_policy_id` - (*v3.8+*) VM placement policy ID.
 * `status` - (*v3.8+*) The vApp status as a numeric code.
 * `status_text` - (*v3.8+*) The vApp status as text.
 * `security_tags` - (*v3.9+*) Set of security tags assigned to this VM.
-* `inherited_metadata` - (*v3.11+*; *VCD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCD (10.5.1+) and provides
+* `inherited_metadata` - (*v3.11+*; *VCLOUD 10.5.1+*) A map that contains read-only metadata that is automatically added by VCLOUD (10.5.1+) and provides
   details on the origin of the VM (e.g. `vm.origin.id`, `vm.origin.name`, `vm.origin.type`).
 
 

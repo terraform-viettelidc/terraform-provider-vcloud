@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_vm\_vgpu\_profile
 
-Supported in provider *3.11* and VCD *10.4.0+*.
+Supported in provider *3.11* and VCLOUD *10.4.0+*.
 
 -> **Note:** This data source requires system administrator privileges.
 

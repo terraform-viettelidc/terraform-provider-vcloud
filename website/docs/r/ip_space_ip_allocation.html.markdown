@@ -93,7 +93,7 @@ resource "vcloud_ip_space_ip_allocation" "public-ip-prefix-manual" {
 }
 ```
 
-## Example Usage (Specifying explicit value on VCD 10.4.2+)
+## Example Usage (Specifying explicit value on VCLOUD 10.4.2+)
 
 ```hcl
 resource "vcloud_ip_space_ip_allocation" "public-floating-ip-2" {
@@ -126,7 +126,7 @@ The following arguments are supported:
   * `IP_PREFIX` - allocates subnets. **Note** field `prefix_length` is required to allocate IP
     Prefix
 * `prefix_length` (Optional) Required when `type=IP_PREFIX`
-* `value` - (Optional; VCD *10.4.2+*) An option to request a specific IP or subnet from IP Space.
+* `value` - (Optional; VCLOUD *10.4.2+*) An option to request a specific IP or subnet from IP Space.
   **Note:** This field does not support IP ranges because it would cause multiple allocations
   created in one resource. Please use multiple resource instances to allocate IP ranges.
 * `usage_state` - (Optional) (Optional) Only used with manual reservations. Value `USED_MANUAL`

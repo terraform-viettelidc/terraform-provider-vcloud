@@ -12,7 +12,7 @@ used to assign security tag to VMs.
 Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.
 
-Supported in provider *v3.7+* and requires VCD 10.3.0+
+Supported in provider *v3.7+* and requires VCLOUD 10.3.0+
 
 ~> **Note:** Only one of `vcloud_security_tag` resource or [`security_tags` attribute from `vcloud_vapp_vm`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_vm)
 should be used. Using both would cause a behavioral conflict.
@@ -35,7 +35,7 @@ The following arguments are supported:
 * `name` - (Required) The name of the security tag.
 * `vm_ids` - (Required) List of VM IDs that the security tag is going to be applied to.
 
--> The ID of `vcloud_security_tag` is set to its name since VCD behind the scenes doesn't create an ID.
+-> The ID of `vcloud_security_tag` is set to its name since VCLOUD behind the scenes doesn't create an ID.
 
 # Importing
 

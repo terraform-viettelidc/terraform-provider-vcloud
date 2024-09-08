@@ -7,7 +7,7 @@ description: |-
 ---
 
 # vcd\_certificate\_library
-Supported in provider *v3.5+* and VCD 10.2+.
+Supported in provider *v3.5+* and VCLOUD 10.2+.
 
 Provides a resource to manage certificate in System or Org library.
 
@@ -46,7 +46,7 @@ The following arguments are supported:
 * `alias` - (Required)  - Alias (name) of certificate
 * `description` - (Optional)  - Certificate description
 * `certificate` - (Required)  - Content of Certificate. **Note.** it is best to avoid trailing
-  newlines in the certificate, as some versions of VCD trim trailing newline and `plan/apply`
+  newlines in the certificate, as some versions of VCLOUD trim trailing newline and `plan/apply`
   operations might always report it.  
 * `private_key` - (Optional)  - Content of private key
 * `private_key_passphrase` - (Optional)  - private key pass phrase 

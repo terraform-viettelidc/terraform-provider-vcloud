@@ -3,7 +3,7 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: Importing resources"
 sidebar_current: "docs-vcd-guides-importing-resources"
 description: |-
- Provides guidance to VMware Cloud resources importing
+ Provides guidance to Viettel IDC Cloud resources importing
 ---
 
 # Importing resources

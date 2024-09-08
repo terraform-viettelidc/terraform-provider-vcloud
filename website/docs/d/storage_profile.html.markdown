@@ -47,7 +47,7 @@ The following arguments are supported:
 <a id="iopsSettings"></a>
 ## IOPS settings
 
-(Supported from VCD *v10.2*)
+(Supported from VCLOUD *v10.2*)
 
 * `iops_limiting_enabled` - True if this storage profile is IOPS-based placement enabled
 * `maximum_disk_iops` - The maximum IOPS value that this storage profile is permitted to deliver. Value of 0 means this max setting is disabled and there is no max disk IOPS restriction

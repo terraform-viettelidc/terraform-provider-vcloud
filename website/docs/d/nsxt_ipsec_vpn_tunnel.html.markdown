@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_ipsec\_vpn\_tunnel
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to read NSX-T IPsec VPN Tunnel. You can configure site-to-site connectivity between an NSX-T Data
 Center Edge Gateway and remote sites. The remote sites must use NSX-T Data Center, have third-party hardware routers,

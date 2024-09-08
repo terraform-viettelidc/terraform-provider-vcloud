@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_dynamic\_security\_group
 
-Supported in provider *v3.7+* and VCD 10.3+ with NSX-T backed VDC Groups.
+Supported in provider *v3.7+* and VCLOUD 10.3+ with NSX-T backed VDC Groups.
 
 Provides a resource to manage NSX-T Dynamic Security Groups. Dynamic Security Groups group Virtual
 Machines based on specific criteria (VM Names or Security tags) to which Distributed Firewall Rules
@@ -167,7 +167,7 @@ Each member Rule contains following attributes:
 ## Attribute Reference
 * `member_vms` A set of member VMs (if exist). see [Member VMs](#member-vms) below for details.
 
-~> VCD does not immediately populate `member_vms` values therefore it is not guaranteed that all
+~> VCLOUD does not immediately populate `member_vms` values therefore it is not guaranteed that all
 values are available after a Terraform operation.
 
 <a id="member-vms"></a>

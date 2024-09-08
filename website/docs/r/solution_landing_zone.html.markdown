@@ -3,14 +3,14 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: vcloud_solution_landing_zone"
 sidebar_current: "docs-vcd-resource-solution-landing-zone"
 description: |-
-  Provides a resource to configure VCD Solution Add-on Landing Zone
+  Provides a resource to configure VCLOUD Solution Add-on Landing Zone
 ---
 
 # vcd\_solution\_landing\_zone
 
-Supported in provider *v3.13+* and VCD 10.4.1+.
+Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 
-Provides a resource to configure VCD Solution Add-on Landing Zone.
+Provides a resource to configure VCLOUD Solution Add-on Landing Zone.
 
 ~> Only `System Administrator` can create this resource and there can *be only one resource per VCD*.
 

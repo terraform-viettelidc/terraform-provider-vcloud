@@ -10,9 +10,9 @@ description: |-
 
 Provides a resource to manage Global Default NSX-T Segment Profile Templates.
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T. Requires System Administrator privileges.
+Supported in provider *v3.11+* and VCLOUD 10.4.0+ with NSX-T. Requires System Administrator privileges.
 
--> This resource is a singleton - only one configuration exists in entire VCD instance. Having
+-> This resource is a singleton - only one configuration exists in entire VCLOUD instance. Having
 multiple resource definitions will override each other.
 
 ## Example Usage

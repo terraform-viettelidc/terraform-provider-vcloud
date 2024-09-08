@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_firewall
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed Edge Gateways.
+Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed Edge Gateways.
 
 Provides a data source to read NSX-T Firewall configuration of an Edge Gateway. Firewalls allow 
 user to control the incoming and outgoing network traffic to and from an NSX-T Data Center 

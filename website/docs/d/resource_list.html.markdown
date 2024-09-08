@@ -3,7 +3,7 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: vcloud_resource_list"
 sidebar_current: "docs-vcd-datasource-resource-list"
 description: |-
-  Provides lists of VCD resources
+  Provides lists of VCLOUD resources
 ---
 
 # vcd\_resource_list
@@ -215,7 +215,7 @@ data "vcloud_resource_list" "list_of_resources" {
   resource_type = "resources"
 }
 
-# Shows the list of resource types for VCD provider
+# Shows the list of resource types for VCLOUD provider
 output "resource_list" {
   value = data.vcloud_resource_list.list_of_resources.list
 }

@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_nsxt\_edgegateway\_dhcp\_forwarding
 
-Supported in provider *v3.10+* and VCD 10.3.1+ with NSX-T.
+Supported in provider *v3.10+* and VCLOUD 10.3.1+ with NSX-T.
 
 Provides a data source to read NSX-T Edge Gateway DHCP forwarding configuration.
 

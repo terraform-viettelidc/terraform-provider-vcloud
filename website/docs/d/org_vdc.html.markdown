@@ -38,7 +38,7 @@ The following arguments are supported:
 
 ## Attribute reference
 
-* `edge_cluster_id` - (*v3.8+*, *VCD 10.3+*) An ID of NSX-T Edge Cluster which should provide vApp
+* `edge_cluster_id` - (*v3.8+*, *VCLOUD 10.3+*) An ID of NSX-T Edge Cluster which should provide vApp
   Networking Services or DHCP for Isolated Networks. This value **might be unavailable** in data
   source if user has insufficient rights.
 

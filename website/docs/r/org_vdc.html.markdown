@@ -216,15 +216,15 @@ The following arguments are supported:
     * AllocationVApp ("Pay as you go")
     * AllocationPool ("Allocation pool")
     * ReservationPool ("Reservation pool")
-    * Flex ("Flex") (*v2.7+*, *VCD 9.7+*)
+    * Flex ("Flex") (*v2.7+*, *VCLOUD 9.7+*)
 * `compute_capacity` - (Required) The compute capacity allocated to this VDC.  See [Compute Capacity](#computecapacity) below for details.
 * `nic_quota` - (Optional) Maximum number of virtual NICs allowed in this VDC. Defaults to 0, which specifies an unlimited number.
 * `network_quota` - (Optional) Maximum number of network objects that can be deployed in this VDC. Defaults to 0, which means no networks can be deployed.
 * `vm_quota` - (Optional) The maximum number of VMs that can be created in this VDC. Includes deployed and undeployed VMs in vApps and vApp templates. Defaults to 0, which specifies an unlimited number.
 * `enabled` - (Optional) True if this VDC is enabled for use by the organization VDCs. Default is true.
 * `storage_profile` - (Required, System Admin) Storage profiles supported by this VDC.  See [Storage Profile](#storageprofile) below for details.
-* `memory_guaranteed` - (Optional, System Admin) Percentage of allocated memory resources guaranteed to vApps deployed in this VDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when `allocation_model` is AllocationVApp, AllocationPool or Flex. When Allocation model is AllocationPool minimum value is 0.2. If left empty, VCD sets a value.
-* `cpu_guaranteed` - (Optional, System Admin) Percentage of allocated CPU resources guaranteed to vApps deployed in this VDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when `allocation_model` is AllocationVApp, AllocationPool or Flex. If left empty, VCD sets a value.
+* `memory_guaranteed` - (Optional, System Admin) Percentage of allocated memory resources guaranteed to vApps deployed in this VDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when `allocation_model` is AllocationVApp, AllocationPool or Flex. When Allocation model is AllocationPool minimum value is 0.2. If left empty, VCLOUD sets a value.
+* `cpu_guaranteed` - (Optional, System Admin) Percentage of allocated CPU resources guaranteed to vApps deployed in this VDC. For example, if this value is 0.75, then 75% of allocated resources are guaranteed. Required when `allocation_model` is AllocationVApp, AllocationPool or Flex. If left empty, VCLOUD sets a value.
 * `cpu_speed` - (Optional, System Admin) Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM. A VM with 2 vCPUs will consume twice as much of this value. Ignored for ReservationPool. Required when `allocation_model` is AllocationVApp, AllocationPool or Flex, and may not be less than 256 MHz. Defaults to 1000 MHz if value isn't provided.
 * `metadata` - (Deprecated; *v2.4+*) Use `metadata_entry` instead. Key value map of metadata to assign to this VDC
 * `metadata_entry` - (Optional; *v3.8+*) A set of metadata entries to assign. See [Metadata](#metadata) section for details.
@@ -233,20 +233,20 @@ The following arguments are supported:
 * `network_pool_name` - (Optional, System Admin) Reference to a network pool in the Provider VDC. Required if this VDC will contain routed or isolated networks.
 * `allow_over_commit` - (Optional) Set to false to disallow creation of the VDC if the `allocation_model` is AllocationPool or ReservationPool and the ComputeCapacity you specified is greater than what the backing Provider VDC can supply. Default is true.
 * `enable_vm_discovery` - (Optional) If true, discovery of vCenter VMs is enabled for resource pools backing this VDC. If false, discovery is disabled. If left unspecified, the actual behaviour depends on enablement at the organization level and at the system level.
-* `elasticity` - (Optional, *v2.7+*, *VCD 9.7+*) Indicates if the Flex VDC should be elastic. Required with the Flex allocation model.
-* `include_vm_memory_overhead` - (Optional, *v2.7+*, *VCD 9.7+*) Indicates if the Flex VDC should include memory overhead into its accounting for admission control. Required with the Flex allocation model. `memory_guaranteed` must also be specified together with this parameter.
+* `elasticity` - (Optional, *v2.7+*, *VCLOUD 9.7+*) Indicates if the Flex VDC should be elastic. Required with the Flex allocation model.
+* `include_vm_memory_overhead` - (Optional, *v2.7+*, *VCLOUD 9.7+*) Indicates if the Flex VDC should include memory overhead into its accounting for admission control. Required with the Flex allocation model. `memory_guaranteed` must also be specified together with this parameter.
 * `delete_force` - (Optional, but recommended) When destroying use `delete_force=true` to remove a VDC and any objects it contains, regardless of their state. Default is `false`
 * `delete_recursive` - (Optional, but recommended) When destroying use `delete_recursive=true` to remove the VDC and any objects it contains that are in a state that normally allows removal. Default is `false`
-* `default_compute_policy_id` - (Optional, *v3.8+*, *VCD 10.2+*) ID of the default Compute Policy for this VDC. It can be a VM Sizing Policy, a VM Placement Policy or a vGPU Policy.
-* `default_vm_sizing_policy_id` - (Deprecated; Optional, *v3.0+*, *VCD 10.2+*) ID of the default Compute Policy for this VDC. It can be a VM Sizing Policy, a VM Placement Policy or a vGPU Policy. Deprecated in favor of `default_compute_policy_id`.
-* `vm_sizing_policy_ids` - (Optional, *v3.0+*, *VCD 10.2+*) Set of IDs of VM Sizing policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
-* `vm_placement_policy_ids` - (Optional, *v3.8+*, *VCD 10.2+*) Set of IDs of VM Placement policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
-* `vm_vgpu_policy_ids` - (Optional, *v3.11+*, *VCD 10.4+*) Set of IDs of VM vGPU policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
-* `edge_cluster_id` - (Deprecated; Optional, *v3.8+*, *VCD 10.3+*) An ID of NSX-T Edge Cluster which
+* `default_compute_policy_id` - (Optional, *v3.8+*, *VCLOUD 10.2+*) ID of the default Compute Policy for this VDC. It can be a VM Sizing Policy, a VM Placement Policy or a vGPU Policy.
+* `default_vm_sizing_policy_id` - (Deprecated; Optional, *v3.0+*, *VCLOUD 10.2+*) ID of the default Compute Policy for this VDC. It can be a VM Sizing Policy, a VM Placement Policy or a vGPU Policy. Deprecated in favor of `default_compute_policy_id`.
+* `vm_sizing_policy_ids` - (Optional, *v3.0+*, *VCLOUD 10.2+*) Set of IDs of VM Sizing policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
+* `vm_placement_policy_ids` - (Optional, *v3.8+*, *VCLOUD 10.2+*) Set of IDs of VM Placement policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
+* `vm_vgpu_policy_ids` - (Optional, *v3.11+*, *VCLOUD 10.4+*) Set of IDs of VM vGPU policies that are assigned to this VDC. This field requires `default_compute_policy_id` to be configured together.
+* `edge_cluster_id` - (Deprecated; Optional, *v3.8+*, *VCLOUD 10.3+*) An ID of NSX-T Edge Cluster which
   should provide vApp Networking Services or DHCP for isolated networks. Can be looked up using
   `vcloud_nsxt_edge_cluster` data source. This field is **deprecated** in favor of
   [`vcloud_org_vdc_nsxt_network_profile`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc_nsxt_network_profile).
-* `enable_nsxv_distributed_firewall` - (Optional, *v3.9+*, *VCD 10.3+*) Enables or disables the NSX-V distributed firewall.
+* `enable_nsxv_distributed_firewall` - (Optional, *v3.9+*, *VCLOUD 10.3+*) Enables or disables the NSX-V distributed firewall.
 
 <a id="storageprofile"></a>
 ## Storage Profile

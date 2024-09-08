@@ -21,7 +21,7 @@ Supported in provider *v3.11+*
 resource "vcloud_rde_interface" "interface" {
   nss     = "example"
   version = "1.2.3"
-  vendor  = "vmware"
+  vendor  = "vcloud"
   name    = "MyInterface"
 }
 
@@ -38,7 +38,7 @@ resource "vcloud_rde_interface_behavior" "behavior" {
 resource "vcloud_rde_type" "type" {
   nss           = "example"
   version       = "1.1.0"
-  vendor        = "vmware"
+  vendor        = "vcloud"
   name          = "MyType"
   description   = "A cool type example"
   interface_ids = [vcloud_rde_interface.interface.id]

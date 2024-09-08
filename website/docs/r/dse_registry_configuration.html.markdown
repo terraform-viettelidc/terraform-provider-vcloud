@@ -36,12 +36,12 @@ Helm based configurations apply to:
 
 Container based configurations apply to:
 
-* `VMware SQL with Postgres`
-* `VMware RabbitMQ`
-* `VMware SQL with MySQL`
-* `VCD Data Solutions`
+* `VCloud SQL with Postgres`
+* `VCloud RabbitMQ`
+* `VCloud SQL with MySQL`
+* `VCLOUD Data Solutions`
 
-Additionally, `VCD Data Solutions` provide [Container Registry Configuration ](#container-registry).
+Additionally, `VCLOUD Data Solutions` provide [Container Registry Configuration ](#container-registry).
 
 ## Example Usage (Configure chart repository)
 
@@ -60,7 +60,7 @@ resource "vcloud_dse_registry_configuration" "mongodb-community" {
 
 ```hcl
 resource "vcloud_dse_registry_configuration" "mysql" {
-  name               = "VMware SQL with MySQL"
+  name               = "VCloud SQL with MySQL"
   package_repository = "registry.tanzu.vmware.com/packages-for-vmware-tanzu-data-services/tds-packages:1.13.0"
   version            = "1.10.1"
 
@@ -72,7 +72,7 @@ resource "vcloud_dse_registry_configuration" "mysql" {
 
 ```hcl
 resource "vcloud_dse_registry_configuration" "dso" {
-  name = "VCD Data Solutions"
+  name = "VCLOUD Data Solutions"
 
   # Using default versions for packages
   use_default_values = true
@@ -106,7 +106,7 @@ The following arguments are supported:
 * `package_repository` - (Optional) Package repository for container based images
 * `chart_repository` - (Optional) Chart repository for Helm based images
 * `package_name` - (Optional) Helm package name. Only for Helm based images
-* `container_registry` - (Optional) Only applies to `VCD Data Solutions` configuration. Specifies
+* `container_registry` - (Optional) Only applies to `VCLOUD Data Solutions` configuration. Specifies
   credentials that can be used to authenticate to repositories. See [Container Registry
   Configuration ](#container-registry)
 
@@ -146,7 +146,7 @@ via supplying its name. An example is below:
 [docs-import]: https://www.terraform.io/docs/import/
 
 ```
-terraform import vcloud_dse_registry_configuration.imported "VCD Data Solutions"
+terraform import vcloud_dse_registry_configuration.imported "VCLOUD Data Solutions"
 ```
 
-The above would import the `VCD Data Solutions` Data Solution registry configuration.
+The above would import the `VCLOUD Data Solutions` Data Solution registry configuration.

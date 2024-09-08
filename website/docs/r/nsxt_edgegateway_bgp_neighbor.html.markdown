@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_nsxt\_edgegateway\_bgp\_neighbor
 
-Supported in provider *v3.7+* and VCD 10.2+ with NSX-T
+Supported in provider *v3.7+* and VCLOUD 10.2+ with NSX-T
 
 Provides a resource to manage NSX-T Edge Gateway BGP Neighbors and their configuration.
 

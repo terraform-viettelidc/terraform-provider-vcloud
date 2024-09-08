@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be us
 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 
--> Starting with **v3.6.0** Terraform provider VCD supports NSX-T VDC Groups and `vdc` fields (in
+-> Starting with **v3.6.0** Terraform provider VCLOUD supports NSX-T VDC Groups and `vdc` fields (in
 resource and inherited from provider configuration) are deprecated. New field `owner_id` supports
 IDs of both VDC and VDC Groups. More about VDC Group support in a [VDC Groups
 guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/vdc_groups).
@@ -150,7 +150,7 @@ and inherited from provider configuration)
 * `secondary_static_ip_pool` - (Optional; *v3.10+*) One or more [IPv6 static
   pools](#secondary-ip-pools) *when Dual-Stack mode is enabled*
 
--> When using IPv6, VCD API will expand IP Addresses if they are specified using *double colon*
+-> When using IPv6, VCLOUD API will expand IP Addresses if they are specified using *double colon*
 notation and it will cause inconsistent plan. (e.g. `2002::1234:abcd:ffff:c0a6:121` will be
 converted to `2002:0:0:1234:abcd:ffff:c0a6:121`)
 

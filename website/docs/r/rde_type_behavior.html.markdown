@@ -33,10 +33,10 @@ resource "vcloud_rde_interface_behavior" "my_interface_behavior" {
 }
 
 resource "vcloud_rde_type" "my_rde_type" {
-  vendor        = "vmware"
+  vendor        = "vcloud"
   nss           = "vcd"
   version       = "4.5.6"
-  name          = "My VMware RDE Type"
+  name          = "My vCloudRDE Type"
   interface_ids = [data.vcloud_rde_interface.my_interface.id]
   schema        = file("${path.module}/schemas/my-type-schema.json")
 

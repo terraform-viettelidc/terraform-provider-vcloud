@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_nat\_rule
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 
 Provides a resource to manage NSX-T NAT rules. To change the source IP address from a private to a
 public IP address, you create a source NAT (SNAT) rule. To change the destination IP address from 
@@ -121,7 +121,7 @@ The following arguments are supported:
   * `NO_DNAT` prevents external IP translation 
   * `SNAT` translates an internal IP to an external IP and is used for outbound traffic
   * `NO_SNAT` prevents internal IP translation
-  * `REFLEXIVE` (VCD 10.3+)  is also known as Stateless NAT. This translates an internal IP to an external IP and vice 
+  * `REFLEXIVE` (VCLOUD 10.3+)  is also known as Stateless NAT. This translates an internal IP to an external IP and vice 
     versa. The number of internal addresses should be exactly the same as that of external addresses.
 * `external_address` (Optional) The external address for the NAT Rule. This must be supplied as a single IP or Network
   CIDR. For a `DNAT` rule, this is the external facing IP Address for incoming traffic. For an `SNAT` rule, this is the 
@@ -146,13 +146,13 @@ The following arguments are supported:
   is missing **Gateway -> Configure System Logging** right) to enable logging, but API does not
   return error and it is not possible to validate it. `terraform plan` might show difference on
   every update.
-* `firewall_match` (Optional, VCD 10.2.2+) - You can set a firewall match rule to determine how
+* `firewall_match` (Optional, VCLOUD 10.2.2+) - You can set a firewall match rule to determine how
   firewall is applied during NAT. One of `MATCH_INTERNAL_ADDRESS`, `MATCH_EXTERNAL_ADDRESS`,
   `BYPASS`
   * `MATCH_INTERNAL_ADDRESS` - applies firewall rules to the internal address of a NAT rule
   * `MATCH_EXTERNAL_ADDRESS` - applies firewall rules to the external address of a NAT rule
   * `BYPASS` - skip applying firewall rules to NAT rule
-* `priority` (Optional, VCD 10.2.2+) - if an address has multiple NAT rules, you can assign these
+* `priority` (Optional, VCLOUD 10.2.2+) - if an address has multiple NAT rules, you can assign these
   rules different priorities to determine the order in which they are applied. A lower value means a
   higher priority for this rule. 
 

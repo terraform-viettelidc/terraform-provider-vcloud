@@ -85,7 +85,7 @@ The following arguments are supported:
 configuration. [More information.][docs-import]
 
 An existing SAML configuration for an Org can be [imported][docs-import] into this resource via supplying the path for an Org. Since the Org is
-at the top of the VCD hierarchy, the path corresponds to the Org name.
+at the top of the VCLOUD hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing SAML configuration that was **not** created using Terraform:
 
 ```hcl

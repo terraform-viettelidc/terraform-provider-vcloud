@@ -82,12 +82,12 @@ rule created which can make inconvenient to use this resource. For that reason, 
 * `vdc_group_id` - (Required) The ID of VDC Group to manage Distributed Firewall in. Can be looked
   up using `vcloud_vdc_group` resource or data source.
 * `name` - (Required) Explanatory name for firewall rule (uniqueness not enforced)
-* `comment` - (Optional; *VCD 10.3.2+*) Comment field shown in UI
+* `comment` - (Optional; *VCLOUD 10.3.2+*) Comment field shown in UI
 * `description` - (Optional) Description of firewall rule (not shown in UI)
 * `direction` - (Optional) One of `IN`, `OUT`, or `IN_OUT`. (default `IN_OUT`)
 * `ip_protocol` - (Optional) One of `IPV4`,  `IPV6`, or `IPV4_IPV6` (default `IPV4_IPV6`)
 * `action` - (Required) Defines if it should `ALLOW`, `DROP`, `REJECT` traffic. `REJECT` is only
-  supported in VCD 10.2.2+
+  supported in VCLOUD 10.2.2+
 * `enabled` - (Optional) Defines if the rule is enabled (default `true`)
 * `logging` - (Optional) Defines if logging for this rule is enabled (default `false`)
 * `source_ids` - (Optional) A set of source object Firewall Groups (`IP Sets` or `Security groups`).
@@ -97,9 +97,9 @@ groups`). Leaving it empty matches `Any` (all)
 * `app_port_profile_ids` - (Optional) An optional set of Application Port Profiles.
 * `network_context_profile_ids` - (Optional) An optional set of Network Context Profiles. Can be
   looked up using `vcloud_nsxt_network_context_profile` data source.
-* `source_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `source_ids` for the rule to
+* `source_groups_excluded` - (Optional; VCLOUD 10.3.2+) - reverses value of `source_ids` for the rule to
   match everything except specified IDs.
-* `destination_groups_excluded` - (Optional; VCD 10.3.2+) - reverses value of `destination_ids` for
+* `destination_groups_excluded` - (Optional; VCLOUD 10.3.2+) - reverses value of `destination_ids` for
   the rule to match everything except specified IDs.
 
 

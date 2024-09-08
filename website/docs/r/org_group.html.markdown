@@ -14,7 +14,7 @@ organization groups defined in `SAML`, `OAUTH` or `LDAP`.
 Supported in provider *v2.9+*
 
 ~> **Note:** This operation requires the rights included in the predefined `Organization
-Administrator` role or an equivalent set of rights. `SAML`, `OAUTH` or `LDAP` must be configured as vCD
+Administrator` role or an equivalent set of rights. `SAML`, `OAUTH` or `LDAP` must be configured as vCloud
 does not support local groups and will return HTTP error 403 "This operation is denied." if selected
 `provider_type` is not configured.
 

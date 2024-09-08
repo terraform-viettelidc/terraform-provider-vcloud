@@ -50,7 +50,7 @@ The following arguments are supported:
 * `download_to_file` - (Optional; *3.11+*) Will download the contents of the media item into the given file
 
 -> NOTE: downloading of media items can take unexpectedly long amounts of time for large items. The ability of
-downloading media items is supplied here to solve a specific problem, i.e. saving small files in the VCD as help
+downloading media items is supplied here to solve a specific problem, i.e. saving small files in the VCLOUD as help
 to other workflows. For example, you could save into a media item an HCL file used to configure the VCD, the file 
 `terraform.tfstate`, planning documents, an image of the deployment topology, and so on.
 

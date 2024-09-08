@@ -11,7 +11,7 @@ description: |-
 
 Provides a Viettel IDC Cloud VM Placement Policy resource. This can be used to create, modify, and delete VM Placement Policy.
 
-Supported in provider *v3.8+* and requires VCD 10.2+
+Supported in provider *v3.8+* and requires VCLOUD 10.2+
 
 -> **Note:** This resource requires system administrator privileges.
 

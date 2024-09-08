@@ -16,7 +16,7 @@ Supported in provider *v3.10+*. Requires System Administrator privileges.
 
 ```hcl
 data "vcloud_rde_interface" "my_interface" {
-  vendor  = "vmware"
+  vendor  = "vcloud"
   nss     = "k8s"
   version = "1.0.0"
 }

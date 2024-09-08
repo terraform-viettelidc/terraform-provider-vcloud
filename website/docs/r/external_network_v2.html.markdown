@@ -4,14 +4,14 @@ page_title: "Viettel IDC Cloud: vcloud_external_network_v2"
 sidebar_current: "docs-vcd-resource-external-network-v2"
 description: |-
   Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource
-  uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
+  uses new VCLOUD API and is capable of creating NSX-T backed external networks as well as port group
   backed ones.
 ---
 
 # vcd\_external\_network\_v2
 
 Provides a Viettel IDC Cloud External Network resource (version 2). New version of this resource 
-uses new VCD API and is capable of creating NSX-T backed external networks as well as port group
+uses new VCLOUD API and is capable of creating NSX-T backed external networks as well as port group
 backed ones.
 
 -> This resource manages NSX-T **External Networks**, NSX-V **External Networks**, and **NSX-T
@@ -55,7 +55,7 @@ resource "vcloud_external_network_v2" "ext-net-nsxt-t0" {
   # optional argument to dedicate network to a particular Org
   dedicated_org_id = data.vcloud_org.org1.id
 
-  # Topology intention settings require VCD 10.5.1+
+  # Topology intention settings require VCLOUD 10.5.1+
   nat_and_firewall_service_intention = "PROVIDER_AND_EDGE_GATEWAY"
   route_advertisement_intention      = "ALL_NETWORKS_ADVERTISED"
 }
@@ -210,21 +210,21 @@ The following arguments are supported:
 
 * `name` - (Required) A unique name for the network
 * `description` - (Optional) Network friendly description
-* `use_ip_spaces` - (Optional; *v3.10+*; *VCD 10.4.1+*) Defines if the network uses IP Spaces. Do
+* `use_ip_spaces` - (Optional; *v3.10+*; *VCLOUD 10.4.1+*) Defines if the network uses IP Spaces. Do
   not specify `ip_scope` when using IP Spaces. (default `false`)
-* `dedicated_org_id` - (Optional; *v3.10+*; *VCD 10.4.1+*) An Org ID that this network should be
+* `dedicated_org_id` - (Optional; *v3.10+*; *VCLOUD 10.4.1+*) An Org ID that this network should be
   dedicated to. Only applicable when `use_ip_spaces=true`
 * `ip_scope` - (Optional) One or more IP scopes for the network. See [IP Scope](#ipscope) below for details.
 * `vsphere_network` - (Optional) One or more blocks of [vSphere Network](#vspherenetwork)..
 * `nsxt_network` - (Optional) NSX-T network definition. See [NSX-T Network](#nsxtnetwork) below for details.
-* `nat_and_firewall_service_intention` - (Optional; *v3.13+*; *VCD 10.5.1+*) Configure intentions for
+* `nat_and_firewall_service_intention` - (Optional; *v3.13+*; *VCLOUD 10.5.1+*) Configure intentions for
  NAT and Firewall rule configuration:
  * `EDGE_GATEWAY` - Allow management of NAT and firewall rules only on Edge Gateways. This is the
    default behavior.
  * `PROVIDER_GATEWAY` - Allow management of NAT and firewall rules only on Provider Gateways.
  * `PROVIDER_AND_EDGE_GATEWAY` - Allow management of NAT and firewall rules on both the Provider and
  Edge gateways.
-* `route_advertisement_intention` - (Optional; *v3.13+*; *VCD 10.5.1+*) Configure intentions for
+* `route_advertisement_intention` - (Optional; *v3.13+*; *VCLOUD 10.5.1+*) Configure intentions for
  Org VDC network Route Advertisement:
  * `IP_SPACE_UPLINKS_ADVERTISED_STRICT` - All networks within IP Space associated with IP Space
   Uplink will be advertised by default. This can be changed on an individual network level later,
@@ -268,7 +268,7 @@ The following arguments are supported:
 * `nsxt_manager_id` - (Required) NSX-T manager ID. Can be looked up using [`vcloud_nsxt_manager`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_manager) data source.
 * `nsxt_tier0_router_id` - (Optional) NSX-T Tier-0 router ID. Can be looked up using
   [`vcloud_nsxt_tier0_router`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/nsxt_tier0_router) data source.
-* `nsxt_segment_name` - (Optional; *v3.4+*; *VCD 10.3+*) Existing NSX-T segment name.
+* `nsxt_segment_name` - (Optional; *v3.4+*; *VCLOUD 10.3+*) Existing NSX-T segment name.
 
 ## Importing
 
@@ -276,7 +276,7 @@ The following arguments are supported:
 configuration. [More information.][docs-import]
 
 An existing external network can be [imported][docs-import] into this resource via supplying the path for an external network. Since the external network is
-at the top of the vCD hierarchy, the path corresponds to the external network name.
+at the top of the vCloud hierarchy, the path corresponds to the external network name.
 For example, using this structure, representing an existing external network that was **not** created using Terraform:
 
 ```hcl

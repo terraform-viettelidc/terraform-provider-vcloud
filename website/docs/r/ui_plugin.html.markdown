@@ -13,7 +13,7 @@ plugin from a local ZIP file, to publish/unpublish a UI Plugin to different Orga
 
 -> Managing UI Plugins requires System Administrator privileges.
 
-Supported in provider *v3.10+* and requires VCD 10.3+
+Supported in provider *v3.10+* and requires VCLOUD 10.3+
 
 ## Example Usage with specific Organizations to publish
 

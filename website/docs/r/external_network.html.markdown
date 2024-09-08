@@ -27,7 +27,7 @@ provider "vcd" {
 
 resource "vcloud_external_network" "net" {
   name        = "my-ext-net"
-  description = "Reference for vCD external network"
+  description = "Reference for vCloud external network"
 
   ip_scope {
     gateway    = "192.168.30.49"
@@ -126,7 +126,7 @@ Supported in provider *v2.5+*
 configuration. [More information.][docs-import]
 
 An existing external network can be [imported][docs-import] into this resource via supplying the path for an external network. Since the external network is
-at the top of the vCD hierarchy, the path corresponds to the external network name.
+at the top of the vCloud hierarchy, the path corresponds to the external network name.
 For example, using this structure, representing an existing external network that was **not** created using Terraform:
 
 ```hcl

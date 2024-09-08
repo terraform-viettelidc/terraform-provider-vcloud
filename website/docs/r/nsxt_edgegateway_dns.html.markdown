@@ -8,7 +8,7 @@ description: |-
 
 # vcd\_nsxt\_edgegateway\_dns
 
-Supported in provider *v3.11+* and VCD 10.4.0+ with NSX-T.
+Supported in provider *v3.11+* and VCLOUD 10.4.0+ with NSX-T.
 
 Provides a resource to manage NSX-T Edge Gateway DNS configuration.
 
@@ -67,8 +67,8 @@ The following arguments are supported:
 * `enabled` - (Optional) Status of the DNS forwarding service. Defaults to `true`.
 * `listener_ip` - (Optional) The IP on which the DNS forwarder listens. If the Edge Gateway 
   has a dedicated external network, this can be changed.
-* `snat_rule_ip_address` - (Optional, VCD 10.5.0+) This argument only applies if the Edge Gateway 
-  is connected to a Provider Gateway using IP Spaces. If specified, VCD will 
+* `snat_rule_ip_address` - (Optional, VCLOUD 10.5.0+) This argument only applies if the Edge Gateway 
+  is connected to a Provider Gateway using IP Spaces. If specified, VCLOUD will 
   conveniently manage the SNAT rule with the specified IP address for the DNS forwarder.
   The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space_ip_allocation) 
   If not specified, the IP address will be computed and chosen by VCD.

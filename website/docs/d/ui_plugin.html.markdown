@@ -12,7 +12,7 @@ Provides a Viettel IDC Cloud UI Plugin data source. This can be used to fetch an
 
 -> Reading UI Plugins requires System Administrator privileges.
 
-Supported in provider *v3.10+* and requires VCD 10.3+
+Supported in provider *v3.10+* and requires VCLOUD 10.3+
 
 ## Example Usage
 

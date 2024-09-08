@@ -139,7 +139,7 @@ The following arguments are supported:
 * `userinfo_endpoint` - (Optional) The endpoint to use for User Info.
   If `wellknown_endpoint` is **not** set, then this argument is **required**. Otherwise, it is **optional**.
   This allows users to override the configuration given by `wellknown_endpoint`
-* `prefer_id_token` - (Optional; VCD 10.4.1+) If you want to combine claims from `userinfo_endpoint` and the ID Token, set this to `true`.
+* `prefer_id_token` - (Optional; VCLOUD 10.4.1+) If you want to combine claims from `userinfo_endpoint` and the ID Token, set this to `true`.
   The identity providers do not provide all the required claims set in `userinfo_endpoint`. By setting this argument to `true`,
   Viettel IDC Cloud can fetch and consume claims from both sources
 * `max_clock_skew_seconds` - (Optional) The maximum clock skew is the maximum allowable time difference between the client and server.
@@ -174,7 +174,7 @@ The following arguments are supported:
 * `key_expire_duration_hours` - (Optional) Required if `key_refresh_endpoint` is set and `key_refresh_strategy=EXPIRE_AFTER`. Defines the expiration period of the key
   You can get more details of the `EXPIRE_AFTER` strategy [here](https://docs.vmware.com/en/VMware-Cloud-Director/10.4/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-92C030BE-5444-45B4-891F-63EA6872FEA1.html).
   Maximum value is `24`
-* `ui_button_label` - (Optional; VCD `10.5.1+`) Customizes the label of the UI button of the login screen
+* `ui_button_label` - (Optional; VCLOUD `10.5.1+`) Customizes the label of the UI button of the login screen
 
 ## Attribute Reference
 
@@ -187,7 +187,7 @@ The following arguments are supported:
 configuration. [More information.][docs-import]
 
 An existing OIDC configuration for an Org can be [imported][docs-import] into this resource via supplying the path for an Org. Since the Org is
-at the top of the VCD hierarchy, the path corresponds to the Org name.
+at the top of the VCLOUD hierarchy, the path corresponds to the Org name.
 For example, using this structure, representing an existing OIDC configuration that was **not** created using Terraform:
 
 ```hcl

@@ -30,7 +30,7 @@ That is, CSE Server should be up and running and all elements must be working.
 In order to complete the steps described in this guide, please be aware:
 
 * CSE v4.1 must be installed. Read the [installation guide][cse_install_guide] for more information.
-* Terraform VMWare Cloud Director provider needs to be v3.11.0 or above.
+* Terraform Viettel IDC Cloud provider needs to be v3.11.0 or above.
 * CSE Server must be up and running.
 
 ## Creating a Kubernetes cluster

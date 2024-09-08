@@ -10,7 +10,7 @@ description: |-
 
 Provides a resource to manage NSX-T Org VDC network DHCP bindings.
 
--> This resource requires VCD 10.3.1+
+-> This resource requires VCLOUD 10.3.1+
 
 ## Example Usage (IPv4 binding)
 

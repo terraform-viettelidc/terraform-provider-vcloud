@@ -303,7 +303,10 @@ resource "vcloud_nsxt_distributed_firewall" "t1" {
   }
 }
 ```
-## References
 
-* [Viettel IDC Cloud Documentation about VDC
-  Groups](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-E8A8CD70-31AD-4592-B520-34E3B7DC4E6E.html)
+[//]: # (## References)
+
+[//]: # ()
+[//]: # (* [Viettel IDC Cloud Documentation about VDC)
+
+[//]: # (  Groups]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-E8A8CD70-31AD-4592-B520-34E3B7DC4E6E.html&#41;)

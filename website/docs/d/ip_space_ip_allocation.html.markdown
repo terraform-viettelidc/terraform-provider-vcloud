@@ -12,7 +12,7 @@ description: |-
 Provides a data source to read IP Allocations within IP Spaces. It supports both - Floating IPs
 (IPs from IP Ranges) and IP Prefix (subnet) allocations with manual and automatic reservations.
 
-IP Spaces require VCD 10.4.1+ with NSX-T.
+IP Spaces require VCLOUD 10.4.1+ with NSX-T.
 
 ## Example Usage (IP Space IP Prefix Allocation)
 

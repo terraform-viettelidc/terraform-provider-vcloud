@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_app\_port\_profile
 
-Supported in provider *v3.3+* and VCD 10.1+ with NSX-T backed VDCs.
+Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 
 Provides a data source to read NSX-T Application Port Profiles. Application Port Profiles include a
 combination of a protocol and a port, or a group of ports, that is used for Firewall and NAT

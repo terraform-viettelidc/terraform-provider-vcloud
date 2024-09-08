@@ -10,7 +10,7 @@ description: |-
 
 # vcd\_nsxt\_alb\_virtual\_service
 
-Supported in provider *v3.5+* and VCD 10.2+ with NSX-T and ALB.
+Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 
 Provides a data source to read ALB Virtual services for particular NSX-T Edge Gateway. A virtual service
 advertises an IP address and ports to the external world and listens for client traffic. When a virtual service receives

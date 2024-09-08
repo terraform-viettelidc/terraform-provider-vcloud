@@ -3,7 +3,7 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: Catalog Subscription and Sharing"
 sidebar_current: "docs-vcd-guides-catalog-subscription-and-sharing"
 description: |-
- Provides guidance to VMware Cloud catalog publishing, subscribing, and sharing
+ Provides guidance to Viettel IDC Cloud catalog publishing, subscribing, and sharing
 ---
 
 # Catalog subscription and sharing

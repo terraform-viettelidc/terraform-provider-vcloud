@@ -14,7 +14,7 @@ used to create, modify, and delete VM affinity and anti-affinity rules.
 
 Supported in provider *v2.9+*
 
-~> **Note:** The vCD UI defines two different entities (*Affinity Rules* and *Anti-Affinity Rules*). This resource combines both
+~> **Note:** The vCloud UI defines two different entities (*Affinity Rules* and *Anti-Affinity Rules*). This resource combines both
 entities: they are differentiated by the `polarity` property (see below).
 
 ## Example Usage

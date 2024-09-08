@@ -266,7 +266,7 @@ The following attributes are available for consumption as read-only attributes a
 
 * `kubernetes_version` - The version of Kubernetes installed in this cluster
 * `tkg_product_version` - The version of TKG installed in this cluster
-* `capvcloud_version` - The version of CAPVCD used by this cluster
+* `capvcloud_version` - The version of CAPVCLOUD used by this cluster
 * `cluster_resource_set_bindings` - The cluster resource set bindings of this cluster
 * `cpi_version` - The version of the Cloud Provider Interface used by this cluster
 * `csi_version` - The version of the Container Storage Interface used by this cluster
@@ -326,7 +326,7 @@ The Kubeconfig can now be used with `kubectl` and the Kubernetes cluster can be 
 ## Importing
 
 An existing Kubernetes cluster can be [imported][docs-import] into this resource via supplying the **Cluster ID** for it.
-The ID can be easily obtained in VCD UI, in the CSE Kubernetes Container Clusters plugin.
+The ID can be easily obtained in VCLOUD UI, in the CSE Kubernetes Container Clusters plugin.
 
 An example is below. During import, none of the mentioned arguments are required, but they will be in subsequent Terraform commands
 such as `terraform plan`. Each comment in the code gives some context about how to obtain them to have a completely manageable cluster:
