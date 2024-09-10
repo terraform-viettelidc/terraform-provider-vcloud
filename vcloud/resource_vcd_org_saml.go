@@ -91,7 +91,7 @@ func resourceVcdOrgSaml() *schema.Resource {
 func resourceVcdOrgSamlCreateOrUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}, origin string) diag.Diagnostics {
 	vcdClient := meta.(*VCDClient)
 	if !vcdClient.Client.IsSysAdmin {
-		return diag.Errorf("resource vcd_org_ldap requires System administrator privileges")
+		return diag.Errorf("resource vcloud_org_ldap requires System administrator privileges")
 	}
 	orgId := d.Get("org_id").(string)
 	entityId := d.Get("entity_id").(string)
@@ -146,7 +146,7 @@ func resourceVcdOrgSamlRead(ctx context.Context, d *schema.ResourceData, meta in
 func genericVcdOrgSamlRead(ctx context.Context, d *schema.ResourceData, meta interface{}, origin string) diag.Diagnostics {
 	vcdClient := meta.(*VCDClient)
 	if !vcdClient.Client.IsSysAdmin {
-		return diag.Errorf("resource vcd_org_saml requires System administrator privileges")
+		return diag.Errorf("resource vcloud_org_saml requires System administrator privileges")
 	}
 	orgId := d.Get("org_id").(string)
 
@@ -188,7 +188,7 @@ func resourceVcdOrgSamlUpdate(ctx context.Context, d *schema.ResourceData, meta 
 func resourceVcdOrgSamlDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	vcdClient := meta.(*VCDClient)
 	if !vcdClient.Client.IsSysAdmin {
-		return diag.Errorf("resource vcd_org_saml requires System administrator privileges")
+		return diag.Errorf("resource vcloud_org_saml requires System administrator privileges")
 	}
 	orgId := d.Get("org_id").(string)
 
