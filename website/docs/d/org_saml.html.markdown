@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read SAML configuration for an organization.
 ---
 
-# vcd\_org\_saml
+# vcloud\_org\_saml
 
 Supported in provider *v3.10+*.
 

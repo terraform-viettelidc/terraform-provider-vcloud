@@ -7,7 +7,7 @@ description: |-
   multiple objects into IP Sets helps reduce the total number of firewall rules to be created.
 ---
 
-# vcd\_nsxt\_ip\_set
+# vcloud\_nsxt\_ip\_set
 
 Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 

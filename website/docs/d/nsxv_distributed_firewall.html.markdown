@@ -6,7 +6,7 @@ description: |-
   The NSX-V Distributed Firewall data source reads all defined rules for a particular VDC
 ---
 
-# vcd\_nsxv\_distributed\_firewall
+# vcloud\_nsxv\_distributed\_firewall
 
 The NSX-V Distributed Firewall data source reads all defined rules for a particular VDC.
 

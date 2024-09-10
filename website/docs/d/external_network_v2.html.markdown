@@ -8,7 +8,7 @@ description: |-
   backed ones.
 ---
 
-# vcd\_external\_network\_v2
+# vcloud\_external\_network\_v2
 
 Provides a Viettel IDC Cloud External Network data source (version 2). New version of this data source uses new VCD
 API and is capable of handling NSX-T backed external networks as well as port group backed ones.

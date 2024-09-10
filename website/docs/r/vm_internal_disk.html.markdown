@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud VM internal disk resource. This can be used to create and delete VM internal disks.
 ---
 
-# vcd\_vm\_internal\_disk
+# vcloud\_vm\_internal\_disk
 
 This can be used to create, update and delete VM internal disks on already created VMs.
 

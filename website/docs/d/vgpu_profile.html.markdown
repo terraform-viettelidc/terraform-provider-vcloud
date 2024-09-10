@@ -6,7 +6,7 @@ description: |-
   Provides a datasource to read vGPU profiles in Viettel IDC Cloud.
 ---
 
-# vcd\_vm\_vgpu\_profile
+# vcloud\_vm\_vgpu\_profile
 
 Supported in provider *3.11* and VCLOUD *10.4.0+*.
 

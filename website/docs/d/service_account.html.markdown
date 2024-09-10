@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read VCLOUD Service Accounts.
 ---
 
-# vcd\_service\_account
+# vcloud\_service\_account
 
 Provides a data source to read VCLOUD Service Accounts.
 

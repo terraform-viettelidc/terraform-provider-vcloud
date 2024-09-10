@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 ---
 
-# vcd\_nsxt\_network\_imported
+# vcloud\_nsxt\_network\_imported
 
 Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read data or reference existing network.
 

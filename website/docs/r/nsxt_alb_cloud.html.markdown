@@ -7,7 +7,7 @@ description: |-
   consists of an NSX-T Manager and an NSX-T Data Center transport zone.
 ---
 
-# vcd\_nsxt\_alb\_cloud
+# vcloud\_nsxt\_alb\_cloud
 
 Supported in provider *v3.4+* and VCLOUD 10.2+ with NSX-T and ALB.
 

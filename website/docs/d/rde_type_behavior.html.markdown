@@ -7,7 +7,7 @@ description: |-
   Behavior.
 ---
 
-# vcd\_rde\_type\_behavior
+# vcloud\_rde\_type\_behavior
 
 Provides the capability of reading RDE Type Behaviors in Viettel IDC Cloud, which override an existing [RDE Interface
 Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/rde_interface_behavior).

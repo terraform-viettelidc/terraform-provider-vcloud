@@ -6,7 +6,7 @@ description: |-
   Provides a data source for a network pool attached to a VCD.
 ---
 
-# vcd\_network\_pool
+# vcloud\_network\_pool
 
 Provides a data source for a network pool attached to a VCD.
 

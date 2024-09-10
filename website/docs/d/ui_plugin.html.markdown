@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud UI Plugin data source. This can be used to fetch and read an existing UI Plugin.
 ---
 
-# vcd\_ui\_plugin
+# vcloud\_ui\_plugin
 
 Provides a Viettel IDC Cloud UI Plugin data source. This can be used to fetch and read an existing UI Plugin.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud external network resource.  This can be used to create and delete external networks.
 ---
 
-# vcd\_external\_network
+# vcloud\_external\_network
 
 Provides a Viettel IDC Cloud external network resource.  This can be used to create and delete external networks.
 Requires system administrator privileges.

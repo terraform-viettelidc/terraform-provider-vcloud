@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
 ---
 
-# vcd\_vm
+# vcloud\_vm
 
 Provides a Viettel IDC Cloud standalone VM resource. This can be used to create, modify, and delete Standalone VMs.
 

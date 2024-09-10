@@ -6,7 +6,7 @@ description: |-
   Provides a data source for a resource pool attached to a vCenter.
 ---
 
-# vcd\_resource\_pool
+# vcloud\_resource\_pool
 
 Provides a data source for a resource pool attached to a vCenter. A resource pool is an essential component of a Provider VDC.
 

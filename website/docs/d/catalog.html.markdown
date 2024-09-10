@@ -6,7 +6,7 @@ description: |-
   Provides a catalog data source.
 ---
 
-# vcd\_catalog
+# vcloud\_catalog
 
 Provides a Viettel IDC Cloud Catalog data source. A Catalog can be used to manage catalog items and media items.
 

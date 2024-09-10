@@ -8,7 +8,7 @@ description: |-
   access tokens for authentication to the VCLOUD API, during which a new access token is generated.
 ---
 
-# vcd\_service\_account 
+# vcloud\_service\_account 
 
 Provides a resource to manage Service Accounts. Service Accounts can have defined roles
 and act just like a VCLOUD user. Service Accounts, when activated, provide one-time use

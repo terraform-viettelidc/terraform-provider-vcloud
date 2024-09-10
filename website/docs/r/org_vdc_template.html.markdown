@@ -6,7 +6,7 @@ description: |-
   Provides a resource to create Organization VDC Templates in Viettel IDC Cloud. This can be used to create, delete, and update a Organization VDC Template.
 ---
 
-# vcd\_org\_vdc\_template
+# vcloud\_org\_vdc\_template
 
 Provides a resource to create Organization VDC Templates in Viettel IDC Cloud. This can be used to create, delete, and update a Organization VDC Template.
 Requires system administrator privileges.

@@ -6,7 +6,7 @@ description: |-
   Provides a resource to create, read, and modify a Viettel IDC Cloud site association with the current site.
 ---
 
-# vcd\_multisite\_site\_association
+# vcloud\_multisite\_site\_association
 
 Provides a resource to create, read, and modify a Viettel IDC Cloud site association.
 

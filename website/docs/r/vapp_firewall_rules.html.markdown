@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create, modify, and delete firewall settings and rules.
 ---
 
-# vcd\_vapp\_firewall\_rules
+# vcloud\_vapp\_firewall\_rules
 
 Provides a Viettel IDC Cloud vApp Firewall resource. This can be used to create,
 modify, and delete firewall settings and rules in a [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).

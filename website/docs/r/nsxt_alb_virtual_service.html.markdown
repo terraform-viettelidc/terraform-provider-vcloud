@@ -8,7 +8,7 @@ description: |-
   it directs it to members in ALB Pool.
 ---
 
-# vcd\_nsxt\_alb\_virtual\_service
+# vcloud\_nsxt\_alb\_virtual\_service
 
 Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 

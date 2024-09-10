@@ -6,7 +6,7 @@ description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface
+# vcloud\_rde\_interface
 
 Provides the capability of creating, updating, and deleting Runtime Defined Entity Interfaces in Viettel IDC Cloud.
 

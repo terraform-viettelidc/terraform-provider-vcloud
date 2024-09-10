@@ -7,7 +7,7 @@ description: |-
   delete routed VDC networks (backed by NSX-T or NSX-V).
 ---
 
-# vcd\_network\_routed\_v2
+# vcloud\_network\_routed\_v2
 
 Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to create, modify, and
 delete routed VDC networks (backed by NSX-T or NSX-V).

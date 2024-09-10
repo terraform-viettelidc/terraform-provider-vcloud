@@ -7,7 +7,7 @@ description: |-
 
 ---
 
-# vcd\_solution\_add\_on\_instance\_publish
+# vcloud\_solution\_add\_on\_instance\_publish
 
 Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 

@@ -8,7 +8,7 @@ description: |-
   services on the Edge Gateway.
 ---
 
-# vcd\_nsxt\_app\_port\_profile
+# vcloud\_nsxt\_app\_port\_profile
 
 Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 

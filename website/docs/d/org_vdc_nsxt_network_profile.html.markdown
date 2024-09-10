@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read Network Profile for NSX-T VDCs.
 ---
 
-# vcd\_org\_vdc\_nsxt\_network\_profile
+# vcloud\_org\_vdc\_nsxt\_network\_profile
 
 Provides a data source to read Network Profile for NSX-T VDCs.
 

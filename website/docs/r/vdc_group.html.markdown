@@ -6,7 +6,7 @@ description: |-
   Provides a VDC group resource.
 ---
 
-# vcd\_vdc\_group
+# vcloud\_vdc\_group
 Supported in provider *v3.5+* and VCLOUD 10.2+.
 
 Provides a resource to manage NSX-T VDC groups.

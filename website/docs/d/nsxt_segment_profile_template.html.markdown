@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read NSX-T Segment Profile Templates.
 ---
 
-# vcd\_nsxt\_segment\_profile\_template
+# vcloud\_nsxt\_segment\_profile\_template
 
 Provides a data source to read NSX-T Segment Profile Templates.
 

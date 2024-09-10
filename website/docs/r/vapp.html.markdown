@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp resource. This can be used to create, modify, and delete vApps.
 ---
 
-# vcd\_vapp
+# vcloud\_vapp
 
 Provides a Viettel IDC Cloud vApp resource. This can be used to create, modify, and delete vApps.
 

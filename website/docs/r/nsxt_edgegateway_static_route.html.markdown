@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage NSX-T Edge Gateway Static Routes.
 ---
 
-# vcd\_nsxt\_edgegateway\_static\_route
+# vcloud\_nsxt\_edgegateway\_static\_route
 
 Supported in provider *v3.10+* and VCLOUD 10.4.0+ with NSX-T.
 

@@ -7,7 +7,7 @@ description: |-
   can be used to create, modify, and delete source NATs to allow vApps to send external traffic.
 ---
 
-# vcd\_nsxv\_snat
+# vcloud\_nsxv\_snat
 
 Provides a Viettel IDC Cloud SNAT resource for advanced edge gateways (NSX-V). This
 can be used to create, modify, and delete source NATs to allow vApps to send external traffic.

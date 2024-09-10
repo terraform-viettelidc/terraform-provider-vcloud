@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Organization LDAP resource. This can be used to create, delete, and update LDAP configuration for an organization .
 ---
 
-# vcd\_org\_ldap
+# vcloud\_org\_ldap
 
 Provides a Viettel IDC Cloud Org LDAP resource. This can be used to create, update, and delete LDAP configuration for an organization.
 

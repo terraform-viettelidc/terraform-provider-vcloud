@@ -6,7 +6,7 @@ description: |-
    Provides the capability of reading an existing Runtime Defined Entity in Viettel IDC Cloud.
 ---
 
-# vcd\_rde
+# vcloud\_rde
 
 Provides the capability of reading an existing Runtime Defined Entity in Viettel IDC Cloud.
 

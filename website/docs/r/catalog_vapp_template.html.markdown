@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload and delete OVA files inside a catalog.
 ---
 
-# vcd\_catalog\_vapp\_template
+# vcloud\_catalog\_vapp\_template
 
 Provides a Viettel IDC Cloud vApp Template resource. This can be used to upload OVA to catalog and delete it.
 

@@ -6,7 +6,7 @@ description: |-
   Provides an NSX-V edge gateway data source.
 ---
 
-# vcd\_edgegateway
+# vcloud\_edgegateway
 
 Provides a Viettel IDC Cloud NSX-V edge gateway data source, directly connected to one or more external networks. This can be used to reference
 edge gateways for Org VDC networks to connect.

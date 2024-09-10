@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud rights bundle data source. This can be used to read rights bundles.
 ---
 
-# vcd\_rights\_bundle
+# vcloud\_rights\_bundle
 
 Provides a Viettel IDC Cloud rights bundle data source. This can be used to read rights bundles.
 

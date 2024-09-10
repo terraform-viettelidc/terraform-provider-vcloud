@@ -6,7 +6,7 @@ description: |-
   Provides information about a vCloud resource structure
 ---
 
-# vcd\_resource_schema
+# vcloud\_resource_schema
 
 Provides a Viettel IDC Cloud generic structure data source. It shows the structure of any VCLOUD resource.
 

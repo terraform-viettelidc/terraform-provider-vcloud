@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud subscribed catalog data source. This can be used to read a subscribed catalog.
 ---
 
-# vcd\_subscribed\_catalog
+# vcloud\_subscribed\_catalog
 
 Provides a Viettel IDC Cloud subscribed catalog resource. This can be used to read a subscribed catalog.
 

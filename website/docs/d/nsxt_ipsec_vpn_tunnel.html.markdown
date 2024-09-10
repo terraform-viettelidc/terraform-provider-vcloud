@@ -8,7 +8,7 @@ description: |-
   or VPN gateways that support IPSec.
 ---
 
-# vcd\_nsxt\_ipsec\_vpn\_tunnel
+# vcloud\_nsxt\_ipsec\_vpn\_tunnel
 
 Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 

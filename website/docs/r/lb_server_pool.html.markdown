@@ -6,7 +6,7 @@ description: |-
   Provides an NSX edge gateway load balancer server pool resource.
 ---
 
-# vcd\_lb\_server\_pool
+# vcloud\_lb\_server\_pool
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Server Pool resource. A Server Pool can have a group of backend
 servers set (defined as pool members), manages load balancer distribution methods, and may have a service monitor

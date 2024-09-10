@@ -7,7 +7,7 @@ description: |-
   used to create, modify, and delete firewall rules.
 ---
 
-# vcd\_nsxv\_firewall\_rule
+# vcloud\_nsxv\_firewall\_rule
 
 Provides a Viettel IDC Cloud firewall rule resource for advanced edge gateways (NSX-V). This can be
 used to create, modify, and delete firewall rules.

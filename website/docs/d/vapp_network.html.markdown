@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp network data source. This can be used to access a vApp network.
 ---
 
-# vcd\_vapp\_network
+# vcloud\_vapp\_network
 
 Provides a Viettel IDC Cloud vApp network data source. This can be used to access a vApp network.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud catalog resource. This can be used to create and delete a catalog.
 ---
 
-# vcd\_catalog
+# vcloud\_catalog
 
 Provides a Viettel IDC Cloud catalog resource. This can be used to create and delete a catalog.
 

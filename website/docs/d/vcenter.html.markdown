@@ -6,7 +6,7 @@ description: |-
   Provides a data source for vCenter server attached to VCD.
 ---
 
-# vcd\_vcenter
+# vcloud\_vcenter
 
 Provides a data source for vCenter server attached to VCD.
 

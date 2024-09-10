@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 ---
 
-# vcd\_role
+# vcloud\_role
 
 Provides a Viettel IDC Cloud role. This can be used to create, modify, and delete roles.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read ALB General Settings for particular NSX-T Edge Gateway.
 ---
 
-# vcd\_nsxt\_alb\_settings
+# vcloud\_nsxt\_alb\_settings
 
 Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 

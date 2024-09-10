@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.
 ---
 
-# vcd\_nsxt\_edgegateway\_dhcpv6
+# vcloud\_nsxt\_edgegateway\_dhcpv6
 
 Provides a resource to manage DHCPv6 configuration for NSX-T Edge Gateways.
 

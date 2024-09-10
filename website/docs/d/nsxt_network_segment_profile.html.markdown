@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read Segment Profile configuration for NSX-T Org VDC networks.
 ---
 
-# vcd\_nsxt\_network\_segment\_profile
+# vcloud\_nsxt\_network\_segment\_profile
 
 Provides a data source to read Segment Profile configuration for NSX-T Org VDC networks.
 

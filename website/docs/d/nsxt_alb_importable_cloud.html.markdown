@@ -7,7 +7,7 @@ description: |-
   Cloud configured in ALB Controller.
 ---
 
-# vcd\_nsxt\_alb\_importable\_cloud
+# vcloud\_nsxt\_alb\_importable\_cloud
 
 Supported in provider *v3.4+* and VCLOUD 10.2+ with NSX-T and ALB.
 

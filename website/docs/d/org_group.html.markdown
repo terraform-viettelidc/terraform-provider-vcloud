@@ -6,7 +6,7 @@ description: |-
   Provides a data source for Viettel IDC Cloud Organization Groups.
 ---
 
-# vcd\_org\_group
+# vcloud\_org\_group
 
 Provides a data source for Viettel IDC Cloud Organization Groups. This can be used to fetch organization groups already defined in `SAML`, `OAUTH` or `LDAP`.
 

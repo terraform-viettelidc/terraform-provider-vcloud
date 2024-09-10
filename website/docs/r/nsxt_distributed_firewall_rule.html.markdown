@@ -6,7 +6,7 @@ description: |-
   The Distributed Firewall rule allows user to segment organization network entities by creating firewall rules.
 ---
 
-# vcd\_nsxt\_distributed\_firewall\_rule
+# vcloud\_nsxt\_distributed\_firewall\_rule
 
 The Distributed Firewall rule allows user to segment organization network entities by creating
 firewall rules.

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Org VDC Network attached to an external one. This can be used to create, modify, and delete internal networks for vApps to connect.
 ---
 
-# vcd\_network\_direct
+# vcloud\_network\_direct
 
 Provides a Viettel IDC Cloud Org VDC Network directly connected to an external network. This can be used to create,
 modify, and delete internal networks for vApps to connect.

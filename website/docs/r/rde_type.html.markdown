@@ -6,7 +6,7 @@ description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entity types in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_type
+# vcloud\_rde\_type
 
 Provides the capability of creating, updating, and deleting Runtime Defined Entity types in Viettel IDC Cloud.
 Requires system administrator privileges.

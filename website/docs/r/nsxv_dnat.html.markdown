@@ -7,7 +7,7 @@ description: |-
   modify, and delete destination NATs to map an external IP/port to an internal IP/port.
 ---
 
-# vcd\_nsxv\_dnat
+# vcloud\_nsxv\_dnat
 
 Provides a Viettel IDC Cloud DNAT resource for advanced edge gateways (NSX-V). This can be used to create,
 modify, and delete destination NATs to map an external IP/port to an internal IP/port.

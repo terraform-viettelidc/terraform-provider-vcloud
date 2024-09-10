@@ -6,7 +6,7 @@ description: |-
    Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface\_behavior
+# vcloud\_rde\_interface\_behavior
 
 Provides the capability of managing RDE Interface Behaviors in Viettel IDC Cloud.
 

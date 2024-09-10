@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud global role. This can be used to create, modify, and delete global roles.
 ---
 
-# vcd\_global\_role
+# vcloud\_global\_role
 
 Provides a Viettel IDC Cloud global role. This can be used to create, modify, and delete global roles.
 

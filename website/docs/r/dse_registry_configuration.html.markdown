@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage Data Solution Extension (DSE) registry configuration.
 ---
 
-# vcd\_dse\_registry\_configuration
+# vcloud\_dse\_registry\_configuration
 
 Supported in provider *v3.13+* with Data Solution Extension.
 

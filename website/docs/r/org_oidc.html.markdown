@@ -6,7 +6,7 @@ description: |-
   Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in Viettel IDC Cloud.
 ---
 
-# vcd\_org\_oidc
+# vcloud\_org\_oidc
 
 Provides a resource to configure or remove OpenID Connect (OIDC) for an Organization in Viettel IDC Cloud.
 

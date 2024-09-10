@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Access Control structure for a vApp.
 ---
 
-# vcd\_vapp\_access\_control
+# vcloud\_vapp\_access\_control
 
 Provides a Viettel IDC Cloud Access Control structure for a vApp. This can be used to create, update, and delete access control structures for a vApp.
 

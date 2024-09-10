@@ -7,7 +7,7 @@ description: |-
   (backed by NSX-T or NSX-V).
 ---
 
-# vcd\_network\_routed\_v2
+# vcloud\_network\_routed\_v2
 
 Provides a Viettel IDC Cloud Org VDC routed Network data source to read data or reference  existing network
 (backed by NSX-T or NSX-V).

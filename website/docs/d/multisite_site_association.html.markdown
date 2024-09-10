@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read a Viettel IDC Cloud site association with the current site.
 ---
 
-# vcd\_multisite\_site\_association
+# vcloud\_multisite\_site\_association
 
 Provides a data source to read a Viettel IDC Cloud site association information.
 

@@ -11,7 +11,7 @@ description: |-
   elements: UI plugins, vApps, users, roles, runtime defined entities, and more.
 ---
 
-# vcd\_solution\_add\_on
+# vcloud\_solution\_add\_on
 
 Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 

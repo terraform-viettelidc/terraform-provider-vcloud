@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage DHCP pools for NSX-T Org VDC networks.
 ---
 
-# vcd\_nsxt\_network\_dhcp
+# vcloud\_nsxt\_network\_dhcp
 
 Provides a resource to manage DHCP pools for NSX-T Org VDC networks.
 

@@ -6,7 +6,7 @@ description: |-
  Allows to provision a vApp network and optionally connect it to an existing Org VDC network.
 ---
 
-# vcd\_vapp\_network
+# vcloud\_vapp\_network
 
  Allows to provision a vApp network and optionally connect it to an existing Org VDC network.
 

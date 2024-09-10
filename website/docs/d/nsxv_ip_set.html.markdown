@@ -6,7 +6,7 @@ description: |-
   Provides an IP set data source.
 ---
 
-# vcd\_nsxv\_ip\_set
+# vcloud\_nsxv\_ip\_set
 
 Provides a Viettel IDC Cloud IP set data source. An IP set is a group of IP addresses that you can add
   as the source or destination in a firewall rule or in DHCP relay configuration.

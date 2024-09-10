@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud data source for reading NSX-V distributed firewall applications
 ---
 
-# vcd\_nsxv\_application
+# vcloud\_nsxv\_application
 
 Provides a Viettel IDC Cloud data source for reading NSX-V distributed firewall applications.
 

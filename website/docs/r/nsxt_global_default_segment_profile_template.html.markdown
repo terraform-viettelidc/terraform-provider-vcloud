@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage Global Default NSX-T Segment Profile Templates.
 ---
 
-# vcd\_nsxt\_global\_default\_segment\_profile\_template
+# vcloud\_nsxt\_global\_default\_segment\_profile\_template
 
 Provides a resource to manage Global Default NSX-T Segment Profile Templates.
 

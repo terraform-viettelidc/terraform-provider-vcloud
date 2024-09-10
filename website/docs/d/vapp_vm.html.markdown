@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud VM data source. This can be used to access VMs within a vApp.
 ---
 
-# vcd\_vapp\_vm
+# vcloud\_vapp\_vm
 
 Provides a Viettel IDC Cloud VM data source. This can be used to access VMs within a vApp.
 

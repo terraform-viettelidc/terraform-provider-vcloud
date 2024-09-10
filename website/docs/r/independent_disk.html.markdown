@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 ---
 
-# vcd\_independent\_disk
+# vcloud\_independent\_disk
 
 Provides a Viettel IDC Cloud independent disk resource. This can be used to create and delete independent disks.
 The resource is capable of updating independent disks attached to a VM. Update detaches the disks temporarily and attaches back after changes are done.

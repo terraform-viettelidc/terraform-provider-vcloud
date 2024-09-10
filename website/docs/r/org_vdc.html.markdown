@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Organization VDC resource. This can be used to create and delete an Organization VDC.
 ---
 
-# vcd\_org\_vdc
+# vcloud\_org\_vdc
 
 Provides a Viettel IDC Cloud Organization VDC resource. This can be used to create and delete an Organization VDC.
 Requires system administrator privileges.

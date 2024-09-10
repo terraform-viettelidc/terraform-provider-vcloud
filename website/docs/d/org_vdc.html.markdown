@@ -6,7 +6,7 @@ description: |-
   Provides an organization VDC data source.
 ---
 
-# vcd\_org\_vdc
+# vcloud\_org\_vdc
 
 Provides a Viettel IDC Cloud Organization VDC data source. An Organization VDC can be used to
 reference a VDC and use its data within other resources or data sources.

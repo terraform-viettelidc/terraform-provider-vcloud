@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage ALB Service Engine Group assignment to Edge Gateway.
 ---
 
-# vcd\_nsxt\_alb\_edgegateway\_service\_engine\_group
+# vcloud\_nsxt\_alb\_edgegateway\_service\_engine\_group
 
 Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a vApp Template data source.
 ---
 
-# vcd\_catalog\_vapp\_template
+# vcloud\_catalog\_vapp\_template
 
 Provides a Viettel IDC Cloud vApp Template data source. A vApp Template can be used to reference an already existing
 vApp Template in VCLOUD and use its data within other resources or data sources.

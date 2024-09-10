@@ -6,7 +6,7 @@ description: |-
    Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 ---
 
-# vcd\_rde
+# vcloud\_rde
 
 Provides the capability of creating, updating, and deleting Runtime Defined Entities in Viettel IDC Cloud.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud NSX-T Spoof Guard Profile data source. This can be used to read NSX-T Segment Profile definitions.
 ---
 
-# vcd\_nsxt\_segment\_spoof\_guard\_profile
+# vcloud\_nsxt\_segment\_spoof\_guard\_profile
 
 Provides a Viettel IDC Cloud Spoof Guard Profile data source. This can be used to read NSX-T Segment Profile definitions.
 

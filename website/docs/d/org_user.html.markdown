@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Organization user data source. This can be used to read organization users.
 ---
 
-# vcd\_org\_user
+# vcloud\_org\_user
 
 Provides a Viettel IDC Cloud Org User data source. This can be used to read organization users, including org administrators.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read a Viettel IDC Cloud Org association data to be used for association with another Org.
 ---
 
-# vcd\_multisite\_org\_data
+# vcloud\_multisite\_org\_data
 
 Provides a data source to read a Viettel IDC Cloud Org association data to be used for association with another Org.
 

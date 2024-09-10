@@ -6,7 +6,7 @@ description: |-
   Provides a VCLOUD version data source.
 ---
 
-# vcd\_version
+# vcloud\_version
 
 Provides a Viettel IDC Cloud version data source to fetch the VCLOUD version, the maximum supported API version and
 perform some optional checks with version constraints.

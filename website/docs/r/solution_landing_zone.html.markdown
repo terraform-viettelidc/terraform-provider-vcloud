@@ -6,7 +6,7 @@ description: |-
   Provides a resource to configure VCLOUD Solution Add-on Landing Zone
 ---
 
-# vcd\_solution\_landing\_zone
+# vcloud\_solution\_landing\_zone
 
 Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create, modify, and delete NAT rules.
 ---
 
-# vcd\_vapp\_nat\_rules
+# vcloud\_vapp\_nat\_rules
 
 Provides a Viettel IDC Cloud vApp NAT resource. This can be used to create,
 modify, and delete NAT rules in a [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).

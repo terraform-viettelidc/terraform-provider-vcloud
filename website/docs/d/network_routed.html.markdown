@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Org VDC routed Network. This can be used to reference internal networks for vApps to connect.
 ---
 
-# vcd\_network\_routed
+# vcloud\_network\_routed
 
 Provides a Viettel IDC Cloud Org VDC routed Network data source. This can be used to reference internal networks for vApps to connect.
 

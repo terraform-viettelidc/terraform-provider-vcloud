@@ -7,7 +7,7 @@ description: |-
   Edge Gateway Rate Limiting (QoS) configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_qos\_profile
+# vcloud\_nsxt\_edgegateway\_qos\_profile
 
 Supported in provider *v3.9+* and VCLOUD 10.3.2+ with NSX-T.
 

@@ -6,7 +6,7 @@ description: |-
   Provides an NSX edge gateway load balancer application rule resource.
 ---
 
-# vcd\_lb\_app\_rule
+# vcloud\_lb\_app\_rule
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Application Rule resource. An application rule
 allows to directly manipulate and manage IP application traffic with load balancer.

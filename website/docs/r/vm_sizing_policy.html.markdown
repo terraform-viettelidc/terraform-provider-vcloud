@@ -7,7 +7,7 @@ description: |-
   used to create, modify, and delete VM sizing policy.
 ---
 
-# vcd\_vm\_sizing\_policy
+# vcloud\_vm\_sizing\_policy
 
 Provides a Viettel IDC Cloud VM sizing policy resource. This can be
 used to create, modify, and delete VM sizing policy.

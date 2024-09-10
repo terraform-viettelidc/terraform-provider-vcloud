@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage NSX-T Edge Gateway Rate Limiting (QoS) configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_rate\_limiting
+# vcloud\_nsxt\_edgegateway\_rate\_limiting
 
 Supported in provider *v3.9+* and VCLOUD 10.3.2+ with NSX-T.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage Kubernetes clusters in Viettel IDC Cloud with Container Service Extension installed and running.
 ---
 
-# vcd\_cse\_kubernetes\_cluster
+# vcloud\_cse\_kubernetes\_cluster
 
 Provides a resource to manage Kubernetes clusters in Viettel IDC Cloud with Container Service Extension (CSE) installed and running.
 

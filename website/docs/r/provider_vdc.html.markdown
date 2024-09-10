@@ -6,7 +6,7 @@ description: |-
   Provides a Provider VDC resource.
 ---
 
-# vcd\_provider\_vdc
+# vcloud\_provider\_vdc
 
 Provides a Viettel IDC Cloud Provider VDC resource. This resource can be used to create, modify, and delete a Provider VDC and use its 
 data within other resources or data sources.

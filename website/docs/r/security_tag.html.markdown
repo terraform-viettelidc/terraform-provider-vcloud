@@ -7,7 +7,7 @@ Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.
 ---
 
-# vcd\_security\_tag
+# vcloud\_security\_tag
 
 Provides a Viettel IDC Cloud Security Tag resource. This can be
 used to assign security tag to VMs.

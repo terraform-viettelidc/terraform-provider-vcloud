@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create, modify, and delete static routing rules.
 ---
 
-# vcd\_vapp\_static\_routing
+# vcloud\_vapp\_static\_routing
 
 Provides a Viettel IDC Cloud vApp static routing resource. This can be used to create,
 modify, and delete static routing rules in a [vApp network](/providers/terraform-viettelidc/vcloud/latest/docs/resources/vapp_network).

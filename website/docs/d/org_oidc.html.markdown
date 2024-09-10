@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 ---
 
-# vcd\_org\_oidc
+# vcloud\_org\_oidc
 
 Provides a data source to read the OpenID Connect (OIDC) configuration of an Organization in Viettel IDC Cloud.
 

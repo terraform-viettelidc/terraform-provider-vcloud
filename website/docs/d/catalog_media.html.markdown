@@ -6,7 +6,7 @@ description: |-
   Provides a catalog media data source.
 ---
 
-# vcd\_catalog\_media
+# vcloud\_catalog\_media
 
 Provides a Viettel IDC Cloud Catalog media data source. A Catalog media can be used to reference a catalog media and use its 
 data within other resources or data sources.

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, delete, and update SAML configuration for an organization.
 ---
 
-# vcd\_org\_saml
+# vcloud\_org\_saml
 
 Provides a Viettel IDC Cloud Organization SAML resource. This can be used to create, update, and delete SAML configuration for an organization.
 

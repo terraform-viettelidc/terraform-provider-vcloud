@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read Data Solution publishing settings for a particular tenant.
 ---
 
-# vcd\_dse\_solution\_publish
+# vcloud\_dse\_solution\_publish
 
 Supported in provider *v3.13+* with Data Solution Extension.
 

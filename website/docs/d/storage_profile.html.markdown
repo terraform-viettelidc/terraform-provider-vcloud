@@ -6,7 +6,7 @@ description: |-
   Provides a data source for VDC storage profile.
 ---
 
-# vcd\_storage\_profile
+# vcloud\_storage\_profile
 
 Provides a data source for VDC storage profile.
 

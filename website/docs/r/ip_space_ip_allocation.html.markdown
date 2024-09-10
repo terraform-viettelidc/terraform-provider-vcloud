@@ -7,7 +7,7 @@ description: |-
   (IPs from IP Ranges) and IP Prefix (subnet) allocations with manual and automatic reservations.
 ---
 
-# vcd\_ip\_space\_ip\_allocation
+# vcloud\_ip\_space\_ip\_allocation
 
 Provides a resource to manage IP Allocations within IP Spaces. It supports both - Floating IPs (IPs
 from IP Ranges) and IP Prefix (subnet) allocations with manual and automatic reservations.

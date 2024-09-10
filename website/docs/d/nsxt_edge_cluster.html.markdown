@@ -6,7 +6,7 @@ description: |-
   Provides a data source for available NSX-T Edge Clusters.
 ---
 
-# vcd\_nsxt\_edge\_cluster
+# vcloud\_nsxt\_edge\_cluster
 
 Provides a data source for available NSX-T Edge Clusters.
 

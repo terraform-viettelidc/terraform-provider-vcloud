@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read vGPU policies in Viettel IDC Cloud.
 ---
 
-# vcd\_vm\_vgpu\_policy
+# vcloud\_vm\_vgpu\_policy
 
 Experimental in provider *3.11*.
 

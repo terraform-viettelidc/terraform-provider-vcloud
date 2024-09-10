@@ -6,7 +6,7 @@ description: |-
   Provides a data source for available vCenter Port Groups.
 ---
 
-# vcd\_portgroup
+# vcloud\_portgroup
 
 Provides a data source for available vCenter Port Groups.
 

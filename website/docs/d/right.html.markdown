@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud Organization Right data source. This can be used to read existing rights
 ---
 
-# vcd\_right
+# vcloud\_right
 
 Provides a data source for available rights.
 

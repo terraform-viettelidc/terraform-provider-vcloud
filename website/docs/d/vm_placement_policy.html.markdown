@@ -7,7 +7,7 @@ description: |-
   used to read a VM placement policy.
 ---
 
-# vcd\_vm\_placement\_policy
+# vcloud\_vm\_placement\_policy
 
 Provides a Viettel IDC Cloud VM Placement Policy data source. This can be used to read a VM Placement Policy.
 

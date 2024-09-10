@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud VM data source. This can be used to access standalone VMs.
 ---
 
-# vcd\_vm
+# vcloud\_vm
 
 Provides a Viettel IDC Cloud standalone VM data source. This can be used to access standalone VMs.
 

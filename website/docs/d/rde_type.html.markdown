@@ -6,7 +6,7 @@ description: |-
    Provides the capability of fetching an existing Runtime Defined Entity Type from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_type
+# vcloud\_rde\_type
 
 Provides the capability of fetching an existing Runtime Defined Entity Type from Viettel IDC Cloud.
 

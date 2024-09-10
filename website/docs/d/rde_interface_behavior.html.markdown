@@ -6,7 +6,7 @@ description: |-
    Provides the capability of fetching an existing RDE Interface Behavior from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface\_behavior
+# vcloud\_rde\_interface\_behavior
 
 Provides the capability of fetching an existing RDE Interface Behavior from Viettel IDC Cloud.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read IP Space Uplinks in External Networks (Provider Gateways).
 ---
 
-# vcd\_ip\_space\_uplink
+# vcloud\_ip\_space\_uplink
 
 Provides a data source to read IP Space Uplinks in External Networks (Provider Gateways).
 

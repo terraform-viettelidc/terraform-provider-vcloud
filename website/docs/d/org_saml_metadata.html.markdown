@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read SAML metadata for an organization.
 ---
 
-# vcd\_org\_saml\_metadata
+# vcloud\_org\_saml\_metadata
 
 Supported in provider *v3.10+*.
 

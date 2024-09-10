@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud role. This can be used to read roles.
 ---
 
-# vcd\_role
+# vcloud\_role
 
 Provides a Viettel IDC Cloud role data source. This can be used to read roles.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage NSX-T Segment Profile Templates.
 ---
 
-# vcd\_nsxt\_segment\_profile\_template
+# vcloud\_nsxt\_segment\_profile\_template
 
 Provides a resource to manage NSX-T Segment Profile Templates.
 

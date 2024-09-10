@@ -6,7 +6,7 @@ description: |-
   Provides a data source for available NSX-T Tier-0 routers.
 ---
 
-# vcd\_nsxt\_tier0\_router
+# vcloud\_nsxt\_tier0\_router
 
 Provides a data source for available NSX-T Tier-0 routers.
 

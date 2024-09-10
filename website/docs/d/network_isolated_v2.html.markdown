@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Org VDC isolated Network data source to read data or reference existing network.
 ---
 
-# vcd\_network\_isolated\_v2
+# vcloud\_network\_isolated\_v2
 
 Provides a Viettel IDC Cloud Org VDC isolated Network data source to read data or reference existing network.
 

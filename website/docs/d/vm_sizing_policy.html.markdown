@@ -7,7 +7,7 @@ description: |-
   used to read VM sizing policy.
 ---
 
-# vcd\_vm\_sizing\_policy
+# vcloud\_vm\_sizing\_policy
 
 Provides a Viettel IDC Cloud VM sizing policy data source. This can be
 used to read VM sizing policy.

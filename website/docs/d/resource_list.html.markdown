@@ -6,7 +6,7 @@ description: |-
   Provides lists of VCLOUD resources
 ---
 
-# vcd\_resource_list
+# vcloud\_resource_list
 
 Provides a Viettel IDC Cloud generic data source. It provides a list of existing resources in various formats.
 Some of these lists are only informative (i.e. users will look at them to get general information about the existing

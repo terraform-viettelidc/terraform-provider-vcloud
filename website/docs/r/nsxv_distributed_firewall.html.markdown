@@ -7,7 +7,7 @@ description: |-
   virtual machines, edges, networks, based on several attributes
 ---
 
-# vcd\_nsxv\_distributed\_firewall
+# vcloud\_nsxv\_distributed\_firewall
 
 The Distributed Firewall allows user to segment organization virtual data center entities, such as
 virtual machines, edges, networks, based on several attributes. This resource handles only **layer 3** rules.

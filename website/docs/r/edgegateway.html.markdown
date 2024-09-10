@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud NSX-V edge gateway. This can be used to create and delete edge gateways connected to one or more external networks.
 ---
 
-# vcd\_edgegateway
+# vcloud\_edgegateway
 
 Provides a Viettel IDC Cloud NSX-V edge gateway directly connected to one or more external networks. This can be used to create
 and delete edge gateways for Org VDC networks to connect.

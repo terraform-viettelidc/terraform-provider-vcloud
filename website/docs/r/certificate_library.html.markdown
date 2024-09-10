@@ -6,7 +6,7 @@ description: |-
   Provides a certificate in System or Org library resource.
 ---
 
-# vcd\_certificate\_library
+# vcloud\_certificate\_library
 Supported in provider *v3.5+* and VCLOUD 10.2+.
 
 Provides a resource to manage certificate in System or Org library.

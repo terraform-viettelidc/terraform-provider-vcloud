@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud Organization Task data source. This can be used to read existing tasks.
 ---
 
-# vcd\_task
+# vcloud\_task
 
 Provides a data source for available tasks.
 

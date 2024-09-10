@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
 ---
 
-# vcd\_vm\_group
+# vcloud\_vm\_group
 
 Provides a Viettel IDC Cloud VM Group data source. This can be used to fetch vSphere VM Groups and create VM Placement Policies with them.
 

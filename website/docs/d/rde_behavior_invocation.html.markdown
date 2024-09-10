@@ -6,7 +6,7 @@ description: |-
    Provides the capability of invoking an existing Runtime Defined Entity Behavior in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_behavior\_invocation
+# vcloud\_rde\_behavior\_invocation
 
 ~> This feature is **experimental** and may change in future
 

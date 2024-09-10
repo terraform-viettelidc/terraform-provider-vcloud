@@ -6,7 +6,7 @@ description: |-
   Provides a resource to instantiate VDCs from a VDC Template in Viettel IDC Cloud.
 ---
 
-# vcd\_org\_vdc\_template\_instance
+# vcloud\_org\_vdc\_template\_instance
 
 Provides a resource to instantiate VDCs from a [VDC Template](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc_template) in Viettel IDC Cloud.
 Supported in provider *v3.13+*
@@ -105,7 +105,7 @@ There are no read-only attributes. However, after the `vcloud_org_vdc_template_i
 the identifier of the new VDC is saved in the Terraform state, as the `id` of the `vcloud_org_vdc_template_instance` resource
 (example: `vcloud_org_vdc_template_instance.my_instance.id`).
 
-## Deletion of the vcd\_org\_vdc\_template\_instance resource
+## Deletion of the vcloud\_org\_vdc\_template\_instance resource
 
 When configuring the `vcloud_org_vdc_template_instance`, one must set the required `delete_instantiated_vdc_on_removal` argument.
 

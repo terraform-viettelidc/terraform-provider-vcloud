@@ -6,7 +6,7 @@ description: |-
   Provides a catalog item data source.
 ---
 
-# vcd\_catalog\_item
+# vcloud\_catalog\_item
 
 -> If you only need vApp Template features, you may use [`vcloud_catalog_vapp_template`](/providers/terraform-viettelidc/vcloud/latest/docs/data-sources/catalog_vapp_template) instead.
 

@@ -7,7 +7,7 @@ description: |-
   used to read VM affinity and anti-affinity rules.
 ---
 
-# vcd\_vm\_affinity\_rule
+# vcloud\_vm\_affinity\_rule
 
 Provides a Viettel IDC Cloud VM affinity rule data source. This can be
 used to read VM affinity and anti-affinity rules.

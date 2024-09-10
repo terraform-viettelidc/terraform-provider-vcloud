@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read NSX-T Edge Gateway DNS forwarder configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_dns
+# vcloud\_nsxt\_edgegateway\_dns
 
 Supported in provider *v3.11+* and VCLOUD *10.4+* with NSX-T.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 ---
 
-# vcd\_vapp
+# vcloud\_vapp
 
 Provides a Viettel IDC Cloud vApp data source. This can be used to reference vApps.
 

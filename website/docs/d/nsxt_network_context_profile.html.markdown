@@ -7,7 +7,7 @@ description: |-
   Firewall.
 ---
 
-# vcd\_nsxt\_network\_context\_profile
+# vcloud\_nsxt\_network\_context\_profile
 
 Provides a data source for NSX-T Network Context Profile lookup to later be used in Distributed
 Firewall.

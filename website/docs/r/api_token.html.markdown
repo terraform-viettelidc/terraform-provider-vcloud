@@ -7,7 +7,7 @@ description: |-
   They are user-based and have the same role as the user.
 ---
 
-# vcd\_api\_token 
+# vcloud\_api\_token 
 
 Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCD. 
 They are user-based and have the same role as the user. Explained in more detail [here][api-tokens].

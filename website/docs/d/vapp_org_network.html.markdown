@@ -6,7 +6,7 @@ description: |-
   Provides a data source for Viettel IDC Cloud Org network attached to vApp. This can be used to access vApp Org network.
 ---
 
-# vcd\_vapp\_org\_network
+# vcloud\_vapp\_org\_network
 
 Provides a data source for Viettel IDC Cloud Org network attached to vApp. This can be used to access vApp Org VDC network.
 

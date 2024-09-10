@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
 ---
 
-# vcd\_cloned\_vapp
+# vcloud\_cloned\_vapp
 
 Provides a Viettel IDC Cloud Cloned vApp resource. This can be used to create vApps from either a vApp template or another vApp.
 This resource should be used only on creation, although deletion also works. The result of using this resource is a

@@ -9,7 +9,7 @@ description: |-
   between different service engine groups.
 ---
 
-# vcd\_nsxt\_alb\_service\_engine\_group
+# vcloud\_nsxt\_alb\_service\_engine\_group
 
 Supported in provider *v3.4+* and VCLOUD 10.2+ with NSX-T and ALB.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud resource for inserting or ejecting media (ISO) file for the VM. Create this resource for inserting the media, and destroy it for ejecting.
 ---
 
-# vcd\_inserted\_media
+# vcloud\_inserted\_media
 
 Provides a Viettel IDC Cloud resource for inserting or ejecting media (ISO) file for the VM. Create this resource for inserting the media, and destroy it for ejecting.
 

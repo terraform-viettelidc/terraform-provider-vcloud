@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud UI Plugin resource. This can be used to manage UI Plugins.
 ---
 
-# vcd\_ui\_plugin
+# vcloud\_ui\_plugin
 
 Provides a Viettel IDC Cloud UI Plugin resource. This can be used to manage UI Plugins in VCD, for example to add a new
 plugin from a local ZIP file, to publish/unpublish a UI Plugin to different Organizations, etc.

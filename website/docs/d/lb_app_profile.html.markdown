@@ -6,7 +6,7 @@ description: |-
   Provides an NSX edge gateway load balancer application profile data source.
 ---
 
-# vcd\_lb\_app\_profile
+# vcloud\_lb\_app\_profile
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Application Profile data source. An
 application profile defines the behavior of the load balancer for a particular type of network

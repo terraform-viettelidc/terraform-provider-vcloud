@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read LDAP configuration for an organization.
 ---
 
-# vcd\_org\_ldap
+# vcloud\_org\_ldap
 
 Supported in provider *v3.8+*.
 

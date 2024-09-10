@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud rights bundle. This can be used to create, modify, and delete rights bundles.
 ---
 
-# vcd\_rights\_bundle
+# vcloud\_rights\_bundle
 
 Provides a Viettel IDC Cloud rights bundle. This can be used to create, modify, and delete rights bundles.
 

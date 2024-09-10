@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 ---
 
-# vcd\_nsxt\_network\_imported
+# vcloud\_nsxt\_network\_imported
 
 Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network type. This can be used to create, modify, and delete NSX-T VDC networks of Imported type (backed by NSX-T).
 

@@ -6,7 +6,7 @@ description: |-
    Provides the capability of fetching an existing Runtime Defined Entity Interface from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_interface
+# vcloud\_rde\_interface
 
 Provides the capability of fetching an existing Runtime Defined Entity Interface from Viettel IDC Cloud.
 

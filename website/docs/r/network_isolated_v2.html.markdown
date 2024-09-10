@@ -7,7 +7,7 @@ description: |-
   delete isolated VDC networks (backed by NSX-T or NSX-V).
 ---
 
-# vcd\_network\_isolated\_v2
+# vcloud\_network\_isolated\_v2
 
 Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to create, modify, and
 delete isolated VDC networks (backed by NSX-T or NSX-V).

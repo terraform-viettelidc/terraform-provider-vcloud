@@ -6,7 +6,7 @@ description: |-
  Provides a Viettel IDC Cloud global role data source . This can be used to read global roles.
 ---
 
-# vcd\_global\_role
+# vcloud\_global\_role
 
 Provides a Viettel IDC Cloud global role data source. This can be used to read global roles.
 

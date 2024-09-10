@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage NSX-T Edge Gateway DNS configuration.
 ---
 
-# vcd\_nsxt\_edgegateway\_dns
+# vcloud\_nsxt\_edgegateway\_dns
 
 Supported in provider *v3.11+* and VCLOUD 10.4.0+ with NSX-T.
 

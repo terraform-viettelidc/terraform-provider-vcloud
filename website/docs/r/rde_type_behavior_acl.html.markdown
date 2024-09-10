@@ -6,7 +6,7 @@ description: |-
    Provides the capability of managing RDE Type Behavior Access Levels in Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_type\_behavior\_acl
+# vcloud\_rde\_type\_behavior\_acl
 
 Provides the capability of managing [RDE Type Behavior](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rde_type_behavior) Access Levels
 in Viettel IDC Cloud.

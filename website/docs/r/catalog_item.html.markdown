@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud catalog item resource. This can be used to upload and delete OVA file inside a catalog.
 ---
 
-# vcd\_catalog\_item
+# vcloud\_catalog\_item
 
 -> If you only need vApp Template features, you may use [`vcloud_catalog_vapp_template`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/catalog_vapp_template) instead.
 

@@ -7,7 +7,7 @@ description: |-
   to override default quota set for IP Space.
 ---
 
-# vcd\_ip\_space\_custom\_quota
+# vcloud\_ip\_space\_custom\_quota
 
 Provides a resource to manage Custom Quotas for a given Org in a particular IP Space if one wants to
 override default quota set for IP Space.

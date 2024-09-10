@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read a Viettel IDC Cloud Site in the context of multi-site operations.
 ---
 
-# vcd\_multisite\_site
+# vcloud\_multisite\_site
 
 Provides a data source to read a Viettel IDC Cloud Site in the context of multi-site operatioos
 

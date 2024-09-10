@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage IP Space Uplinks in External Networks (Provider Gateways).
 ---
 
-# vcd\_ip\_space\_uplink
+# vcloud\_ip\_space\_uplink
 
 Provides a resource to manage IP Space Uplinks in External Networks (Provider Gateways).
 

@@ -6,7 +6,7 @@ description: |-
   Provides a Provider VDC data source.
 ---
 
-# vcd\_provider\_vdc
+# vcloud\_provider\_vdc
 
 Gives a Viettel IDC Cloud Provider VDC data source. This data source can be used to reference a Provider VDC and use its 
 data within other resources or data sources.

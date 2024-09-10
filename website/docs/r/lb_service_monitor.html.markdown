@@ -6,7 +6,7 @@ description: |-
   Provides an NSX edge gateway load balancer service monitor resource.
 ---
 
-# vcd\_lb\_service\_monitor
+# vcloud\_lb\_service\_monitor
 
 Provides a Viettel IDC Cloud Edge Gateway Load Balancer Service Monitor resource. A service monitor 
 defines health check parameters for a particular type of network traffic. It can be associated with

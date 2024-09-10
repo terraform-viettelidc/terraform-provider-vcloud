@@ -6,7 +6,7 @@ description: |-
   The Distributed Firewall data source reads all defined rules for a particular VDC Group.
 ---
 
-# vcd\_nsxt\_distributed\_firewall
+# vcloud\_nsxt\_distributed\_firewall
 
 The Distributed Firewall data source reads all defined rules for a particular VDC Group.
 

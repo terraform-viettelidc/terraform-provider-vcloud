@@ -6,7 +6,7 @@ description: |-
 Provides a Viettel IDC Cloud data source for reading route advertisement in an NSX-T Edge Gateway.
 ---
 
-# vcd\_nsxt\_route\_advertisement
+# vcloud\_nsxt\_route\_advertisement
 
 Provides a Viettel IDC Cloud data source for reading route advertisement in an NSX-T Edge Gateway.
 

@@ -7,7 +7,7 @@ description: |-
   virtual machines, based on virtual machine names and attributes. 
 ---
 
-# vcd\_nsxt\_distributed\_firewall
+# vcloud\_nsxt\_distributed\_firewall
 
 The Distributed Firewall allows user to segment organization virtual data center entities, such as
 virtual machines, based on virtual machine names and attributes. 

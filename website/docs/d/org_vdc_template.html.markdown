@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read Organization VDC Templates from Viettel IDC Cloud.
 ---
 
-# vcd\_org\_vdc\_template
+# vcloud\_org\_vdc\_template
 
 Provides a data source to read Organization VDC Templates from Viettel IDC Cloud.
 Can be used by System Administrators or tenants, only if the template is published in that tenant.

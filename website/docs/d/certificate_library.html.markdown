@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read certificate in System or Org library.
 ---
 
-# vcd\_certificate\_library
+# vcloud\_certificate\_library
 Supported in provider *v3.5+* and VCLOUD 10.2+.
 
 Provides a data source to read certificate in System or Org library and reference in other resources.

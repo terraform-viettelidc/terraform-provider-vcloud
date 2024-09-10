@@ -7,7 +7,7 @@ Provides a Viettel IDC Cloud Org VDC access control resource. This can be
 used to share VDC across users or groups.
 ---
 
-# vcd\_org\_vdc\_access\_control
+# vcloud\_org\_vdc\_access\_control
 
 Provides a Viettel IDC Cloud Org VDC access control resource. This can be
 used to share VDC across users and/or groups.

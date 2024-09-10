@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud IPsec VPN. This can be used to create, modify, and delete VPN settings and rules.
 ---
 
-# vcd\_edgegateway\_vpn
+# vcloud\_edgegateway\_vpn
 
 Provides a Viettel IDC Cloud IPsec VPN. This can be used to create,
 modify, and delete VPN settings and rules.

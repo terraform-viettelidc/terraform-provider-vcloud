@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
 ---
 
-# vcd\_nsxt\_segment\_security\_profile
+# vcloud\_nsxt\_segment\_security\_profile
 
 Provides a Viettel IDC Cloud NSX-T Segment Security Profile data source. This can be used to read NSX-T Segment Profile definitions.
 

@@ -7,7 +7,7 @@ description: |-
   Gateway or VRF.
 ---
 
-# vcd\_nsxt\_edgegateway\_bgp\_configuration
+# vcloud\_nsxt\_edgegateway\_bgp\_configuration
 
 Provides a resource to manage BGP configuration on NSX-T Edge Gateway that has a dedicated Tier-0
 Gateway or VRF. BGP makes core routing decisions by using a table of IP networks, or prefixes, which

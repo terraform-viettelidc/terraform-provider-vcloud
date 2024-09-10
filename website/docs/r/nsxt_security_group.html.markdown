@@ -8,7 +8,7 @@ description: |-
   the total number of distributed firewall rules to be created.
 ---
 
-# vcd\_nsxt\_security\_group
+# vcloud\_nsxt\_security\_group
 
 Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 

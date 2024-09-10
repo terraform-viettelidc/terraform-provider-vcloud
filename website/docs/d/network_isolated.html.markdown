@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Org VDC isolated Network. This can be used to reference internal networks for vApps to connect.
 ---
 
-# vcd\_network\_isolated
+# vcloud\_network\_isolated
 
 Provides a Viettel IDC Cloud Org VDC isolated Network data source. This can be used to reference
 internal networks for vApps to connect. This network is not attached to external networks or routers.

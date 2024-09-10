@@ -9,7 +9,7 @@ description: |-
   Balancer.
 ---
 
-# vcd\_nsxt\_alb\_controller
+# vcloud\_nsxt\_alb\_controller
 
 Supported in provider *v3.4+* and VCLOUD 10.2+ with NSX-T and ALB.
 

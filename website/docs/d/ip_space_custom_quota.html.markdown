@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read Custom Quotas for a given Org in a particular IP Space.
 ---
 
-# vcd\_ip\_space\_custom\_quota
+# vcloud\_ip\_space\_custom\_quota
 
 Provides a data source to read Custom Quotas for a given Org in a particular IP Space.
 

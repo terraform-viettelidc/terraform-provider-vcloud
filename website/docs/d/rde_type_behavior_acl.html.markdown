@@ -6,7 +6,7 @@ description: |-
   Provides the capability of fetching the RDE Type Behavior Access Levels from Viettel IDC Cloud.
 ---
 
-# vcd\_rde\_type\_behavior\_acl
+# vcloud\_rde\_type\_behavior\_acl
 
 Provides the capability of fetching the RDE Type Behavior Access Levels from Viettel IDC Cloud.
 

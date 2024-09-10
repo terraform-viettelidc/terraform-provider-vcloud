@@ -7,7 +7,7 @@ description: |-
   outgoing network traffic to and from an NSX-T Data Center Edge Gateway.
 ---
 
-# vcd\_nsxt\_firewall
+# vcloud\_nsxt\_firewall
 
 Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed Edge Gateways.
 

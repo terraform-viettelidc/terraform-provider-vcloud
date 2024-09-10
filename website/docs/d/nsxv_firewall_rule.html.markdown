@@ -7,7 +7,7 @@ description: |-
   be used to read existing rules by ID and use its attributes in other resources.
 ---
 
-# vcd\_nsxv\_firewall\_rule
+# vcloud\_nsxv\_firewall\_rule
 
 Provides a Viettel IDC Cloud firewall rule data source for advanced edge gateways (NSX-V). This can be
 used to read existing rules by ID and use its attributes in other resources.

@@ -8,7 +8,7 @@ description: |-
   only one virtual service at a time.
 ---
 
-# vcd\_nsxt\_alb\_pool
+# vcloud\_nsxt\_alb\_pool
 
 Supported in provider *v3.5+* and VCLOUD 10.2+ with NSX-T and ALB.
 

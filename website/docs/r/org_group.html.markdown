@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Organization group. This can be used to create, update, and delete organization groups defined in SAML or LDAP.
 ---
 
-# vcd\_org\_group
+# vcloud\_org\_group
 
 Provides a Viettel IDC Cloud Organization group. This can be used to create, update, and delete
 organization groups defined in `SAML`, `OAUTH` or `LDAP`.

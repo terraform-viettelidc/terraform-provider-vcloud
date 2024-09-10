@@ -6,7 +6,7 @@ description: |-
   Provides a resource to manage NSX-T Org VDC Network Profile.
 ---
 
-# vcd\_org\_vdc\_nsxt\_network\_profile
+# vcloud\_org\_vdc\_nsxt\_network\_profile
 
 Provides a resource to manage NSX-T Org VDC Network Profile.
 

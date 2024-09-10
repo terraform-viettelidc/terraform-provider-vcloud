@@ -8,7 +8,7 @@ description: |-
   overlapping IP addresses across organizations and organization VDCs.
 ---
 
-# vcd\_ip\_space
+# vcloud\_ip\_space
 
 Provides a data source to read IP Spaces. IP Spaces provide structured approach to allocating public
 and private IP addresses by preventing the use of overlapping IP addresses across organizations and

@@ -7,7 +7,7 @@ description: |-
   is created from an existing Solution Add-On by supplying configuration values of that particular instance.
 ---
 
-# vcd\_solution\_add\_on\_instance
+# vcloud\_solution\_add\_on\_instance
 
 Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 

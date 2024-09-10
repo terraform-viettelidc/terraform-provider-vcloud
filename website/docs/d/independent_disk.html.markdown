@@ -6,7 +6,7 @@ description: |-
   Provides a independent disk data source.
 ---
 
-# vcd\_independent\_disk
+# vcloud\_independent\_disk
 
 Provides a Viettel IDC Cloud Independent disk data source. An independent disk data source can be used to reference an independent disk and use its 
 data within other resources or data sources.

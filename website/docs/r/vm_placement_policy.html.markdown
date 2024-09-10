@@ -7,7 +7,7 @@ description: |-
   used to create, modify, and delete VM Placement Policies.
 ---
 
-# vcd\_vm\_placement\_policy
+# vcloud\_vm\_placement\_policy
 
 Provides a Viettel IDC Cloud VM Placement Policy resource. This can be used to create, modify, and delete VM Placement Policy.
 

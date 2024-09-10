@@ -8,7 +8,7 @@ description: |-
   apply.
 ---
 
-# vcd\_nsxt\_dynamic\_security\_group
+# vcloud\_nsxt\_dynamic\_security\_group
 
 Supported in provider *v3.7+* and VCLOUD 10.3+ with NSX-T backed VDC Groups.
 

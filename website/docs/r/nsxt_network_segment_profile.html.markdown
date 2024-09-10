@@ -6,7 +6,7 @@ description: |-
   Provides a resource to configure Segment Profiles for NSX-T Org VDC networks.
 ---
 
-# vcd\_nsxt\_network\_segment\_profile
+# vcloud\_nsxt\_network\_segment\_profile
 
 Provides a resource to configure Segment Profiles for NSX-T Org VDC networks.
 

@@ -8,7 +8,7 @@ description: |-
   a public to a private IP address, you create a destination NAT (DNAT) rule.
 ---
 
-# vcd\_nsxt\_nat\_rule
+# vcloud\_nsxt\_nat\_rule
 
 Supported in provider *v3.3+* and VCLOUD 10.1+ with NSX-T backed VDCs.
 

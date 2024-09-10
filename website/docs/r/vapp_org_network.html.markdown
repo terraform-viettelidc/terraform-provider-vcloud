@@ -6,7 +6,7 @@ description: |-
   Provides capability to attach an existing Org VDC Network to a vApp and toggle network features.
 ---
 
-# vcd\_vapp\_org\_network
+# vcloud\_vapp\_org\_network
 
  Provides capability to attach an existing Org VDC Network to a vApp and toggle network features.
 

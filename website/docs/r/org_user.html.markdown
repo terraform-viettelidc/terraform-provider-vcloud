@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud Organization user. This can be used to create, update, and delete users.
 ---
 
-# vcd\_org\_user
+# vcloud\_org\_user
 
 Provides a Viettel IDC Cloud Org User. This can be used to create, update, and delete users, including system and org administrators.
 

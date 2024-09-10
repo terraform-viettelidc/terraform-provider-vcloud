@@ -8,7 +8,7 @@ description: |-
   permissions for route advertisement.
 ---
 
-# vcd\_nsxt\_edgegateway\_bgp\_ip\_prefix\_list
+# vcloud\_nsxt\_edgegateway\_bgp\_ip\_prefix\_list
 
 Supported in provider *v3.7+* and VCLOUD 10.2+ with NSX-T
 

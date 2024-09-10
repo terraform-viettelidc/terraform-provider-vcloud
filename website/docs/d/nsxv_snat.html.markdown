@@ -7,7 +7,7 @@ description: |-
   existing rule by ID and use its attributes in other resources.
 ---
 
-# vcd\_nsxv\_snat
+# vcloud\_nsxv\_snat
 
 Provides a Viettel IDC Cloud SNAT data source for advanced edge gateways (NSX-V). This can be used to
 read existing rule by ID and use its attributes in other resources.

@@ -6,7 +6,7 @@ description: |-
   Provides a Viettel IDC Cloud NSX-T edge gateway data source. This can be used to read NSX-T edge gateway configurations.
 ---
 
-# vcd\_nsxt\_edgegateway
+# vcloud\_nsxt\_edgegateway
 
 Provides a Viettel IDC Cloud NSX-T edge gateway data source. This can be used to read NSX-T edge gateway configurations.
 

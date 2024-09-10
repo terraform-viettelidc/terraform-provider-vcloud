@@ -6,7 +6,7 @@ description: |-
   Provides a data source to read DHCPv6 configuration for NSX-T Edge Gateways.
 ---
 
-# vcd\_nsxt\_edgegateway\_dhcpv6
+# vcloud\_nsxt\_edgegateway\_dhcpv6
 
 Provides a data source to read DHCPv6 configuration for NSX-T Edge Gateways.
 

@@ -6,7 +6,7 @@ description: |-
   Provides a data source for available NSX-T manager.
 ---
 
-# vcd\_nsxt\_manager
+# vcloud\_nsxt\_manager
 
 Provides a data source for NSX-T manager.
 
