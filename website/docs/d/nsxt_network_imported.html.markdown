@@ -13,7 +13,7 @@ Provides a Viettel IDC Cloud Org VDC NSX-T Imported Network data source to read 
 Supported in provider *v3.2+* for NSX-T VDCs only.
 
 -> This is **not Terraform imported** data source, but a special **Imported** type of **Org VDC
-network** in NSX-T VDC. Read more about Imported Network in [official VCD
+network** in NSX-T VDC. Read more about Imported Network in [official VCLOUD
 documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB303D62-67EA-4209-BE4D-C3746481BCC8.html).
 
 ## Example Usage (Looking up Imported Network in VDC)

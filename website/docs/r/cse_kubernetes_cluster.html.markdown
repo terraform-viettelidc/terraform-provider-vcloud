@@ -332,12 +332,12 @@ An example is below. During import, none of the mentioned arguments are required
 such as `terraform plan`. Each comment in the code gives some context about how to obtain them to have a completely manageable cluster:
 
 ```hcl
-# This is just a snippet of code that will host the imported cluster that already exists in VCD.
+# This is just a snippet of code that will host the imported cluster that already exists in VCLOUD.
 # This must NOT be created with Terraform beforehand, it is just a shell that will receive the information
 # None of the arguments are required during the Import phase, but they will be asked when operating it afterwards
 resource "vcloud_cse_kubernetes_cluster" "imported_cluster" {
   name                   = "test2"                                   # The name of the existing cluster
-  cse_version            = "4.2.1"                                   # The CSE version installed in your VCD
+  cse_version            = "4.2.1"                                   # The CSE version installed in your VCLOUD
   kubernetes_template_id = data.vcloud_catalog_vapp_template.tkg_ova.id # See below data sources
   vdc_id                 = data.vcloud_org_vdc.vdc.id                   # See below data sources
   network_id             = data.vcloud_network_routed_v2.routed.id      # See below data sources
@@ -419,7 +419,7 @@ data "vcloud_nsxt_edgegateway" "egw" {
 terraform import vcloud_cse_kubernetes_cluster.imported_cluster urn:vcloud:entity:vmware:capvcdCluster:1d24af33-6e5a-4d47-a6ea-06d76f3ee5c9
 ```
 
--> The ID is required as it is the only way to unequivocally identify a Kubernetes cluster inside VCD. To obtain the ID
+-> The ID is required as it is the only way to unequivocally identify a Kubernetes cluster inside VCLOUD. To obtain the ID
 you can check the Kubernetes Container Clusters UI plugin, where all the available clusters are listed.
 
 After that, you can expand the configuration file and either update or delete the Kubernetes cluster. Running `terraform plan`

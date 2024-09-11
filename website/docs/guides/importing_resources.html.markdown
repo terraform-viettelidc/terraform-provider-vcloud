@@ -249,9 +249,9 @@ If we edit the file `generated_resources.tf`, changing the value for `starting_v
 ### Phantom updates
 
 In addition to missing required properties, we may have the problem of properties that are needed during creation, but
-their values are not stored in the VCD, and consequently can't be retrieved and used to populate the importing HCL code.
+their values are not stored in the VCLOUD, and consequently can't be retrieved and used to populate the importing HCL code.
 For example, the [`accept_all_eulas`][accept-all-eulas] property is only used during VM creation, but we can't retrieve it
-from the VM data in VCD.
+from the VM data in VCLOUD.
 When we have such fields, Terraform will signal that the resource needs to be updated, and it will do so at the next
 occurrence of `terraform apply`. This is a minor annoyance, which will delay the operation by a few seconds, but which
 won't actually change anything in the resource. What this update means is that Terraform is trying to match the HCL data

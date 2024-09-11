@@ -56,7 +56,7 @@ The following arguments are supported:
 * `active` - (Required) Status of the Service Account. Can be set to `false` and back to `true` if
   the access token was lost to get a new one.
 * `file_name` - (Optional) Required only when `active` is set to `true`. Contains the access token
-  that can be used for authenticating to VCD.
+  that can be used for authenticating to VCLOUD.
 * `allow_token_file` - (Optional) If set to false, will output a warning about the service account file
   containing sensitive information.
 

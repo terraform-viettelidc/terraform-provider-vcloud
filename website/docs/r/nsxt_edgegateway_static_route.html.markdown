@@ -68,14 +68,14 @@ Each member `next_hop` contains the following attributes:
 * `scope` - (Optional) Scope holds a reference to an entity where the next hop of a Static Route is
 reachable. In general, the reference should be an Org VDC network or segment backed external
 network, but scope could also reference a SYSTEM_OWNED entity if the next hop is configured outside
-of VCD. See [Next Hop Scope](#next-hop-scope) for definition structure.
+of VCLOUD. See [Next Hop Scope](#next-hop-scope) for definition structure.
 
 <a id="next-hop-scope"></a>
 ## Next Hop Scope
 
 * `id` - (Required) ID of Org VDC network or segment backed external network
 * `type` - (Required) Type of backing entity. In general this will be `NETWORK` but can become
-  `SYSTEM_OWNED` if the Static Route is modified outside of VCD
+  `SYSTEM_OWNED` if the Static Route is modified outside of VCLOUD
 
 ## Importing
 

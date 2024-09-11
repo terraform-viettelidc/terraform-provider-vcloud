@@ -23,7 +23,7 @@ Supports the following **Container Service Extension** versions:
 
 ## Example Usage with ID
 
-The cluster ID identifies unequivocally the cluster within VCD, and can be obtained with the CSE Kubernetes Clusters UI Plugin, by selecting
+The cluster ID identifies unequivocally the cluster within VCLOUD, and can be obtained with the CSE Kubernetes Clusters UI Plugin, by selecting
 the desired cluster and obtaining the ID from the displayed information.
 
 ```hcl
@@ -55,7 +55,7 @@ data "vcloud_cse_kubernetes_cluster" "my_clusters" {
 
 The following arguments are supported:
 
-* `cluster_id` - (Optional) Unequivocally identifies a cluster in VCD. Either `cluster_id` or `name` must be set.
+* `cluster_id` - (Optional) Unequivocally identifies a cluster in VCLOUD. Either `cluster_id` or `name` must be set.
 * `name` - (Optional) Allows to find a Kubernetes cluster by name inside the given Organization with ID `org_id`. Either `cluster_id` or `name` must be set. This argument requires `cse_version` and `org_id` to be set.
 * `org_id` - (Optional) The ID of the Organization to which the Kubernetes cluster belongs. Only used if `cluster_id` is not set. Must be present if `name` is used.
 * `cse_version` - (Optional) Specifies the CSE Version of the cluster to find when `name` is used instead of `cluster_id`.

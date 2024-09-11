@@ -3,12 +3,12 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: vcloud_vcenter"
 sidebar_current: "docs-vcd-data-source-vcenter"
 description: |-
-  Provides a data source for vCenter server attached to VCD.
+  Provides a data source for vCenter server attached to VCLOUD.
 ---
 
 # vcloud\_vcenter
 
-Provides a data source for vCenter server attached to VCD.
+Provides a data source for vCenter server attached to VCLOUD.
 
 Supported in provider *v3.0+*
 

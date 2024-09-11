@@ -20,14 +20,14 @@ Solution Add-Ons extend Cloud Director offering with value-added functionalities
 multiple Solution Add-Ons within a Cloud Director Solution Landing Zone.
 
 The Solution Add-Ons come packed as `.iso` files and Terraform Provider for VCLOUD v3.13+ is capable of
-leveraging them to configure Solution Add-Ons within VCD.
+leveraging them to configure Solution Add-Ons within VCLOUD.
 
 *Note:* For a more hands-on experience, one can check [DSE deployment
 examples](https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/data-solution-extension/).
 
 ## Data Solution Extension (DSE)
 
-Data Solution Extension is one of the Solution Add-Ons available for VCD. It provides capability to
+Data Solution Extension is one of the Solution Add-Ons available for VCLOUD. It provides capability to
 extend VCLOUD and deliver a portfolio of on-demand caching, messaging and database software.
 
 Terraform provider VCLOUD v3.13 added initial support for configuring DSE and publishing it to tenants.
@@ -63,7 +63,7 @@ management to provision access to new Add-On features:
 The first step for deploying a Solution Add-On is to have a configured Solution Landing Zone and
 [`vcloud_solution_landing_zone`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/solution_landing_zone)
 does that. It requires specifying an Organization, Catalog, VDC, Routed Org VDC network and both -
-Storage and Compute policies. There can be only *one Solution Landing Zone per VCD*.
+Storage and Compute policies. There can be only *one Solution Landing Zone per VCLOUD*.
 
 ```hcl
 resource "vcloud_catalog" "solution_add_ons" {
@@ -276,9 +276,9 @@ resource "vcloud_dse_solution_publish" "mongodb-community" {
 
 ## Creating new tenant user with required rights (Step 6)
 
-Solutions Add-On brings additional rights to VCD. Usually, to leverage new functionalities introduced
+Solutions Add-On brings additional rights to VCLOUD. Usually, to leverage new functionalities introduced
 by a Solution Add-On, one should have those new rights. This functionality has been long present in
-Terraform provider VCD, but this is just a tiny example on how one can combine multiples rights
+Terraform provider VCLOUD, but this is just a tiny example on how one can combine multiples rights
 bundles to create a new role and user.
 
 Read more about [roles and rights in a designated guide page](https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management).
@@ -320,11 +320,11 @@ created user and find Data Solution *"MongoDB Community"* available.
 [//]: # (## References)
 
 [//]: # ()
-[//]: # (* [Deployment HCL example in Terraform provider VCD)
+[//]: # (* [Deployment HCL example in Terraform provider VCLOUD)
 
 [//]: # (  repository]&#40;https://github.com/terraform-viettelidc/terraform-provider-vcloud/tree/main/examples/data-solution-extension/&#41;)
 
-[//]: # (* [Roles and Rights guide for Terraform provider VCD]&#40;https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management&#41;)
+[//]: # (* [Roles and Rights guide for Terraform provider VCLOUD]&#40;https://registry.terraform.io/providers/terraform-viettelidc/vcloud/latest/docs/guides/roles_management&#41;)
 
 [//]: # (* [Official Solution Add-On documentation]&#40;https://docs.vmware.com/en/VMware-Cloud-Director/10.5/VMware-Cloud-Director-Service-Provider-Admin-Guide/GUID-4F12C8F7-7CD3-44E8-9711-A5F43F8DCEB5.html&#41;)
 

@@ -3,13 +3,13 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: vcloud_api_token"
 sidebar_current: "docs-vcd-resource-api-token"
 description: |-
-  Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCD. 
+  Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCLOUD. 
   They are user-based and have the same role as the user.
 ---
 
 # vcloud\_api\_token 
 
-Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCD. 
+Provides a resource to manage API tokens. API tokens are an easy way to authenticate to VCLOUD. 
 They are user-based and have the same role as the user. Explained in more detail [here][api-tokens].
 
 Supported in provider *v3.10+* and VCLOUD 10.3.1+.

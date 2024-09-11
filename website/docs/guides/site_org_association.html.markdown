@@ -24,7 +24,7 @@ Viettel IDC Cloud provider v3.13+ supplies data sources and resources to run ope
 scenarios, when the same user has access to both sites or both organizations, all operations can run through Terraform
 resources.
 The Org association can be established between organizations in the same VCLOUD or in a different one. When the associated
-organization is remote (belongs to a different VCD), we need to establish an association between the two VCLOUD (sites)
+organization is remote (belongs to a different VCLOUD), we need to establish an association between the two VCLOUD (sites)
 before we can associate the organizations.
 
 ## Associations are binary

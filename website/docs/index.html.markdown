@@ -424,7 +424,7 @@ by an external actor, or after they were created by Terraform.
 it. In other words, to ignore metadata when the deprecated `metadata` argument is used, please use the native Terraform `lifecycle.ignore_changes` block.
 
 ~> Be aware that setting a `metadata_entry` in the Terraform configuration that matches any `ignore_metadata_changes` can produce inconsistent
-results, as the metadata will be stored in state but nothing will be done in VCD. Using `ignore_metadata_changes` with matching metadata entries
+results, as the metadata will be stored in state but nothing will be done in VCLOUD. Using `ignore_metadata_changes` with matching metadata entries
 in the code is NOT recommended. In the event that it contains such conflict, though, the ensuing action can be controlled with
 `conflict_action`, which can be `error`, `warn` or `none`.
 
@@ -439,7 +439,7 @@ The available sub-attributes for `ignore_metadata_changes` are:
 * `key_regex`- (Optional) A regular expression that can filter out metadata keys that match. Either `key_regex` or `value_regex` are required on each block. 
 * `value_regex`- (Optional) A regular expression that can filter out metadata values that match. Either `key_regex` or `value_regex` are required on each block.
 * `conflict_action` - (Optional) Defines what to do if a conflict exists between a `metadata_entry` that is managed
-  by Terraform, and it matches the criteria defined in the `ignore_metadata_changes` block, as the metadata will be stored in state but nothing will be done in VCD.
+  by Terraform, and it matches the criteria defined in the `ignore_metadata_changes` block, as the metadata will be stored in state but nothing will be done in VCLOUD.
   If the value is `error`, when this happens, any read operation (like a Plan or Refresh) will fail. When the value is `warn`, it will just give a warning but the operation will continue,
   and with the `none` value nothing will be shown. Defaults to `error`.
 

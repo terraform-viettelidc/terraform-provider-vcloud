@@ -12,7 +12,7 @@ Supported in provider *v3.13+* and VCLOUD 10.4.1+.
 
 Provides a resource to configure VCLOUD Solution Add-on Landing Zone.
 
-~> Only `System Administrator` can create this resource and there can *be only one resource per VCD*.
+~> Only `System Administrator` can create this resource and there can *be only one resource per VCLOUD*.
 
 ## Example Solution Landing Zone configuration
 

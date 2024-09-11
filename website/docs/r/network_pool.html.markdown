@@ -9,7 +9,7 @@ description: |-
 # vcloud\_network\_pool
 
 Provides a Viettel IDC Cloud VCLOUD Network Pool. This can be used to create,
-modify, and delete networks pools attached to a VCD.
+modify, and delete networks pools attached to a VCLOUD.
 
 Supported in provider *v3.11+*
 

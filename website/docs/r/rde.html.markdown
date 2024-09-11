@@ -137,7 +137,7 @@ The following arguments are supported:
 
 The following attributes are supported:
 
-* `computed_entity` - The real state of this RDE in VCD. See [Input entity vs Computed entity](#input-entity-vs-computed-entity) below for details.
+* `computed_entity` - The real state of this RDE in VCLOUD. See [Input entity vs Computed entity](#input-entity-vs-computed-entity) below for details.
 * `entity_in_sync` - It's `true` when `computed_entity` is equal to either `input_entity` or the contents of `input_entity_url`,
   meaning that the computed RDE retrieved from VCLOUD is synchronized with the input RDE.
 * `owner_user_id` - The ID of the [Organization user](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_user) that owns this Runtime Defined Entity.

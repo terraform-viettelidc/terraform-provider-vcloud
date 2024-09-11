@@ -362,7 +362,7 @@ can be used to lookup ID by name.
 
 ## IP allocation modes
 
-~> Starting with `v3.9.0` of Terraform Provider for VCD, NSX-T Edge Gateway supports automatic IP
+~> Starting with `v3.9.0` of Terraform Provider for VCLOUD, NSX-T Edge Gateway supports automatic IP
 allocations. More details in this section. **None** of these methods **should be applied** when Edge
 Gateway is using **IP Spaces**
 

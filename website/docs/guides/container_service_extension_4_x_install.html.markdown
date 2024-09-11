@@ -70,7 +70,7 @@ In the [step 1 configuration][step1] you can find the following:
 * The required [RDE Interface Behaviors][rde_interface_behavior] used to retrieve critical information from the [TKGm clusters][tkgm_docs],
   for example, the resulting **Kubeconfig**.
 
-#### RDE (CSE Server configuration / VCDKEConfig)
+#### RDE (CSE Server configuration / VCLOUDKEConfig)
 
 The CSE Server configuration lives in a [Runtime Defined Entity][rde] that uses the `VCDKEConfig` [RDE Type][rde_type].
 To customise it, the [step 1 configuration][step1] asks for the following variables that you can set in `terraform.tfvars`:
@@ -129,7 +129,7 @@ Once all variables are reviewed and set, you can start the installation with `te
 
 ~> Make sure that the previous step is successfully completed.
 
-This step will create all the remaining elements to install CSE 4.2 in VCD. You can read the subsequent sections
+This step will create all the remaining elements to install CSE 4.2 in VCLOUD. You can read the subsequent sections
 to have a better understanding of the building blocks that are described in the [step 2 Terraform configuration][step2].
 
 In this [configuration][step2] you can also find a file named `terraform.tfvars.example` that needs to be updated with correct values and renamed to `terraform.tfvars`
@@ -245,7 +245,7 @@ In order to create all the items listed above, the [step 2 configuration][step2]
 * `alb_controller_url`: URL of an existing ALB controller that will be created in VCLOUD side. See the [ALB guide][alb] for more info.
 * `alb_controller_username`: Username to access the ALB controller. See the [ALB guide][alb] for more info.
 * `alb_controller_password`: Password of the username used to access the ALB controller. See the [ALB guide][alb] for more info.
-* `alb_importable_cloud_name`: Name of the existing ALB Cloud defined in the ALB controller that will be imported to create an ALB Cloud in VCD. See the [ALB guide][alb] for more info.
+* `alb_importable_cloud_name`: Name of the existing ALB Cloud defined in the ALB controller that will be imported to create an ALB Cloud in VCLOUD. See the [ALB guide][alb] for more info.
 * `solutions_routed_network_gateway_ip`: The gateway IP of the [Routed network][routed_network] that will be created in the Solutions Organization.
 * `solutions_routed_network_prefix_length`: The prefix length of the [Routed network][routed_network] that will be created in the Solutions Organization.
 * `solutions_routed_network_ip_pool_start_address`: The [Routed network][routed_network] that will be created in the Solutions Organization will have a pool of usable IPs, this field
@@ -369,7 +369,7 @@ resource "vcloud_rde_type" "capvcdcluster_type_v130" {
 }
 ```
 
-### Upgrade the VCDKEConfig RDE (CSE Server configuration)
+### Upgrade the VCLOUDKEConfig RDE (CSE Server configuration)
 
 With the new [RDE Types][rde_type] in place, you need to perform an upgrade of the existing `VCDKEConfig` [RDE][rde], which
 stores the CSE Server configuration. By using the v3.12.0 of the VCLOUD Terraform Provider, you can do this update without forcing
@@ -388,7 +388,7 @@ resource "vcloud_rde" "vcdkeconfig_instance" {
 }
 ```
 
-You can find the meaning of these values in the section ["RDE (CSE Server configuration / VCDKEConfig)"](#rde-cse-server-configuration--vcdkeconfig).
+You can find the meaning of these values in the section ["RDE (CSE Server configuration / VCLOUDKEConfig)"](#rde-cse-server-configuration--vcdkeconfig).
 
 ### Upload the new CSE 4.2.0 OVA
 

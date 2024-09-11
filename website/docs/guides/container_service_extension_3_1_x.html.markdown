@@ -54,7 +54,7 @@ As you will be creating several administrator-scoped resources like Orgs, VDCs, 
 ### Step 1: Initialization
 
 This step assumes that you want to install CSE in a brand new [Organization](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org)
-with no [VDCs](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc), or that is a fresh installation of VCD.
+with no [VDCs](/providers/terraform-viettelidc/vcloud/latest/docs/resources/org_vdc), or that is a fresh installation of VCLOUD.
 Otherwise, please skip this step and configure `org` and `vdc` attributes in the provider configuration above or use an
 available data source to fetch them.
 
@@ -238,7 +238,7 @@ You need the following resources:
 * [ALB Virtual Service](/providers/terraform-viettelidc/vcloud/latest/docs/resources/nsxt_alb_virtual_service)
 
 You can have a look at [this guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/nsxt_alb) as it explains every resource
-and provides some examples of how to set up ALB in VCD. You can also have a look at the "[Examples](#examples)" section below
+and provides some examples of how to set up ALB in VCLOUD. You can also have a look at the "[Examples](#examples)" section below
 where the full ALB setup is provided.
 
 ### Step 4: Create a Service Account
@@ -582,13 +582,13 @@ When using the HCL option, take into account the following important aspects:
 * `cse install` must run just once (in subsequent runs it should be `cse upgrade`), so a way to allowing Terraform to
   apply and destroy multiple times is to add `on_failure = continue` to the local-exec provisioner.
 * As a consequence, if `config.yaml` is wrong or the `cse` command is not present, `on_failure = continue` will make
-  Terraform continue on any failure. In this case, you'll see a failure in next steps, as `cse` installs several rights in VCD
+  Terraform continue on any failure. In this case, you'll see a failure in next steps, as `cse` installs several rights in VCLOUD
   that are needed.
 
 ### Step 7: Rights and roles
 
 You need to publish a new [Rights Bundle](/providers/terraform-viettelidc/vcloud/latest/docs/resources/rights_bundle) to your
-Organization with the new rights that `cse install` command created in VCD.
+Organization with the new rights that `cse install` command created in VCLOUD.
 The required new rights are listed in the example below. It creates a new bundle with a mix of the existent Default Rights Bundle rights and
 the new ones.
 

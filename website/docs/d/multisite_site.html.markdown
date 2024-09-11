@@ -16,7 +16,7 @@ Supported in provider *v3.13+*
 
 ## Example Usage
 
-Note: there is only one site available for each VCD. No ID or name is necessary to identify it.
+Note: there is only one site available for each VCLOUD. No ID or name is necessary to identify it.
 
 ```hcl
 data "vcloud_multisite_site" "current_site" {

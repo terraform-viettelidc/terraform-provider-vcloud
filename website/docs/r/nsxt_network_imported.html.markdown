@@ -18,7 +18,7 @@ IDs of both VDC and VDC Groups. More about VDC Group support in a [VDC Groups
 guide](/providers/terraform-viettelidc/vcloud/latest/docs/guides/vdc_groups).
 
 -> This is **not Terraform imported** resource, but a special **Imported** type of **Org VDC
-network** in NSX-T VDC. Read more about Imported Network in [official VCD
+network** in NSX-T VDC. Read more about Imported Network in [official VCLOUD
 documentation](https://docs.vmware.com/en/VMware-Cloud-Director/10.3/VMware-Cloud-Director-Tenant-Portal-Guide/GUID-FB303D62-67EA-4209-BE4D-C3746481BCC8.html).
 
 ## Example Usage (NSX-T backed imported Org VDC network backed by NSX-T logical switch)

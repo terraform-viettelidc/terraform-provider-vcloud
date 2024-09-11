@@ -73,7 +73,7 @@ The following arguments are supported:
   source
 * `reservation_model` - (Required) Definition if the Service Engine Group is `DEDICATED` or `SHARED`
 * `importable_service_engine_group_name` - (Required) Name of available Service Engine Group in ALB
-* `sync_on_refresh` (Optional) - A special argument that is not passed to VCD, but alters behaviour of this resource so
+* `sync_on_refresh` (Optional) - A special argument that is not passed to VCLOUD, but alters behaviour of this resource so
   that it performs a Sync operation on every Terraform refresh. *Note* this may impact refresh performance, but should
   ensure up-to-date information is read. Default is **false**.
 * `supported_feature_set` - (Optional; *v3.7+*) Feature set of this ALB Service Engine Group (`STANDARD` or `PREMIUM`)

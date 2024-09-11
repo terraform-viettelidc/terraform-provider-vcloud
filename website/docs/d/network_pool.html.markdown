@@ -3,12 +3,12 @@ layout: "vcd"
 page_title: "Viettel IDC Cloud: vcloud_network_pool"
 sidebar_current: "docs-vcd-data-source-network-pool"
 description: |-
-  Provides a data source for a network pool attached to a VCD.
+  Provides a data source for a network pool attached to a VCLOUD.
 ---
 
 # vcloud\_network\_pool
 
-Provides a data source for a network pool attached to a VCD.
+Provides a data source for a network pool attached to a VCLOUD.
 
 Supported in provider *v3.10+*
 

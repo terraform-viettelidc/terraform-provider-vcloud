@@ -22,7 +22,7 @@ data "vcloud_solution_landing_zone" "slz" {}
 
 ## Argument Reference
 
-No arguments are required because this is a global configuration for VCD
+No arguments are required because this is a global configuration for VCLOUD
 
 ## Attribute Reference
 

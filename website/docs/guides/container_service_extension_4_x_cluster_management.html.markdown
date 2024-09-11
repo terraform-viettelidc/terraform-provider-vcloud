@@ -173,7 +173,7 @@ spec:
 ```yaml
 # ...
 apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
-kind: VCDMachineTemplate
+kind: VCLOUDMachineTemplate
 metadata:
   name: ${CLUSTER_NAME}-md-0
 # ...
@@ -217,7 +217,7 @@ It must be encoded in Base64.
   It must be encoded in Base64. Please do **not** use this value (by setting it to `""`) and use `VCD_REFRESH_TOKEN_B64` instead.
 * `VCD_REFRESH_TOKEN_B64`: An API token that belongs to the user above. In UI, the API tokens can be generated in the user preferences
   in the top right, then go to the API tokens section, add a new one. Or we can visit `/tenant/<TENANT-NAME>/administration/settings/user-preferences`
-  in the target VCD, logged in as the cluster author user in the desired tenant. It must be encoded in Base64.
+  in the target VCLOUD, logged in as the cluster author user in the desired tenant. It must be encoded in Base64.
 * `SSH_PUBLIC_KEY`: We can set a public SSH key to be able to debug the TKGm control plane nodes. It can be empty (`""`)
 * `CONTROL_PLANE_MACHINE_COUNT`: Number of control plane nodes (VMs). **Must be an odd number and higher than 0**.
 * `VCD_CONTROL_PLANE_SIZING_POLICY`: Name of an existing VM Sizing Policy, created during CSE installation. Can be empty to use the VDC default (`""`)
@@ -258,7 +258,7 @@ or check the following table with some script outputs:
 | v1.22.17+vmware.1-tkg.1-df08b304658a6cf17f5e74dc0ab7543c | v1.22.17---vmware.1-tkg.1 | v2.1.1     |
 
 The final two variables are optional, `CONTROL_PLANE_IP` and `VIRTUAL_IP_SUBNET`.
-If one decided to add the Control Plane IP and the Virtual IP Subnet to the `kind: VCDCluster` block in the CAPVCLOUD YAML
+If one decided to add the Control Plane IP and the Virtual IP Subnet to the `kind: VCLOUDCluster` block in the CAPVCLOUD YAML
 that was explained above, then these will be mandatory and must be set with a valid IP and CIDR respectively.
 
 In [the TKGm cluster creation example][cluster], the built-in Terraform function `templatefile` is used to substitute every placeholder

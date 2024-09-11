@@ -71,7 +71,7 @@ The following arguments are supported:
   is connected to a Provider Gateway using IP Spaces. If specified, VCLOUD will 
   conveniently manage the SNAT rule with the specified IP address for the DNS forwarder.
   The specified IP can be allocated using [`vcloud_ip_space_ip_allocation`](/providers/terraform-viettelidc/vcloud/latest/docs/resources/ip_space_ip_allocation) 
-  If not specified, the IP address will be computed and chosen by VCD.
+  If not specified, the IP address will be computed and chosen by VCLOUD.
 * `default_forwarder_zone` - (Required) The default forwarder zone to use if 
   there’s no matching domain in the conditional forwarder zones. See [`default_forwarder_zone`](#default-forwarder-zone)
 * `conditional_forwarder_zone` - (Optional) A set (up to 5) of conditional forwarder zones that allows to define 

@@ -51,8 +51,8 @@ A `vcloud_catalog` is [published][catalog] when its owners open it for external 
 the catalog contents directly, but obtain a subscription to it. There are no degrees of publishing like in sharing: it's
 either published or not published. When it is published, anyone who knows the subscription URL and the optional password
 can access it. The publishing operation is blind, i.e. the owners may not know who will access the catalog, or from where.
-Another important difference between publishing and sharing is that publishing can be practiced between different VCDs, while sharing
-must be done within the same VCD.
+Another important difference between publishing and sharing is that publishing can be practiced between different VCLOUDs, while sharing
+must be done within the same VCLOUD.
 
 Bottom line: _It's my catalog, and I'll let you copy it if you can see it_.
 
@@ -100,7 +100,7 @@ or synchronisation involved.
 
 There are a few restrictions: 
 
-* a catalog can only be shared within the same VCD.
+* a catalog can only be shared within the same VCLOUD.
 * a shared catalog cannot be edited by users of the granted organization. It may happen, then, that more than one catalog
   with the same name appear within one organization.
 
