@@ -503,7 +503,7 @@ mqtt:
   verify_ssl: false
  
 vcd:
-  host: my-vcd-dev.company.com
+  host: my-vcloud-dev.company.com
   log: true
   password: "*****"
   port: 443

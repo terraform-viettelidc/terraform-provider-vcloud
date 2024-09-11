@@ -17,7 +17,7 @@ Supported in provider *v2.0+*
 ```
 resource "vcloud_inserted_media" "myInsertedMedia" {
   org     = "my-org"
-  vdc     = "my-vcd"
+  vdc     = "my-vcloud"
   catalog = "my-catalog"
   name    = "my-iso"
 

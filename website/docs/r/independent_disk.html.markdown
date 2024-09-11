@@ -15,7 +15,7 @@ The resource is capable of updating independent disks attached to a VM. Update d
 
 ```hcl
 resource "vcloud_independent_disk" "myNewIndependentDisk" {
-  vdc             = "my-vcd"
+  vdc             = "my-vcloud"
   name            = "logDisk"
   size_in_mb      = "1024"
   bus_type        = "SCSI"
