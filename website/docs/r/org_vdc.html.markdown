@@ -177,12 +177,12 @@ data "vcloud_provider_vdc" "pvdc" {
 
 # This VM group needs to exist in the backing vSphere
 data "vcloud_vm_group" "vmgroup" {
-  name            = "vmware-licensed-vms"
+  name            = "vcloud-licensed-vms"
   provider_vdc_id = data.vcloud_provider_vdc.pvdc.id
 }
 
 resource "vcloud_vm_placement_policy" "new-placement-policy" {
-  name            = "place-in-vmware-licensed"
+  name            = "place-in-vcloud-licensed"
   provider_vdc_id = data.vcloud_provider_vdc.pvdc.id
   vm_group_ids    = [data.vcloud_vm_group.vmgroup.id]
 }
