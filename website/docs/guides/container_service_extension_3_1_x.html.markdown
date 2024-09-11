@@ -37,7 +37,7 @@ In order to complete the steps described in this guide, please be aware:
 To start installing CSE v3.1.x in a VCLOUD appliance, you must use **v3.7.0 or above** of the VCLOUD Terraform Provider:
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "administrator"
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -369,7 +369,7 @@ To use this user in the subsequent operations, you can configure a new provider 
 [alias](https://www.terraform.io/language/providers/configuration#alias-multiple-provider-configurations):
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   alias    = "cse-service-account"
   user     = vcloud_org_user.cse-service-account.name
   password = vcloud_org_user.cse-service-account.password

@@ -19,7 +19,7 @@ Supported in provider *v2.2+*
 ## Example Usage
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user     = var.admin_user
   password = var.admin_password
   org      = "System"

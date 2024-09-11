@@ -17,7 +17,7 @@ Supported in provider *v3.8+*
 ## Example Usage 1 - Custom configuration
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user     = var.admin_user
   password = var.admin_password
   org      = "System"

@@ -34,7 +34,7 @@ The most common - tenant - use case when you set user to organization administra
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user                 = var.vcloud_user
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -57,7 +57,7 @@ When you want to manage resources across different organizations from a single c
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user                 = "administrator"
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -90,7 +90,7 @@ When you want to manage resources across different organizations but set a defau
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user                 = "administrator"
   password             = var.vcloud_pass
   auth_type            = "integrated"
@@ -121,7 +121,7 @@ resource "vcloud_network_routed" "net2" {
 You can connect using an authorization token instead of username and password.
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "none"
   password             = "none"
   auth_type            = "token"
@@ -150,7 +150,7 @@ token is supplied. You can create an API token file by utilizing the [`vcloud_ap
 #### Example usage (API token)
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "none"
   password             = "none"
   auth_type            = "api_token"
@@ -172,7 +172,7 @@ resource "vcloud_network_routed" "net1" {
 #### Example usage (API token file)
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   user                 = "none"
   password             = "none"
   auth_type            = "api_token_file"
@@ -230,7 +230,7 @@ and activating a VCLOUD Service Account can be found in the
 [repository][service-account-script]
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   auth_type                  = "service_account_token_file"
   service_account_token_file = "token.json"
   sysorg                     = "System"
@@ -294,7 +294,7 @@ Take special attention to `user`, `use_saml_adfs` and `saml_rpt_id` fields.
 
 ```hcl
 # Configure the Viettel IDC Cloud Provider
-provider "vcd" {
+provider "vcloud" {
   user      = "test@contoso.com"
   password  = var.vcloud_pass
   sysorg    = "my-org"
@@ -450,7 +450,7 @@ Note that these attributes **are evaluated as a logical `and`**. This means that
 that belong to the specific Organization named "client1" **and** which keys match the regular expression `[Ee]nvironment`:
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   # ...
   ignore_metadata_changes {
     resource_type = "vcloud_org"
@@ -466,7 +466,7 @@ provider "vcd" {
 We can have more than one block, to ignore more entries:
 
 ```hcl
-provider "vcd" {
+provider "vcloud" {
   # ...
 
   # Filters all metadata with key "Environment" or "environment" in all VCLOUD objects with any name.
