@@ -22,7 +22,7 @@ provider "vcloud" {
   user     = var.admin_user
   password = var.admin_password
   org      = "System"
-  url      = "https://Vcd/api"
+  url      = "https://vcloud/api"
 }
 
 resource "vcloud_external_network" "net" {
